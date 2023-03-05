@@ -2,22 +2,37 @@ const gulp = require('gulp');
 const htmlmin = require('gulp-htmlmin');
 const rename = require('gulp-rename');
 const fileInclude = require('gulp-file-include');
+const clean = require('gulp-clean');
 
 
-// Определяем задачу для сборки и минификации HTML файлов
-gulp.task('dev-test-output', 'build-html', () => {
-    return gulp.src(['./dev/components/**/*.html', '!dev-build-templates'])
+gulp.task('devout', () => {
+    return gulp.src(['dev/components/dev-templates/*.html'], { allowEmpty: true })
         // .pipe(htmlmin({ collapseWhitespace: true }))
         // .pipe(rename({ suffix: '.min' }))
         .pipe(fileInclude({
             prefix: '@@',
             basepath: '@file'
         }))
-        .pipe(gulp.dest('./dist/'));
+        .pipe(htmlmin({
+            // collapseWhitespace: true,
+            removeComments: true
+        }))
+        .pipe(gulp.dest('./dev-watch/components/'));
 });
 
-// Задача по умолчанию, которая запускает задачу для сборки и минификации HTML файлов
-gulp.task('default', gulp.series('dev-test-output'));
+gulp.task('devout-clean', () => {
+    return gulp.src('./dev-watch')
+        .pipe(clean({ force: true }))
+});
+
+gulp.task('devout-clean-buil-tamplates', () => {
+    return gulp.src('./dev-watch/dev-build-templates')
+        .pipe(clean({ force: true }))
+});
 
 
 
+
+gulp.task('devwatch', () => {
+    return gulp.watch('dev/**/*', gulp.series('devout-clean', 'devout'));
+});
