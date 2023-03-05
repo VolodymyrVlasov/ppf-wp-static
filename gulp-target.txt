@@ -1,0 +1,62 @@
+/dev
+    /components
+        /dev-build-templates
+            /**.html
+        /**
+            /**.html
+    /pages
+        /**
+            **.html
+    /styles
+        /**.css
+    /src
+        /components
+            /**.js
+        /scripts
+            /**.js
+        /utils
+            /**.js
+        /constants
+            /**.js
+        /api
+            /**.js
+        /fake-db
+            /**.json
+        /**.js
+    /static
+        /**
+            /**
+    /dev-test-output
+        /**.html
+
+/dist
+    /**static-pages**
+        /**.html
+        /**.js
+    /wp-content
+        /themes
+            /papefox
+                /styles
+                    /style.css
+                /js
+                    /bundle.js
+                /index.php
+                /functions.php
+                /main-page.php
+                /404.php
+                /header.php
+                /footer.php
+                /page.php
+        /plugins
+            /woocommerce
+                /checkout/**.php
+                /emails/**.php
+                /order/**.php
+
+gulpfile.js
+.gitignore
+.env
+.package.json
+
+
+    
