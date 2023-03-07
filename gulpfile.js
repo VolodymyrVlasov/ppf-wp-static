@@ -3,7 +3,8 @@ const htmlmin = require('gulp-htmlmin');
 const rename = require('gulp-rename');
 const fileInclude = require('gulp-file-include');
 const clean = require('gulp-clean');
-
+const concat = require('gulp-concat');
+const groupCssMediaQueries = require('gulp-group-css-media-queries');
 
 gulp.task('devout', () => {
     return gulp.src(['dev/components/dev-templates/*.html'], { allowEmpty: true })
@@ -25,10 +26,13 @@ gulp.task('devout-clean', () => {
         .pipe(clean({ force: true }))
 });
 
-gulp.task('devout-clean-buil-tamplates', () => {
-    return gulp.src('./dev-watch/dev-build-templates')
-        .pipe(clean({ force: true }))
+gulp.task('group-css-media', () => {
+    return gulp.src('dev/styles/*')
+        .pipe(concat('style.css'))
+        .pipe(groupCssMediaQueries()) // Объединяем повторяющиеся медиа-запросы
+        .pipe(gulp.dest('dev-watch/styles/'));
 });
+
 
 
 
