@@ -70,21 +70,21 @@ const SOURCE_FOLDER = "#src";
 
 const path = {
     build: {
-        html: PROJECT_FOLDER + "/",
+        html: PROJECT_FOLDER + "/dist/**/*.html",
         css: PROJECT_FOLDER + "/css/",
         js: PROJECT_FOLDER + "/js/",
         img: PROJECT_FOLDER + "/img/",
         fonts: PROJECT_FOLDER + "/fonts/",
     },
     src: {
-        html: SOURCE_FOLDER + "/*.html",
+        html: SOURCE_FOLDER + "/dev/pages/**.html",
         css: SOURCE_FOLDER + "/styles/*.css",
         js: SOURCE_FOLDER + "/src/**/*.js",
         img: SOURCE_FOLDER + "/static/**/*.{jpg,png,svg,gif,ico,webp}",
         fonts: SOURCE_FOLDER + "/fonts/*.ttf",
     },
     watch: {
-        html: SOURCE_FOLDER + "/*.html",
+        html: SOURCE_FOLDER + "/dist/",
         css: SOURCE_FOLDER + "/styles/*.css",
         js: SOURCE_FOLDER + "/src/**/*.js",
         img: SOURCE_FOLDER + "/static/**/*.{jpg,png,svg,gif,ico,webp}",
@@ -94,27 +94,47 @@ const path = {
 
 let { src, dest } = require("gulp"),
     gulp = require("gulp"),
-    browsersync = require("browser-sync").create();
+    browsersync = require("browser-sync").create(),
+    fileInclude = require('gulp-file-include');
 
-    const browserSync = () => {
-        browsersync.init( {
-            server: {
-                baseDir: "./" + PROJECT_FOLDER + "/"
-            },
-            port: 3000,
-            notify: false
-        });
-    }
+const browserSync = () => {
+    browsersync.init({
+        server: {
+            baseDir: "./" + PROJECT_FOLDER + "/"
+        },
+        port: 3000,
+        notify: true
+    });
+}
 
-    const htmlTask = () => {
-        return gulp.src(path.src.html)
-        .pipe(path.build.html)
-        .pipe(browsersync.stream());
-    }
+// const htmlTask = () => {
+//     return src(path.src.html)
+//         .pipe(fileInclude({
+//             prefix: '@@',
+//             basepath: '@file'
+//         }))
+//         .pipe(dest(path.build.html))
+//         .pipe(browsersync.stream());
+// }
 
-    let build = gulp.series(htmlTask);
-    let watch = gulp.parallel(build, browserSync);
+const htmlTask = () => {
+    return src("./dev/pages/**/*.html", { allowEmpty: true })
+        // .pipe(htmlmin({ collapseWhitespace: true }))
+        // .pipe(rename({ suffix: '.min' }))
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        // .pipe(htmlmin({
+        //     // collapseWhitespace: true,
+        //     removeComments: true
+        // }))
+        .pipe(dest("./dist/"));
+};
 
-    exports.htmlTask = htmlTask;
-    exports.watch = watch;
-    exports.default = watch;
+let build = gulp.series(htmlTask);
+let watch = gulp.parallel(build, browserSync);
+
+exports.htmlTask = htmlTask;
+exports.watch = watch;
+exports.default = watch;
