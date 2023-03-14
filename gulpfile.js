@@ -95,30 +95,16 @@ const path = {
 let { src, dest } = require("gulp"),
     gulp = require("gulp"),
     browsersync = require("browser-sync").create(),
-    fileInclude = require('gulp-file-include');
+    fileInclude = require('gulp-file-include'),
+    concat = require('gulp-concat');
 
-const browserSync = () => {
-    browsersync.init({
-        server: {
-            baseDir: "./" + PROJECT_FOLDER + "/"
-        },
-        port: 3000,
-        notify: true
-    });
-}
-
-// const htmlTask = () => {
-//     return src(path.src.html)
-//         .pipe(fileInclude({
-//             prefix: '@@',
-//             basepath: '@file'
-//         }))
-//         .pipe(dest(path.build.html))
-//         .pipe(browsersync.stream());
-// }
+const cleanTask = () => {
+    return gulp.src('/dist/print-sticker/')
+        .pipe(clean({ force: true }))
+};
 
 const htmlTask = () => {
-    return src("./dev/pages/**/*.html", { allowEmpty: true })
+    return src("/dev/pages/**/*.html", { allowEmpty: true })
         // .pipe(htmlmin({ collapseWhitespace: true }))
         // .pipe(rename({ suffix: '.min' }))
         .pipe(fileInclude({
@@ -129,12 +115,32 @@ const htmlTask = () => {
         //     // collapseWhitespace: true,
         //     removeComments: true
         // }))
-        .pipe(dest("./dist/"));
+        .pipe(dest("/dist/"));
 };
 
-let build = gulp.series(htmlTask);
+const cssTask = () => {
+    return gulp.src('/dev/styles/*')
+        .pipe(concat('style.css'))
+        .pipe(gulp.dest('/dist/wp-content/themes/paperfox/styles/'));
+};
+
+const browserSync = () => {
+    browsersync.init({
+        server: {
+            baseDir: "./" + PROJECT_FOLDER + "/"
+        },
+        port: 3000,
+        notify: true
+    });
+    gulp.watch("/dev/**/*.html").on('change', browsersync.reload);
+}
+
+let build = gulp.series(cleanTask, htmlTask, cssTask);
 let watch = gulp.parallel(build, browserSync);
 
+exports.cleanTask = cleanTask;
+exports.cssTask = cssTask;
+exports.browserSync = browserSync;
 exports.htmlTask = htmlTask;
 exports.watch = watch;
 exports.default = watch;
