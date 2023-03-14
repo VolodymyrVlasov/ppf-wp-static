@@ -96,25 +96,20 @@ let { src, dest } = require("gulp"),
     gulp = require("gulp"),
     browsersync = require("browser-sync").create(),
     fileInclude = require('gulp-file-include'),
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'),
+    clean = require('gulp-clean');
 
 const cleanTask = () => {
-    return gulp.src('/dist/print-sticker/')
+    return gulp.src('/dist/print-sticker/**', { allowEmpty: true })
         .pipe(clean({ force: true }))
 };
 
 const htmlTask = () => {
     return src("/dev/pages/**/*.html", { allowEmpty: true })
-        // .pipe(htmlmin({ collapseWhitespace: true }))
-        // .pipe(rename({ suffix: '.min' }))
         .pipe(fileInclude({
             prefix: '@@',
             basepath: '@file'
         }))
-        // .pipe(htmlmin({
-        //     // collapseWhitespace: true,
-        //     removeComments: true
-        // }))
         .pipe(dest("/dist/"));
 };
 
@@ -135,7 +130,8 @@ const browserSync = () => {
     gulp.watch("/dev/**/*.html").on('change', browsersync.reload);
 }
 
-let build = gulp.series(cleanTask, htmlTask, cssTask);
+
+let build = gulp.series(clean, cssTask, htmlTask);
 let watch = gulp.parallel(build, browserSync);
 
 exports.cleanTask = cleanTask;
