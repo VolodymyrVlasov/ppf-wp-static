@@ -35,7 +35,7 @@
 }
 
 .minus {
-    background-image: url("../static/icon-plus-minus-in-circle.svg");
+    background-image: url("/dist/wp-content/themes/paperfox/static/icon-plus-minus-in-circle.svg");
     background-size: 200% 200%;
     background-position: top left;
 }
@@ -49,7 +49,7 @@
 }
 
 .plus {
-    background-image: url("../static/icon-plus-minus-in-circle.svg");
+    background-image: url("/dist/wp-content/themes/paperfox/static/icon-plus-minus-in-circle.svg");
     background-size: 200% 200%;
     background-position: right top;
 }

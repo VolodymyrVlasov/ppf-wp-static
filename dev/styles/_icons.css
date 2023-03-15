@@ -16,7 +16,7 @@
     margin-right: var(--icon-gap);
     width: var(--icon-width);
     height: 100%;
-    background: url("/static/icons/icon-viber.svg") center/300% no-repeat;
+    background: url("/dist/wp-content/themes/paperfox/static/icons/icon-viber.svg") center/300% no-repeat;
 }
 
 .telegram_before::before {
@@ -24,7 +24,7 @@
     margin-right: var(--icon-gap);
     width: var(--icon-width);
     height: 100%;
-    background: url("/static/icons/icon-telegram.svg") center/300% no-repeat;
+    background: url("/dist/wp-content/themes/paperfox/static/icons/icon-telegram.svg") center/300% no-repeat;
 }
 
 .phone_before::before {
@@ -32,7 +32,7 @@
     margin-right: var(--icon-gap);
     width: var(--icon-width);
     height: 100%;
-    background: url("/static/icons/icon-phone.svg") center/300% no-repeat;
+    background: url("/dist/wp-content/themes/paperfox/static/icons/icon-phone.svg") center/300% no-repeat;
 }
 
 .mail_before::before {
@@ -40,7 +40,7 @@
     margin-right: var(--icon-gap);
     width: var(--icon-width);
     height: 100%;
-    background: url("/static/icons/icon-mail.svg") center/300% no-repeat;
+    background: url("/dist/wp-content/themes/paperfox/static/icons/icon-mail.svg") center/300% no-repeat;
 }
 
 .location_before::before {
@@ -48,7 +48,7 @@
     margin-right: var(--icon-gap);
     width: var(--icon-width);
     height: 100%;
-    background: url("/static/icons/icon-location.svg") center/300% no-repeat;
+    background: url("/dist/wp-content/themes/paperfox/static/icons/icon-location.svg") center/300% no-repeat;
 }
 
 .clock_icon_before,
@@ -64,7 +64,7 @@
     left: -48px;
     width: 32px;
     height: 32px;
-    background: url("/static/icons/icon-clocks.png") 100% 100%/100% no-repeat;
+    background: url("/dist/wp-content/themes/paperfox/static/icons/icon-clocks.png") 100% 100%/100% no-repeat;
 }
 
 .magic_icon_before::before {
@@ -73,7 +73,7 @@
     left: -48px;
     width: 32px;
     height: 32px;
-    background: url("/static/icons/icon-magic.png") 100% 100%/100% no-repeat;
+    background: url("/dist/wp-content/themes/paperfox/static/icons/icon-magic.png") 100% 100%/100% no-repeat;
 }
 
 .rocket_icon_before::before {
@@ -82,5 +82,5 @@
     left: -48px;
     width: 32px;
     height: 32px;
-    background: url("/static/icons/icon-rocket.png") 100% 100%/100% no-repeat;
+    background: url("/dist/wp-content/themes/paperfox/static/icons/icon-rocket.png") 100% 100%/100% no-repeat;
 }

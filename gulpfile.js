@@ -100,43 +100,42 @@ let { src, dest } = require("gulp"),
     clean = require('gulp-clean');
 
 const cleanTask = () => {
-    return gulp.src('/dist/print-sticker/**', { allowEmpty: true })
+    return gulp.src('dist/print-sticker/*', { allowEmpty: true })
         .pipe(clean({ force: true }))
 };
 
 const htmlTask = () => {
-    return src("/dev/pages/**/*.html", { allowEmpty: true })
+    return src("dev/pages/**/*.html", { allowEmpty: true })
         .pipe(fileInclude({
             prefix: '@@',
             basepath: '@file'
         }))
-        .pipe(dest("/dist/"));
+        .pipe(dest("dist/"));
+};
+
+const staticContentTask = () => {
+    return src("dev/static/**/*", { allowEmpty: true })
+        .pipe(dest("dist/wp-content/themes/paperfox/static/"));
 };
 
 const cssTask = () => {
-    return gulp.src('/dev/styles/*')
+    return gulp.src('dev/styles/*.css')
         .pipe(concat('style.css'))
-        .pipe(gulp.dest('/dist/wp-content/themes/paperfox/styles/'));
+        .pipe(gulp.dest('dist/wp-content/themes/paperfox/styles/'));
 };
 
 const browserSync = () => {
-    browsersync.init({
-        server: {
-            baseDir: "./" + PROJECT_FOLDER + "/"
-        },
-        port: 3000,
-        notify: true
-    });
-    gulp.watch("/dev/**/*.html").on('change', browsersync.reload);
-}
+    return gulp.watch('dev/**/*', gulp.series(cssTask, htmlTask, staticContentTask));
+};
+
+// let build = gulp.series(clean, cssTask, htmlTask);
+let watch = gulp.parallel(browserSync);
 
 
-let build = gulp.series(clean, cssTask, htmlTask);
-let watch = gulp.parallel(build, browserSync);
 
 exports.cleanTask = cleanTask;
 exports.cssTask = cssTask;
 exports.browserSync = browserSync;
 exports.htmlTask = htmlTask;
 exports.watch = watch;
-exports.default = watch;
+exports.default = browserSync;
