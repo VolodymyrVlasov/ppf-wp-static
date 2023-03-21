@@ -77,17 +77,17 @@ const path = {
         fonts: PROJECT_FOLDER + "/fonts/",
     },
     src: {
-        html: SOURCE_FOLDER + "/dev/pages/**.html",
-        css: SOURCE_FOLDER + "/styles/*.css",
-        js: SOURCE_FOLDER + "/src/**/*.js",
-        img: SOURCE_FOLDER + "/static/**/*.{jpg,png,svg,gif,ico,webp}",
-        fonts: SOURCE_FOLDER + "/fonts/*.ttf",
+        html: SOURCE_FOLDER + "dev/pages/**/*.html",
+        css: SOURCE_FOLDER + "dev/styles/*.css",
+        js: SOURCE_FOLDER + "dev/src/**/*.js",
+        img: SOURCE_FOLDER + "dev/static/**/*.{jpg,png,svg,gif,ico,webp}",
+        fonts: SOURCE_FOLDER + "dev/fonts/*.ttf",
     },
     watch: {
-        html: SOURCE_FOLDER + "/dist/",
-        css: SOURCE_FOLDER + "/styles/*.css",
-        js: SOURCE_FOLDER + "/src/**/*.js",
-        img: SOURCE_FOLDER + "/static/**/*.{jpg,png,svg,gif,ico,webp}",
+        html: SOURCE_FOLDER + "dist/",
+        css: SOURCE_FOLDER + "dist/styles/*.css",
+        js: SOURCE_FOLDER + "dist/src/**/*.js",
+        img: SOURCE_FOLDER + "dist//static/**/*.{jpg,png,svg,gif,ico,webp}",
     },
     clean: "./" + PROJECT_FOLDER + "/"
 }
@@ -97,7 +97,8 @@ let { src, dest } = require("gulp"),
     browsersync = require("browser-sync").create(),
     fileInclude = require('gulp-file-include'),
     concat = require('gulp-concat'),
-    clean = require('gulp-clean');
+    clean = require('gulp-clean'),
+    replace = require('gulp-replace');
 
 const cleanTask = () => {
     return gulp.src('dist/print-sticker/*', { allowEmpty: true })
@@ -118,6 +119,22 @@ const staticContentTask = () => {
         .pipe(dest("dist/wp-content/themes/paperfox/static/"));
 };
 
+
+const changeSrcInHTML = () => {
+    return gulp.src("dev/pages/**/*.html")
+        .pipe(replace(/src="\/dist\/([^"]*)"/g, 'src="$1"'))
+        .pipe(gulp.dest('dist'));
+}
+
+const changeUrlInCSS = () => {
+    return gulp.src('dev/styles/*.css')
+        .pipe(replace(/url\(\/dist\/([^)]*)\)/g, 'url($1)'))
+        .pipe(gulp.dest('dist/styles'));
+}
+
+exports.changeSrcInHTML = changeSrcInHTML;
+exports.changeUrlInCSS = changeUrlInCSS;
+exports.default = gulp.series(changeSrcInHTML, changeUrlInCSS);
 const cssTask = () => {
     return gulp.src('dev/styles/*.css')
         .pipe(concat('style.css'))
@@ -132,6 +149,8 @@ const browserSync = () => {
 let watch = gulp.parallel(browserSync);
 
 
+exports.changeSrcInHTML = changeSrcInHTML;
+exports.changeSrcInHTML = changeSrcInHTML;
 
 exports.cleanTask = cleanTask;
 exports.cssTask = cssTask;
