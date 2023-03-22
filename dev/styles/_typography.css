@@ -4,6 +4,19 @@ body {
     line-height: 150%;
 }
 
+.template {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    padding: 32px;
+    color: white;
+    font-weight: bolder;
+    font-size: 2rem;
+    background-color: var(--color-theme);
+    border-radius: var(--size-border-radius);
+}
+
 .list {
     list-style: disc outside;
     padding-left: 16px;

@@ -135,14 +135,20 @@ const changeUrlInCSS = () => {
 exports.changeSrcInHTML = changeSrcInHTML;
 exports.changeUrlInCSS = changeUrlInCSS;
 exports.default = gulp.series(changeSrcInHTML, changeUrlInCSS);
+
 const cssTask = () => {
     return gulp.src('dev/styles/*.css')
         .pipe(concat('style.css'))
         .pipe(gulp.dest('dist/wp-content/themes/paperfox/styles/'));
 };
 
+const jsAppTask = () => {
+    return gulp.src('dev/src/scripts/*.js')
+        .pipe(gulp.dest('dist/wp-content/themes/paperfox/js/'))
+};
+
 const browserSync = () => {
-    return gulp.watch('dev/**/*', gulp.series(cssTask, htmlTask, staticContentTask));
+    return gulp.watch('dev/**/*', gulp.series(cssTask, htmlTask, jsAppTask, staticContentTask));
 };
 
 // let build = gulp.series(clean, cssTask, htmlTask);
@@ -152,6 +158,7 @@ let watch = gulp.parallel(browserSync);
 exports.changeSrcInHTML = changeSrcInHTML;
 exports.changeSrcInHTML = changeSrcInHTML;
 
+exports.jsAppTask = jsAppTask;
 exports.cleanTask = cleanTask;
 exports.cssTask = cssTask;
 exports.browserSync = browserSync;

@@ -12,6 +12,13 @@
     max-width: var(--size-container-max-width);
     margin: 0 auto;
 }
+.tag {
+    padding: 4px 12px; 
+    background-color: var(--color-light-light-gray);
+    color: var(--color-gray);
+    font-size: 14px;
+    border-radius: 999px;
+}
 
 .width_100 {
     width: 100%;
