@@ -83,9 +83,21 @@ body {
     color: inherit;
 }
 
-.link:hover {
+.link_text {
+    color: var(--color-theme) !important;
+    cursor: pointer;
+    color: inherit;
+}
+
+.link_text:hover {
     transition: 300ms ease;
-    color: var(--color-theme);
+    transform: scale(1.01);
+}
+
+.link:hover {
+    color: var(--color-theme) !important;
+    transition: 300ms ease;
+    transform: scale(1.01);
 }
 
 
