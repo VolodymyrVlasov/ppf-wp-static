@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --image-height: 200px !important;
 }
 
@@ -29,7 +29,7 @@
     filter: sepia(10%);
     outline: none;
     border: none;
-}
+} */
 
 
 /* `xxl` applies to xx-large devices (large desktops, less than 1400px) */
@@ -44,9 +44,9 @@
 
 /* `lg` applies to large devices (tablets, less than 992px) */
 @media (max-width: 991.98px) {
-    .product_card {
+    /* .product_card {
         width: calc(50% - (var(--size-big-gap) / 2));
-    }
+    } */
 }
 
 /*-------------------------------------------*/
@@ -57,9 +57,9 @@
 
 /* `sm` applies to small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
-    .product_card {
+    /* .product_card {
         width: 100%;
-    }
+    } */
 }
 
 /* `xsm` applies to x-small devices (iPhone 5/5s/SE, equals to 320px) */

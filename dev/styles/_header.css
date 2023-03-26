@@ -323,7 +323,8 @@
         right: 0;
         top: 100%;
         width: 90%;
-        height: calc(100vh - 100%);
+        height: fit-content;
+        min-height: calc(100vh - 100%);
         background-color: white;
         box-shadow: -20px 20px 50px 20px rgba(0, 0, 0, 0.2);
         overflow-x: hidden;
@@ -549,7 +550,7 @@
 
     .sub_link {
         display: flex;
-        align-items: center;
+        /* align-items: center; */
     }
 
     .sub_link:focus,

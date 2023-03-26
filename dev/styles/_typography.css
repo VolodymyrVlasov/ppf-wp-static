@@ -1,7 +1,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: var(--font-text-16);
-    line-height: 150%;
+    line-height: 130%;
 }
 
 .template {
@@ -35,6 +35,7 @@ body {
 .text_60 {
     font-size: var(--font-text-60);
     font-weight: bold;
+    line-height: 130% !important;
 }
 
 .text_32 {
@@ -109,7 +110,13 @@ body {
     }
 }
 
-@media (max-width: 767.98px) {}
+@media (max-width: 767.98px) {
+    :root {
+        --font-text-60: 32px !important;
+        --font-text-32: 24px !important;
+        --font-text-24: 18px;
+    }
+}
 
 @media (max-width: 575.98px) {
     :root {

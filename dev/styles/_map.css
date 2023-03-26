@@ -32,10 +32,15 @@
     width: 400px;
     height: fit-content;
     background-color: #fff;
+    gap: var(--size-gap);
 }
 
 .contacts_card a:hover {
     color: var(--color-theme);
+}
+
+.map_text__center {
+    margin-top: 8px;
 }
 
 .link_after::after {
@@ -79,13 +84,21 @@
     }
 
     .b_time {
-        display: none;
+        justify-content: center;
+        gap: var(--size-small-gap);
+        width: 100%;
+    }
+
+    .b_time * {
+        width: 100%;
+        text-align: center;
     }
 
     .map_text__center {
         width: 100%;
         display: inline;
         text-align: center;
+        margin-top: 8px;
     }
 
     .link_after {
@@ -114,6 +127,7 @@
         align-items: center;
         width: 100%;
         background-color: transparent;
+        gap: var(--size-big-gap);
     }
 
     .contact_section {
