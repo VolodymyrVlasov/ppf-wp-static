@@ -1,31 +1,132 @@
 :root {
-    --image-height: 200px !important;
+    --mcard-image-height: 300px;
 }
 
-.material_card {
-    width: calc((100% - (var(--size-big-gap) * 3)) / 3);
+.section .mcard {
+    position: relative;
 }
 
-.material_card__image_wrapper {
+.mcard__wrapper {
     width: 100%;
-    height: var(--image-height) !important;
-    border-radius: var(--size-border-radius);
-    overflow: hidden;
 }
 
-.material_card__image {
+.mcard {
     display: flex;
+    flex-direction: column;
+    transition: ease all 300ms;
+    width: 100%;
+    gap: var(--size-small-gap);
+}
+
+.mcard__image {
     object-fit: cover;
     width: 100%;
-    height: 100%;
+    height: var(--mcard-image-height);
     box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.15);
     filter: sepia(10%);
+    outline: none;
+    border: none;
     transition: var(--time-tr-time);
-    
+    overflow: hidden !important;
 }
 
-.material_card__image_wrapper>img:hover {
-    transform: scale(2);
+picture:has(>.mcard__image) {
+    height: 180px !important;
+    overflow: hidden;
+    border-radius: var(--size-border-radius);
+}
+
+.mcard__image:hover {
+    transform: scale(1.1);
+}
+
+.mcard__wrapper:focus-within {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw !important;
+    height: 100%;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+}
+
+.mcard:focus-within {
+    flex-direction: row;
+    gap: var(--size-gap);
+    width: 60%;
+    height: 70%;
+    margin-top: -32px;
+    background-color: white;
+    border-radius: var(--size-border-radius);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+    animation: fade-in 1 1000ms;
+}
+
+.mcard:focus-within picture {
+    height: 100% !important;
+    width: 100%;
+    border-radius: var(--size-border-radius) 0 0 var(--size-border-radius) !important;
+}
+
+.mcard:focus-within .mcard__image {
+    height: 100% !important;
+    border-radius: var(--size-border-radius) 0 0 var(--size-border-radius) !important;
+}
+
+.mcard:focus-within>.mcar__info>.sub_link {
+    opacity: 0;
+    transform: translateX(-100vw);
+}
+
+.mcar__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-small-gap);
+}
+
+.mcard:focus-within>.mcar__info {
+    width: 100%;
+    padding: 24px 24px 24px 0;
+}
+
+.mcard:focus-within>.mcar__info>h4 {
+    font-size: 24px;
+    font-weight: bolder;
+    margin-bottom: 24px;
+}
+
+.mcard:focus-within>.mcar__info>.text_14 {
+    display: none;
+}
+
+.mcard:focus-within>.mcar__info>.mcar__info__details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--size-small-gap);
+}
+
+.mcar__info__details {
+    display: none;
+}
+
+.mcard_close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(110%, -80%) rotate(45deg);
+    border-radius: 50%;
+    font-size: 40px;
+    color: white;
+    transition: 150ms;
+    pointer-events: none;
+    cursor: pointer;
 }
 
 
@@ -36,22 +137,43 @@
 @media (max-width: 1199.98px) {}
 
 /* `lg` applies to large devices (tablets, less than 992px) */
-@media (max-width: 991.98px) {
-    .material_card {
-        width: calc(50% - (var(--size-big-gap) / 2));
-    }
-}
+@media (max-width: 991.98px) {}
 
 /*-------------------------------------------*/
 /* `md` applies to medium devices (landscape phones, less than 768px) */
-@media (max-width: 767.98px) {}
+@media (max-width: 767.98px) {
+    .mcard {
+        border-radius: var(--size-border-radius);
+        background-color: white;
+        box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.08);
+    }
 
-/* `sm` applies to small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) {
-    .material_card {
-        width: 100%;
+    .mcar__info {
+        padding: 0 12px 0 12px;
+    }
+
+    .mcard>img,
+    .mcard>picture>img,
+    picture:has( .mcard__image) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .mcard:focus-within {
+        flex-direction: column;
+        gap: var(--size-gap);
+        width: 85%;
+        height: 85%;
+        margin-top: 30px;
+        background-color: white;
+        border-radius: var(--size-border-radius);
+        box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+        animation: fade-in 1 1000ms;
     }
 }
+
+/* `sm` applies to small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {}
 
 /* `xsm` applies to x-small devices (iPhone 5/5s/SE, equals to 320px) */
 @media (max-width: 320px) {}

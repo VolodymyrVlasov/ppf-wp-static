@@ -49,11 +49,11 @@ body {
 
 .text_24 {
     font-size: var(--font-text-24);
+    font-weight: 600;
 }
 
 .text_24__bold {
     font-size: var(--font-text-24);
-    font-weight: 600;
 }
 
 .text_16__bold {
