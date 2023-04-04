@@ -120,15 +120,14 @@ picture:has(>.mcard__image) {
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(110%, -80%) rotate(45deg);
+    transform: translate(100%, -70%) rotate(45deg) scale(1.5);
     border-radius: 50%;
     font-size: 40px;
     color: white;
     transition: 150ms;
-    pointer-events: none;
     cursor: pointer;
+    pointer-events: none;
 }
-
 
 /* `xxl` applies to xx-large devices (large desktops, less than 1400px) */
 @media (max-width: 1399.98px) {}
@@ -154,7 +153,7 @@ picture:has(>.mcard__image) {
 
     .mcard>img,
     .mcard>picture>img,
-    picture:has( .mcard__image) {
+    picture:has(.mcard__image) {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
     }
