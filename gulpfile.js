@@ -27,29 +27,6 @@ let projectFolder = require("path").basename(__dirname);
 const PROJECT_FOLDER = projectFolder;
 const SOURCE_FOLDER = "#src";
 
-const path = {
-    build: {
-        html: PROJECT_FOLDER + "/dist/**/*.html",
-        css: PROJECT_FOLDER + "/css/",
-        js: PROJECT_FOLDER + "/js/",
-        img: PROJECT_FOLDER + "/img/",
-        fonts: PROJECT_FOLDER + "/fonts/",
-    },
-    src: {
-        html: SOURCE_FOLDER + "dev/pages/**/*.html",
-        css: SOURCE_FOLDER + "dev/styles/*.css",
-        js: SOURCE_FOLDER + "dev/src/**/*.js",
-        img: SOURCE_FOLDER + "dev/static/**/*.{jpg,png,svg,gif,ico,webp}",
-        fonts: SOURCE_FOLDER + "dev/fonts/*.ttf",
-    },
-    watch: {
-        html: SOURCE_FOLDER + "dist/",
-        css: SOURCE_FOLDER + "dist/styles/*.css",
-        js: SOURCE_FOLDER + "dist/src/**/*.js",
-        img: SOURCE_FOLDER + "dist//static/**/*.{jpg,png,svg,gif,ico,webp}",
-    },
-    clean: "./" + PROJECT_FOLDER + "/"
-}
 
 let { src, dest } = require("gulp"),
     gulp = require("gulp"),
@@ -57,7 +34,12 @@ let { src, dest } = require("gulp"),
     fileInclude = require('gulp-file-include'),
     concat = require('gulp-concat'),
     clean = require('gulp-clean'),
-    replace = require('gulp-replace');
+    replace = require('gulp-replace'),
+    // imagemin = require('gulp-imagemin'),
+    webp = require('gulp-webp'),
+    // rename = require('gulp-rename'),
+    webpHtml = require('gulp-webp-html'),
+    htmlminify = require("gulp-html-minify");
 
 const cleanTask = () => {
     return gulp.src('dist/print-sticker/*', { allowEmpty: true })
@@ -70,14 +52,26 @@ const htmlTask = () => {
             prefix: '@@',
             basepath: '@file'
         }))
+        .pipe(htmlminify())
         .pipe(dest("dist/"));
 };
 
-const staticContentTask = () => {
+const replaceImgToPicture = () => {
+    return src("./dist//**/*.html")
+        .pipe(webpHtml())
+        .pipe(dest("./dist/"));
+}
+
+const convertToWebp = () => {
+    return gulp.src('dist/wp-content/themes/paperfox/static/**/*.{jpg,jpeg,png}')
+        .pipe(webp({ quality: 100 }))
+        .pipe(gulp.dest('dist/wp-content/themes/paperfox/static/'));
+}
+
+const copyStaticContent = () => {
     return src("dev/static/**/*", { allowEmpty: true })
         .pipe(dest("dist/wp-content/themes/paperfox/static/"));
 };
-
 
 const changeSrcInHTML = () => {
     return gulp.src("dev/pages/**/*.html")
@@ -107,22 +101,26 @@ const phpAppTask = () => {
         .pipe(dest("dist/wp-content/"))
 }
 
-const browserSync = () => {
-    return gulp.watch('dev/**/*', gulp.series(cssTask, phpAppTask, htmlTask, jsAppTask, staticContentTask));
+const build = () => {
+    return gulp.watch('dev/pages/**/*', gulp.series(copyStaticContent, convertToWebp, cssTask, phpAppTask, htmlTask, jsAppTask));
 };
 
-// let build = gulp.series(clean, cssTask, htmlTask);
-let watch = gulp.parallel(browserSync);
+const watch = () => {
+    return gulp.watch('dev/pages/**/*', gulp.series(copyStaticContent, convertToWebp, cssTask, phpAppTask, htmlTask, jsAppTask, replaceImgToPicture));
+};
 
-exports.default = gulp.series(changeSrcInHTML, changeUrlInCSS);
+// exports.default = gulp.series(changeSrcInHTML, changeUrlInCSS);
 
+exports.replaceImgToPicture = replaceImgToPicture;
+exports.copyStaticContent = copyStaticContent;
+exports.convertToWebp = convertToWebp;
 exports.phpAppTask = phpAppTask;
 exports.changeSrcInHTML = changeSrcInHTML;
 exports.changeUrlInCSS = changeUrlInCSS;
 exports.jsAppTask = jsAppTask;
 exports.cleanTask = cleanTask;
 exports.cssTask = cssTask;
-exports.browserSync = browserSync;
+exports.build = build;
 exports.htmlTask = htmlTask;
 exports.watch = watch;
-exports.default = browserSync;
+exports.default = watch;
