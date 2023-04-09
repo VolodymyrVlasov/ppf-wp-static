@@ -1,5 +1,3 @@
-
-
 // ***CSS***
 // gulp-scss -> action({outputStyle: "expanded"})
 // gulp-autoprefixer -> action({overrideBrowserlist: ["last 5 versions"], cascade: true})
@@ -21,11 +19,10 @@
 // gulp-fonter -> action({formats: ['ttf']) -> destination src folder
 
 // let projectFolder = require("path").basename(__dirname);
-//
 
-let projectFolder = require("path").basename(__dirname);
-const PROJECT_FOLDER = projectFolder;
-const SOURCE_FOLDER = "#src";
+// let projectFolder = require("path").basename(__dirname);
+// const PROJECT_FOLDER = projectFolder;
+// const SOURCE_FOLDER = "#src";
 
 
 let { src, dest } = require("gulp"),
@@ -38,8 +35,10 @@ let { src, dest } = require("gulp"),
     // imagemin = require('gulp-imagemin'),
     webp = require('gulp-webp'),
     // rename = require('gulp-rename'),
-    webpHtml = require('gulp-webp-html'),
-    htmlminify = require("gulp-html-minify");
+    // webpHtml = require('gulp-webp-html'),
+    webpHtml = require("gulp-webp-html-nosvg"),
+    htmlminify = require("gulp-html-minify"),
+    prettier = require('gulp-prettier');
 
 const cleanTask = () => {
     return gulp.src('dist/print-sticker/*', { allowEmpty: true })
@@ -47,19 +46,20 @@ const cleanTask = () => {
 };
 
 const htmlTask = () => {
-    return src("dev/pages/**/*.html", { allowEmpty: true })
+    return src("dev/pages/**/*.html")
         .pipe(fileInclude({
             prefix: '@@',
             basepath: '@file'
         }))
         .pipe(htmlminify())
+        .pipe(webpHtml({replace_picture_element: false}))
         .pipe(dest("dist/"));
 };
 
 const replaceImgToPicture = () => {
-    return src("./dist//**/*.html")
+    return src("dist/print-sticker/*.html")
         .pipe(webpHtml())
-        .pipe(dest("./dist/"));
+        .pipe(dest("dist/"));
 }
 
 const convertToWebp = () => {
@@ -101,15 +101,17 @@ const phpAppTask = () => {
         .pipe(dest("dist/wp-content/"))
 }
 
-const build = () => {
-    return gulp.watch('dev/pages/**/*', gulp.series(copyStaticContent, convertToWebp, cssTask, phpAppTask, htmlTask, jsAppTask));
+const watchFiles = () => {
+    return gulp.watch('dev/static/**/*', gulp.series(copyStaticContent, convertToWebp));
+};
+
+const watchCode = () => {
+    return gulp.watch(['dev/pages/**/*', 'dev/styles/**/*'], gulp.series(cssTask, phpAppTask, htmlTask, jsAppTask));
 };
 
 const watch = () => {
-    return gulp.watch('dev/pages/**/*', gulp.series(copyStaticContent, convertToWebp, cssTask, phpAppTask, htmlTask, jsAppTask, replaceImgToPicture));
-};
-
-// exports.default = gulp.series(changeSrcInHTML, changeUrlInCSS);
+    return gulp.parallel(watchFiles, watchCode);
+}
 
 exports.replaceImgToPicture = replaceImgToPicture;
 exports.copyStaticContent = copyStaticContent;
@@ -120,7 +122,8 @@ exports.changeUrlInCSS = changeUrlInCSS;
 exports.jsAppTask = jsAppTask;
 exports.cleanTask = cleanTask;
 exports.cssTask = cssTask;
-exports.build = build;
 exports.htmlTask = htmlTask;
+exports.watchFiles = watchFiles;
+exports.watchCode = watchCode;
 exports.watch = watch;
-exports.default = watch;
+exports.default = gulp.series(copyStaticContent, convertToWebp, cssTask, phpAppTask, htmlTask, jsAppTask, gulp.parallel(watchCode, watchFiles));

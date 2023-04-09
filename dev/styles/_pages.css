@@ -18,6 +18,7 @@ picture:has(>.product_card__image) {
 
 
 .product_card__image {
+    display: flex;
     object-fit: cover;
     width: 100%;
     height: var(--mcard-image-height) !important;
@@ -29,7 +30,7 @@ picture:has(>.product_card__image) {
 }
 
 .product_card__image:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .cards_4 {
