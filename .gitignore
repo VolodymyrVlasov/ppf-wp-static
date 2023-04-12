@@ -1,3 +1,5 @@
 dist/
+devPreview/
+
 node_modules/
 dev-watch/
