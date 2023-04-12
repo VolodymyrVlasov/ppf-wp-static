@@ -38,12 +38,95 @@ let { src, dest } = require("gulp"),
     // webpHtml = require('gulp-webp-html'),
     webpHtml = require("gulp-webp-html-nosvg"),
     htmlminify = require("gulp-html-minify"),
-    prettier = require('gulp-prettier');
+    prettier = require('gulp-prettier'),
+    yargs = require('yargs');;
 
-const cleanTask = () => {
-    return gulp.src('dist/print-sticker/*', { allowEmpty: true })
-        .pipe(clean({ force: true }))
-};
+
+const wpTheme = (done) => {
+    gulp.src("dev/wp-theme/**/*.php", { allowEmpty: true })
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(dest("dist/paperfox/"));
+
+    gulp.src("dev/styles/**/*.css")
+        .pipe(concat('style.css'))
+        .pipe(dest("dist/paperfox/"));
+
+    gulp.src("dev/static/**/*")
+        .pipe(dest("dist/paperfox/static/"));
+
+    gulp.src('dev/paperfox/static/**/*.{jpg,jpeg,png}')
+        .pipe(webp({ quality: 80 }))
+        .pipe(gulp.dest('dist/paperfox/static/'));
+
+    return done();
+}
+
+const staticPages = (done) => {
+    gulp.src(["dev/pages/**/*.html", "!dev/pages/template-page.html", "!dev/pages/test.html"], { aloowEmpty: true })
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(dest("dist/www/"));
+
+    gulp.src("dist/www/**/*.html")
+        .pipe(webpHtml())
+        .pipe(dest("dist/www/"));
+
+    gulp.src(['dev/styles/*.css', '!dev/styles/_1_wp-theme.css', '!dev/styles/style.css'])
+        .pipe(concat('style.css'))
+        .pipe(dest("dist/www/"));
+
+    gulp.src("dev/static/**/*")
+        .pipe(dest("dist/www/static/"));
+
+    gulp.src('dev/www/static/**/*.{jpg,jpeg,png}')
+        .pipe(webp({ quality: 80 }))
+        .pipe(gulp.dest('dist/www/static/'));
+
+    return done();
+}
+
+const devStaticPages = (done) => {
+    gulp.src(["dev/pages/**/*.html", "!dev/pages/template-page.html", "!dev/pages/test.html"], { aloowEmpty: true })
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(dest("devPreview/"));
+
+    gulp.src("devPreview/**/*.html")
+        .pipe(webpHtml())
+        .pipe(dest("devPreview/"));
+
+    gulp.src(['dev/styles/style.css'])
+        .pipe(dest("devPreview/"))
+
+    gulp.src(['dev/styles/*.css'])
+        .pipe(dest("devPreview/styles/"));
+
+    gulp.src("devPreview/styles/*.css")
+        .pipe(replace('url("./static', 'url("../static'))
+        .pipe(dest("devPreview/styles/"));
+
+    gulp.src("dev/static/**/*")
+        .pipe(dest("devPreview/static/"));
+
+    gulp.src('devPreview/static/**/*.{jpg,jpeg,png}')
+        .pipe(webp({ quality: 30 }))
+        .pipe(gulp.dest('devPreview/static/'));
+
+    return done();
+}
+
+
+
+
+
+
 
 const htmlTask = () => {
     return src("dev/pages/**/*.html")
@@ -52,9 +135,18 @@ const htmlTask = () => {
             basepath: '@file'
         }))
         .pipe(htmlminify())
-        .pipe(webpHtml({replace_picture_element: false}))
-        .pipe(dest("dist/"));
+        .pipe(webpHtml({ replace_picture_element: false }))
+        .pipe(dest("dist/www/"));
 };
+
+const phpAppTask = () => {
+    return gulp.src("dev/pages/wp-content/**/*.php", { allowEmpty: true })
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(dest("dist/paperfox/"))
+}
 
 const replaceImgToPicture = () => {
     return src("dist/print-sticker/*.html")
@@ -86,20 +178,16 @@ const changeUrlInCSS = () => {
 }
 
 const cssTask = () => {
-    return gulp.src('dev/styles/*.css')
+    return gulp.src(['dev/styles/*.css', '!dev/styles/_1_wp-theme.css'])
         .pipe(concat('style.css'))
         .pipe(gulp.dest('dist/wp-content/themes/paperfox/styles/'));
 };
 
 const jsAppTask = () => {
-    return gulp.src('dev/src/scripts/*.js')
+    return gulp.src('dev/src/**/*.js')
         .pipe(gulp.dest('dist/wp-content/themes/paperfox/js/'))
 };
 
-const phpAppTask = () => {
-    return gulp.src("dev/pages/wp-content/**/*.php", { allowEmpty: true })
-        .pipe(dest("dist/wp-content/"))
-}
 
 const watchFiles = () => {
     return gulp.watch('dev/static/**/*', gulp.series(copyStaticContent, convertToWebp));
@@ -113,6 +201,11 @@ const watch = () => {
     return gulp.parallel(watchFiles, watchCode);
 }
 
+exports.wpTheme = wpTheme;
+exports.staticPages = staticPages;
+exports.devStaticPages = devStaticPages;
+
+
 exports.replaceImgToPicture = replaceImgToPicture;
 exports.copyStaticContent = copyStaticContent;
 exports.convertToWebp = convertToWebp;
@@ -120,7 +213,6 @@ exports.phpAppTask = phpAppTask;
 exports.changeSrcInHTML = changeSrcInHTML;
 exports.changeUrlInCSS = changeUrlInCSS;
 exports.jsAppTask = jsAppTask;
-exports.cleanTask = cleanTask;
 exports.cssTask = cssTask;
 exports.htmlTask = htmlTask;
 exports.watchFiles = watchFiles;

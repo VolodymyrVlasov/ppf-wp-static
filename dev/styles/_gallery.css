@@ -35,7 +35,7 @@
     height: 100%;
     pointer-events: none;
     transition: 300ms ease;
-    background: url("/dist/wp-content/themes/paperfox/static/icon-play.svg") center 50%/20% no-repeat, linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    background: url("./static/icon-play.svg") center 50%/20% no-repeat, linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
 }
 
 .product_gallery_video__wrapper:hover:after {

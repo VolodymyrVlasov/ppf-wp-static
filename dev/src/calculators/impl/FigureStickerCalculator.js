@@ -1,8 +1,8 @@
-import { AbstractCalculator } from "../AbstractCalculator.js";
-import { KISS_CUT_A4, KISS_CUT_A3, DIE_CUT } from "../../CuttingTypes.js";
-import { MAX_PRINT_X_SKYCUT, MAX_PRINT_Y_SKYCUT, MAX_PRINT_X_SUMMA, MAX_PRINT_Y_SUMMA, BLEED_KISS_CUT, BLEED_DIE_CUT } from "../../Sizes.js";
+import { AbstractCalculator } from "./js/AbstractCalculator.js";
+import { KISS_CUT_A4, KISS_CUT_A3, DIE_CUT } from "./js/CuttingTypes.js";
+import { MAX_PRINT_X_SKYCUT, MAX_PRINT_Y_SKYCUT, MAX_PRINT_X_SUMMA, MAX_PRINT_Y_SUMMA, BLEED_KISS_CUT, BLEED_DIE_CUT } from "./js/Sizes.js";
 import { SELFADHESIVE_CUT_PRICE, SELFADHESIVE_PRINT_PRICE } from "../../Prices.js";
-import { RAFLATAC_MATTE, RAFLATAC_GLOSS, RITRAMA_MATTE, RITRAMA_GLOSS, RITRAMA_COATED } from "../../MaterialTypes.js";
+import { RAFLATAC_MATTE, RAFLATAC_GLOSS, RITRAMA_MATTE, RITRAMA_GLOSS, RITRAMA_COATED } from "./js/MaterialTypes.js";
 
 export class FigureStickerCalculator extends AbstractCalculator {
     constructor(product) {

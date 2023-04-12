@@ -1,6 +1,6 @@
-import { PRINTRUN_INDEXES } from "../Prices.js";
-import { SummaryCard } from "../../components/SummaryCard/SummaryCard.js";
-import { DetailedSummaryCard } from "../../components/DetailedSummaryCard/DetailedSummaryCard.js";
+import { PRINTRUN_INDEXES } from "./js/Prices.js";
+import { SummaryCard } from "./js/SummaryCard.js";
+import { DetailedSummaryCard } from "./js/DetailedSummaryCard.js";
 
 export class AbstractCalculator {
     constructor(basicProduct) {

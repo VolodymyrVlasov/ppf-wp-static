@@ -49,12 +49,12 @@
     height: 10px;
     margin: -2px 0 0 4px;
     transition: var(--time-tr-time);
-    background: url("/dist/wp-content/themes/paperfox/static/icons/icon-link.svg") no-repeat;
+    background: url("./static/icons/icon-link.svg") no-repeat;
 }
 
 .link_after:hover:after {
     transform: scale(1.3);
-    background: url("/dist/wp-content/themes/paperfox/static/icons/icon-link--active.svg") 100% no-repeat;
+    background: url("./static/icons/icon-link--active.svg") 100% no-repeat;
 }
 
 @media (max-width: 1199.98px) {

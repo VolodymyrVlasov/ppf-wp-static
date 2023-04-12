@@ -10,24 +10,29 @@
     <link rel="stylesheet" href="/dist/wp-content/themes/paperfox/styles/style.css">
     <title>Круглі наклейки в Києві. Друк круглих наліпок на самоклейці, вінілі, ПЕТ | PaperFox</title>
     
-    @@include('../../../partials/ads-scripts/ads-google.html')
+    @@include('../../../../partials/ads-scripts/ads-google.html')
 </head>
 
 <body>
-    @@include('../../../partials/ads-scripts/anal-google.html')
-    @@include('../../../partials/header.html')
+    @@include('../../../../partials/ads-scripts/anal-google.html')
+    @@include('../../../../partials/header.html')
     <main>
         <section class="section" id="head-section">
             <div class="container">
-                <span class="template">HEAD SECTION OR PAGE H1</span>
+                <div class="col small_gap">
+                    <h1 class="text_60" aria-label="Друк наклейок і наліпок. Печать наклеек"
+                        title="Друк наклейок і наліпок. Печать наклеек">Круглі наклейки</h1>
+                    <ul class="row gap list">
+                        <li>Порізка на аркушах або кожна окремо</li>
+                        <li>Матеріали під різне призначення</li>
+                        <li>Роздрібні замовлення</li>
+                        <li>Відправка Новою Поштою</li>
+                    </ul>
+                </div>
             </div>
         </section>
-        <section class="section" id="products-section">
-            <div class="container">
-                <span class="template">CALCULATOR OR PRODUCT GALLERY</span>
-            </div>
-        </section>
-        @@include('../../../partials/contact-widget.html')
+       @@include('../../../../partials/round-sticker-calculator.html')
+        @@include('../../../../partials/contact-widget.html')
         <section class="section" id="materials-section">
             <div class="container">
                 <span class="template">MATERIALS OR PRODUCT TECH DETAILS</span>
@@ -43,14 +48,15 @@
                 <span class="template">PRICES</span>
             </div>
         </section>
-        @@include('../../../partials/map-widget.html')
+        @@include('../../../../partials/map-widget.html')
         <section class="section" id="seo-section">
             <div class="container">
                 <span class="template">SEO TEXT</span>
             </div>
         </section>
     </main>
-    @@include('../../../partials/footer.html')
+    @@include('../../../../partials/footer.html')
+    <script type="module" src="/dist/wp-content/themes/paperfox/js/RoundStickerCalculator.js"></script>
 </body>
 
 </html>

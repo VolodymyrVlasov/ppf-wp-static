@@ -30,7 +30,7 @@
     content: "";
     width: var(--size-icon);
     height: var(--size-icon);
-    background: url("/dist/wp-content/themes/paperfox/static/icons/icon-telegram.svg") no-repeat center / cover;
+    background: url("./static/icons/icon-telegram.svg") no-repeat center / cover;
     position: absolute;
     top: 0;
     transition: 300ms;
@@ -40,7 +40,7 @@
     content: "";
     width: var(--size-icon);
     height: var(--size-icon);
-    background: url("/dist/wp-content/themes/paperfox/static/icons/icon-viber.svg") no-repeat center / cover;
+    background: url("./static/icons/icon-viber.svg") no-repeat center / cover;
     position: absolute;
     top: 0;
     transition: 300ms;
@@ -50,7 +50,7 @@
     content: "";
     width: var(--size-icon);
     height: var(--size-icon);
-    background: url("/dist/wp-content/themes/paperfox/static/icons/icon-email.svg") no-repeat center / cover;
+    background: url("./static/icons/icon-email.svg") no-repeat center / cover;
     position: absolute;
     top: 0;
     transition: 300ms;
@@ -60,7 +60,7 @@
     content: "";
     width: var(--size-icon);
     height: var(--size-icon);
-    background: url("/dist/wp-content/themes/paperfox/static/icons/icon-tel.svg") no-repeat center / cover;
+    background: url("./static/icons/icon-tel.svg") no-repeat center / cover;
     position: absolute;
     top: 0;
     transition: 300ms;
@@ -70,7 +70,7 @@
     content: "";
     width: var(--size-icon);
     height: var(--size-icon);
-    background: url("/dist/wp-content/themes/paperfox/static/icons/icon-tel.svg") no-repeat center / cover;
+    background: url("./static/icons/icon-tel.svg") no-repeat center / cover;
     position: absolute;
     top: 0;
     transition: 300ms;
