@@ -9,6 +9,11 @@ let gulp = require("gulp"),
 const buildWPTheme = (done) => {
     gulp.src("dev/wp-theme/**/*.php", { allowEmpty: true })
         .pipe(fileInclude({ prefix: '@@', basepath: '@file' }))
+        .pipe(webpHtml())
+        .pipe(replace('src="./static', 'src=" <?php echo get_template_directory_uri(); ?>/static'))
+        .pipe(gulp.dest("dist/paperfox/"));
+
+    gulp.src("dev/wp-theme/screenshot.png")
         .pipe(gulp.dest("dist/paperfox/"));
 
     gulp.src("dev/styles/**/*.css")
@@ -16,11 +21,8 @@ const buildWPTheme = (done) => {
         .pipe(gulp.dest("dist/paperfox/"));
 
     gulp.src("dev/static/**/*")
-        .pipe(gulp.dest("dist/paperfox/static/"));
-
-    gulp.src('dev/paperfox/static/**/*.{jpg,jpeg,png}')
         .pipe(webp({ quality: 80 }))
-        .pipe(gulp.dest('dist/paperfox/static/'));
+        .pipe(gulp.dest("dist/paperfox/static/"));
 
     return done();
 }
