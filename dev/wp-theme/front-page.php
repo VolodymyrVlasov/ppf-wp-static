@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,13 @@
     <title>Головна</title>
     <?php wp_head(); ?>
 </head>
+
 <body>
-<?php get_header();?>
-<section class="section">
-    <div class="container col big_gap">
-        <h1>Всі товари</h1>  
-        <?php
+    <?php get_header(); ?>
+    <section class="section">
+        <div class="container col big_gap">
+            <h1>Всі товари</h1>
+            <?php
             // Define args for product query
             $args = array(
                 'post_type' => 'product',
@@ -23,16 +25,16 @@
             $products = new WP_Query($args);
 
             // Loop through products
-            if ($products->have_posts()) :
-                while ($products->have_posts()) :
+            if ($products->have_posts()):
+                while ($products->have_posts()):
                     $products->the_post();
-                    
+
                     // Output product information
                     the_title(); // product title
                     the_content(); // product description
                     the_excerpt(); // product short description
                     the_post_thumbnail(); // product image
-                    
+            
                 endwhile;
             endif;
 
@@ -40,10 +42,11 @@
             wp_reset_postdata();
             ?>
 
-    </div>
-</section>    
-<?php  get_footer();?>
+        </div>
+    </section>
+    <?php get_footer(); ?>
+    <?php wp_footer(); ?>
+
 </body>
+
 </html>
-
-
