@@ -2,3 +2,6 @@ dist/
 devPreview/
 node_modules/
 dev-watch/
+.env
+paperfox/
+www/

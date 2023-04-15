@@ -14,6 +14,8 @@
     <section class="section">
         <div class="container col big_gap">
             <h1>Всі товари</h1>
+            <div class="row big_gap">
+
             <?php
             // Define args for product query
             $args = array(
@@ -28,7 +30,7 @@
             if ($products->have_posts()):
                 while ($products->have_posts()):
                     $products->the_post();
-
+                   
                     // Output product information
                     the_title(); // product title
                     the_content(); // product description
@@ -41,6 +43,7 @@
             // Reset post data
             wp_reset_postdata();
             ?>
+            </div>
 
         </div>
     </section>
