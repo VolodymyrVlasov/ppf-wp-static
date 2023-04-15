@@ -3,20 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
     <link rel="shortcut icon" href="{{domain}}/static/icons/favicon.png" type="image/x-icon">
-
+    <link rel="stylesheet" href="{{domain}}/style.css">
     <title> Сторінки не існує | PaperFox</title>
-    <?php wp_head(); ?>
 </head>
 
 <body>
-    <?php get_header(); ?>
+    @@include('../partials/header.html')
     <main>
         @@include('../partials/404.html')
     </main>
-    <?php get_footer(); ?>
+    @@include('../partials/footer.html')
 </body>
 
 </html>

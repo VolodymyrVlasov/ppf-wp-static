@@ -123,7 +123,6 @@ picture:has(>.product_card__image) {
     animation-delay: 280ms;
 }
 
-
 .main_page_h1>.container {
     gap: 80px;
 }
