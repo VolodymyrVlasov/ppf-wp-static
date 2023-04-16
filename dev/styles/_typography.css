@@ -18,7 +18,7 @@ body {
 }
 
 .list {
-    list-style: disc outside;
+    list-style: disc outside !important;
     padding-left: 16px;
 }
 

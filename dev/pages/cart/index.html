@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="shortcut icon" href="../static/icons/favicon.png" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <title>Page template | PaperFox</title>
+</head>
+
+<body>
+    @@include('../../partials/header.html')
+    <main>
+        <section class="section" id="cart-section">
+            <div class="container">
+                <div class="row big_gap">
+                    <article class="cart_items_card flex_4">
+                        <ul class="col small_gap width_100">
+                            <li class="cart_item">
+                                <img src="./static/mugs/330/mug_330_ml_black_1.webp" alt="Чашка чорна" width="200"
+                                    height="100" class="cart_item_image bg_img">
+
+                                <div class="col small_gap flex_1">
+                                    <span class="text_16__bold">Чашка чорна</span>
+                                    <span class="cart_item_category">Чашки</span>
+                                    <a href="{{open_in_editor}}" class="link">Редагувати</a>
+                                </div>
+                                <div class="col_end">
+                                    <span class="cart_item_price">150</span>
+                                    <button class="cart_item_del" aria-label="видалити з кошика"></button>
+                                </div>
+                            </li>
+                        </ul>
+                    </article>
+                    <arcticle class="cart_summary_card flex_2">
+                        <span class="text_32">Разом</span>
+                        <div class="row_sp_btw">
+                            <span class="text_12">5 товарів на суму</span>
+                            <span class="text_12">750</span>
+                        </div>
+                        <div class="cart_summary_card_price">
+                            <span class="text_12">До сплати</span>
+                            <span class="text_24">750</span>
+                        </div>
+                        <a class="button__primary width_100" href="#" title="short description"> ЗАМОВЛЕННЯ
+                            ПІДТВЕРДЖУЮ</a>
+                        <div class="col">
+                            <span class="text_12">Підтверджуючи замовлення, я приймаю умови:</span>
+                            <ul class="list">
+                                <li>
+                                    <a href="#" class="text_12 link">положення про обробку і захист персональних даних</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text_12 link">угоди користувача</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </arcticle>
+                </div>
+            </div>
+        </section>
+    </main>
+    @@include('../../partials/footer.html')
+</body>
+
+</html>

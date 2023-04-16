@@ -82,9 +82,9 @@
 }
 
 .bg_img {
-    background: linear-gradient(-45deg, var(--color-light-theme), var(--color-light-light-theme), var(--color-light-theme));
+    background: linear-gradient(-45deg, var(--color-light-gray), var(--color-light-light-gray), var(--color-light-gray));
     background-size: 400% 400%;
-    background-color: var(--color-light-light-theme);
+    background-color: var(--color-light-light-gray);
     border-radius: var(--size-border-radius);
     animation: gradient 4s cubic-bezier(0.55, 0.00, 0.55, 1.0) infinite;
 }
@@ -116,7 +116,14 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-center;
+}
+
+.col_end {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 .small_gap {

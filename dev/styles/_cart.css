@@ -1,0 +1,109 @@
+.empty_cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--size-big-gap);
+    height: 55vh;;
+    width: 100%;
+}
+
+.cart_items_card {
+    display: flex;
+}
+
+.cart_items_card_header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: sticky;
+    top: 120px;
+    padding: 12px 0;
+    background-color: white;
+}
+
+.cart_items_card_list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-gap);
+    width: 100%;
+}
+
+.cart_items_card_list:hover {
+    background-color: var(--color-light-light-gray);
+}
+
+.cart_item {
+    display: flex;
+    gap: var(--size-gap);
+    width: 100%;
+    cursor: default;
+}
+
+.cart_item_price {
+    padding: 6px 8px;
+    background-color: var(--color-light-theme);
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--color-theme);
+    cursor: pointer;
+}
+
+.cart_item_image {
+    width: 200px;
+    height: 100px;
+    border-radius: var(--size-border-radius);
+    object-fit: contain;
+    border: 0.5px solid var(--color-light-gray);
+    -webkit-box-shadow: inset 0px 0px 23px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0px 0px 23px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0px 0px 23px 2px rgba(0, 0, 0, 0.05);
+    background-color: white !important;
+    cursor: default;
+}
+
+.cart_item_del {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    background: url("./static/icons/icon-delete-bin.svg") no-repeat center/100%;
+    transition: var(--time-tr-time);
+}
+
+.cart_item_del:hover {
+    transform: scale(1.1);
+}
+
+.cart_item_category {
+    background-color: var(--color-light-light-gray);
+    color: var(--color-gray);
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: default;
+}
+
+
+.cart_summary_card {
+    position: sticky !important;
+    top: 120px;
+    display: flex;
+    height: fit-content;
+    flex-direction: column;
+    gap: var(--size-gap);
+    background-color: var(--color-light-light-gray);
+    border: 0.5px solid var(--color-light-gray);
+    border-radius: var(--size-border-radius);
+    padding: 24px;
+}
+
+.cart_summary_card_price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 0;
+    border-bottom: 0.5px solid var(--color-gray);
+    border-top: 0.5px solid var(--color-gray);
+}

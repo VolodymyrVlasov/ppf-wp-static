@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{domain}}/static/icons/favicon.png" type="image/x-icon">
 
-    <title> post.php | PaperFox</title>
+    <title>single.php | PaperFox</title>
     <?php wp_head(); ?>
 </head>
 
@@ -16,7 +16,7 @@
     <main>
         <section class="section" id="head-section">
             <div class="container">
-                <span class="template">POST.PHP</span>
+                <span class="template">SINGLE.PHP</span>
             </div>
         </section>
         <?php get_template_part( 'map', 'widget' ); ?>

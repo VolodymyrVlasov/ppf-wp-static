@@ -4,7 +4,6 @@
     align-items: flex-start;
     position: relative;
     width: 100%;
-    max-width: calc(25% - var(--size-big-gap) + var(--size-big-gap) / 4);
 }
 
 .contact_widget_card>u {

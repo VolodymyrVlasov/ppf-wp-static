@@ -9,7 +9,7 @@ import webpHtml from "gulp-webp-html-nosvg";
 import htmlminify from "gulp-html-minify";
 import dotenv from "dotenv";
 import { deleteSync } from "del";
-import { wwwVar } from "./const.js"
+import { wwwVar, devVar } from "./const.js"
 
 dotenv.config();
 
@@ -108,20 +108,18 @@ export const buildpages = (done) => {
 }
 
 export const dev = (done) => {
-    // deleteSync(["devPreview/**", "!devPreview/"]);
+    let stream = gulp.src(["dev/pages/**/*.html"], { aloowEmpty: true });
+    stream.pipe(fileInclude({ prefix: '@@', basepath: '@file' }));
 
-    gulp.src(["dev/pages/**/*.html", "!dev/pages/template-page.html", "!dev/pages/test.html"], { aloowEmpty: true })
-        .pipe(fileInclude({ prefix: '@@', basepath: '@file' }))
+    for (const [placeholder, value] of Object.entries(wwwVar)) {
+        stream = stream.pipe(replace(placeholder, value));
+    }
+    stream
         .pipe(webpHtml())
-        .pipe(gulp.dest("devPreview/"));
-
-    gulp.src(['dev/styles/style.css'])
+        // .pipe(replace('href="./style', 'href="../style'))
         .pipe(gulp.dest("devPreview/"));
 
     gulp.src(['dev/styles/*.css'])
-        .pipe(gulp.dest("devPreview/styles/"));
-
-    gulp.src("devPreview/styles/*.css")
         .pipe(replace('url("./static', 'url("../static'))
         .pipe(gulp.dest("devPreview/styles/"));
 

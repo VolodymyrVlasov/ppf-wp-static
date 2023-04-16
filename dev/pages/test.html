@@ -12,340 +12,55 @@
 
 <body>
     <main>
-        <section class="section" id="materials-section">
-            <div class="container col big_gap">
-                <h3 class="text_32">Матеріали, види друку та порізка</h3>
-                <div class="row big_gap  width_100">
-                    <div class="mcard__wrapper cards_3">
-                        <div class="mcard">
-                            <img src="./static/print-sticker/rx.png"
-                                width="380" height="180"
-                                alt="Наліпки, наклейки і стікери прямокутної форми під замовлення"
-                                class="mcard__image bg_img width_100" />
-                            <div class="mcar__info" tabindex="1">
-                                <h4 class="text_16__bold">Паперова Blackout</h4>
-                                <div class="mcar__info__details ">
-                                    <div class="col small_gap width_100">
-                                        <div class="row_sp_btw width_100">
-                                            <span class="text_14__gray flex_2">Виробник:</span>
-                                            <span class="text_14 flex_3">Ritrama</span>
-                                        </div>
+        <div class="row big_gap">
+            <article class="cart_items_card flex_4">
+                <!-- cart_items_list -->
+                <ul class="col small_gap width_100">
+                    <!-- cart_item -->
+                    <li class="cart_item">
+                        <!-- product_item -->
+                        <img src="{{product_image}}" alt="Чашка чорна" width="200" height="100"
+                            class="cart_item_image bg_img">
 
-                                        <div class="row_sp_btw width_100">
-                                            <span class="text_14__gray flex_2">Клеюча основа:</span>
-                                            <span class="text_14 flex_3">акрилова постійна</span>
-                                        </div>
-                                        <div class="row_sp_btw width_100">
-                                            <span class="text_14__gray flex_2">Покриття:</span>
-                                            <span class="text_14 flex_3">Машинне крейдування</span>
-                                        </div>
-                                        <div class="row_sp_btw width_100">
-                                            <span class="text_14__gray flex_2">Щільність:</span>
-                                            <span class="text_14 flex_3">85 г/м²</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="col small_gap width_100">
-                                        <div class="col width_100">
-                                            <span class="text_14__gray">Вологотривкість:</span>
-                                            <div class="row_center gap width_100">
-                                                <i class="raiting_6" aria-label="Вологотривкість 6 із 10"
-                                                    title="При сильному зволожені паперова основа зморщується але структура не руйнується та повертається майже до вихідного вигляду після просушення"></i>
-                                                <span class="text_14__gray">6/10</span>
-                                            </div>
-                                        </div>
-                                        <div class="col width_100">
-                                            <span class="text_14__gray">Стійкість до мастил:</span>
-                                            <div class="row_center gap width_100">
-                                                <i class="raiting_3" aria-label="Стійкість до мастил 3 із 10"></i>
-                                                <span class="text_14__gray">3/10</span>
-                                            </div>
-                                        </div>
-                                        <div class="col width_100">
-                                            <span class="text_14__gray">Стійкість до низьких температур:</span>
-                                            <div class="row_center gap width_100">
-                                                <i class="raiting_7"
-                                                    aria-label="Стійкість до низьких температур 7 із 10"
-                                                    title="При значній зміні температури, в умовах утворення конденсату можливе розмокання паперової основи"></i>
-                                                <span class="text_14__gray">7/10</span>
-                                            </div>
-                                        </div>
-                                        <div class="col width_100">
-                                            <span class="text_14__gray">Стійкість до механічного впливу:</span>
-                                            <div class="row_center gap width_100">
-                                                <i class="raiting_7" aria-label="raiting 7/10"
-                                                    title="Призначенння наклейки - етикетка для пакування тож незначний механічний вплив не шкодить"></i>
-                                                <span class="text_14__gray">7/10</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="text_14">Білий середньоглянцевий крейдований самоклеючий папір щільністю 85
-                                    г/м².
-                                </p>
-                                <div class="mcar__info__details">
-                                    <p>Білий середньоглянцевий крейдований папір щільністю 85 г/м². Універсальний
-                                        самоклеючий
-                                        етикеточний папір для маркування в логістиці, харчових продуктів, стікерпаків,
-                                        попереджувальних етикеток, POS матеріалів тощо</p>
-                                    <a title="Натисніть щоб закрити вікно" href="#" class=" mcard_close"
-                                        aria-label="">+</a>
-                                </div>
-                                <a title="Натисніть щоб дізнатись більше про матеріал" href="#" class="sub_link"
-                                    aria-label="Відкирити довідку про матеріал">
-                                    <span>ДОКЛАДНІШЕ</span>
-                                </a>
-                             </div>
+                        <div class="col small_gap flex_1">
+                            <span class="text_16__bold">{{product_name}}</span>
+                            <span class="cart_item_category">{{product_category}}</span>
+                            <a href="{{open_in_editor_url}}" class="link">Редагувати</a>
                         </div>
-                    </div>
-                    <div class="mcard__wrapper cards_3">
-                        <div class="mcard">
-                            <img src="./static/print-sticker/rfox.png"
-                                width="380" height="180"
-                                alt="Наліпки, наклейки і стікери прямокутної форми під замовлення"
-                                class="mcard__image bg_img width_100" />
-                            <div class="mcar__info" tabindex="1">
-                                <h4 class="text_16__bold">Паперова Blackout</h4>
-                                <div class="mcar__info__details ">
-                                    <div class="col small_gap width_100">
-                                        <div class="row_sp_btw width_100">
-                                            <span class="text_14__gray flex_2">Виробник:</span>
-                                            <span class="text_14 flex_3">Ritrama</span>
-                                        </div>
-
-                                        <div class="row_sp_btw width_100">
-                                            <span class="text_14__gray flex_2">Клеюча основа:</span>
-                                            <span class="text_14 flex_3">акрилова постійна</span>
-                                        </div>
-                                        <div class="row_sp_btw width_100">
-                                            <span class="text_14__gray flex_2">Покриття:</span>
-                                            <span class="text_14 flex_3">Машинне крейдування</span>
-                                        </div>
-                                        <div class="row_sp_btw width_100">
-                                            <span class="text_14__gray flex_2">Щільність:</span>
-                                            <span class="text_14 flex_3">85 г/м²</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="col small_gap width_100">
-                                        <div class="col width_100">
-                                            <span class="text_14__gray">Вологотривкість:</span>
-                                            <div class="row_center gap width_100">
-                                                <i class="raiting_6" aria-label="Вологотривкість 6 із 10"
-                                                    title="При сильному зволожені паперова основа зморщується але структура не руйнується та повертається майже до вихідного вигляду після просушення"></i>
-                                                <span class="text_14__gray">6/10</span>
-                                            </div>
-                                        </div>
-                                        <div class="col width_100">
-                                            <span class="text_14__gray">Стійкість до мастил:</span>
-                                            <div class="row_center gap width_100">
-                                                <i class="raiting_3" aria-label="Стійкість до мастил 3 із 10"></i>
-                                                <span class="text_14__gray">3/10</span>
-                                            </div>
-                                        </div>
-                                        <div class="col width_100">
-                                            <span class="text_14__gray">Стійкість до низьких температур:</span>
-                                            <div class="row_center gap width_100">
-                                                <i class="raiting_7"
-                                                    aria-label="Стійкість до низьких температур 7 із 10"
-                                                    title="При значній зміні температури, в умовах утворення конденсату можливе розмокання паперової основи"></i>
-                                                <span class="text_14__gray">7/10</span>
-                                            </div>
-                                        </div>
-                                        <div class="col width_100">
-                                            <span class="text_14__gray">Стійкість до механічного впливу:</span>
-                                            <div class="row_center gap width_100">
-                                                <i class="raiting_7" aria-label="raiting 7/10"
-                                                    title="Призначенння наклейки - етикетка для пакування тож незначний механічний вплив не шкодить"></i>
-                                                <span class="text_14__gray">7/10</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="text_14">Білий середньоглянцевий крейдований самоклеючий папір щільністю 85
-                                    г/м².
-                                </p>
-                                <div class="mcar__info__details">
-                                    <p>Білий середньоглянцевий крейдований папір щільністю 85 г/м². Універсальний
-                                        самоклеючий
-                                        етикеточний папір для маркування в логістиці, харчових продуктів, стікерпаків,
-                                        попереджувальних етикеток, POS матеріалів тощо</p>
-                                    <a title="Натисніть щоб закрити вікно" href="#" class=" mcard_close"
-                                        aria-label="">+</a>
-                                </div>
-                                <a title="Натисніть щоб дізнатись більше про матеріал" href="#" class="sub_link"
-                                    aria-label="Відкирити довідку про матеріал">
-                                    <span>ДОКЛАДНІШЕ</span>
-                                </a>
-                            </div>
+                        <div class="col_end">
+                            <span class="cart_item_price">{{product_summary_price}}</span>
+                            <!-- delete_item_from_cart -->
+                            <button class="cart_item_del" aria-label="видалити з кошика"></button>
                         </div>
-                    </div>
-                    <div class="mcard__wrapper cards_3">
-                        <div class="mcard">
-                            <img src="./static/print-sticker/ox.png"
-                                width="380" height="180"
-                                alt="Наліпки, наклейки і стікери прямокутної форми під замовлення"
-                                class="mcard__image bg_img width_100" />
-                            <div class="mcar__info" tabindex="1">
-                                <h4 class="text_16__bold">Паперова Blackout</h4>
-                                <div class="mcar__info__details ">
-                                    <div class="col small_gap width_100">
-                                        <div class="row_sp_btw width_100">
-                                            <span class="text_14__gray flex_2">Виробник:</span>
-                                            <span class="text_14 flex_3">Ritrama</span>
-                                        </div>
-
-                                        <div class="row_sp_btw width_100">
-                                            <span class="text_14__gray flex_2">Клеюча основа:</span>
-                                            <span class="text_14 flex_3">акрилова постійна</span>
-                                        </div>
-                                        <div class="row_sp_btw width_100">
-                                            <span class="text_14__gray flex_2">Покриття:</span>
-                                            <span class="text_14 flex_3">Машинне крейдування</span>
-                                        </div>
-                                        <div class="row_sp_btw width_100">
-                                            <span class="text_14__gray flex_2">Щільність:</span>
-                                            <span class="text_14 flex_3">85 г/м²</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="col small_gap width_100">
-                                        <div class="col width_100">
-                                            <span class="text_14__gray">Вологотривкість:</span>
-                                            <div class="row_center gap width_100">
-                                                <i class="raiting_6" aria-label="Вологотривкість 6 із 10"
-                                                    title="При сильному зволожені паперова основа зморщується але структура не руйнується та повертається майже до вихідного вигляду після просушення"></i>
-                                                <span class="text_14__gray">6/10</span>
-                                            </div>
-                                        </div>
-                                        <div class="col width_100">
-                                            <span class="text_14__gray">Стійкість до мастил:</span>
-                                            <div class="row_center gap width_100">
-                                                <i class="raiting_3" aria-label="Стійкість до мастил 3 із 10"></i>
-                                                <span class="text_14__gray">3/10</span>
-                                            </div>
-                                        </div>
-                                        <div class="col width_100">
-                                            <span class="text_14__gray">Стійкість до низьких температур:</span>
-                                            <div class="row_center gap width_100">
-                                                <i class="raiting_7"
-                                                    aria-label="Стійкість до низьких температур 7 із 10"
-                                                    title="При значній зміні температури, в умовах утворення конденсату можливе розмокання паперової основи"></i>
-                                                <span class="text_14__gray">7/10</span>
-                                            </div>
-                                        </div>
-                                        <div class="col width_100">
-                                            <span class="text_14__gray">Стійкість до механічного впливу:</span>
-                                            <div class="row_center gap width_100">
-                                                <i class="raiting_7" aria-label="raiting 7/10"
-                                                    title="Призначенння наклейки - етикетка для пакування тож незначний механічний вплив не шкодить"></i>
-                                                <span class="text_14__gray">7/10</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="text_14">Білий середньоглянцевий крейдований самоклеючий папір щільністю 85
-                                    г/м².
-                                </p>
-                                <div class="mcar__info__details">
-                                    <p>Білий середньоглянцевий крейдований папір щільністю 85 г/м². Універсальний
-                                        самоклеючий
-                                        етикеточний папір для маркування в логістиці, харчових продуктів, стікерпаків,
-                                        попереджувальних етикеток, POS матеріалів тощо</p>
-                                    <a title="Натисніть щоб закрити вікно" href="#" class=" mcard_close"
-                                        aria-label="">+</a>
-                                </div>
-                                <a title="Натисніть щоб дізнатись більше про матеріал" href="#" class="sub_link"
-                                    aria-label="Відкирити довідку про матеріал">
-                                    <span>ДОКЛАДНІШЕ</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="mcard__wrapper cards_3">
-                        <div class="mcard">
-                            <img src="./static/print-sticker/print-stikers-upm-craft.png" alt="Наліпки, наклейки і стікери прямокутної форми під замовлення" class="mcard__image bg_img width_100" width="380" height="180" />
-                            <div class="mcar__info" tabindex="1">
-                                <h4 class="text_16__bold">Бурий крафт</h4>
-                                <div class="mcar__info__details ">
-                                    <div class="col small_gap width_100">
-                                        <div class="row_sp_btw width_100">
-                                            <span class="text_14__gray flex_2">Виробник:</span>
-                                            <span class="text_14 flex_3">Raflatac UPM</span>
-                                        </div>
-
-                                        <div class="row_sp_btw width_100">
-                                            <span class="text_14__gray flex_2">Клеюча основа:</span>
-                                            <span class="text_14 flex_3">акрилова екстрапостійна</span>
-                                        </div>
-                                        <div class="row_sp_btw width_100">
-                                            <span class="text_14__gray flex_2">Покриття:</span>
-                                            <span class="text_14 flex_3">Машинне крейдування</span>
-                                        </div>
-                                        <div class="row_sp_btw width_100">
-                                            <span class="text_14__gray flex_2">Щільність:</span>
-                                            <span class="text_14 flex_3">85 г/м²</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="col small_gap width_100">
-                                        <div class="col width_100">
-                                            <span class="text_14__gray">Вологотривкість:</span>
-                                            <div class="row_center gap width_100">
-                                                <i class="raiting_6" aria-label="Вологотривкість 6 із 10"
-                                                    title="При сильному зволожені паперова основа зморщується але структура не руйнується та повертається майже до вихідного вигляду після просушення"></i>
-                                                <span class="text_14__gray">6/10</span>
-                                            </div>
-                                        </div>
-                                        <div class="col width_100">
-                                            <span class="text_14__gray">Стійкість до мастил:</span>
-                                            <div class="row_center gap width_100">
-                                                <i class="raiting_3" aria-label="Стійкість до мастил 3 із 10"></i>
-                                                <span class="text_14__gray">3/10</span>
-                                            </div>
-                                        </div>
-                                        <div class="col width_100">
-                                            <span class="text_14__gray">Стійкість до низьких температур:</span>
-                                            <div class="row_center gap width_100">
-                                                <i class="raiting_7"
-                                                    aria-label="Стійкість до низьких температур 7 із 10"
-                                                    title="При значній зміні температури, в умовах утворення конденсату можливе розмокання паперової основи"></i>
-                                                <span class="text_14__gray">7/10</span>
-                                            </div>
-                                        </div>
-                                        <div class="col width_100">
-                                            <span class="text_14__gray">Стійкість до механічного впливу:</span>
-                                            <div class="row_center gap width_100">
-                                                <i class="raiting_7" aria-label="raiting 7/10"
-                                                    title="Призначенння наклейки - етикетка для пакування тож незначний механічний вплив не шкодить"></i>
-                                                <span class="text_14__gray">7/10</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="text_14">Білий середньоглянцевий крейдований самоклеючий папір щільністю 85
-                                    г/м².
-                                </p>
-                                <div class="mcar__info__details">
-                                    <p>Білий середньоглянцевий крейдований папір щільністю 85 г/м². Універсальний
-                                        самоклеючий
-                                        етикеточний папір для маркування в логістиці, харчових продуктів, стікерпаків,
-                                        попереджувальних етикеток, POS матеріалів тощо</p>
-                                    <a title="Натисніть щоб закрити вікно" href="#" class=" mcard_close"
-                                        aria-label="">+</a>
-                                </div>
-                                <a title="Натисніть щоб дізнатись більше про матеріал" href="#" class="sub_link"
-                                    aria-label="Відкирити довідку про матеріал">
-                                    <span>ДОКЛАДНІШЕ</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    </li>
+                </ul>
+            </article>
+            <arcticle class="cart_summary_card flex_2">
+                <span class="text_32">Разом</span>
+                <div class="row_sp_btw">
+                    <span class="text_12">{{items_amount_in_cart}} товарів на суму</span>
+                    <span class="text_12">{{price_per_all_items_in_cart}}</span>
                 </div>
-            </div>
-        </section>
+                <div class="cart_summary_card_price">
+                    <span class="text_12">До сплати</span>
+                    <span class="text_24">{{price_for_pay}}</span>
+                </div>
+                <a class="button__primary width_100" href="{{go_to_checkout}}"
+                    title="Натисніть щоб перейти до оформлення замовлення"> ЗАМОВЛЕННЯ
+                    ПІДТВЕРДЖУЮ</a>
+                <div class="col">
+                    <span class="text_12">Підтверджуючи замовлення, я приймаю умови:</span>
+                    <ul class="list">
+                        <li>
+                            <a href="#" class="text_12 link">положення про обробку і захист персональних даних</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text_12 link">угоди користувача</a>
+                        </li>
+                    </ul>
+                </div>
+            </arcticle>
+        </div>
     </main>
 </body>
 
