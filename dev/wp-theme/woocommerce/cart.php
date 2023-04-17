@@ -47,13 +47,25 @@ defined('ABSPATH') || exit;
                                         if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_cart_item_visible', true, $cart_item, $cart_item_key)):
                                             $product_permalink = apply_filters('woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink($cart_item) : '', $cart_item, $cart_item_key);
                                             ?>
-
-                                            <!-- Вміст кошика тут -->
                                             <li class="cart_item">
-                                                <img src="<?php echo get_the_post_thumbnail_url($_product->get_id()); ?>"
-                                                    alt="<?php echo $_product->get_name(); ?>" width="200" height="100"
+                                                <?php
+                                                $fpd_data = $cart_item['fpd_data'];
+                                                $fpd_preview_image = $fpd_data['fpd_product_thumbnail']; // Замініть 'fpd_data' на відповідний ключ метаданих
+                                    
+                                                if (!empty($fpd_preview_image)) {
+                                                    $product_image_url = $fpd_preview_image;
+                                                } else {
+                                                    $product_image_url = esc_url(get_the_post_thumbnail_url($_product->get_id()));
+                                                }
+
+                                                $alt_text = $_product->get_name();
+                                                ?>
+
+                                                <img src="<?php echo $product_image_url; ?>"
+                                                    alt="<?php echo esc_attr($alt_text); ?>" width="200" height="100"
                                                     class="cart_item_image bg_img">
-                                                <div class="col small_gap flex_4">
+
+                                                <div class="col small_gap flex_3">
                                                     <span class="text_16__bold">
                                                         <?php echo $_product->get_name(); ?>
                                                     </span>
@@ -64,30 +76,26 @@ defined('ABSPATH') || exit;
                                                         class="text_12 link">Редагувати
                                                         дизайн</a>
                                                 </div>
-                                                <div class="col_end flex_1">
-
+                                                <div class="col_end flex_2">
                                                     <span class="cart_item_price">
                                                         <?php echo WC()->cart->get_product_subtotal($_product, $cart_item['quantity']); ?>
                                                     </span>
                                                     <div class="row big_gap">
                                                         <div class="quantity">
                                                             <?php
-                                                            if ($_product->is_sold_individually()) {
-                                                                $product_quantity = sprintf('1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key);
-                                                            } else {
-                                                                $product_quantity = woocommerce_quantity_input(
-                                                                    array(
-                                                                        'input_name' => "cart[{$cart_item_key}][qty]",
-                                                                        'input_value' => $cart_item['quantity'],
-                                                                        'max_value' => $_product->get_max_purchase_quantity(),
-                                                                        'min_value' => '0',
-                                                                        'product_name' => $_product->get_name(),
-                                                                    ),
-                                                                    $_product,
-                                                                    false
-                                                                );
-                                                            }
-                                                            echo apply_filters('woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item);
+                                                            $product_quantity = woocommerce_quantity_input(
+                                                                array(
+                                                                    'input_name' => "cart[{$cart_item_key}][qty]",
+                                                                    'input_value' => $cart_item['quantity'],
+                                                                    'max_value' => $max_quantity,
+                                                                    'min_value' => $min_quantity,
+                                                                    'product_name' => $_product->get_name(),
+                                                                ),
+                                                                $_product,
+                                                                false
+                                                            );
+
+                                                            echo apply_filters('woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item); // PHPCS: XSS ok.
                                                             ?>
                                                         </div>
                                                         <?php
@@ -134,11 +142,8 @@ defined('ABSPATH') || exit;
                                 <a class="button__primary width_100" href="<?php echo esc_url(wc_get_checkout_url()); ?>"
                                     title="Натисніть щоб перейти до оформлення замовлення">ПЕРЕЙТИ ДО ОФОРМЛЕННЯ</a>
                             </div>
-                            <span class="text_12">Перейшовши до оформнення Ви підтверджуєте що перевірили зміст та склад
-                                створенного дизайну або обраного готового виробу. Готовий виріб або створений дизайн
-                                матиме вигляд що було створено у редакторі або показано на фото з можливими
-                                відхилення згідно до технічних можливостей.</span>
-
+                            <span class="text_12">Підтверджуючи оформлення, ви переконуєтеся у відповідності дизайну або
+                                виробу, з можливими відхиленнями через технічні обмеження.</span>
                         </article>
                     <?php endif; ?>
                     <?php do_action('woocommerce_cart_contents'); ?>
@@ -158,3 +163,8 @@ defined('ABSPATH') || exit;
 </body>
 
 </html>
+
+`<img src="<?php echo get_the_post_thumbnail_url($_product->get_id()); ?>" alt="<?php echo $_product->get_name(); ?>"
+    width="200" height="100" class="cart_item_image bg_img">`
+перероби цей код додавши умову для виводу за наявності превʼю створенного дизану у fancy poduct designer, а якщо немає,
+то стандартне зображення товару

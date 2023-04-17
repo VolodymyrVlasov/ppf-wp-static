@@ -17,7 +17,7 @@ const ftp = vinylFtp.create({
     host: process.env.FTP_HOST,
     user: process.env.FTP_USER,
     password: process.env.FTP_PASSWORD,
-    parallel: 5,
+    parallel: 15,
     log: util.log
 });
 
@@ -92,7 +92,7 @@ export const buildpages = (done) => {
 
     stream.
         pipe(webpHtml())
-        .pipe(htmlminify())
+        // .pipe(htmlminify())
         .pipe(gulp.dest("www/"));
 
     gulp.src(srcCSS, { aloowEmpty: true })

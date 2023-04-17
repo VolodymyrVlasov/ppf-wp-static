@@ -29,8 +29,9 @@
     width: 100%;
 }
 
-.cart_items_card_list:hover {
-    background-color: var(--color-light-light-gray);
+.cart_items_card_list>.cart_item:not(:last-child) {
+    padding-bottom: var(--size-gap);
+    border-bottom: 0.3px solid var(--color-gray);
 }
 
 .cart_item {
@@ -38,6 +39,12 @@
     gap: var(--size-gap);
     width: 100%;
     cursor: default;
+    transition: var(--time-tr-time);
+}
+
+.cart_item:hover {
+    transform: scale(1.025);
+    /* background-color: var(--color-light-light-gray); */
 }
 
 .cart_item_price {
