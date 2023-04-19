@@ -1,0 +1,90 @@
+.row:has(>.checkout_checkbox) {
+    flex-wrap: nowrap;
+}
+
+.checkout_checkbox:checked {
+    display: flex;
+    opacity: 0;
+    width: 12px;
+}
+
+.checkout_checkbox {
+    display: flex;
+    opacity: 0;
+    width: 12px;
+}
+
+.checkout_checkbox_label {
+    position: relative;
+    display: flex;
+    font-size: 12px;
+    margin-left: 26px;
+
+}
+
+.checkout_checkbox_label::before {
+    content: "";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: -38px;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    color: white;
+    background-color: transparent;
+    border: 1px solid var(--color-gray);
+    border-radius: 2px;
+}
+
+.checkout_checkbox:checked~::before {
+    content: "✔";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: -38px;
+    top: 4px;
+    font-size: 16px;
+    color: white;
+    background-color: var(--color-theme);
+    border: 1px solid var(--color-theme);
+    border-radius: 2px;
+}
+
+.checkout_input_text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.checkout_input_text>label {
+    font-size: 12px;
+    color: var(--color-gray);
+    margin: 0 0 4px 8px;
+}
+
+.checkout_input_text>input {
+   font-size: 16px;
+   padding: 12px 8px;
+   border-radius: var(--size-border-radius);
+   border: 1px solid var(--color-gray);
+}
+
+.checkout_input_text>input:hover,
+.checkout_input_text>input:focus {
+   border: 1px solid var(--color-theme);
+}
+
+.checkout_input_text>input:focus {
+    outline: 1px solid var(--color-theme);
+ }
+
+ .checkout_input_text>input::placeholder {
+    font-size: 16px;
+    color: var(--color-gray);
+ }

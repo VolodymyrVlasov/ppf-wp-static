@@ -24,7 +24,7 @@
 
 .sub_link :first-child:after {
     content: "";
-    background: url("./static/icons/icon-arrow-menu.svg") no-repeat 100% top;
+    background: url("{{stylesheet_url}}/static/icons/icon-arrow-menu.svg") no-repeat 100% top;
     background-size: 100% 200%;
     display: inline-block;
     width: 20px;
@@ -103,7 +103,7 @@
 .button_icon {
     width: var(--size-icon);
     height: var(--size-icon);
-    background: url("./static/icons/icon-viber.svg") center/100% no-repeat;
+    background: url("{{stylesheet_url}}/static/icons/icon-viber.svg") center/100% no-repeat;
     margin-right: 12px;
     margin-top: 4px;
     filter: grayscale(100%);
@@ -119,7 +119,7 @@
 .button_icon__primary {
     width: var(--size-icon);
     height: var(--size-icon);
-    background: url("./static/icons/icon-viber.svg") center/100% no-repeat;
+    background: url("{{stylesheet_url}}/static/icons/icon-viber.svg") center/100% no-repeat;
     margin-right: 12px;
     margin-top: 4px;
     filter: invert(1) brightness(10)!important;  

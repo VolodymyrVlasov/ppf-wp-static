@@ -138,14 +138,14 @@
     width: 24px;
     height: 24px;
     padding: 0 !important;
-    background-image: url("./static/icons/icon-shopping-cart.svg");
+    background-image: url("{{stylesheet_url}}/static/icons/icon-shopping-cart.svg");
     background-size: 200% 100%;
     background-position: left;
     transition: none;
 }
 
 .menu_item__cart:hover {
-    background-image: url("./static/icons/icon-shopping-cart.svg");
+    background-image: url("{{stylesheet_url}}/static/icons/icon-shopping-cart.svg");
     background-position: right;
 }
 
@@ -201,7 +201,7 @@
 
 .before_tel:before {
     content: "";
-    background: url("./static/icons/icon-tel.svg") center / 100% no-repeat;
+    background: url("{{stylesheet_url}}/static/icons/icon-tel.svg") center / 100% no-repeat;
     margin: 2px 20px 0 0;
     display: flex;
     width: 16px;
@@ -210,7 +210,7 @@
 
 .before_mail:before {
     content: "";
-    background: url("./static/icons/icon-email.svg") center / 100% no-repeat;
+    background: url("{{stylesheet_url}}/static/icons/icon-email.svg") center / 100% no-repeat;
     margin: 2px 20px 0 0;
     display: flex;
     width: 16px;
@@ -219,7 +219,7 @@
 
 .before_telegram:before {
     content: "";
-    background: url("./static/icons/icon-telegram.svg") center / 100% no-repeat;
+    background: url("{{stylesheet_url}}/static/icons/icon-telegram.svg") center / 100% no-repeat;
     margin: 2px 20px 0 0;
     display: flex;
     width: 16px;
@@ -228,7 +228,7 @@
 
 .before_viber:before {
     content: "";
-    background: url("./static/icons/icon-viber.svg") center / 100% no-repeat;
+    background: url("{{stylesheet_url}}/static/icons/icon-viber.svg") center / 100% no-repeat;
     margin: 2px 20px 0 0;
     display: flex;
     width: 16px;
@@ -237,7 +237,7 @@
 
 .before_location:before {
     content: "";
-    background: url("./static/icons/icon-location.svg") center / 100% no-repeat;
+    background: url("{{stylesheet_url}}/static/icons/icon-location.svg") center / 100% no-repeat;
     margin: 2px 20px 0 0;
     display: flex;
     width: 16px;
@@ -351,7 +351,7 @@
     }
 
     .mob_menu_btn {
-        background: url("./static/icons/icon-mob-menu.svg") no-repeat left 100%;
+        background: url("{{stylesheet_url}}/static/icons/icon-mob-menu.svg") no-repeat left 100%;
         background-size: 200% 100%;
         display: flex;
         width: 32px;
@@ -399,10 +399,6 @@
         display: flex;
     }
 
-    /* .menu_item__cart~.menu_item__link {
-        display: flex;
-    } */
-
     .menu_contacts {
         display: none;
     }
@@ -434,7 +430,7 @@
         width: 24px;
         height: 24px;
         margin: auto 0 auto 12px;
-        background-image: url("./static/icons/icon-arrow-menu.svg");
+        background-image: url("{{stylesheet_url}}/static/icons/icon-arrow-menu.svg");
         background-position: top;
         background-size: 100% 200%;
         background-repeat: no-repeat;
@@ -485,7 +481,7 @@
         width: 24px;
         height: 24px;
         margin: auto 24px auto 0;
-        background-image: url("./static/icons/icon-shopping-cart.svg");
+        background-image: url("{{stylesheet_url}}/static/icons/icon-shopping-cart.svg");
         background-position: left;
         background-size: 200% 100%;
         background-repeat: no-repeat;

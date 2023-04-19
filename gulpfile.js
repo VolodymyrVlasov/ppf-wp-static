@@ -24,7 +24,7 @@ const ftp = vinylFtp.create({
 export const clear = (done) => {
     deleteSync(["paperfox/"]);
     deleteSync(["www/"]);
-    deleteSync(["devPreview/"]);
+
 
     ftp.rmdir("/paperfox.in.ua/shop/wp-content/themes/paperfox", (err) => {
         if (err) {
@@ -47,24 +47,29 @@ export const clear = (done) => {
 export const buildwp = (done) => {
     // deleteSync(["paperfox/"]);
 
-    let stream = gulp.src("dev/wp-theme/**/*.php", { aloowEmpty: true })
-        .pipe(fileInclude({ prefix: '@@', basepath: '@file' }));
+    let streamPhp = gulp.src("dev/wp-theme/**/*.php", { aloowEmpty: true });
+    streamPhp.pipe(fileInclude({ prefix: '@@', basepath: '@file' }));
 
-    for (const [placeholder, value] of Object.entries(wwwVar)) {
-        stream = stream.pipe(replace(placeholder, value));
+    for (const [placeholder, value] of Object.entries(wpVar)) {
+        streamPhp = streamPhp.pipe(replace(placeholder, value));
     }
 
-    stream
+    streamPhp
         .pipe(webpHtml())
         .pipe(replace('src="./static', 'src="<?php echo get_template_directory_uri();?>/static'))
         .pipe(gulp.dest("paperfox/"));
 
+
     gulp.src("dev/wp-theme/screenshot.png")
         .pipe(gulp.dest("paperfox/"));
 
-    gulp.src("dev/styles/**/*.css")
-        .pipe(concat('style.css'))
-        .pipe(gulp.dest("paperfox/"));
+    let streamCss = gulp.src("dev/styles/**/*.css", { aloowEmpty: true });
+    streamCss.pipe(concat('style.css'))
+    streamCss.pipe(gulp.dest("paperfox/"));
+
+    for (const [placeholder, value] of Object.entries(wpVar)) {
+        streamCss = streamCss.pipe(replace(placeholder, value));
+    }
 
     gulp.src("dev/static/**/*")
         .pipe(webp({ quality: 80 }))
@@ -108,27 +113,36 @@ export const buildpages = (done) => {
 }
 
 export const dev = (done) => {
-    let stream = gulp.src(["dev/pages/**/*.html"], { aloowEmpty: true });
-    stream.pipe(fileInclude({ prefix: '@@', basepath: '@file' }));
+    // deleteSync(["devPreview/"]);
 
-    for (const [placeholder, value] of Object.entries(wwwVar)) {
-        stream = stream.pipe(replace(placeholder, value));
-    }
-    stream
-        .pipe(webpHtml())
-        // .pipe(replace('href="./style', 'href="../style'))
-        .pipe(gulp.dest("devPreview/"));
+    setTimeout(() => {
+        let streamHtml = gulp.src(["dev/pages/**/*.html"], { aloowEmpty: true });
+        streamHtml.pipe(fileInclude({ prefix: '@@', basepath: '@file' }));
 
-    gulp.src(['dev/styles/*.css'])
-        .pipe(replace('url("./static', 'url("../static'))
-        .pipe(gulp.dest("devPreview/styles/"));
+        for (const [placeholder, value] of Object.entries(devVar)) {
+            streamHtml = streamHtml.pipe(replace(placeholder, value));
+        }
+        streamHtml
+            .pipe(webpHtml())
+            .pipe(gulp.dest("devPreview/"));
 
-    gulp.src("dev/static/**/*")
-        .pipe(gulp.dest("devPreview/static/"))
-        .pipe(webp({ quality: 90 }))
-        .pipe(gulp.dest("devPreview/static/"));
+        let streamCss = gulp.src(["dev/styles/*.css"], { aloowEmpty: true });
 
-    return done();
+        for (const [placeholder, value] of Object.entries(devVar)) {
+            streamCss = streamCss.pipe(replace(placeholder, value));
+        }
+
+        streamCss
+            .pipe(replace('url("./static', 'url("../static'))
+            .pipe(gulp.dest("devPreview/styles/"));
+
+        // gulp.src("dev/static/**/*")
+        //     .pipe(gulp.dest("devPreview/static/"))
+        //     .pipe(webp({ quality: 90 }))
+        //     .pipe(gulp.dest("devPreview/static/"));
+
+        return done();
+    }, 200);
 }
 
 export const deploywp = (done) => {

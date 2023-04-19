@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="shortcut icon" href="{{stylesheet_url}}/static/icons/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="{{stylesheet_url}}/styles/style.css">
+    <title>Оформлення замовлення | PaperFox</title>
+</head>
+
+<body>
+    @@include('../../partials/header.html')
+    <main>
+        <section class="section" id="cart-section">
+            <div class="container col big_gap">
+                <h1 class="text_32__bold">Оформлення замовлення</h1>
+                <form class="row big_gap">
+                    <div class="col big_gap flex_4">
+                        <div class="col gap width_100 ">
+                            <div class="row big_gap width_100">
+                                <div class="checkout_input_text">
+                                    <label for="checkout-name">Імʼя</label>
+                                    <input type="text" name="name" id="checkout-name" required="true"
+                                        placeholder="Тарас">
+                                </div>
+                                <div class="checkout_input_text">
+                                    <label for="checkout-lastname">Прізвище</label>
+                                    <input type="text" name="lastname" id="checkout-lastname" required="true"
+                                        placeholder="Шевченко">
+                                </div>
+                            </div>
+                            <div class="row big_gap width_100">
+                                <div class="checkout_input_text">
+                                    <label for="checkout-tel">Мобільний телефон</label>
+                                    <input type="tel" name="phone" id="checkout-tel" required="true"
+                                        placeholder=" +38 077 777 7777">
+                                </div>
+                                <div class="checkout_input_text">
+                                    <label for="checkout-email">Електронна пошта</label>
+                                    <input type="email" name="email" id="checkout-email" required="true"
+                                        placeholder="syperman@shevchenko.ua">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col gap width_100 ">
+                            <div class="checkout_input_radio">
+                                <label for="checkout-delivery-pickup">Самовивіз з нашого офісу</label>
+                                <input type="radio" name="checkout-delivery" id="checkout-delivery-pickup" checked>
+                            </div>
+                            <div class="checkout_input_radio">
+                                <label for="checkout-delivery-np-office">Самовивіз з Нової Пошти</label>
+                                <input type="radio" name="checkout-delivery" id="checkout-delivery-np-office">
+                            </div>
+                            <div class="checkout_input_radio">
+                                <label for="checkout-delivery-np-postbox">Поштомат Нової Пошти</label>
+                                <input type="radio" name="checkout-delivery" id="checkout-delivery-np-postbox">
+                            </div>
+                            <div class="checkout_input_radio">
+                                <label for="checkout-delivery-np-address">Адресна доставка Нової Пошти</label>
+                                <input type="radio" name="checkout-delivery" id="checkout-delivery-np-address">
+                            </div>
+                        </div>
+
+                        <div class="col gap width_100 ">
+                            <div class="checkout_input_radio">
+                                <label for="checkout-payment-liqpay">LiqPay</label>
+                                <input type="radio" name="checkout-payment" id="checkout-delivery-liqpay" checked>
+                            </div>
+                            <div class="checkout_input_radio">
+                                <label for="checkout-payment-privatpay">PrivatPay</label>
+                                <input type="radio" name="checkout-payment" id="checkout-payment-privatpay">
+                            </div>
+                            <div class="checkout_input_radio">
+                                <label for="checkout-payment-iban">IBAN (рахунок для юридичної особи чи ФОП)</label>
+                                <input type="radio" name="checkout-payment" id="checkout-payment-iban">
+                            </div>
+                            <div class="checkout_input_radio">
+                                <label for="checkout-payment-privatcard">На карту Приватбанку</label>
+                                <input type="radio" name="checkout-payment" id="checkout-payment-privatcard">
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="cart_summary_card flex_2">
+                        <span class="text_32">Разом</span>
+                        <div class="row_sp_btw">
+                            <span class="text_12">5 товарів на суму</span>
+                            <span class="text_12">750</span>
+                        </div>
+                        <div class="cart_summary_card_price">
+                            <span class="text_12">До сплати</span>
+                            <span class="text_24">750</span>
+                        </div>
+                        <a class="button__primary width_100" href="#" title="short description">ОФОРМИТИ ЗАМОВЛЕННЯ</a>
+                        <div class="row">
+                            <input type="checkbox" checked class="checkout_checkbox" required
+                                id="user-policy-confirmation">
+                            <label for="user-policy-confirmation" class="checkout_checkbox_label">Перейшовши до
+                                оформнення Ви підтверджуєте що перевірили зміст та склад створенного дизайну або
+                                обраного готового виробу. Готовий виріб або створений дизайн матиме вигляд що було
+                                створено у редакторі або показано на фото з можливими відхилення згідно до технічних
+                                можливостей</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    @@include('../../partials/footer.html')
+</body>
+
+</html>
