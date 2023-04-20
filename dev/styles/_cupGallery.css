@@ -23,7 +23,7 @@
     transition: var(--time-tr-time);
 }
 
-input[type="radio"] {
+.slider__picture_array_cnt>input[type="radio"] {
     display: none;
 }
 

@@ -20,6 +20,7 @@
                 <h1 class="text_32__bold">Оформлення замовлення</h1>
                 <form class="row big_gap">
                     <div class="col big_gap flex_4">
+                        <span class="text_24">Ваші контактні дані</span>
                         <div class="col gap width_100 ">
                             <div class="row big_gap width_100">
                                 <div class="checkout_input_text">
@@ -42,48 +43,99 @@
                                 <div class="checkout_input_text">
                                     <label for="checkout-email">Електронна пошта</label>
                                     <input type="email" name="email" id="checkout-email" required="true"
-                                        placeholder="syperman@shevchenko.ua">
+                                        placeholder="superman@shevchenko.ua">
                                 </div>
                             </div>
                         </div>
+                        <span class="text_24">Доставка</span>
+                        <ul class="col gap width_100">
+                            <li class="checkout_input_radio_wrapper">
+                                <div class="checkout_input_radio">
+                                    <input type="radio" name="checkout-delivery" id="checkout-delivery-pickup" checked>
+                                    <label for="checkout-delivery-pickup">Самовивіз з нашого офісу</label>
+                                </div>
+                                <span class="checkout_input_radio_legend">м. Київ, вул. Ярославська 14/20. Окреми вхід з
+                                    фасаду, цокольний поверх.<br>Видача замовлень: понеділок - пʼятниця, 11:00 -
+                                    19:00</span>
+                            </li>
+                            <li class="checkout_input_radio_wrapper">
+                                <div class="checkout_input_radio">
+                                    <input type="radio" name="checkout-delivery" id="checkout-delivery-np-office">
+                                    <label for="checkout-delivery-np-office">Самовивіз з Нової Пошти</label>
+                                </div>
+                                <div class="checkout_input_radio_legend">
+                                    <div class="checkout_input_text width_100">
+                                        <label for="checkout-delivery-postoffice">Відділення Нової Пошти</label>
+                                        <input type="text" name="checkout-delivery-postoffice"
+                                            id="checkout-delivery-postoffice" required="true"
+                                            placeholder="№57, вул. Костянтинівська, 24 (метро Контрактова Площа)">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="checkout_input_radio_wrapper">
+                                <div class="checkout_input_radio">
+                                    <input type="radio" name="checkout-delivery" id="checkout-delivery-np-postbox">
+                                    <label for="checkout-delivery-np-postbox">Поштомат Нової Пошти</label>
+                                </div>
+                                <div class="checkout_input_radio_legend">
+                                    <div class="checkout_input_text width_100">
+                                        <label for="checkout-delivery-postoffice">Номер поштомата</label>
+                                        <input type="text" name="checkout-delivery-postoffice"
+                                            id="checkout-delivery-postoffice" required="true"
+                                            placeholder="№6753, Таунхауз, вул. Центральна, 49а">
+                                    </div>
+                                </div>
 
-                        <div class="col gap width_100 ">
-                            <div class="checkout_input_radio">
-                                <label for="checkout-delivery-pickup">Самовивіз з нашого офісу</label>
-                                <input type="radio" name="checkout-delivery" id="checkout-delivery-pickup" checked>
-                            </div>
-                            <div class="checkout_input_radio">
-                                <label for="checkout-delivery-np-office">Самовивіз з Нової Пошти</label>
-                                <input type="radio" name="checkout-delivery" id="checkout-delivery-np-office">
-                            </div>
-                            <div class="checkout_input_radio">
-                                <label for="checkout-delivery-np-postbox">Поштомат Нової Пошти</label>
-                                <input type="radio" name="checkout-delivery" id="checkout-delivery-np-postbox">
-                            </div>
-                            <div class="checkout_input_radio">
-                                <label for="checkout-delivery-np-address">Адресна доставка Нової Пошти</label>
-                                <input type="radio" name="checkout-delivery" id="checkout-delivery-np-address">
-                            </div>
-                        </div>
+                            </li>
+                            <li class="checkout_input_radio_wrapper">
+                                <div class="checkout_input_radio">
+                                    <input type="radio" name="checkout-delivery" id="checkout-delivery-np-address">
+                                    <label for="checkout-delivery-np-address">Адресна доставка Нової Пошти</label>
+                                </div>
+                                <div class="checkout_input_radio_legend">
+                                    <div class="row gap">
+                                        <div class="checkout_input_text flex_4">
+                                            <label for="checkout-delivery-postoffice">Вулиця</label>
+                                            <input type="text" name="checkout-delivery-postoffice"
+                                                id="checkout-delivery-postoffice" required="true"
+                                                placeholder="вул. Центральна">
+                                        </div>
+                                        <div class="checkout_input_text flex_1">
+                                            <label for="checkout-delivery-postoffice">Будинок</label>
+                                            <input type="text" name="checkout-delivery-postoffice"
+                                                id="checkout-delivery-postoffice" required="true" placeholder="49а">
+                                        </div>
 
-                        <div class="col gap width_100 ">
-                            <div class="checkout_input_radio">
-                                <label for="checkout-payment-liqpay">LiqPay</label>
+                                        <div class="checkout_input_text flex_1">
+                                            <label for="checkout-delivery-postoffice">Квартира чи офіс</label>
+                                            <input type="text" name="checkout-delivery-postoffice"
+                                                id="checkout-delivery-postoffice" required="true" placeholder="1">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </li>
+                        </ul>
+                        <span class="text_24">Оплата</span>
+                        <ul class="col gap width_100 ">
+                            <li class="checkout_input_radio">
                                 <input type="radio" name="checkout-payment" id="checkout-delivery-liqpay" checked>
-                            </div>
-                            <div class="checkout_input_radio">
-                                <label for="checkout-payment-privatpay">PrivatPay</label>
+                                <label for="checkout-payment-liqpay">LiqPay</label>
+                            </li>
+                            <li class="checkout_input_radio">
                                 <input type="radio" name="checkout-payment" id="checkout-payment-privatpay">
-                            </div>
-                            <div class="checkout_input_radio">
-                                <label for="checkout-payment-iban">IBAN (рахунок для юридичної особи чи ФОП)</label>
+                                <label for="checkout-payment-privatpay">PrivatPay</label>
+                            </li>
+                            <li class="checkout_input_radio">
                                 <input type="radio" name="checkout-payment" id="checkout-payment-iban">
-                            </div>
-                            <div class="checkout_input_radio">
-                                <label for="checkout-payment-privatcard">На карту Приватбанку</label>
+                                <label for="checkout-payment-iban">IBAN (рахунок для юридичної особи чи ФОП)</label>
+                            </li>
+                            <li class="checkout_input_radio">
                                 <input type="radio" name="checkout-payment" id="checkout-payment-privatcard">
-                            </div>
-                        </div>
+                                <label for="checkout-payment-privatcard">На карту Приватбанку</label>
+                            </li>
+                        </ul>
 
 
 
@@ -93,11 +145,11 @@
                         <span class="text_32">Разом</span>
                         <div class="row_sp_btw">
                             <span class="text_12">5 товарів на суму</span>
-                            <span class="text_12">750</span>
+                            <span class="text_12">750 ₴</span>
                         </div>
                         <div class="cart_summary_card_price">
                             <span class="text_12">До сплати</span>
-                            <span class="text_24">750</span>
+                            <span class="text_24">750 ₴</span>
                         </div>
                         <a class="button__primary width_100" href="#" title="short description">ОФОРМИТИ ЗАМОВЛЕННЯ</a>
                         <div class="row">
