@@ -25,7 +25,6 @@ export const clear = (done) => {
     deleteSync(["paperfox/"]);
     deleteSync(["www/"]);
 
-
     ftp.rmdir("/paperfox.in.ua/shop/wp-content/themes/paperfox", (err) => {
         if (err) {
             console.error('Error deleting directory:', err);
@@ -122,6 +121,7 @@ export const dev = (done) => {
         for (const [placeholder, value] of Object.entries(devVar)) {
             streamHtml = streamHtml.pipe(replace(placeholder, value));
         }
+        
         streamHtml
             .pipe(webpHtml())
             .pipe(gulp.dest("devPreview/"));

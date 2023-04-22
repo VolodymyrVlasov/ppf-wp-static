@@ -5,11 +5,13 @@
 .checkout_checkbox:checked {
     display: flex;
     opacity: 0;
-    width: 12px;
+    width: 12px !important;
 }
 
 .checkout_checkbox {
     opacity: 0;
+    width: 12px !important;
+    height: 0 !important;
 }
 
 .checkout_checkbox_label {
@@ -20,14 +22,14 @@
 }
 
 .checkout_checkbox_label::before {
-    content: "";
+    content: " ";
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     left: -38px;
     top: 4px;
-    width: 20px;
+    width: 20px !important; 
     height: 20px;
     font-size: 16px;
     color: white;
@@ -41,7 +43,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20px;
+    width: 20px !important;
     height: 20px;
     position: absolute;
     left: -38px;
@@ -150,11 +152,13 @@ ul:has(>.checkout_input_radio_wrapper) {
     font-weight: bold;
 }
 
-.checkout_input_radio:has(>input:checked)~.checkout_input_radio_legend {
+.checkout_input_radio:has(>input:checked)~.checkout_input_radio_legend,
+.checkout_recepient:has(>input:checked)~.checkout_input_radio_legend{
     opacity: 1;
     transform: translateY(0);
     height: fit-content !important;
     width: 100%;
+    
 }
 
 .checkout_input_radio_legend {
@@ -166,5 +170,29 @@ ul:has(>.checkout_input_radio_wrapper) {
     color: var(--color-gray);
     transform: translateY(-100%);
     transition: var(--time-tr-time);
+}
 
+.checkout_cities_template {
+    display: flex;
+    gap: var(--size-gap);
+    padding-left: 46px;
+}
+
+.checkout_recepient {
+   display: flex;
+}
+
+.checkout_recepient>.checkout_checkbox_label {
+    width: 100%;
+}
+.checkout_recepient>.checkout_checkbox_label::before {
+   top: 0;
+}
+
+.checkout_recepient~.checkout_input_radio_legend {
+    padding-left: 0;
+}
+
+.checkout_recepient>.checkout_checkbox_label {
+    font-size: var(--font-text-16);
 }

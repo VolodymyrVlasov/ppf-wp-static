@@ -60,6 +60,9 @@ body {
     font-size: var(--font-text-16);
     font-weight: 600;
 }
+.text_16 {
+    font-size: var(--font-text-16);
+}
 
 .text_14 {
     font-size: var(--font-text-14);
@@ -69,6 +72,16 @@ body {
     font-size: var(--font-text-14);
     color: var(--color-gray);
 }
+
+.link_14__gray {
+    font-size: var(--font-text-14);
+    color: var(--color-gray);
+}
+
+.link_14__gray:hover {
+    color: var(--color-theme);
+}
+
 
 .text_12 {
     font-size: var(--font-text-12);
