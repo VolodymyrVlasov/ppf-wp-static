@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "npx gulp",
     "build": "npx gulp buildwp && npx gulp buildpages",
-    "deploy": "npx gulp clear && npx gulp buildwp && npx gulp buildpages && npx gulp deploywp  && npx gulp deploywww"
+    "deploy": "npx gulp clear && npx gulp buildwp && npx gulp buildpages && npx gulp deploywp  && npx gulp deploywww",
+    "bdplugin": "npx gulp build_wp_plugins && npx gulp deploywpplugins"
+
   },
   "repository": {
     "type": "git",
