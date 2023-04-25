@@ -49,7 +49,7 @@ export const buildwp = (done) => {
     let streamPhp = gulp.src("dev/wp-theme/**/*.php", { aloowEmpty: true });
     streamPhp.pipe(fileInclude({ prefix: '@@', basepath: '@file' }));
 
-    for (const [placeholder, value] of Object.entries(wpVar)) {
+    for (const [placeholder, value] of Object.entries(wwwVar)) {
         streamPhp = streamPhp.pipe(replace(placeholder, value));
     }
 
@@ -66,7 +66,7 @@ export const buildwp = (done) => {
     streamCss.pipe(concat('style.css'))
     streamCss.pipe(gulp.dest("paperfox/"));
 
-    for (const [placeholder, value] of Object.entries(wpVar)) {
+    for (const [placeholder, value] of Object.entries(wwwVar)) {
         streamCss = streamCss.pipe(replace(placeholder, value));
     }
 
