@@ -1,11 +1,10 @@
 export const DetailedSummaryCard = ({ product }) => {
-
     return `
-        <div class="col big_gap calculator_summary_cards">     
+        <div class="col big_gap calculator_summary_cards width_100">     
             <button type="button" id="detailed_price_btn" class="summary_details_btn"
                 aria-label="Більше інформації про розрахунок"
                 title="Більше інформації про розрахунок">+</button>
-            <div class="row big_gap width_100">
+            <div class="row small_gap width_100">
                 <div class="col gap flex_1">
                     <div class="row_sp_btw width_100 border_bottom">
                         <span class="text_12__gray">Наліпок на аркуші ${product.cutType == "KISS_CUT_A4" ? "А4:" : "А3:"}</span>
@@ -35,7 +34,7 @@ export const DetailedSummaryCard = ({ product }) => {
                     </div>
                 </div>
             </div> 
-            <div class="row big_gap width_100">
+            <div class="row small_gap width_100">
                 <div class="col gap flex_1">
                     <label for="prod-time">Готовність:</label>
                     <strong id="prod-time" class="link" title="Орієнтовні дата та час готовності, в залежності від особливостей макету, дати замовлення чи завантаженості виробництва можуть бути змінені">${product.finishTime}</strong>

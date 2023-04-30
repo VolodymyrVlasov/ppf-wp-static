@@ -17,7 +17,7 @@ export const SummaryCard = ({ product }) => {
                 title="Більше інформації про розрахунок">i</button> 
             <div class="col gap flex_1">
                 <label for="prod-time">Готовність:</label>
-                <strong id="prod-time"  class="link"
+                <strong id="prod-time"  class=""
                 title="Орієнтовні дата та час готовності, в залежності від особливостей макету, дати замовлення чи завантаженості виробництва можуть бути змінені">${product.finishTime}</strong>
             </div>
             <div class="col gap flex_1">

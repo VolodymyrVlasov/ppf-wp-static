@@ -8,7 +8,6 @@
     "build": "npx gulp buildwp && npx gulp buildpages",
     "deploy": "npx gulp clear && npx gulp buildwp && npx gulp buildpages && npx gulp deploywp  && npx gulp deploywww",
     "bdplugin": "npx gulp build_wp_plugins && npx gulp deploywpplugins"
-
   },
   "repository": {
     "type": "git",
@@ -44,6 +43,8 @@
     "gulp-webp-css": "^1.1.0",
     "gulp-webp-html": "^1.0.2",
     "gulp-webp-html-nosvg": "^1.1.1",
+    "through2": "^4.0.2",
+    "vinyl": "^3.0.0",
     "vinyl-ftp": "^0.6.1",
     "yargs": "^17.7.1"
   },

@@ -1,14 +1,14 @@
-import { AbstractCalculator } from "./js/AbstractCalculator.js";
-import { KISS_CUT_A4, KISS_CUT_A3, DIE_CUT } from "./js/CuttingTypes.js";
-import { MAX_PRINT_X_SKYCUT, MAX_PRINT_Y_SKYCUT, MAX_PRINT_X_SUMMA, MAX_PRINT_Y_SUMMA, BLEED_KISS_CUT, BLEED_DIE_CUT } from "./Sizes.js";
-import { SELFADHESIVE_CUT_PRICE, SELFADHESIVE_PRINT_PRICE } from "./js/Prices.js";
-import { RAFLATAC_MATTE, RAFLATAC_GLOSS, RITRAMA_MATTE, RITRAMA_GLOSS, RITRAMA_COATED } from "./js/MaterialTypes.js";
+import { AbstractCalculator } from "../AbstractCalculator.js";
+import { KISS_CUT_A4, KISS_CUT_A3, DIE_CUT } from "../../data/CuttingTypes.js";
+import { MAX_PRINT_X_SKYCUT, MAX_PRINT_Y_SKYCUT, MAX_PRINT_X_SUMMA, MAX_PRINT_Y_SUMMA, BLEED_KISS_CUT, BLEED_DIE_CUT } from "../../data/Sizes.js";
+import { SELFADHESIVE_CUT_PRICE, SELFADHESIVE_PRINT_PRICE } from "../../data/Prices.js";
+import { RAFLATAC_MATTE, RAFLATAC_GLOSS, RITRAMA_MATTE, RITRAMA_GLOSS, RITRAMA_COATED } from "../../data/MaterialTypes.js";
 
 export class RoundStickerCalculator extends AbstractCalculator {
-    constructor(product) {
+    constructor({product, printPrice = SELFADHESIVE_PRINT_PRICE, cutPrice = SELFADHESIVE_CUT_PRICE}) {
         super(product);
-        super.printPrice(SELFADHESIVE_PRINT_PRICE);
-        super.cutPrice(SELFADHESIVE_CUT_PRICE);
+        super.printPrice(printPrice);
+        super.cutPrice(cutPrice);
     }
 
     getAmountAtSheet() {

@@ -1,6 +1,6 @@
-import { PRINTRUN_INDEXES } from "./js/Prices.js";
-import { SummaryCard } from "./js/SummaryCard.js";
-import { DetailedSummaryCard } from "./js/DetailedSummaryCard.js";
+import { PRINTRUN_INDEXES } from "../data/Prices.js";
+import { SummaryCard } from "../components/SummaryCard.js";
+import { DetailedSummaryCard } from "../components/DetailedSummaryCard.js";
 
 export class AbstractCalculator {
     constructor(basicProduct) {
@@ -75,18 +75,19 @@ export class AbstractCalculator {
         this.cuttingTypeSelect = cuttingTypeSelect;
     }
 
-    renderCalculatorForm({ UIComponents, isShowDetails }) {
+    renderCalculatorForm({ UIComponents, isShowDetails, conditions}) {
         const container = document.getElementById("summary");
-        container.classList.replace
+
+        conditions && conditions();
 
         if (isShowDetails) {
-            container.classList.replace("flex_1", "flex_2");
+            container.classList.replace("flex_1", "flex_3");
             setTimeout(() => {
                 container.innerHTML = DetailedSummaryCard({ product: this.product })
             }, 50);
             // container.innerHTML = DetailedSummaryCard({ product: this.product });
         } else {
-            container.classList.replace("flex_2", "flex_1");
+            container.classList.replace("flex_3", "flex_1");
             container.innerHTML = SummaryCard({ product: this.product });
         }
         // container.innerHTML =
