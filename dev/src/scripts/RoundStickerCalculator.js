@@ -1,7 +1,5 @@
 import { RoundStickerCalculator } from "../calculators/impl/RoundStickerCalculator.js";
 import { customRange } from "../scripts/app.js";
-import { SummaryCard } from "../components/SummaryCard.js";
-import { DetailedSummaryCard } from "../components/DetailedSummaryCard.js";
 import { getPrice } from "../api/ApiPrices.js";
 
 const calculator = document.getElementById("calculator");
