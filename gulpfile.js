@@ -176,10 +176,10 @@ export const dev = (done) => {
         gulp.src(srcScripts, { aloowEmpty: true })
             .pipe(gulp.dest("devPreview/src/"));
 
-        gulp.src(srcStatic, { aloowEmpty: true })
-            .pipe(gulp.dest("devPreview/static/"))
-            .pipe(webp({ quality: 90 }))
-            .pipe(gulp.dest("devPreview/static/"));
+        // gulp.src(srcStatic, { aloowEmpty: true })
+        //     .pipe(gulp.dest("devPreview/static/"))
+        //     .pipe(webp({ quality: 90 }))
+        //     .pipe(gulp.dest("devPreview/static/"));
 
         return done();
     }, 200);

@@ -1,0 +1,156 @@
+.section .card {
+    position: relative;
+}
+
+
+.card_wrapper {
+    width: 100%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    transition: ease all 300ms;
+    width: 100%;
+    gap: var(--size-small-gap);
+}
+
+.card__info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--size-small-gap);
+}
+
+.card__details {
+    /* position: relative;
+    font-size: 14px;
+    display: inline-block;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: calc(var(--size-line-height) * 2);
+    line-height: var(--size-line-height); */
+
+    display: block;
+    /* Fallback for non-webkit */
+    display: -webkit-box;
+    max-height: calc(var(--size-line-height) * 2);
+    line-height: var(--size-line-height);
+    -webkit-line-clamp: 2;
+    /* if you change this, make sure to change the fallback line-height and height */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: default;
+}
+
+.card__raiting {
+    display: none;
+}
+
+.card__image {
+    display: flex;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    /* min-width: 380px; */
+    /* min-height: 180px; */
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.15);
+    filter: sepia(10%);
+    outline: none;
+    border: none;
+    transition: var(--time-tr-time);
+    overflow: hidden !important;
+}
+
+picture:has(>.card__image) {
+    height: var(--mcard-image-height) !important;
+    overflow: hidden;
+    border-radius: var(--size-border-radius);
+    min-width: 380px;
+    min-height: 180px;
+}
+
+.card__image:hover {
+    transform: scale(1.35);
+}
+
+.card_close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(100%, -70%) rotate(45deg) scale(1.5);
+    border-radius: 50%;
+    font-size: 40px;
+    color: white;
+    transition: 150ms;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.card__wrapper:focus-within {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw !important;
+    height: 100%;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+}
+
+.card:focus-within {
+    flex-direction: row;
+    gap: var(--size-gap);
+    width: 60%;
+    height: 70%;
+    max-height: fit-content;
+    margin-top: -32px;
+    background-color: white;
+    border-radius: var(--size-border-radius);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
+    animation: fade-in 1 1000ms;
+}
+
+.card:focus-within picture,
+.card:focus-within picture {
+    height: 100% !important;
+    width: 100%;
+
+    border-radius: var(--size-border-radius) 0 0 var(--size-border-radius) !important;
+}
+
+.card:focus-within .card__info {
+    width: 100%;
+    padding: 24px 24px 24px 0;
+    gap: var(--size-gap);
+}
+
+
+.card:focus-within .card__info>.text_16__bold {
+    font-size: 24px;
+}
+
+.card:focus-within .card__raiting {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-gap);
+    width: 100%;
+}
+
+.card:focus-within .card__details {
+    overflow: visible;
+    max-height: initial;
+    cursor: default;
+}
+
+.card:focus-within .sub_link {
+    height: 0 !important;
+    opacity: 0;
+}
