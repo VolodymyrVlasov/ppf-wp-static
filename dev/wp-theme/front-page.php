@@ -26,6 +26,33 @@
             </div>
         </section>
 
+
+        <section class="section" id="head-section">
+            <div class="container">
+                <?php
+                
+                $args = array(
+                    'post_type' => 'services',
+                    'post_status' => 'publish',
+                    'posts_per_page' => 8, 
+                    'orderby' => 'title', 
+                    'order' => 'ASC', 
+                    // Кількість постів, які треба вивести
+                );
+                $posts = get_posts($args);
+
+                // Виведення списку постів
+                foreach ($posts as $post) {
+                    setup_postdata($post);
+                    echo '<h2><a href="' . get_permalink() . '">' . get_the_title() . '</a></h2>';
+                    echo '<div>' . get_the_excerpt() . '</div>';
+                }
+
+                ?>
+
+            </div>
+        </section>
+
         <section class="section">
             <div class="container col big_gap">
                 <h2>CATEGORIES</h2>

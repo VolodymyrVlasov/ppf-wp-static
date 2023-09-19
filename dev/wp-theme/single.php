@@ -19,7 +19,29 @@
                 <span class="template">SINGLE.PHP</span>
             </div>
         </section>
-        <?php get_template_part( 'map', 'widget' ); ?>
+        <section class="section">
+            <div class="container">
+                <?php
+                $args = array(
+                    'post_status' => 'publish',
+                    'posts_per_page' => 8,
+                    'orderby' => 'title',
+                    'order' => 'ASC',
+                );
+                $posts = get_posts($args);
+
+                // Виведення списку постів
+                foreach ($posts as $post) {
+                    setup_postdata($post);
+                    echo '<h2><a href="' . get_permalink() . '">' . get_the_title() . '</a></h2>';
+                    echo '<div>' . get_the_excerpt() . '</div>';
+                }
+                ?>
+            </div>
+        </section>
+
+
+        <?php get_template_part('map', 'widget'); ?>
     </main>
     <?php get_footer(); ?>
     <?php wp_footer(); ?>
