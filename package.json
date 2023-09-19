@@ -7,7 +7,8 @@
     "dev": "npx gulp",
     "build": "npx gulp buildwp && npx gulp buildpages",
     "deploy": "npx gulp clear && npx gulp buildwp && npx gulp buildpages && npx gulp deploywp  && npx gulp deploywww",
-    "bdplugin": "npx gulp build_wp_plugins && npx gulp deploywpplugins"
+    "deploy-plugin": "npx gulp build_wp_plugins && npx gulp deploywpplugins",
+    "deploy-theme": "npx gulp buildwp && npx gulp deploywp"
   },
   "repository": {
     "type": "git",
