@@ -1,0 +1,25 @@
+my-payment-gateway/
+│
+├── my-payment-gateway.php   // Главный файл плагина
+│
+├── includes/
+│   ├── class-my-payment-gateway.php   // Класс метода оплаты
+│
+├── my-payment-gateway-admin.php   // Административная часть для настроек метода оплаты
+│
+├── assets/
+│   ├── css/
+│   │   ├── my-payment-gateway.css   // Стили
+│   │
+│   ├── js/
+│       ├── my-payment-gateway.js   // Скрипты
+│
+├── templates/
+│   ├── my-payment-gateway-template.php   // Пользовательский шаблон (по необходимости)
+│
+├── languages/
+│   ├── my-payment-gateway.pot   // Файл перевода
+│
+├── readme.txt   // Описание плагина
+│
+└── uninstall.php   // Сценарий удаления плагина
