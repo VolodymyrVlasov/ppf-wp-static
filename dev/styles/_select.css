@@ -45,7 +45,7 @@
     width: 95%;
     background-color: transparent;
     margin-top: -24px;
-    padding: 32px var(--size-gap) 8px calc(var(--size-gap) - 5px);
+    padding: 32px var(--size-gap) 8px calc(var(--size-gap));
     border-radius: 999px;
     font-size: 16px;
     cursor: pointer;

@@ -4,6 +4,10 @@ body {
     line-height: 130%;
 }
 
+select {
+    font-family: 'Montserrat', sans-serif;
+}
+
 .template {
     display: inline-flex;
     justify-content: center;
