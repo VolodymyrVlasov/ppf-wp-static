@@ -37,7 +37,7 @@ do_action('woocommerce_before_checkout_form', $checkout);
             <form class="row big_gap" name="checkout" method="post" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data" novalidate="novalidate">
 
                 <?php if ($checkout->get_checkout_fields()): ?>
-                    <article class="col big_gap flex_4" id="customer_details">
+                    <article class="col big_gap flex_4 woocommerce-billing-fields" id="customer_details">
                         <?php do_action('woocommerce_before_checkout_shipping_form', $checkout); ?>
                         <p class="text_24">Ваші контактні дані</p>
                         <div class="col gap width_100 ">
@@ -68,11 +68,12 @@ do_action('woocommerce_before_checkout_form', $checkout);
                         </div>
 
                         <span class="text_24">Доставка</span>
+
                         <div id="shipping_country_field" data-priority="40" style="margin-top: -40px;">
                             <input type="hidden" name="shipping_country" id="shipping_country" value="UA" autocomplete="country" readonly="readonly" style="display: none">
                             <input type="hidden" name="billing_country" id="billing_country" value="UA" autocomplete="country" readonly="readonly" style="display: none">
                         </div>
-                        <ul class="col gap width_100" id="shipping_method">
+                        <ul class="col gap width_100 woocommerce-shipping-methods woocommerce-billing-fields__field-wrapper" id="shipping_method">
                             <li class="col small_gap width_100">
                                 <div class="select col flex_1 width_100" id="billing_nova_poshta_region_field">
                                     <label for="billing_nova_poshta_region">Регіон</label>
@@ -104,59 +105,108 @@ do_action('woocommerce_before_checkout_form', $checkout);
                                         <option value="7150813f-9b87-11de-822f-000c2965ae0e">Чернівецька</option>
                                         <option value="71508140-9b87-11de-822f-000c2965ae0e">Чернігівська</option>
                                     </select>
+
                                 </div>
                             </li>
+
+
+
+
+
+
                             <li class="col small_gap width_100">
                                 <div class="select col flex_1 width_100" id="billing_nova_poshta_city_field">
                                     <label for="billing_nova_poshta_city">Ваше місто</label>
-                                    <select id="billing_nova_poshta_city" name="billing_nova_poshta_city" autocomplete="home city"></select>
+                                    <select id="billing_nova_poshta_city" name="billing_nova_poshta_city" autocomplete="home city">
+                                        <option selected>Оберіть місто</option>
+                                    </select>
                                 </div>
                             </li>
 
+
+
+
                             <li class="checkout_input_radio_wrapper">
-                                <div class="checkout_input_radio" id="billing_nova_poshta_warehouse_field">
-                                    <input type="radio" name="shipping_method" id="nova_poshta_shipping_method" value="nova_poshta_shipping_method" checked>
-                                    <label for="nova_poshta_shipping_method">Самовивіз з Нової Пошти</label>
+                                <div class="checkout_input_radio">
+                                    <input type="radio" name="shipping_method" id="shipping_method_nova_poshta_shipping_method" value="nova_poshta_shipping_method" class="shipping_method" checked>
+                                    <label for="shipping_method_nova_poshta_shipping_method">Самовивіз з Нової Пошти</label>
                                 </div>
 
-                                <div class="checkout_input_radio_legend">
+
+                                <div class="checkout_input_radio_legend" id="np_warehouse">
                                     <div class="select col flex_1 width_100" id="billing_nova_poshta_warehouse_field">
                                         <label for="billing_nova_poshta_warehouse">Відділення Нової Пошти</label>
-                                        <select id="billing_nova_poshta_warehouse" name="billing_nova_poshta_warehouse" autocomplete="on"></select>
+                                        <select id="billing_nova_poshta_warehouse" name="billing_nova_poshta_warehouse">
+                                            <option selected>Оберіть відділення</option>
+                                        </select>
+
+                                        <!-- <span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;">
+                                            <span class="selection">
+                                                <span class="select2-selection select2-selection--single" aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                                    aria-labelledby="select2-billing_nova_poshta_warehouse-container" role="combobox"
+                                                    style="border: none; background-color:transparent; padding-left: 16px; width: 100% !important; margin-top: -32px;">
+                                                    <span class="select2-selection__rendered" id="select2-billing_nova_poshta_warehouse-container" role="textbox" aria-readonly="true" style="color: black;">
+                                                    </span>
+                                                </span>
+                                            </span>
+                                            <span class="dropdown-wrapper" aria-hidden="true"></span>
+                                        </span> -->
                                     </div>
                                 </div>
                             </li>
+                            
+
+
                             <li class="checkout_input_radio_wrapper">
                                 <div class="checkout_input_radio">
-                                    <input type="radio" name="shipping_method" id="nova_poshta_shipping_method_poshtomat">
-                                    <label for="nova_poshta_shipping_method_poshtomat">Поштомат Нової Пошти</label>
-                                    
+                                    <input type="radio" name="shipping_method" id="shipping_method_nova_poshta_shipping_method_poshtomat" class="shipping_method" value="nova_poshta_shipping_method_poshtomat">
+                                    <label for="shipping_method_nova_poshta_shipping_method_poshtomat">Поштомат Нової Пошти</label>
+
                                 </div>
-                                <div class="checkout_input_radio_legend">
-                                    <div class="select col  width_100" id="billing_nova_poshta_warehouse_field">
-                                        <label for="billing_nova_poshta_warehouse">Номер поштомата</label>
-                                        <!-- <input type="text" name="billing_nova_poshta_warehouse"
-                                            id="billing_nova_poshta_warehouse" value="billing_nova_poshta_warehouse"
-                                            placeholder="№6753, Таунхауз, вул. Центральна, 49а"> -->
-                                        <select id="billing_nova_poshta_warehouse" name="billing_nova_poshta_warehouse" autocomplete="on"></select>
-                                            
+
+
+                                <div class="checkout_input_radio_legend" id="np_poshtomat">
+                                    <div class="select col width_100" id="billing_nova_poshta_warehouse_field">
+                                        <label for="billing_nova_poshta_warehouse">Поштомат</label>
+                                        <select id="billing_nova_poshta_warehouse" name="billing_nova_poshta_warehouse" autocomplete="on">
+                                            <option selected>Оберіть поштомат</option>
+                                        </select>
+                                        <!-- <span class="select2 select2-container select2-container--default" dir="ltr" style="width: 100%;">
+                                            <span class="selection">
+                                                <span class="select2-selection select2-selection--single" aria-haspopup="true" aria-expanded="false" tabindex="0"
+                                                    aria-labelledby="select2-billing_nova_poshta_warehouse-container" role="combobox"
+                                                    style="border: none; background-color:transparent; padding-left: 16px; width: 100% !important; margin-top: -32px;">
+                                                    <span class="select2-selection__rendered" id="select2-billing_nova_poshta_warehouse-container" role="textbox" aria-readonly="true" style="color: black;">
+                                                    </span>
+                                                </span>
+                                            </span>
+                                            <span class="dropdown-wrapper" aria-hidden="true"></span>
+                                        </span> -->
                                     </div>
                                 </div>
 
                             </li>
+
+
+
+
+
+
                             <li class="checkout_input_radio_wrapper">
                                 <div class="checkout_input_radio">
-                                    <input type="radio" name="shipping_method" id="npttn_address_shipping_method" value="npttn_address_shipping_method">
+                                    <input type="radio" name="shipping_method" id="npttn_address_shipping_method" value="npttn_address_shipping_method" class="shipping_method">
                                     <label for="npttn_address_shipping_method">Адресна доставка Нової Пошти</label>
                                 </div>
                                 <div class="checkout_input_radio_legend">
                                     <div class="row gap" id="billing_mrkvnp_street_field">
-                                        <div class="select col  flex_3" >
+                                        <div class="select col  flex_3">
                                             <label for="billing_mrkvnp_street">Вулиця</label>
                                             <!-- <input type="text" name="billing_mrkvnp_street"
                                                 id="billing_mrkvnp_street" placeholder="Введіть перші три літери.." autocomplete="shipping"> -->
 
-                                        <select id="billing_mrkvnp_street" name="billing_mrkvnp_street" autocomplete="on"></select>
+                                            <select id="billing_mrkvnp_street" name="billing_mrkvnp_street" autocomplete="on">
+
+                                            </select>
 
                                         </div>
                                         <div class="checkout_input_text flex_1">
@@ -175,19 +225,17 @@ do_action('woocommerce_before_checkout_form', $checkout);
 
                             <li class="checkout_input_radio_wrapper">
                                 <div class="checkout_input_radio">
-                                    <input type="radio" name="shipping_method" id="local_pickup:8">
-                                    <label for="local_pickup:8">Самовивіз з нашого офісу</label>
+                                    <input type="radio" name="shipping_method" id="local_pickup" class="shipping_method">
+                                    <label for="local_pickup">Самовивіз з нашого офісу</label>
                                 </div>
                                 <span class="checkout_input_radio_legend">м. Київ, вул. Ярославська 14/20. Окремий вхід
                                     з
-                                    фасаду, цокольний поверх.<br>Видача замовлень: понеділок - пʼятниця, 11:00 -
-                                    19:00</span>
+                                    фасаду, цокольний поверх.<br>Видача замовлень: {{weekdays}}</span>
                             </li>
-
 
                             <li class="checkout_input_radio_wrapper">
                                 <div class="checkout_input_radio">
-                                    <input type="radio" name="shipping_method" id="checkout-delivery-uklon">
+                                    <input type="radio" name="shipping_method" id="checkout-delivery-uklon" class="shipping_method">
                                     <label for="checkout-delivery-uklon">Uklon доставка</label>
                                 </div>
                                 <div class="checkout_input_radio_legend">
@@ -205,6 +253,7 @@ do_action('woocommerce_before_checkout_form', $checkout);
                                     </div>
                                 </div>
                             </li>
+
                             <li class="checkout_input_radio_wrapper">
                                 <div class="checkout_recepient">
                                     <input type="checkbox" class="checkout_checkbox" id="checkout-recepient">
@@ -232,7 +281,53 @@ do_action('woocommerce_before_checkout_form', $checkout);
 
                             </li>
                         </ul>
+
+
+
+                        <?php
+                        // Проверяем, есть ли методы доставки
+                        if (WC()->shipping()->get_shipping_methods()) {
+                            // Выводим заголовок
+                            echo '<h2>Выберите метод доставки:</h2>';
+
+                            // Получаем выбранный метод доставки, если он уже установлен
+                            $chosen_method = WC()->session->get('chosen_shipping_methods')[0];
+
+                            // Создаем список методов доставки в форме радиокнопок
+                            foreach (WC()->shipping()->get_shipping_methods() as $shipping_method) {
+                                $method_id = $shipping_method->id;
+                                $method_title = $shipping_method->title;
+                                echo "<label for='shipping_method_$method_id'>";
+                                echo "<input type='radio' id='shipping_method_$method_id' name='shipping_method[0]' value='$method_id' " . checked($chosen_method, $method_id, false) . " />";
+                                echo " $method_title";
+                                echo "</label><br>";
+                                
+                            }
+                        } else {
+                            echo 'Методы доставки не настроены.';
+                        }
+                        ?>
+
+                        <?php
+                        $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
+                        foreach ($available_gateways as $gateway) { ?>
+                            <li class="wc_payment_method payment_method_<?php echo esc_attr($gateway->id); ?>">
+                                <input id="payment_method_<?php echo esc_attr($gateway->id); ?>" type="radio" class="input-radio" name="payment_method" value="<?php echo esc_attr($gateway->id); ?>" <?php checked($gateway->chosen, true); ?>
+                                    data-order_button_text="<?php echo esc_attr($gateway->order_button_text); ?>" />
+
+                                <label for="payment_method_<?php echo esc_attr($gateway->id); ?>">
+                                    <?php echo $gateway->get_title(); /* phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped */?>         <?php echo $gateway->get_icon(); /* phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped */?>
+                                </label>
+                                <?php if ($gateway->has_fields() || $gateway->get_description()): ?>
+                                    <div class="payment_box payment_method_<?php echo esc_attr($gateway->id); ?>" <?php if (!$gateway->chosen): /* phpcs:ignore Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace */?>style="display:none;" <?php endif; /* phpcs:ignore Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace */?>>
+                                        <?php $gateway->payment_fields(); ?>
+                                    </div>
+                                <?php endif; ?>
+                            </li>
+                        <?php } ?>
+
                         <?php do_action('woocommerce_after_checkout_shipping_form', $checkout); ?>
+
                     </article>
                     <article class="cart_summary_card flex_2">
                         <span class="text_32">Разом</span>
