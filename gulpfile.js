@@ -198,6 +198,16 @@ export const deploywp = (done) => {
     return done();
 }
 
+export const deploywpcode = (done) => {
+    const LOCAL = ['paperfox/js/*.*', 'paperfox/woocommerce/*.*', 'paperfox/*.*'];
+    const REMOTE = "/paperfox.in.ua/shop/wp-content/themes/paperfox";
+
+    gulp.src(LOCAL, {})
+        .pipe(ftp.dest(REMOTE));
+
+    return done();
+}
+
 export const deploywpplugins = (done) => {
     const LOCAL = ['plugins/**/*.*'];
     const REMOTE = "/paperfox.in.ua/shop/wp-content/plugins/";
