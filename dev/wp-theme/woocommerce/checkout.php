@@ -58,115 +58,89 @@
                                             </div>
 
                                             <div class="row big_gap width_100">
-                                                <div class="checkout_input_text">
-                                                    <label for="checkout-tel">Мобільний телефон</label>
-                                                    <input type="tel" name="phone" id="checkout-tel" required="true"
-                                                        placeholder=" +38 077 777 7777">
+                                                <div class="checkout_input_text" id="billing_phone_field" data-priority="100">
+                                                    <label for="billing_phone">Мобільний телефон</label>
+                                                    <input type="tel" id="billing_phone" required="true" placeholder=" +38 077 777 7777" name="billing_phone" autocomplete="tel">
                                                 </div>
-                                                <div class="checkout_input_text">
-                                                    <label for="checkout-email">Електронна пошта</label>
-                                                    <input type="email" name="email" id="checkout-email" required="true"
+                                                <div class="checkout_input_text" id="billing_email_field" data-priority="110">
+                                                    <label for="billing_email">Електронна пошта</label>
+                                                    <input type="email" name="billing_email" id="billing_email" autocomplete="email" required="true"
                                                         placeholder="superman@shevchenko.ua">
                                                 </div>
                                             </div>
 
-                                            <p class="form-row form-row-wide" id="billing_company_field" data-priority="30">
-                                                <label for="billing_company" class="">Назва компанії&nbsp;<span class="optional">(необов'язково)</span></label>
-                                                <span class="woocommerce-input-wrapper">
-                                                    <input type="text" class="input-text " name="billing_company" id="billing_company" placeholder="" value="" autocomplete="organization">
-                                                </span>
-                                            </p>
 
-                                            <p class="form-row form-row-wide address-field update_totals_on_change validate-required" id="billing_country_field" data-priority="40">
-                                                <label for="billing_country" class="">Країна / Регіон&nbsp;<abbr class="required" title="обов&#39;язкове">*</abbr></label>
+                                            <div class="col gap width_100">
+
+                                                <h2 class="text_24">Доставка</h2>
+                                                <ul id="shipping_method" class="woocommerce-shipping-methods col gap width_100">
+                                                    <!-- <li>
+                                                        <input type="radio" name="shipping_method[0]" data-index="0" id="shipping_method_0_local_pickup2" value="local_pickup:2" class="shipping_method"><label for="shipping_method_0_local_pickup2">Самовивіз</label>
+                                                    </li> -->
+
+                                                    <li class="checkout_input_radio_wrapper">
+                                                        <div class="checkout_input_radio">
+                                                            <input type="radio" name="shipping_method[0]" data-index="0" id="shipping_method_0_local_pickup2" value="local_pickup:2" class="shipping_method" checked>
+                                                            <label for="shipping_method_0_local_pickup2">Самовивіз з нашого офісу</label>
+                                                        </div>
+                                                        <span class="checkout_input_radio_legend">м. Київ, вул. Ярославська 14/20. Окремий вхід
+                                                            з
+                                                            фасаду, цокольний поверх.<br>Видача замовлень: понеділок - пʼятниця, 11:00 -
+                                                            19:00</span>
+                                                    </li>
+
+
+
+
+                                                    <!-- <li>
+                                                        <input type="radio" name="shipping_method[0]" data-index="0" id="shipping_method_0_nova_poshta_shipping_method" value="nova_poshta_shipping_method" class="shipping_method"><label
+                                                            for="shipping_method_0_nova_poshta_shipping_method">Нова Пошта</label>
+                                                    </li> -->
+
+                                                    <li class="checkout_input_radio_wrapper">
+                                                        <div class="checkout_input_radio">
+                                                            <input type="radio" name="shipping_method[0]" data-index="0" id="shipping_method_0_nova_poshta_shipping_method" value="nova_poshta_shipping_method" class="shipping_method">
+                                                            <label for="shipping_method_0_nova_poshta_shipping_method">Самовивіз з Нової Пошти</label>
+                                                        </div>
+                                                        <div class="checkout_input_radio_legend">
+                                                            <div class="checkout_input_text width_100">
+                                                                <label for="checkout-delivery-postoffice">Відділення Нової Пошти</label>
+                                                                <input type="text" name="checkout-delivery-postoffice"
+                                                                    id="checkout-delivery-postoffice"
+                                                                    placeholder="№57, вул. Костянтинівська, 24 (метро Контрактова Площа)">
+                                                            </div>
+                                                        </div>
+
+
+
+
+
+                                                    <li>
+                                                        <input type="radio" name="shipping_method[0]" data-index="0" id="shipping_method_0_nova_poshta_shipping_method_poshtomat" value="nova_poshta_shipping_method_poshtomat" class="shipping_method"><label
+                                                            for="shipping_method_0_nova_poshta_shipping_method_poshtomat">Нова Пошта Поштомат</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="radio" name="shipping_method[0]" data-index="0" id="shipping_method_0_npttn_address_shipping_method" value="npttn_address_shipping_method" class="shipping_method"><label
+                                                            for="shipping_method_0_npttn_address_shipping_method">Адресна доставка Нова пошта</label>
+                                                    </li>
+                                                </ul>
+
+                                            </div>
+
+
+
+                                            <p class="form-row form-row-wide address-field update_totals_on_change validate-required" id="billing_country_field" data-priority="40" style="display: none;>
+                                                <label for=" billing_country" class="">Країна / Регіон&nbsp;<abbr class="required" title="обов&#39;язкове">*</abbr></label>
                                                 <span class="woocommerce-input-wrapper"><strong>Україна</strong><input type="hidden" name="billing_country" id="billing_country" value="UA" autocomplete="country" class="country_to_state" readonly="readonly">
                                                 </span>
                                             </p>
 
-                                            <p class="form-row address-field validate-required form-row-wide" id="billing_address_1_field" data-priority="50" style="display: none;">
-                                                <label for="billing_address_1" class="">Назва вулиці&nbsp;<abbr class="required" title="обов&#39;язкове">*</abbr></label>
-                                                <span class="woocommerce-input-wrapper">
-                                                    <input type="text" class="input-text " name="billing_address_1" id="billing_address_1" placeholder="Номер будинку та назва вулиці" value="" autocomplete="address-line1" data-placeholder="Номер будинку та назва вулиці" disabled="disabled">
-                                                </span>
-                                            </p>
-
-                                            <p class="form-row address-field form-row-wide" id="billing_address_2_field" data-priority="60" style="display: none;">
-                                                <label for="billing_address_2" class="screen-reader-text">Будинок, офіс, блок, тощо.&nbsp; <span class="optional">(необов'язково)</span></label>
-                                                <span class="woocommerce-input-wrapper">
-                                                    <input type="text" class="input-text " name="billing_address_2" id="billing_address_2" placeholder="Квартира, офіс, блок, тощо (опціонально)"
-                                                        value="" autocomplete="address-line2" data-placeholder="Квартира, офіс, блок, тощо (опціонально)" disabled="disabled">
-                                                </span>
-                                            </p>
-
-                                            <p class="form-row address-field validate-required form-row-wide" id="billing_city_field" data-priority="70" data-o_class="form-row form-row-wide address-field validate-required" style="display: none;">
-                                                <label for="billing_city" class="">Місто / Село&nbsp;<abbr class="required" title="обов&#39;язкове">*</abbr></label>
-                                                <span class="woocommerce-input-wrapper">
-                                                    <input type="text" class="input-text " name="billing_city" id="billing_city" placeholder="" value="" autocomplete="address-level2" disabled="disabled">
-                                                </span>
-                                            </p>
-
-                                            <p class="form-row address-field validate-state validate-required form-row-wide" id="billing_state_field" data-priority="80" data-o_class="form-row form-row-wide address-field validate-state" style="display: none;">
-                                                <label for="billing_state" class="">Область / Округ&nbsp;<abbr class="required" title="обов&#39;язкове">*</abbr></label>
-                                                <span class="woocommerce-input-wrapper">
-                                                    <select name="billing_state" id="billing_state" class="state_select select2-hidden-accessible" autocomplete="address-level1" data-placeholder="Виберіть опцію…" data-input-classes="" data-label="Область / Округ" tabindex="-1" aria-hidden="true"
-                                                        disabled="disabled">
-                                                        <option value="">Виберіть опцію…</option>
-                                                        <option value="UA05">Вінницька область</option>
-                                                        <option value="UA07">Волинська область</option>
-                                                        <option value="UA09">Луганська область</option>
-                                                        <option value="UA12">Дніпропетровська область</option>
-                                                        <option value="UA14">Донецька область</option>
-                                                        <option value="UA18">Житомирська область</option>
-                                                        <option value="UA21">Закарпатська область</option>
-                                                        <option value="UA23">Запорізька область</option>
-                                                        <option value="UA26">Івано-Франківська область</option>
-                                                        <option value="UA30">місто Київ</option>
-                                                        <option value="UA32">Київська область</option>
-                                                        <option value="UA35">Кіровоградська область</option>
-                                                        <option value="UA40">місто Севастополь</option>
-                                                        <option value="UA43">Автономна Республіка Крим</option>
-                                                        <option value="UA46">Львівська область</option>
-                                                        <option value="UA48">Миколаївська область</option>
-                                                        <option value="UA51">Одеська область</option>
-                                                        <option value="UA53">Полтавська область</option>
-                                                        <option value="UA56">Рівненська область</option>
-                                                        <option value="UA59">Сумська область</option>
-                                                        <option value="UA61">Тернопільська область</option>
-                                                        <option value="UA63">Харківська область</option>
-                                                        <option value="UA65">Херсонська область</option>
-                                                        <option value="UA68">Хмельницька область</option>
-                                                        <option value="UA71">Черкаська область</option>
-                                                        <option value="UA74">Чернігівська область</option>
-                                                        <option value="UA77">Чернівецька область</option>
-                                                    </select>
-                                                    <span class="select2 select2-container select2-container--default select2-container--disabled" dir="ltr" style="width: 100%;">
-                                                        <span class="selection">
-                                                            <span class="select2-selection select2-selection--single" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-label="Область / Округ" role="combobox">
-                                                                <span class="select2-selection__rendered" id="select2-billing_state-container" role="textbox" aria-readonly="true"
-                                                                    title="місто Київ">місто Київ</span>
-                                                                <span class="select2-selection__arrow" role="presentation"><b role="presentation"></b>
-                                                                </span>
-                                                            </span>
-                                                        </span>
-                                                        <span class="dropdown-wrapper" aria-hidden="true"></span>
-                                                    </span>
-                                                </span>
-                                            </p>
-                                            <p class="form-row address-field validate-postcode validate-required form-row-wide" id="billing_postcode_field" data-priority="90" data-o_class="form-row form-row-wide address-field validate-postcode" style="display: none;"><label
-                                                    for="billing_postcode" class="">Поштовий індекс&nbsp;<abbr class="required" title="обов&#39;язкове">*</abbr></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text " name="billing_postcode"
-                                                        id="billing_postcode" placeholder="" value="" autocomplete="postal-code" disabled="disabled"></span></p>
-                                            <p class="form-row form-row-wide validate-required validate-phone" id="billing_phone_field" data-priority="100"><label for="billing_phone" class="">Телефон&nbsp;<abbr class="required" title="обов&#39;язкове">*</abbr></label><span
-                                                    class="woocommerce-input-wrapper"><input type="tel" class="input-text " name="billing_phone" id="billing_phone" placeholder="" value="" autocomplete="tel"></span></p>
-                                            <p class="form-row form-row-wide validate-required validate-email" id="billing_email_field" data-priority="110"><label for="billing_email" class="">E-mail адреса&nbsp;<abbr class="required" title="обов&#39;язкове">*</abbr></label><span
-                                                    class="woocommerce-input-wrapper"><input type="email" class="input-text " name="billing_email" id="billing_email" placeholder="" value="volodymyr.vlasov@gmail.com" autocomplete="email"></span></p>
-
-
-
                                             <div> !!!!! start </div>
+                                            <!-- Регіон -->
                                             <p class="form-row " id="billing_nova_poshta_region_field" data-priority="120">
                                                 <label for="billing_nova_poshta_region" class="">Область</label>
-                                                <span class="woocommerce-input-wrapper"><select name="billing_nova_poshta_region" id="billing_nova_poshta_region" class="select select2-hidden-accessible" data-allow_clear="true" data-placeholder="Оберіть область" tabindex="-1"
-                                                        aria-hidden="true">
+                                                <span class="woocommerce-input-wrapper">
+                                                    <select name="billing_nova_poshta_region" id="billing_nova_poshta_region" class="select select2-hidden-accessible" data-allow_clear="true" data-placeholder="Оберіть область" tabindex="-1" aria-hidden="true">
                                                         <option value="" selected="selected">Оберіть область</option>
                                                         <option value="71508128-9b87-11de-822f-000c2965ae0e">АРК</option>
                                                         <option value="71508129-9b87-11de-822f-000c2965ae0e">Вінницька</option>
@@ -194,53 +168,73 @@
                                                         <option value="7150813f-9b87-11de-822f-000c2965ae0e">Чернівецька</option>
                                                         <option value="71508140-9b87-11de-822f-000c2965ae0e">Чернігівська</option>
                                                     </select>
-                                                    <!-- <span class="select2 select2-container select2-container--default" dir="ltr" style="width: 563.281px;">
-                                                        <span class="selection">
-                                                            <span class="select2-selection select2-selection--single" aria-haspopup="true" aria-expanded="false"
-                                                                tabindex="0" aria-labelledby="select2-billing_nova_poshta_region-container" role="combobox">
-                                                                <span class="select2-selection__rendered" id="select2-billing_nova_poshta_region-container" role="textbox" aria-readonly="true">
-                                                                    <span class="select2-selection__placeholder">Оберіть область</span>
-                                                                </span>
-                                                                <span class="select2-selection__arrow" role="presentation">
-                                                                    <b role="presentation"></b>
-                                                                </span>
-                                                            </span>
-                                                        </span>
-                                                        <span class="dropdown-wrapper" aria-hidden="true"></span>
-                                                    </span> -->
+
+                                                </span>
+                                            </p>
+                                            <!-- Регіон -->
+
+                                            <!-- Місто -->
+                                            <p class="form-row validate-required" id="billing_nova_poshta_city_field" data-priority="122"><label for="billing_nova_poshta_city" class="">Місто&nbsp;<abbr class="" title="обов&#39;язкове">*</abbr></label><span
+                                                    class="woocommerce-input-wrapper">
+                                                    <select name="billing_nova_poshta_city" id="billing_nova_poshta_city" class="select select2-hidden-accessible" data-allow_clear="true" data-placeholder="Оберіть місто" tabindex="-1" aria-hidden="true">
+                                                        <option value="" selected="selected">Оберіть область</option>
+                                                    </select>
+                                                </span>
+                                            </p>
+                                            <!-- Місто -->
+
+                                            <!-- Відділення / Поштомат -->
+                                            <p class="form-row validate-required" id="billing_nova_poshta_warehouse_field" data-priority="124">
+                                                <label for="billing_nova_poshta_warehouse" class="">Поштомат<span>&nbsp;*</span></label>
+                                                <span class="woocommerce-input-wrapper">
+                                                    <select name="billing_nova_poshta_warehouse" id="billing_nova_poshta_warehouse" class="select select2-hidden-accessible" data-allow_clear="true" data-placeholder="Нічого не вибрано" tabindex="-1" aria-hidden="true">
+                                                        <option value="" selected="selected">Оберіть область</option>
+                                                    </select>
+
+                                                </span>
+                                            </p>
+                                            <!-- Відділення / Поштомат -->
+
+                                            <!-- Адресна доставка -->
+                                            <p class="form-row form-row-wide my-custom-class" id="billing_mrkvnp_street_field" data-priority="130" style="display: none;">
+                                                <label for="billing_mrkvnp_street" class="">Вулиця&nbsp;<span class="optional"><span class="asterisk-color">*</span></span>
+                                                </label>
+                                                <span class="woocommerce-input-wrapper"><input type="text" class="input-text " name="billing_mrkvnp_street" id="billing_mrkvnp_street" placeholder="Введіть перші три літери.." value="" disabled="disabled"></span>
+                                            </p>
+
+                                            <p class="form-row form-row-first" id="billing_mrkvnp_house_field" data-priority="132" style="display: none;">
+                                                <label for="billing_mrkvnp_house" class="">Номер будинку&nbsp;<span class="optional">
+                                                        <span class="asterisk-color">*</span>
+                                                    </span>
+                                                </label>
+                                                <span class="woocommerce-input-wrapper">
+                                                    <input type="text" class="input-text " name="billing_mrkvnp_house" id="billing_mrkvnp_house" placeholder="" value="" disabled="disabled">
                                                 </span>
                                             </p>
 
+                                            <p class="form-row form-row-last" id="billing_mrkvnp_flat_field" data-priority="134" style="display: none;">
+                                                <label for="billing_mrkvnp_flat" class="">Кв.&nbsp;<span class="optional">(необов'язково)</span>
+                                                </label>
+                                                <span class="woocommerce-input-wrapper">
+                                                    <input type="text" class="input-text " name="billing_mrkvnp_flat" id="billing_mrkvnp_flat" placeholder="" value="" disabled="disabled">
+                                                </span>
+                                            </p>
+
+                                            <p class="form-row form-row-wide my-custom-class" id="billing_mrkvnp_patronymics_field" data-priority="136" style="display: none;">
+                                                <label for="billing_mrkvnp_patronymics" class="">По батькові&nbsp;<span class="optional">
+                                                        <span class="asterisk-color">*</span>
+                                                    </span>
+                                                </label>
+                                                <span class="woocommerce-input-wrapper">
+                                                    <input type="text" class="input-text " name="billing_mrkvnp_patronymics" id="billing_mrkvnp_patronymics" placeholder="" value="" disabled="disabled">
+                                                </span>
+                                            </p>
+                                            <!-- Адресна доставка -->
 
                                             <div> !!!!! end </div>
-
-
-                                            <p class="form-row validate-required" id="billing_nova_poshta_city_field" data-priority="122"><label for="billing_nova_poshta_city" class="">Місто&nbsp;<abbr class="" title="обов&#39;язкове">*</abbr></label><span
-                                                    class="woocommerce-input-wrapper"><select name="billing_nova_poshta_city" id="billing_nova_poshta_city" class="select select2-hidden-accessible" data-allow_clear="true" data-placeholder="Оберіть місто" tabindex="-1" aria-hidden="true">
-                                                        <option value="" selected="selected">Оберіть область</option>
-                                                    </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 563.281px;"><span class="selection"><span class="select2-selection select2-selection--single" aria-haspopup="true" aria-expanded="false"
-                                                                tabindex="0" aria-labelledby="select2-billing_nova_poshta_city-container" role="combobox"><span class="select2-selection__rendered" id="select2-billing_nova_poshta_city-container" role="textbox" aria-readonly="true"><span
-                                                                        class="select2-selection__placeholder">Оберіть місто</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper"
-                                                            aria-hidden="true"></span></span></span></p>
-                                            <p class="form-row validate-required" id="billing_nova_poshta_warehouse_field" data-priority="124"><label for="billing_nova_poshta_warehouse" class="">Поштомат<span>&nbsp;*</span></label><span class="woocommerce-input-wrapper"><select
-                                                        name="billing_nova_poshta_warehouse" id="billing_nova_poshta_warehouse" class="select select2-hidden-accessible" data-allow_clear="true" data-placeholder="Нічого не вибрано" tabindex="-1" aria-hidden="true">
-                                                        <option value="" selected="selected">Оберіть область</option>
-                                                    </select><span class="select2 select2-container select2-container--default" dir="ltr" style="width: 563.281px;"><span class="selection"><span class="select2-selection select2-selection--single" aria-haspopup="true" aria-expanded="false"
-                                                                tabindex="0" aria-labelledby="select2-billing_nova_poshta_warehouse-container" role="combobox"><span class="select2-selection__rendered" id="select2-billing_nova_poshta_warehouse-container" role="textbox"
-                                                                    aria-readonly="true"><span class="select2-selection__placeholder">Оберіть поштомат</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span
-                                                            class="dropdown-wrapper" aria-hidden="true"></span></span></span></p>
-                                            <p class="form-row form-row-wide my-custom-class" id="billing_mrkvnp_street_field" data-priority="130" style="display: none;"><label for="billing_mrkvnp_street" class="">Вулиця&nbsp;<span class="optional"><span
-                                                            class="asterisk-color">*</span></span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text " name="billing_mrkvnp_street" id="billing_mrkvnp_street" placeholder="Введіть перші три літери.."
-                                                        value="" disabled="disabled"></span></p>
-                                            <p class="form-row form-row-first" id="billing_mrkvnp_house_field" data-priority="132" style="display: none;"><label for="billing_mrkvnp_house" class="">Номер будинку&nbsp;<span class="optional"><span
-                                                            class="asterisk-color">*</span></span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text " name="billing_mrkvnp_house" id="billing_mrkvnp_house" placeholder="" value=""
-                                                        disabled="disabled"></span></p>
-                                            <p class="form-row form-row-last" id="billing_mrkvnp_flat_field" data-priority="134" style="display: none;"><label for="billing_mrkvnp_flat" class="">Кв.&nbsp;<span class="optional">(необов'язково)</span></label><span
-                                                    class="woocommerce-input-wrapper"><input type="text" class="input-text " name="billing_mrkvnp_flat" id="billing_mrkvnp_flat" placeholder="" value="" disabled="disabled"></span></p>
-                                            <p class="form-row form-row-wide my-custom-class" id="billing_mrkvnp_patronymics_field" data-priority="136" style="display: none;"><label for="billing_mrkvnp_patronymics" class="">По батькові&nbsp;<span class="optional"><span
-                                                            class="asterisk-color">*</span></span></label><span class="woocommerce-input-wrapper"><input type="text" class="input-text " name="billing_mrkvnp_patronymics" id="billing_mrkvnp_patronymics" placeholder="" value=""
-                                                        disabled="disabled"></span></p>
                                         </div>
+
+
                                     </div>
                                 </div>
                                 <div class="col gap width_100">
@@ -262,8 +256,7 @@
                                                         class="woocommerce-input-wrapper"><input type="text" class="input-text " name="shipping_last_name" id="shipping_last_name" placeholder="" value="" autocomplete="family-name"></span></p>
                                                 <p class="form-row form-row-wide validate-required" id="shipping_phone_field" data-priority="25"><label for="shipping_phone" class="">Телефон&nbsp;<abbr class="required" title="обов&#39;язкове">*</abbr></label><span
                                                         class="woocommerce-input-wrapper"><input type="text" class="input-text " name="shipping_phone" id="shipping_phone" placeholder="" value=""></span></p>
-                                                <p class="form-row form-row-wide" id="shipping_company_field" data-priority="30"><label for="shipping_company" class="">Назва компанії&nbsp;<span class="optional">(необов'язково)</span></label><span class="woocommerce-input-wrapper"><input
-                                                            type="text" class="input-text " name="shipping_company" id="shipping_company" placeholder="" value="" autocomplete="organization"></span></p>
+
                                                 <p class="form-row form-row-wide address-field update_totals_on_change validate-required" id="shipping_country_field" data-priority="40"><label for="shipping_country" class="">Країна / Регіон&nbsp;<abbr class="required"
                                                             title="обов&#39;язкове">*</abbr></label><span class="woocommerce-input-wrapper"><strong>Україна</strong><input type="hidden" name="shipping_country" id="shipping_country" value="UA" autocomplete="country"
                                                             class="country_to_state" readonly="readonly"></span></p>
@@ -377,32 +370,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col gap width_100">
-                                    <table>
-                                        <tr class="woocommerce-shipping-totals shipping">
-                                            <th>Доставка</th>
-                                            <td data-title="Доставка">
-                                                <ul id="shipping_method" class="woocommerce-shipping-methods">
-                                                    <li>
-                                                        <input type="radio" name="shipping_method[0]" data-index="0" id="shipping_method_0_local_pickup2" value="local_pickup:2" class="shipping_method"><label for="shipping_method_0_local_pickup2">Самовивіз</label>
-                                                    </li>
-                                                    <li>
-                                                        <input type="radio" name="shipping_method[0]" data-index="0" id="shipping_method_0_nova_poshta_shipping_method" value="nova_poshta_shipping_method" class="shipping_method"><label
-                                                            for="shipping_method_0_nova_poshta_shipping_method">Нова Пошта</label>
-                                                    </li>
-                                                    <li>
-                                                        <input type="radio" name="shipping_method[0]" data-index="0" id="shipping_method_0_nova_poshta_shipping_method_poshtomat" value="nova_poshta_shipping_method_poshtomat" class="shipping_method" checked="checked"><label
-                                                            for="shipping_method_0_nova_poshta_shipping_method_poshtomat">Нова Пошта Поштомат</label>
-                                                    </li>
-                                                    <li>
-                                                        <input type="radio" name="shipping_method[0]" data-index="0" id="shipping_method_0_npttn_address_shipping_method" value="npttn_address_shipping_method" class="shipping_method"><label
-                                                            for="shipping_method_0_npttn_address_shipping_method">Адресна доставка Нова пошта</label>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
+
 
                                 <div id="payment" class="woocommerce-checkout-payment col gap width_100">
                                     <ul class="wc_payment_methods payment_methods methods">
