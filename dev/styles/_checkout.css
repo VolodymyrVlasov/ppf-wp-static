@@ -143,7 +143,7 @@ ul:has(>.checkout_input_radio_wrapper) {
     top: 0;
     font-size: 16px;
     color: white;
-    background-color: tra;
+    background-color: transparent;
     border: 8px solid var(--color-theme);
     border-radius: 999px;
 }
@@ -173,6 +173,73 @@ ul:has(>.checkout_input_radio_wrapper) {
     transition: var(--time-tr-time);
     /* display: none; */
 }
+
+
+.checkout_np_shipping_types {
+    display: flex;
+    flex-direction: row;
+    gap: var(--size-big-gap);
+    margin-top: 16px;
+}
+
+
+
+.checkout_input_checkbox {
+    display: flex;
+    position: relative;
+    padding-left: 16px;
+}
+
+.checkout_input_checkbox>input {
+    opacity: 0;
+}
+
+.checkout_input_checkbox>label {
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--time-tr-time);
+}
+
+.checkout_input_checkbox>label::before {
+    content: "";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.checkout_input_checkbox>input:checked~::before {
+    content: "✓";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    padding: 0 0 2px 2px;
+    left: 0;
+    top: 0;
+    font-size: 22px;
+    color: var(--color-theme);
+    background-color: transparent;
+    border: 1px solid var(--color-gray);
+    border-radius: 2px;
+}
+
+.checkout_input_checkbox:has(>input:checked)>label {
+    font-weight: bold;
+}
+
+
+
 
 .checkout_cities_template {
     display: flex;
