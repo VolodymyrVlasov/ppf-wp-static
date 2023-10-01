@@ -3,6 +3,7 @@ console.log("checkout.js")
 const localPickup = document.getElementById("shipping_method_0_local_pickup2");
 const npWrapper = document.getElementById("shipping_method_np_wrapper");
 const np = document.getElementById("shipping_method_0_nova_poshta_shipping_method");
+const anotherRecepient = document.getElementById("ship-to-different-address");
 
 
 const shippingMethodList = document.getElementsByName("shipping_method[0]");
@@ -12,6 +13,7 @@ const shippingMethodList = document.getElementsByName("shipping_method[0]");
 localPickup.addEventListener("change", e => {
     if (e.target.checked) {
         npWrapper.checked = false;
+        anotherRecepient.style = "display: none;";
     }
 })
 
@@ -29,6 +31,7 @@ npWrapper.addEventListener("change", e => {
 np.addEventListener("change", e => {
     if (e.target.checked) {
         npWrapper.checked = true;
+        anotherRecepient.style = "";
     }
 })
 
