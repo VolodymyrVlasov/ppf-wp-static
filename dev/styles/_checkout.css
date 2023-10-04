@@ -95,14 +95,15 @@ ul:has(>.checkout_input_radio_wrapper) {
 }
 
 .checkout_input_radio_wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
 }
 
 .checkout_input_radio {
     display: flex;
+    flex-direction: row !important;
     position: relative;
     padding-left: 32px;
 }
@@ -319,6 +320,12 @@ ul:has(>.checkout_input_radio_wrapper) {
     border: 1px solid var(--color-gray) !important;
     height: 32px !important;
 
+}
+
+/* MonoPay logo */
+.payment_method_mono_gateway>label {
+    display: flex;
+    align-items: center;
 }
 
 
