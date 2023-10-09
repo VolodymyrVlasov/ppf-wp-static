@@ -1,34 +1,51 @@
-<div>
-    <div id="result">
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <div id="result" style="display:flex; flex-direction: column;">
+
+        </div>
+        <div id="inputs" style="display:flex; flex-direction: column;">
+            <label for="size" id="size_label">Діаметр: 50 мм</label>
+            <input id="size" type="range" min="5" max="300" step="1" name="size" value="50">
+
+            <label for="amount" id="amount_label">Кількість: 40 шт</label>
+            <input id="amount" type="range" min="40" max="4000" step="40" name="amount" value="40">
+
+            <label for="material">Матеріал</label>
+            <select name="material" id="material">
+                <option value="PAPER_STICKER">Паперова самоклейка (Raflatac)</option>
+                <option value="PAPER_STICKER_LAMINATED">Паперова самоклейка з ламінацією</option>
+                <option value="PAPER_STICKER_SOFT_TOUCH">Паперова самоклейка з ламінацією SoftTouch</option>
+                <option value="PET_STICKER">ПЕТ самоклейка (Raflatac)</option>
+                <option value="CLEAR_PET_STICKER">Прозора ПЕТ (Raflatac)</option>
+                <option value="CLEAR_MATT_PET_STICKER">Напівпрозора ПЕТ (Raflatac)</option>
+                <option value="PET_STICKER">Напівпрозора ПЕТ (Raflatac)</option>
+                <option value="KRAFT_STICKER">Крафтова самоклейка (Raflatac)</option>
+                <option value="PVC_STICKER">Вінілова самоклейка (Ritrama)</option>
+                <option value="PVC_CLEAR_STICKER">Вінілова прозова самоклейка (Ritrama)</option>
+                <option value="PVC_STICKER_LAMINATED">Вінілова самоклейка з ламінацією</option>
+            </select>
+
+            <label for="cut">Порізка</label>
+            <select name="cut" id="cut">
+                <option value="KISS_CUT_A4">Контурна на А4</option>
+                <option value="KISS_CUT_A3">Контурна на А3</option>
+                <option value="DIE_CUT">Кожна окремо</option>
+            </select>
+
+        </div>
     </div>
-    <div id="inputs">
-        <label for="size"></label>
-        <input id="size" type="range" min="5" max="300" step="1" name="size" value="50">
 
-        <label for="amount"></label>
-        <input id="amount" type="range" min="40" max="4000" step="40" name="amount" value="40">
+    <script src="./stickers-old.js"></script>
+</body>
 
-        <label for="material">Матеріал</label>
-        <select name="material" id="material">
-            <option value="PAPER_STICKER">Паперова самоклейка (Raflatac)</option>
-            <option value="PAPER_STICKER_LAMINATED">Паперова самоклейка з ламінацією</option>
-            <option value="PAPER_STICKER_SOFT_TOUCH">Паперова самоклейка з ламінацією SoftTouch</option>
-            <option value="PET_STICKER">ПЕТ самоклейка (Raflatac)</option>
-            <option value="CLEAR_PET_STICKER">Прозора ПЕТ (Raflatac)</option>
-            <option value="PET_STICKER">Напівпрозора ПЕТ (Raflatac)</option>
-            <option value="KRAFT_STICKER">Крафтова самоклейка (Raflatac)</option>
-            <option value="PVC_STICKER">Вінілова самоклейка (Ritrama)</option>
-            <option value="PVC_CLEAR_STICKER">Вінілова прозова самоклейка (Ritrama)</option>
-            <option value="PVC_STICKER_LAMINATED">Вінілова самоклейка з ламінацією</option>
-        </select>
-
-        <label for="cut">Порізка</label>
-        <select name="cut" id="cut">
-            <option value="KISS_CUT_A4">Контурна на А4</option>
-            <option value="KISS_CUT_A3">Контурна на А3</option>
-            <option value="DIE_CUT">Кожна окремо</option>
-        </select>
-
-    </div>
-</div>
+</html>
