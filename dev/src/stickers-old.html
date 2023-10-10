@@ -9,41 +9,219 @@
 </head>
 
 <body>
-    <div>
-        <div id="result" style="display:flex; flex-direction: column;">
+    <style>
+        .rcal_width_100 {
+            width: 100%;
+            font-family: inherit;
+        }
 
+        .rcal_row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap !important;
+            gap: 24px !important;
+            font-family: inherit;
+        }
+
+        .rcal_col {
+            display: flex;
+            flex-direction: column;
+            gap: 24px !important;
+            font-family: inherit;
+        }
+
+        .rcal_flex_1 {
+            flex: 1 !important;
+        }
+
+        .rcal_flex_2 {
+            flex: 2 !important;
+        }
+
+        .rcal_select {
+            border: 1px solid #d9d9d9;
+            border-radius: 4px;
+            padding: 12px;
+            font: inherit;
+        }
+
+        .rcal_input_range_cnt {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 3;
+            font-family: inherit;
+        }
+
+        .rcal_input_range_cnt>input {
+            min-height: 47px;
+            font-family: inherit;
+        }
+
+        .rcal_select_cnt {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 2;
+            font-family: inherit;
+        }
+
+        .rcal_row_center {
+            align-items: center;
+        }
+
+        .rcal_select {
+            width: 100%;
+        }
+
+        .rcal_send_telegram {
+            padding: 12px 32px;
+            background-color: #229ED9;
+            color: white;
+            border: none;
+            outline: none;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            transition: ease 300ms;
+            font-family: inherit;
+            text-decoration: none;
+            text-align: center;
+
+        }
+
+
+        .rcal_send_telegram:hover {
+            background-color: white;
+            color: #229ED9;
+            border: 1px solid #229ED9;
+            cursor: pointer;
+        }
+
+        .rcal_send_viber {
+            padding: 12px 32px;
+            background-color: #59267c;
+            color: white;
+            outline: none;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            transition: ease 300ms;
+            font-family: inherit;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .rcal_send_viber:hover {
+            background-color: white;
+            border: 1px solid #59267c;
+            color: #59267c;
+            cursor: pointer;
+        }
+
+        .rcal_row_reverse {
+            margin-top: 24px;
+            justify-content: end;
+        }
+
+        .rcal_copy_to_clipboard {
+            background-color: white;
+            padding: 12px 32px;
+            color: darkgrey;
+            border: none;
+            outline: none;
+            border-radius: 8px;
+            border: 1px solid darkgrey;
+            transition: ease 300ms;
+            font-family: inherit;
+            text-align: center;
+
+        }
+
+        .rcal_copy_to_clipboard:hover {
+            background-color: white;
+            border: 1px solid orangered;
+            color: orangered;
+            cursor: pointer;
+        }
+
+        input {
+            -webkit-appearance:  !important;
+        }
+
+
+        @media (max-width: 767.98px) {
+
+            .rcal_input_range_cnt,
+            .rcal_select_cnt,
+            .rcal_copy_to_clipboard,
+            .rcal_send_viber,
+            .rcal_send_telegram {
+                width: 100% !important;
+            }
+
+            .rcal_input_range_cnt,
+            .rcal_select_cnt {
+                flex: initial;
+            }
+
+            .et_pb_row {
+                width: 90% !important;
+            }
+
+        }
+    </style>
+    <div class="rcal_width_100 rcal_col rcal">
+        <h2 class="rcal_width_100 rcal" style="text-align: center;">Розрахунок вартості круглих наліпок</h2>
+        <div id="rcal_result" class="rcal_row">
+            <span style="font-size: 24px">Вартість: 82 грн.<br>
+                <span style="font-size: 14px">(Друк: 1 арк. - 40 грн., порізка: 7 м.п. - 42 грн.)</span></span>
         </div>
-        <div id="inputs" style="display:flex; flex-direction: column;">
-            <label for="size" id="size_label">Діаметр: 50 мм</label>
-            <input id="size" type="range" min="5" max="300" step="1" name="size" value="50">
+        <hr class="rcal_width_100">
+        <div class="rcal_col rcal_width_100">
+            <div class="rcal_row rcal_row_center rcal_width_100">
+                <div class="rcal_input_range_cnt">
+                    <label for="rcal_size" id="size_label">Діаметр: 50 мм</label>
+                    <input id="rcal_size" type="range" min="5" max="300" step="1" name="size" value="50">
+                </div>
+                <div class="rcal_select_cnt">
+                    <label for="rcal_material">Матеріал</label>
+                    <select name="material" id="rcal_material" class="rcal_select">
+                        <option value="PAPER_STICKER">Паперова самоклейка (Raflatac)</option>
+                        <option value="PAPER_STICKER_LAMINATED">Паперова самоклейка з ламінацією</option>
+                        <option value="PAPER_STICKER_SOFT_TOUCH">Паперова самоклейка з ламінацією SoftTouch</option>
+                        <option value="PET_STICKER">ПЕТ самоклейка (Raflatac)</option>
+                        <option value="CLEAR_PET_STICKER">Прозора ПЕТ (Raflatac)</option>
+                        <option value="CLEAR_MATT_PET_STICKER">Напівпрозора ПЕТ (Raflatac)</option>
+                        <option value="PET_STICKER">Напівпрозора ПЕТ (Raflatac)</option>
+                        <option value="KRAFT_STICKER">Крафтова самоклейка (Raflatac)</option>
+                        <option value="PVC_STICKER">Вінілова самоклейка (Ritrama)</option>
+                        <option value="PVC_CLEAR_STICKER">Вінілова самоклейка (Ritrama)</option>
+                        <option value="PVC_STICKER_LAMINATED">Вінілова самоклейка з ламінацією</option>
+                    </select>
+                </div>
+            </div>
+            <div class="rcal_row rcal_row_center rcal_width_100">
+                <div class="rcal_input_range_cnt">
+                    <label for="rcal_amount" id="amount_label">Кількість: 40 шт</label>
+                    <input id="rcal_amount" type="range" min="40" max="4000" step="40" name="amount" value="40">
+                </div>
 
-            <label for="amount" id="amount_label">Кількість: 40 шт</label>
-            <input id="amount" type="range" min="40" max="4000" step="40" name="amount" value="40">
-
-            <label for="material">Матеріал</label>
-            <select name="material" id="material">
-                <option value="PAPER_STICKER">Паперова самоклейка (Raflatac)</option>
-                <option value="PAPER_STICKER_LAMINATED">Паперова самоклейка з ламінацією</option>
-                <option value="PAPER_STICKER_SOFT_TOUCH">Паперова самоклейка з ламінацією SoftTouch</option>
-                <option value="PET_STICKER">ПЕТ самоклейка (Raflatac)</option>
-                <option value="CLEAR_PET_STICKER">Прозора ПЕТ (Raflatac)</option>
-                <option value="CLEAR_MATT_PET_STICKER">Напівпрозора ПЕТ (Raflatac)</option>
-                <option value="PET_STICKER">Напівпрозора ПЕТ (Raflatac)</option>
-                <option value="KRAFT_STICKER">Крафтова самоклейка (Raflatac)</option>
-                <option value="PVC_STICKER">Вінілова самоклейка (Ritrama)</option>
-                <option value="PVC_CLEAR_STICKER">Вінілова прозова самоклейка (Ritrama)</option>
-                <option value="PVC_STICKER_LAMINATED">Вінілова самоклейка з ламінацією</option>
-            </select>
-
-            <label for="cut">Порізка</label>
-            <select name="cut" id="cut">
-                <option value="KISS_CUT_A4">Контурна на А4</option>
-                <option value="KISS_CUT_A3">Контурна на А3</option>
-                <option value="DIE_CUT">Кожна окремо</option>
-            </select>
-
+                <div class="rcal_select_cnt">
+                    <label for="rcal_cut">Порізка</label>
+                    <select name="cut" id="rcal_cut" class="rcal_select">
+                        <option value="KISS_CUT_A4">Контурна на А4</option>
+                        <option value="KISS_CUT_A3">Контурна на А3</option>
+                        <option value="DIE_CUT">Кожна наліпка окремо</option>
+                    </select>
+                </div>
+            </div>
+            <div class="rcal_row rcal_row_reverse rcal_width_100">
+                <button id="copy_to_clipboard_btn" class="rcal_copy_to_clipboard">Скопіювати обрані параметри</button>
+                <a href="viber://add?number=380730472212" id="send_to_viber" class="rcal_send_viber">ЗАМОВИТИ У VIBER</a>
+                <a href="https://t.me/Paper_Fox" id="send_to_telegram" class="rcal_send_telegram">ЗАМОВИТИ У TELEGRAM</a>
+            </div>
         </div>
     </div>
+
 
     <script src="./stickers-old.js"></script>
 </body>

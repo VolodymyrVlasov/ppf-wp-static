@@ -31,19 +31,38 @@ const MATERIAL_PRICE = {
     PVC_STICKER_LAMINATED: [125, 90, 85, 80, 80, 70, 60, 60, 60, 60, 60]
 }
 
+const CUT_NAMES= {
+    KISS_CUT_A4: "Контурна на А4 (порізані по контуру на аркуші)",
+    KISS_CUT_A3: "Контурна на А3 (порізані по контуру на аркуші)",
+    DIE_CUT: "Кожна наліпка окремо"
+}
+
+const MATERIAL_NAMES = {
+    PAPER_STICKER: "Паперова самоклейка (Raflatac)",
+    PAPER_STICKER_LAMINATED: "Паперова самоклейка з ламінацією",
+    PAPER_STICKER_SOFT_TOUCH: "Паперова самоклейка з ламінацією SoftTouch",
+    PET_STICKER:"ПЕТ самоклейка (Raflatac)",
+    CLEAR_PET_STICKER: "Прозора ПЕТ (Raflatac)",
+    CLEAR_MATT_PET_STICKER: "Крафтова самоклейка (Raflatac)",
+    PVC_STICKER: "Вінілова самоклейка (Ritrama)",
+    PVC_CLEAR_STICKER: "Вінілова самоклейка (Ritrama)",
+    PVC_STICKER_LAMINATED: "Вінілова самоклейка з ламінацією"
+}
+
 const PRINT_AREA = {
     KISS_CUT_A4: { x: 300, y: 210, bleed: 1, multiplier: 2 },
     KISS_CUT_A3: { x: 302, y: 428, bleed: 1, multiplier: 1 },
-    DIE_CUT: { x: 280, y: 420, bleed: 2, multiplier: 1 }
+    DIE_CUT: { x: 280, y: 410, bleed: 2, multiplier: 1 }
 }
 
-const sizeInput = document.getElementById("size");
-const amountInput = document.getElementById("amount");
-const materialSelect = document.getElementById("material");
-const cutSelect = document.getElementById("cut");
+const sizeInput = document.getElementById("rcal_size");
+const amountInput = document.getElementById("rcal_amount");
+const materialSelect = document.getElementById("rcal_material");
+const cutSelect = document.getElementById("rcal_cut");
 const sizeLabel = document.getElementById("size_label");
 const amountLabel = document.getElementById("amount_label");
-const resultCnt = document.getElementById("result");
+const resultCnt = document.getElementById("rcal_result");
+const copyButton = document.getElementById("copy_to_clipboard_btn");
 
 sizeInput.addEventListener("input", e => {
     roundSticker.diameter = Number(e.target.value);
@@ -74,6 +93,30 @@ materialSelect.addEventListener("change", e => {
 cutSelect.addEventListener("change", e => {
     roundSticker.cutType = e.target.value;
     Calculator.calculate();
+})
+
+copyButton.addEventListener("click", e => {
+
+    let resultText = `
+        - ${MATERIAL_NAMES[roundSticker.material]}
+        - Кругла діаметр ${roundSticker.diameter} мм.
+        - Порізка: ${CUT_NAMES[roundSticker.cutType]}
+        - Кількість: ${roundSticker.amount} шт.
+        - Друк (${roundSticker.sheetsAtPrintingRun} арк.) - ${roundSticker.printPrice} грн, порізка (${roundSticker.cutAtPrintingRun} м.п.) - ${roundSticker.cutPrice} грн.`;
+
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(resultText).then(function () {
+            copyButton.innerText = "Параметри копійовані!"
+        }).catch(function (err) {
+            copyButton.innerText = "Не вдалось скопіюавати"
+        });
+    } else {
+        console.error('Clipboard API not supported in this browser/environment.');
+    }
+
+    setTimeout(() => {
+        copyButton.innerText = "Скопіювати обрані параметри!"
+    }, 3000);
 })
 
 class Calculator {
@@ -137,8 +180,7 @@ function render() {
     sizeLabel.innerHTML = `Діаметр: ${roundSticker.diameter} мм`;
     amountLabel.innerHTML = `Кількість: ${roundSticker.amount} шт`;
     resultCnt.innerHTML = `
-    <span>Друк: ${roundSticker.sheetsAtPrintingRun} арк. - ${roundSticker.printPrice} грн.</span>
-    <span>Порізка: ${roundSticker.cutAtPrintingRun} м.п. - ${roundSticker.cutPrice} грн.</span>
-    <span>Вартість: ${roundSticker.printPrice + roundSticker.cutPrice} грн.</span>`
+    <span style="font-size: 24px">Вартість: ${roundSticker.printPrice + roundSticker.cutPrice} грн.<br>
+    <span style="font-size: 14px">(Друк: ${roundSticker.sheetsAtPrintingRun} арк. - ${roundSticker.printPrice} грн., порізка: ${roundSticker.cutAtPrintingRun} м.п. - ${roundSticker.cutPrice} грн.)</span></span>`
 
 }
