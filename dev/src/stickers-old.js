@@ -31,7 +31,7 @@ const MATERIAL_PRICE = {
     PVC_STICKER_LAMINATED: [125, 90, 85, 80, 80, 70, 60, 60, 60, 60, 60]
 }
 
-const CUT_NAMES= {
+const CUT_NAMES = {
     KISS_CUT_A4: "Контурна на А4 (порізані по контуру на аркуші)",
     KISS_CUT_A3: "Контурна на А3 (порізані по контуру на аркуші)",
     DIE_CUT: "Кожна наліпка окремо"
@@ -41,7 +41,7 @@ const MATERIAL_NAMES = {
     PAPER_STICKER: "Паперова самоклейка (Raflatac)",
     PAPER_STICKER_LAMINATED: "Паперова самоклейка з ламінацією",
     PAPER_STICKER_SOFT_TOUCH: "Паперова самоклейка з ламінацією SoftTouch",
-    PET_STICKER:"ПЕТ самоклейка (Raflatac)",
+    PET_STICKER: "ПЕТ самоклейка (Raflatac)",
     CLEAR_PET_STICKER: "Прозора ПЕТ (Raflatac)",
     CLEAR_MATT_PET_STICKER: "Крафтова самоклейка (Raflatac)",
     PVC_STICKER: "Вінілова самоклейка (Ritrama)",
@@ -128,12 +128,6 @@ class Calculator {
             Math.floor(printArea.x / (roundSticker.diameter + printArea.bleed * 2)) *
             Math.floor(printArea.y / (roundSticker.diameter + printArea.bleed * 2)) *
             printArea.multiplier;
-
-        console.log(printArea.x, (roundSticker.diameter + printArea.bleed * 2), Math.floor(printArea.x / (roundSticker.diameter + printArea.bleed * 2))
-        );
-
-        console.log(printArea.y, (roundSticker.diameter + printArea.bleed * 2), Math.floor(printArea.y / (roundSticker.diameter + printArea.bleed * 2)));
-
         amountInput.step = roundSticker.stickersAtSheet;
         amountInput.min = roundSticker.stickersAtSheet;
         amountInput.max = roundSticker.stickersAtSheet * 200;
@@ -166,13 +160,19 @@ class Calculator {
         Calculator.calcCutInOrder();
 
         let i = CUT_PRICE.INDEX.reverse().findIndex(element => roundSticker.cutAtPrintingRun >= element)
-        let j = MATERIAL_PRICE.INDEX.reverse().findIndex(element => roundSticker.sheetsAtPrintingRun >= element)
+        let j = MATERIAL_PRICE.INDEX.reverse().findIndex(element => {
+            console.log("test");
+
+            if (roundSticker.sheetsAtPrintingRun >= element) {
+                return true;
+            }
+            return false;
+        })
 
         roundSticker.cutPrice = CUT_PRICE[roundSticker.cutType][i] * roundSticker.cutAtPrintingRun;
         roundSticker.printPrice = MATERIAL_PRICE[roundSticker.material][j] * roundSticker.sheetsAtPrintingRun;
-
-        console.table(roundSticker);
-        render();
+        // console.log(MATERIAL_PRICE[roundSticker.material], j, MATERIAL_PRICE[roundSticker.material][j]);
+        render(MATERIAL_PRICE[roundSticker.material][j]);
     }
 }
 
