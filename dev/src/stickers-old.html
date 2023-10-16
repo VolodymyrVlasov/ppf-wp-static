@@ -56,6 +56,8 @@
         .rcal_input_range_cnt>input {
             min-height: 47px;
             font-family: inherit;
+            -webkit-appearance: auto !important;
+            -moz-appearance: auto !important;
         }
 
         .rcal_select_cnt {
@@ -72,35 +74,39 @@
 
         .rcal_select {
             width: 100%;
+            -webkit-appearance: auto !important;
+            -moz-appearance: auto !important;
         }
 
         .rcal_send_telegram {
             padding: 12px 32px;
             background-color: #229ED9;
+            background: linear-gradient(150deg, rgba(5, 115, 165, 1) 0%, rgba(35, 160, 220, 1) 100%);
             color: white;
             border: none;
             outline: none;
             border-radius: 8px;
             border: 1px solid transparent;
-            transition: ease 300ms;
+            transition: 400ms;
             font-family: inherit;
             text-decoration: none;
             text-align: center;
-
         }
 
 
         .rcal_send_telegram:hover {
-            background-color: white;
+            background-color: white !important;
+            background: none;
             color: #229ED9;
             border: 1px solid #229ED9;
             cursor: pointer;
+            transition: 400ms;
         }
 
         .rcal_send_viber {
             padding: 12px 32px;
-            background-color: #59267c;
-            color: white;
+            background: linear-gradient(150deg, rgba(126, 85, 222, 1) 0%, rgba(200, 73, 197, 1) 100%);
+            color: white !important;
             outline: none;
             border-radius: 8px;
             border: 1px solid transparent;
@@ -123,30 +129,81 @@
         }
 
         .rcal_copy_to_clipboard {
-            background-color: white;
-            padding: 12px 32px;
-            color: darkgrey;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: black;
+            background-color: transparent;
             border: none;
             outline: none;
-            border-radius: 8px;
-            border: 1px solid darkgrey;
             transition: ease 300ms;
-            font-family: inherit;
-            text-align: center;
+        }
 
+        .rcal_copy_to_clipboard>i {
+            width: 24px;
+            height: 24px;
+            background: url("https://www.paperfox.com.ua/wp-content/uploads/2023/10/icon-copy-to-cboard.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: ease 300ms;
+            animation: fade-in 1000ms 1;
+        }
+
+        .rcal_copy_to_clipboard>span {
+            font-size: 16px;
+            animation: fade-in 1000ms 1;
+        }
+
+        .rcal_copy_to_clipboard:hover>i {
+            width: 24px;
+            height: 24px;
+            background-repeat: no-repeat;
+            background: url("https://www.paperfox.com.ua/wp-content/uploads/2023/10/icon-copy-to-cboard-hover.png");
         }
 
         .rcal_copy_to_clipboard:hover {
-            background-color: white;
-            border: 1px solid orangered;
-            color: orangered;
+            color: #40a629;
             cursor: pointer;
         }
 
-        input {
-            -webkit-appearance:  !important;
+        .rcal_cc_btn_cnt {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #40a629 !important;
+            gap: 12px;
+            border-radius: 4px;
+            min-width: 270px;
+            min-height: 44px;
+            animation: fade-in 1000ms 1;
         }
 
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .rcal_cc_done_icon {
+            width: 24px;
+            height: 24px;
+            background: url("https://www.paperfox.com.ua/wp-content/uploads/2023/10/icon-copy-to-cboard-done.png");
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .rcal_cc_done_text {
+            color: white !important;
+            font-size: 16px;
+        }
+
+        input {
+            -webkit-appearance: auto !important;
+        }
 
         @media (max-width: 767.98px) {
 
@@ -158,6 +215,10 @@
                 width: 100% !important;
             }
 
+            .rcal_copy_to_clipboard {
+                justify-content: center;
+            }
+
             .rcal_input_range_cnt,
             .rcal_select_cnt {
                 flex: initial;
@@ -166,7 +227,6 @@
             .et_pb_row {
                 width: 90% !important;
             }
-
         }
     </style>
     <div class="rcal_width_100 rcal_col rcal">
@@ -185,7 +245,7 @@
                 <div class="rcal_select_cnt">
                     <label for="rcal_material">Матеріал</label>
                     <select name="material" id="rcal_material" class="rcal_select">
-                        <option value="PAPER_STICKER">Паперова самоклейка (Raflatac)</option>
+                        <option value="PAPER_STICKER" selected>Паперова самоклейка (Raflatac)</option>
                         <option value="PAPER_STICKER_LAMINATED">Паперова самоклейка з ламінацією</option>
                         <option value="PAPER_STICKER_SOFT_TOUCH">Паперова самоклейка з ламінацією SoftTouch</option>
                         <option value="PET_STICKER">ПЕТ самоклейка (Raflatac)</option>
@@ -209,15 +269,18 @@
                     <label for="rcal_cut">Порізка</label>
                     <select name="cut" id="rcal_cut" class="rcal_select">
                         <option value="KISS_CUT_A4">Контурна на А4</option>
-                        <option value="KISS_CUT_A3">Контурна на А3</option>
+                        <option value="KISS_CUT_A3" selected="checked">Контурна на А3</option>
                         <option value="DIE_CUT">Кожна наліпка окремо</option>
                     </select>
                 </div>
             </div>
             <div class="rcal_row rcal_row_reverse rcal_width_100">
-                <button id="copy_to_clipboard_btn" class="rcal_copy_to_clipboard">Скопіювати обрані параметри</button>
-                <a href="viber://add?number=380730472212" id="send_to_viber" class="rcal_send_viber">ЗАМОВИТИ У VIBER</a>
-                <a href="https://t.me/Paper_Fox" id="send_to_telegram" class="rcal_send_telegram">ЗАМОВИТИ У TELEGRAM</a>
+                <button id="copy_to_clipboard_btn" class="rcal_copy_to_clipboard">
+                    <i role="icon"></i>
+                    <span>Скопіювати обрані параметри</span>
+                </button>
+                <!-- <a href="viber://add?number=380730472212" id="send_to_viber" class="rcal_send_viber">ЗАМОВИТИ У VIBER</a> -->
+                <a href="https://t.me/Paper_Fox" id="send_to_telegram" class="rcal_send_telegram" target="_blank">ЗАМОВИТИ У TELEGRAM</a>
             </div>
         </div>
     </div>

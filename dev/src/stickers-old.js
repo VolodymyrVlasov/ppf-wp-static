@@ -96,28 +96,31 @@ cutSelect.addEventListener("change", e => {
 })
 
 copyButton.addEventListener("click", e => {
-
     let resultText = `
-        - ${MATERIAL_NAMES[roundSticker.material]}
-        - Кругла діаметр ${roundSticker.diameter} мм.
-        - Порізка: ${CUT_NAMES[roundSticker.cutType]}
-        - Кількість: ${roundSticker.amount} шт.
-        - Друк (${roundSticker.sheetsAtPrintingRun} арк.) - ${roundSticker.printPrice} грн, порізка (${roundSticker.cutAtPrintingRun} м.п.) - ${roundSticker.cutPrice} грн.`;
+- ${MATERIAL_NAMES[roundSticker.material]}
+- Кругла діаметр ${roundSticker.diameter} мм.
+- Порізка: ${CUT_NAMES[roundSticker.cutType]}
+- Кількість: ${roundSticker.amount} шт.
+- Друк (${roundSticker.sheetsAtPrintingRun} арк.) - ${roundSticker.printPrice} грн, порізка (${roundSticker.cutAtPrintingRun} м.п.) - ${roundSticker.cutPrice} грн.`;
 
     if (navigator.clipboard) {
         navigator.clipboard.writeText(resultText).then(function () {
-            copyButton.innerText = "Параметри копійовані!"
+            copyButton.innerHTML = `<div class="rcal_cc_btn_cnt"><i class="rcal_cc_done_icon"></i><span class="rcal_cc_done_text">Скопійовано</span></div>`;
         }).catch(function (err) {
             copyButton.innerText = "Не вдалось скопіюавати"
         });
     } else {
+        copyButton.innerHTML = `<div class="rcal_cc_btn_cnt"><i class="rcal_cc_done_icon"></i><span class="rcal_cc_done_text">Скопійовано</span></div>`;
+
         console.error('Clipboard API not supported in this browser/environment.');
     }
 
     setTimeout(() => {
-        copyButton.innerText = "Скопіювати обрані параметри!"
-    }, 3000);
+        copyButton.innerHTML = `<i role="icon"></i><span>Скопіювати обрані параметри</span>`
+    }, 2000)
+
 })
+
 
 class Calculator {
     static calcStickersAtSheet() {
@@ -159,19 +162,19 @@ class Calculator {
         Calculator.calcSheetsInOrder();
         Calculator.calcCutInOrder();
 
-        let i = CUT_PRICE.INDEX.reverse().findIndex(element => roundSticker.cutAtPrintingRun >= element)
-        let j = MATERIAL_PRICE.INDEX.reverse().findIndex(element => {
-            console.log("test");
-
-            if (roundSticker.sheetsAtPrintingRun >= element) {
-                return true;
+        function getPriceIndex(priceIndexesArr, target) {
+            for (let index = 0; index < priceIndexesArr.length; index++) {
+                if (index + 1 >= priceIndexesArr.length) return priceIndexesArr.length - 1;
+                if (target < priceIndexesArr[0]) return 0;
+                if (target >= priceIndexesArr[index] && target < priceIndexesArr[index + 1]) return index;
             }
-            return false;
-        })
+        }
+
+        let i = getPriceIndex(CUT_PRICE.INDEX, roundSticker.cutAtPrintingRun);
+        let j = getPriceIndex(MATERIAL_PRICE.INDEX, roundSticker.sheetsAtPrintingRun);
 
         roundSticker.cutPrice = CUT_PRICE[roundSticker.cutType][i] * roundSticker.cutAtPrintingRun;
         roundSticker.printPrice = MATERIAL_PRICE[roundSticker.material][j] * roundSticker.sheetsAtPrintingRun;
-        // console.log(MATERIAL_PRICE[roundSticker.material], j, MATERIAL_PRICE[roundSticker.material][j]);
         render(MATERIAL_PRICE[roundSticker.material][j]);
     }
 }
@@ -180,7 +183,7 @@ function render() {
     sizeLabel.innerHTML = `Діаметр: ${roundSticker.diameter} мм`;
     amountLabel.innerHTML = `Кількість: ${roundSticker.amount} шт`;
     resultCnt.innerHTML = `
-    <span style="font-size: 24px">Вартість: ${roundSticker.printPrice + roundSticker.cutPrice} грн.<br>
-    <span style="font-size: 14px">(Друк: ${roundSticker.sheetsAtPrintingRun} арк. - ${roundSticker.printPrice} грн., порізка: ${roundSticker.cutAtPrintingRun} м.п. - ${roundSticker.cutPrice} грн.)</span></span>`
+    <span style="font-size: 24px">Вартість: ${(roundSticker.printPrice + roundSticker.cutPrice).toFixed(2)} грн.<br>
+    <span style="font-size: 14px">(Друк: ${roundSticker.sheetsAtPrintingRun} арк. - ${roundSticker.printPrice} грн., порізка: ${roundSticker.cutAtPrintingRun} м.п. - ${roundSticker.cutPrice} грн.)</span></span>`;
 
 }
