@@ -190,7 +190,7 @@ export const dev = (done) => {
 
 export const deploywp = (done) => {
     const LOCAL = ['paperfox/**/*.*'];
-    const REMOTE = "/paperfox.in.ua/shop/wp-content/themes/paperfox";
+    const REMOTE = "/paperfox.in.ua/wp-content/themes/paperfox";
 
     gulp.src(LOCAL, {})
         .pipe(ftp.dest(REMOTE));
@@ -200,7 +200,7 @@ export const deploywp = (done) => {
 
 export const deploywpcode = (done) => {
     const LOCAL = ['paperfox/js/*.*', 'paperfox/woocommerce/*.*', 'paperfox/*.*'];
-    const REMOTE = "/paperfox.in.ua/shop/wp-content/themes/paperfox";
+    const REMOTE = "/paperfox.in.ua/wp-content/themes/paperfox";
 
     gulp.src(LOCAL, {})
         .pipe(ftp.dest(REMOTE));
@@ -210,7 +210,7 @@ export const deploywpcode = (done) => {
 
 export const deploywpplugins = (done) => {
     const LOCAL = ['plugins/**/*.*'];
-    const REMOTE = "/paperfox.in.ua/shop/wp-content/plugins/";
+    const REMOTE = "/paperfox.in.ua/wp-content/plugins/";
 
     gulp.src(LOCAL, {})
         .pipe(ftp.dest(REMOTE));
