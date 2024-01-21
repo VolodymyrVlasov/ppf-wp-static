@@ -28,7 +28,7 @@ export const clear = (done) => {
     deleteSync(["paperfox/"]);
     deleteSync(["www/"]);
 
-    ftp.rmdir("/paperfox.in.ua/shop/wp-content/themes/paperfox", (err) => {
+    ftp.rmdir("/paperfox.in.ua/www/wp-content/themes/paperfox", (err) => {
         if (err) {
             console.error('Error deleting directory:', err);
         } else {
@@ -36,13 +36,13 @@ export const clear = (done) => {
         }
     });
 
-    ftp.rmdir("/paperfox.in.ua/www", (err) => {
-        if (err) {
-            console.error('Error deleting directory:', err);
-        } else {
-            console.log('Directory deleted successfully.');
-        }
-    });
+    // ftp.rmdir("/paperfox.in.ua/www", (err) => {
+    //     if (err) {
+    //         console.error('Error deleting directory:', err);
+    //     } else {
+    //         console.log('Directory deleted successfully.');
+    //     }
+    // });
     done();
 }
 
@@ -190,7 +190,7 @@ export const dev = (done) => {
 
 export const deploywp = (done) => {
     const LOCAL = ['paperfox/**/*.*'];
-    const REMOTE = "/paperfox.in.ua/wp-content/themes/paperfox";
+    const REMOTE = "/paperfox.in.ua/www/wp-content/themes/paperfox";
 
     gulp.src(LOCAL, {})
         .pipe(ftp.dest(REMOTE));
@@ -200,7 +200,7 @@ export const deploywp = (done) => {
 
 export const deploywpcode = (done) => {
     const LOCAL = ['paperfox/js/*.*', 'paperfox/woocommerce/*.*', 'paperfox/*.*'];
-    const REMOTE = "/paperfox.in.ua/wp-content/themes/paperfox";
+    const REMOTE = "/paperfox.in.ua/www/wp-content/themes/paperfox";
 
     gulp.src(LOCAL, {})
         .pipe(ftp.dest(REMOTE));
@@ -210,7 +210,7 @@ export const deploywpcode = (done) => {
 
 export const deploywpplugins = (done) => {
     const LOCAL = ['plugins/**/*.*'];
-    const REMOTE = "/paperfox.in.ua/wp-content/plugins/";
+    const REMOTE = "/paperfox.in.ua/www/wp-content/plugins/";
 
     gulp.src(LOCAL, {})
         .pipe(ftp.dest(REMOTE));

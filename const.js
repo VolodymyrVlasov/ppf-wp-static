@@ -1,6 +1,6 @@
 export const wwwVar = {
     '{{domain}}': 'https://paperfox.in.ua',
-    '{{sub_domain}}': 'https://shop.paperfox.in.ua',
+    '{{sub_domain}}': 'https://paperfox.in.ua',
     '{{stylesheet_url}}': 'https://paperfox.in.ua',
     '{{email}}': 'print@paperfox.in.ua',
     '{{phone}}': '0800 332 042',
@@ -12,8 +12,8 @@ export const wwwVar = {
 
 export const wpVar = {
     '{{domain}}': 'https://paperfox.in.ua',
-    '{{sub_domain}}': 'https://shop.paperfox.in.ua',
-    '{{stylesheet_url}}': 'https://shop.paperfox.in.ua/wp-content/themes/paperfox',
+    '{{sub_domain}}': 'https://paperfox.in.ua',
+    '{{stylesheet_url}}': 'https://paperfox.in.ua/wp-content/themes/paperfox',
     '{{email}}': 'print@paperfox.in.ua',
     '{{phone}}': '0800 332 042',
     '{{viber}}': 'viber://add?number=380730472212',
