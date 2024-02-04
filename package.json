@@ -5,10 +5,14 @@
   "main": "gulpfile.js",
   "scripts": {
     "dev": "npx gulp",
-    "build": "npx gulp buildwp && npx gulp buildpages",
+    "build_all": "npx gulp buildwp && npx gulp buildpages",
+    "build-theme": "npx gulp buildwp",
+    "build-pages": "npx gulp buildpages",
+    "build-plugins": "npx gulp build_wp_plugins",
     "deploy": "npx gulp clear && npx gulp buildwp && npx gulp buildpages && npx gulp deploywww && npx gulp deploywp",
     "deploy-plugin": "npx gulp build_wp_plugins && npx gulp deploywpplugins",
-    "deploy-theme": "npx gulp buildwp && npx gulp deploywp"
+    "deploy-theme": "npx gulp buildwp && npx gulp deploywp",
+    "deploy-plugins": "npx gulp build_wp_plugins && npx gulp deploywpplugins"
   },
   "repository": {
     "type": "git",
@@ -50,6 +54,7 @@
     "yargs": "^17.7.1"
   },
   "dependencies": {
+    "gulp-sourcemaps": "^3.0.0",
     "gulp-util": "^3.0.8"
   }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Cart Page
+ * Template Name: PPF-Cart
  */
 
 defined('ABSPATH') || exit;
@@ -162,8 +162,3 @@ defined('ABSPATH') || exit;
 </body>
 
 </html>
-
-`<img src="<?php echo get_the_post_thumbnail_url($_product->get_id()); ?>" alt="<?php echo $_product->get_name(); ?>"
-    width="200" height="100" class="cart_item_image bg_img">`
-перероби цей код додавши умову для виводу за наявності превʼю створенного дизану у fancy poduct designer, а якщо немає,
-то стандартне зображення товару

@@ -1,10 +1,8 @@
+<?php defined('ABSPATH') || exit;
 /**
-* Template Name: Checkout Page
-*/
-
-
-<?php defined('ABSPATH') || exit; ?>
-
+ * Template Name: PPF-Checkout
+ */
+?>
 
 
 <!DOCTYPE html>
@@ -30,7 +28,6 @@
                 <article id="post-9" class="col big_gap">
                     <h1 class="text_32__bold">Оформлення замовлення</h1>
 
-
                     <form name="checkout" method="post" class="checkout row big_gap" action="https://shop.paperfox.in.ua/checkout/" enctype="multipart/form-data" novalidate="novalidate">
 
                         <?php do_action('woocommerce_checkout_before_customer_details'); ?>
@@ -40,33 +37,28 @@
                                 <div class="woocommerce-billing-fields col gap width_100">
                                     <div class="col gap width_100">
                                         <!-- Замовник - контакти -->
-                                        @@include('../../partials/checkout/checkout-billing-recepient.html')
+                                        @@include('../../partials/checkout/checkout-billing-recepient.php')
                                     </div>
                                     <div class="col gap width_100">
                                         <!-- Методи доставки -->
-                                        @@include('../../partials/checkout/checkout-delivery.html')
+                                        @@include('../../partials/checkout/checkout-delivery.php')
                                     </div>
                                     <p class="form-row form-row-wide address-field validate-required" id="billing_city_field" data-priority="70"><label for="billing_city" class="">Місто / Село&nbsp;<abbr class="required" title="обов&#039;язкове">*</abbr></label><span
                                             class="woocommerce-input-wrapper"><input type="text" class="input-text " name="billing_city" id="billing_city" placeholder="" value="Київ" autocomplete="address-level2" /></span></p>
                                     <div class="col gap width_100">
                                         <!-- Методи оплати -->
                                         <h3 class="text_24">Оплата</h3>
-                                        <ul class="col gap width_100 woocommerce-checkout-payment" id="payment"></ul>
+                                        <ul class="woocommerce-checkout-payment col big_gap width_100" id="payment"></ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
                         <?php do_action('woocommerce_checkout_after_customer_details'); ?>
-
 
                         <div id="order_review" class="cart_summary_card flex_2">
                             <h3 id="order_review_heading">Ваше замовлення</h3>
-
-
                             <button type="submit" class="button__primary width_100" name="woocommerce_checkout_place_order" id="place_order" value="Підтвердити замовлення" data-value="Підтвердити замовлення">Підтвердити замовлення</button>
-
-
-
                             <div class="row">
                                 <input type="checkbox" checked class="checkout_checkbox" required
                                     id="user-policy-confirmation">
@@ -80,7 +72,8 @@
                         </div>
 
                         <!-- Коментар -->
-                        @@include('../../partials/checkout/checkout-comment.html')
+
+                        @@include('../../partials/checkout/checkout-comment.php')
 
 
 

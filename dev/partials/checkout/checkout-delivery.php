@@ -24,16 +24,16 @@
             </div>
 
             <!-- Інший отримувач - контакти -->
-            @@include('../../partials/checkout/checkout-shipping-recepient.html')
+            @@include('../../partials/checkout/checkout-shipping-recepient.php')
 
             <!-- Нова Пошта - види доставки -->
-            @@include('../../partials/checkout/checkout-shipping-types.html')
+            @@include('../../partials/checkout/checkout-shipping-types.php')
 
             <!-- Платіжна адреса (billing address) - Нова Пошта  -->
-            @@include('../../partials/checkout/checkout-billing-address.html')
+            @@include('../../partials/checkout/checkout-billing-address.php')
 
             <!-- Інший отримувач - Нова Пошта -->
-            @@include('../../partials/checkout/checkout-shipping-address.html')
+            @@include('../../partials/checkout/checkout-shipping-address.php')
         </div>
     </li>
 </ul>

@@ -3,6 +3,7 @@ import util from "gulp-util";
 import gulp from "gulp";
 import fileInclude from "gulp-file-include";
 import concat from "gulp-concat";
+import sourcemaps from "gulp-sourcemaps";
 import replace from "gulp-replace";
 import webp from "gulp-webp";
 import webpHtml from "gulp-webp-html-nosvg";
@@ -26,7 +27,7 @@ const ftp = vinylFtp.create({
 
 export const clear = (done) => {
     deleteSync(["paperfox/"]);
-    deleteSync(["www/"]);
+    // deleteSync(["www/"]);
 
     ftp.rmdir("/paperfox.in.ua/www/wp-content/themes/paperfox", (err) => {
         if (err) {
@@ -49,7 +50,7 @@ export const clear = (done) => {
 export const buildwp = (done) => {
     // deleteSync(["paperfox/"]);
 
-    let streamPhp = gulp.src("dev/wp-theme/**/*.php", { aloowEmpty: true });
+    let streamPhp = gulp.src(["dev/wp-theme/**/*.php", "!dev/wp-theme/woocommerce/disable-checkout.php"], { aloowEmpty: true });
     streamPhp.pipe(fileInclude({ prefix: '@@', basepath: '@file' }));
 
     for (const [placeholder, value] of Object.entries(wpVar)) {
@@ -66,8 +67,11 @@ export const buildwp = (done) => {
         .pipe(gulp.dest("paperfox/"));
 
     let streamCss = gulp.src("dev/styles/**/*.css", { aloowEmpty: true });
-    streamCss.pipe(concat('style.css'))
-    streamCss.pipe(gulp.dest("paperfox/"));
+    // streamCss.pipe(gulp.dest("paperfox/styles"));
+
+    gulp.src(["dev/styles/**/*.css"], { aloowEmpty: true })
+        .pipe(concat('style.css'))
+        .pipe(gulp.dest("paperfox/"));
 
     for (const [placeholder, value] of Object.entries(wpVar)) {
         streamCss = streamCss.pipe(replace(placeholder, value));
@@ -219,7 +223,7 @@ export const deploywpplugins = (done) => {
 }
 
 export const deploywww = (done) => {
-    const LOCAL = ['www/**/*.*'];
+    const LOCAL = ['www/**/*.*', '!www/test/*.*'];
     const REMOTE = "/paperfox.in.ua/www/";
 
     gulp.src(LOCAL, {})
