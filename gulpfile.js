@@ -48,38 +48,39 @@ export const clear = (done) => {
 }
 
 export const buildwp = (done) => {
-    // deleteSync(["paperfox/"]);
+    gulp.src("dev/wp-theme/screenshot.png")
+        .pipe(gulp.dest("paperfox/"));
 
+    // BUILD PHP
     let streamPhp = gulp.src(["dev/wp-theme/**/*.php", "!dev/wp-theme/woocommerce/disable-checkout.php"], { aloowEmpty: true });
-    streamPhp.pipe(fileInclude({ prefix: '@@', basepath: '@file' }));
+    streamPhp
+        .pipe(fileInclude({ prefix: '@@', basepath: '@file' }))
+        .pipe(gulp.dest("paperfox/"));
 
     for (const [placeholder, value] of Object.entries(wpVar)) {
         streamPhp = streamPhp.pipe(replace(placeholder, value));
     }
-
     streamPhp
         .pipe(webpHtml())
         .pipe(replace('src="./static', 'src="<?php echo get_template_directory_uri();?>/static'))
         .pipe(gulp.dest("paperfox/"));
 
-
-    gulp.src("dev/wp-theme/screenshot.png")
-        .pipe(gulp.dest("paperfox/"));
-
+    // BUILD STYLES
     let streamCss = gulp.src("dev/styles/**/*.css", { aloowEmpty: true });
-    // streamCss.pipe(gulp.dest("paperfox/styles"));
-
-    gulp.src(["dev/styles/**/*.css"], { aloowEmpty: true })
-        .pipe(concat('style.css'))
-        .pipe(gulp.dest("paperfox/"));
 
     for (const [placeholder, value] of Object.entries(wpVar)) {
-        streamCss = streamCss.pipe(replace(placeholder, value));
+        streamCss
+            .pipe(replace(placeholder, value))
+            .pipe(gulp.dest("paperfox/"));
     }
 
-    gulp.src("dev/static/**/*")
-        .pipe(webp({ quality: 80 }))
-        .pipe(gulp.dest("paperfox/static/"));
+    // gulp.src(["dev/styles/**/*.css"], { aloowEmpty: true })
+    // .pipe(concat('style.css'))
+
+    // BUILD STATIC CONTENT
+    // gulp.src("dev/static/**/*")
+    //     .pipe(webp({ quality: 80 }))
+    //     .pipe(gulp.dest("paperfox/static/"));
 
     gulp.src("dev/wp-theme/js/**/*")
         .pipe(gulp.dest("paperfox/js/"));
@@ -104,10 +105,7 @@ export const build_wp_plugins = (done) => {
     return done();
 }
 
-
 export const buildpages = (done) => {
-    // deleteSync(["www/"]);
-
     const srcHtml = ["dev/pages/**/*.html", "!dev/pages/template-page.html", "!dev/pages/test.html"];
     const srcCSS = ['dev/styles/*.css', '!dev/styles/_1_wp-theme.css', '!dev/styles/style.css'];
     const srcStatic = "dev/static/**/*.*";

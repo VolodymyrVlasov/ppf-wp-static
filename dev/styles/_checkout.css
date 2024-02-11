@@ -1,3 +1,15 @@
+.checkout>.woocommerce-NoticeGroup {
+    width: 100% !important;
+}
+
+.aperance_none {
+    border: 0;
+    outline: none;
+    width: 0px;
+    margin-right: -3px;
+
+}
+
 .row:has(>.checkout_checkbox) {
     flex-wrap: nowrap;
 }

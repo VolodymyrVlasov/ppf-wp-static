@@ -1,3 +1,9 @@
+<?php defined('ABSPATH') || exit;
+/**
+ * Template Name: PPF-StaticPage
+ */
+?>
+
 <!DOCTYPE html>
 <html lang="uk">
 
@@ -14,11 +20,11 @@
 <body>
     <?php get_header(); ?>
     <main>
-        <section id="primary" class="section  col big_gap">
+        <section id="primary" class="section">
             <?php
             while (have_posts()):
                 the_post();
-                get_template_part('template-parts/content', 'page');
+                get_template_part('template-parts/ppf-content', 'page');
             endwhile;
             ?>
         </section>

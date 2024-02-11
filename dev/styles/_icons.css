@@ -64,7 +64,7 @@
     left: -48px;
     width: 32px;
     height: 32px;
-    background: url("{{stylesheet_url}}/static/icons/icon-clocks.png") 100% 100%/100% no-repeat;
+    background: url("{{stylesheet_url}}/static/icons/icon-clocks.webp") 100% 100%/100% no-repeat;
 }
 
 .magic_icon_before::before {
@@ -73,7 +73,7 @@
     left: -48px;
     width: 32px;
     height: 32px;
-    background: url("{{stylesheet_url}}/static/icons/icon-magic.png") 100% 100%/100% no-repeat;
+    background: url("{{stylesheet_url}}/static/icons/icon-magic.webp") 100% 100%/100% no-repeat;
 }
 
 .rocket_icon_before::before {
@@ -82,5 +82,5 @@
     left: -48px;
     width: 32px;
     height: 32px;
-    background: url("{{stylesheet_url}}/static/icons/icon-rocket.png") 100% 100%/100% no-repeat;
+    background: url("{{stylesheet_url}}/static/icons/icon-rocket.webp") 100% 100%/100% no-repeat;
 }
