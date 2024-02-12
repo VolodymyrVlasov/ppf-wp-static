@@ -23,6 +23,40 @@ defined('ABSPATH') || exit;
 <p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">
 <p class="text_32"> PPF ORDER RECEIVED</p>
 <?php
+
+$order_id = isset($_GET['key']) ? wc_get_order_id_by_order_key($_GET['key']) : 0;
+
+if (!$order_id) {
+	// ID заказа не найден в URL или не является числом
+	echo 'ID заказа не найден или некорректен.';
+}
+
+
+if ($order_id) {
+	// ID заказа успешно получен, можно использовать его для нужных операций
+
+	$order = wc_get_order($order_id);
+
+	if (!$order) {
+		echo 'Заказ с таким ID не найден.';
+	} else {
+		echo 'ID заказа: ' . $order_id;
+		$order_total = $order->get_total();
+		echo 'Общая стоимость заказа: ' . wc_price($order_total);
+		// $order_data = $order->get_data();
+
+		// foreach ($order_data as $key => $value) {
+		// 	echo '<p><strong>' . $key . ':</strong> ' . $value . '</p>';
+		// }
+	}
+} else {
+
+	echo 'ID заказа не найден или некорректен.';
+}
+?>
+
+
+<?php
 /**
  * Filter the message shown after a checkout is complete.
  *
@@ -41,3 +75,7 @@ $message = apply_filters(
 echo $message;
 ?>
 </p>
+
+<div class="col">
+	<?php wc_get_template('checkout/ppf-order-receipt.php', array('order' => $order)); ?>
+</div>
