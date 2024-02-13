@@ -26,10 +26,22 @@ select {
     padding-left: 16px;
 }
 
+.text_left {
+    display: inline;
+    text-align: left;
+}
+
+
 .text_center {
     display: inline;
     text-align: center;
 }
+
+.text_right {
+    display: inline;
+    text-align: right;
+}
+
 
 .text {
     width: 300px;

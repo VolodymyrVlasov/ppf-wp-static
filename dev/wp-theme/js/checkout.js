@@ -13,7 +13,7 @@ console.log("checkout-ppf.js")
 
 const checkoutForm = document.getElementsByName("checkout")[0];
 
-// console.log("checkoutForm", checkoutForm)
+console.log("checkoutForm", checkoutForm)
 
 checkoutForm?.addEventListener("submit", e => {
     e.stopPropagation;

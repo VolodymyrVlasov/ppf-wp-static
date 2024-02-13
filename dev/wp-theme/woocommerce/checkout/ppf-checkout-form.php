@@ -24,11 +24,11 @@ if (!defined('ABSPATH')) {
                     <div class="woocommerce-billing-fields col gap width_100">
                         <div class="col gap width_100">
                             <!-- Замовник - контакти -->
-                           <?php  wc_get_template('checkout/ppf-checkout-billing-recepient.php');?>
+                            <?php wc_get_template('checkout/ppf-checkout-billing-recepient.php'); ?>
                         </div>
                         <div class="col gap width_100">
                             <!-- Методи доставки -->
-                           <?php  wc_get_template('checkout/ppf-checkout-delivery.php');?>
+                            <?php wc_get_template('checkout/ppf-checkout-delivery.php'); ?>
                         </div>
                         <div class="col gap width_100">
                             <!-- Методи оплати -->
@@ -42,7 +42,7 @@ if (!defined('ABSPATH')) {
             <?php do_action('woocommerce_checkout_after_customer_details'); ?>
 
             <div id="order_review" class="cart_summary_card flex_2">
-                <h3 id="order_review_heading">Ваше замовлення</h3>
+                <?php wc_get_template('checkout/ppf-checkout-cart-list.php'); ?>
 
                 <button type="submit" class="button__primary width_100" name="woocommerce_checkout_place_order" id="place_order" value="Підтвердити замовлення" data-value="Підтвердити замовлення">Підтвердити замовлення</button>
                 <div class="row">
@@ -58,7 +58,7 @@ if (!defined('ABSPATH')) {
             </div>
 
             <!-- Коментар -->
-            <?php  wc_get_template('checkout/ppf-checkout-comment.php');?>
+            <?php wc_get_template('checkout/ppf-checkout-comment.php'); ?>
 
             <?php $checkout_nonce = wp_create_nonce("woocommerce-process_checkout"); ?>
             <input type="hidden" id="woocommerce-process-checkout-nonce" name="woocommerce-process-checkout-nonce" value="<?php echo esc_attr($checkout_nonce) ?>" />

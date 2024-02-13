@@ -1,7 +1,9 @@
-<?php defined('ABSPATH') || exit;
+<?php
 /**
  * Template Name: PPF-Checkout
  */
+
+defined('ABSPATH') || exit;
 ?>
 
 <!DOCTYPE html>
@@ -16,12 +18,27 @@
     <link rel="shortcut icon" href="{{stylesheet_url}}/static/icons/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="{{stylesheet_url}}/style.css">
     <title>Оформлення замовлення | PaperFox</title>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MNG4WVJJ');</script>
+    <!-- End Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GTM-MNG4WVJJ"></script>
     <?php wp_head(); ?>
 </head>
 
 <body>
     <?php get_header(); ?>
     <main>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNG4WVJJ"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
         <section class="section">
             <div class="container col big_gap">
 
@@ -39,4 +56,5 @@
     get_footer();
     wp_footer();
     ?>
+   
 </body>
