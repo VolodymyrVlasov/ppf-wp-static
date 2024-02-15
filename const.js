@@ -20,6 +20,7 @@ export const wpVar = {
     '{{telegram}}': 'https://t.me/Paper_Fox',
     '{{weekdays}}': 'Пн - Пт: 11:00 - 18:00',
     '{{weekends}}': 'Сб - Нд: Вихідні',
+    '{{google_tag_id}}': 'GTM-MNG4WVJJ',
 }
 
 export const devVar = {

@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
 
     <?php do_action('woocommerce_before_checkout_form', $checkout); ?>
 
-    <form name="checkout" method="post" class="checkout col big_gap width_100" action="https://shop.paperfox.in.ua/checkout/" enctype="multipart/form-data" novalidate="novalidate">
+    <form name="checkout" method="post" class="checkout col big_gap width_100" action="{{domain}}/checkout/" enctype="multipart/form-data" novalidate="novalidate">
 
         <?php do_action('woocommerce_checkout_before_customer_details'); ?>
 
@@ -43,16 +43,13 @@ if (!defined('ABSPATH')) {
 
             <div id="order_review" class="cart_summary_card flex_2">
                 <?php wc_get_template('checkout/ppf-checkout-cart-list.php'); ?>
+                <a href="{{domain}}/cart" class="button__normal">Редагувати кошик</a>
 
                 <button type="submit" class="button__primary width_100" name="woocommerce_checkout_place_order" id="place_order" value="Підтвердити замовлення" data-value="Підтвердити замовлення">Підтвердити замовлення</button>
                 <div class="row">
                     <input type="checkbox" checked class="checkout_checkbox" required
                         id="user-policy-confirmation">
-                    <label for="user-policy-confirmation" class="checkout_checkbox_label">Перейшовши до
-                        оформнення Ви підтверджуєте що перевірили зміст та склад створенного дизайну або
-                        обраного готового виробу. Готовий виріб або створений дизайн матиме вигляд що було
-                        створено у редакторі або показано на фото з можливими відхилення згідно до технічних
-                        можливостей</label>
+                    <label for="user-policy-confirmation" class="checkout_checkbox_label">Я пітверджую що всі дані вказано вірно, завантажені матеріали відповідають очікуваній якості та розміру. Надаю згоду на обробку персональтних даних.</label>
                 </div>
                 <?php do_action('woocommerce_checkout_after_order_review'); ?>
             </div>
