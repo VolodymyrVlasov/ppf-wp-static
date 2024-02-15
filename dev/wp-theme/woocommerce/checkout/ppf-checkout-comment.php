@@ -1,13 +1,12 @@
-<div class="col gap width_100">
-    <div class="woocommerce-additional-fields">
-        <div class="woocommerce-additional-fields__field-wrapper">
-            <p class="form-row notes" id="order_comments_field" data-priority="">
-                <label for="order_comments" class="">Нотатки до замовлень&nbsp;<span class="optional">(необов'язково)</span>
-                </label>
-                <span class="woocommerce-input-wrapper">
-                    <textarea name="order_comments" class="input-text " id="order_comments" placeholder="Нотатки до вашого замовлення, наприклад спеціальні нотатки для доставки." rows="2" cols="5"></textarea>
-                </span>
-            </p>
-        </div>
+<?php
+/**
+ * Output comment for order in checkout form
+ */
+
+if (!defined('ABSPATH')) {
+    exit;
+}
+?>
+    <div class="form-row notes woocommerce-input-wrapper col width_100" id="order_comments_field" data-priority="">
+        <textarea name="order_comments" class="col width_100 checkout_comment" id="order_comments" placeholder="Нотатки до вашого замовлення, наприклад спеціальні нотатки для доставки." rows="5" cols="5"></textarea>
     </div>
-</div>

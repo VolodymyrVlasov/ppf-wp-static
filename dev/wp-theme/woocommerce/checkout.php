@@ -15,10 +15,9 @@ defined('ABSPATH') || exit;
         content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <link rel="shortcut icon" href="{{stylesheet_url}}/static/icons/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="{{stylesheet_url}}/style.css">
+    <link rel="shortcut icon" href="{{stylesheet_url}}/static/icons/favicon.webp" type="image/x-icon">
     <title>Оформлення замовлення | PaperFox</title>
-    <link rel="shortcut icon" href="{{domain}}static/icons/favicon.png" type="image/x-icon">\
+    <link rel="shortcut icon" href="{{domain}}static/icons/favicon.png" type="image/x-icon">
     <?php wc_get_template('template-parts/ppf-google-tag-head.php'); ?>
     <?php wp_head(); ?>
 </head>
@@ -45,3 +44,5 @@ defined('ABSPATH') || exit;
     ?>
 
 </body>
+
+</html>

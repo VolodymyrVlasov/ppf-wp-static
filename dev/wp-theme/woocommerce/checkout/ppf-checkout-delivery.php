@@ -1,7 +1,5 @@
 <h2 class="text_24">Доставка</h2>
-<div class="woocommerce-shipping-fields">
-</div>
-<ul id="shipping_method" class="woocommerce-shipping-methods col gap width_100">
+<ul id="shipping_method" class="woocommerce-shipping-fields woocommerce-shipping-methods col gap width_100">
     <!-- Самовивіз -->
     <li class="checkout_input_radio_wrapper">
         <div class="checkout_input_radio">

@@ -357,3 +357,10 @@ ul:has(>.checkout_input_radio_wrapper) {
 .woocommerce-input-wrapper~label {
     margin: 0 0 4px 8px !important;
 }
+
+.checkout_comment {
+    font-size: 16px;
+    padding: 12px 8px;
+    border-radius: var(--size-border-radius);
+    border: 1px solid var(--color-gray);
+}

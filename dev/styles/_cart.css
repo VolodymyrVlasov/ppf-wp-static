@@ -97,7 +97,7 @@
     display: flex;
     height: fit-content;
     flex-direction: column;
-    gap: var(--size-gap);
+    gap: var(--size-small-gap);
     background-color: var(--color-light-light-gray);
     border: 0.5px solid var(--color-light-gray);
     border-radius: var(--size-border-radius);
