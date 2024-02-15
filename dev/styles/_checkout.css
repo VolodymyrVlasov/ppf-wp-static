@@ -359,6 +359,7 @@ ul:has(>.checkout_input_radio_wrapper) {
 }
 
 .checkout_comment {
+    max-width: 100% !important;
     font-size: 16px;
     padding: 12px 8px;
     border-radius: var(--size-border-radius);

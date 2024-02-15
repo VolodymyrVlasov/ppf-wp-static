@@ -20,62 +20,37 @@
 defined('ABSPATH') || exit;
 ?>
 
-<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">
-<p class="text_32"> PPF ORDER RECEIVED</p>
-<?php
-
-$order_id = isset($_GET['key']) ? wc_get_order_id_by_order_key($_GET['key']) : 0;
-
-if (!$order_id) {
-	// ID заказа не найден в URL или не является числом
-	echo 'ID заказа не найден или некорректен.';
-}
-
-
+<?php $order_id = isset($_GET['key']) ? wc_get_order_id_by_order_key($_GET['key']) : 0;
 if ($order_id) {
-	// ID заказа успешно получен, можно использовать его для нужных операций
-
 	$order = wc_get_order($order_id);
+	?>
 
-	if (!$order) {
-		echo 'Заказ с таким ID не найден.';
-	} else {
-		echo 'ID заказа: ' . $order_id;
-		$order_total = $order->get_total();
-		echo 'Общая стоимость заказа: ' . wc_price($order_total);
-		// $order_data = $order->get_data();
+	<?
+	echo '$order->get_shipping_method' . $order->get_shipping_method();
+	echo '$order->get_shipping_to_display()' . $order->get_shipping_to_display();
+	?>
+	<a href="<?php echo $order->get_cancel_order_url() ?>" class="button__secondary">Скасувати замовлення</a>
+	<section class="section">
+		<div class="container col_center big_gap">
+			<div class="col_center gap">
+				<img src="{{stylesheet_url}}/static/icons/icon-order-proceed.svg" alt="Замовлення отримано" width="65px" height="65px">
+				<h1 class="text_32__bold">Дякуємо, <?php echo $order->get_billing_first_name();?>!</h1>
+				<p class="text_16 text_center width_75">Замовлення сформоване успішно,<br> найближчим часом ми його отримаємо, перевіремо всі деталі і <bp>надамо зворотній зв'язок.<br>
+				</p>
+			</div>
+			<span class="text_12__gray">Всі деталі замовлення надіслано на
+				<?php echo $order->get_billing_email() ?>
+			</span>
 
-		// foreach ($order_data as $key => $value) {
-		// 	echo '<p><strong>' . $key . ':</strong> ' . $value . '</p>';
-		// }
-	}
-} else {
-
+			<div class="col_center width_100 big_gap">
+				<?php wc_get_template('checkout/ppf-order-receipt.php', array('order' => $order)); ?>
+			</div>
+			<p>Якщо у Вас є питання, напишіть нам:</p>
+		</div>
+		<?php $checkout_nonce = wp_create_nonce("woocommerce-process_checkout"); ?>
+		<input type="hidden" id="woocommerce-process-checkout-nonce" name="woocommerce-process-checkout-nonce" value="<?php echo esc_attr($checkout_nonce) ?>" />
+	</section>
+<?php } else {
 	echo 'ID заказа не найден или некорректен.';
 }
 ?>
-
-
-<?php
-/**
- * Filter the message shown after a checkout is complete.
- *
- * @since 2.2.0
- *
- * @param string         $message The message.
- * @param WC_Order|false $order   The order created during checkout, or false if order data is not available.
- */
-$message = apply_filters(
-	'woocommerce_thankyou_order_received_text',
-	esc_html(__('Thank you. Your order has been received.', 'woocommerce')),
-	$order
-);
-
-// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-echo $message;
-?>
-</p>
-
-<div class="col">
-	<?php wc_get_template('checkout/ppf-order-receipt.php', array('order' => $order)); ?>
-</div>

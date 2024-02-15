@@ -15,28 +15,24 @@ if (!defined('ABSPATH')) {
     <form name="checkout" method="post" class="checkout col big_gap width_100" action="{{domain}}/checkout/" enctype="multipart/form-data" novalidate="novalidate">
         <?php do_action('woocommerce_checkout_before_customer_details'); ?>
         <div class="row big_gap">
-            <div class="col big_gap flex_4" id="customer_details">
+            <div class="woocommerce-billing-fields col big_gap flex_4" id="customer_details">
                 <div class="col gap width_100">
-                    <div class="woocommerce-billing-fields col gap width_100">
-                        <div class="col gap width_100">
-                            <!-- Замовник - контакти -->
-                            <?php wc_get_template('checkout/ppf-checkout-billing-recepient.php'); ?>
-                        </div>
-                        <div class="col gap width_100">
-                            <!-- Методи доставки -->
-                            <?php wc_get_template('checkout/ppf-checkout-delivery.php'); ?>
-                        </div>
-                        <div class="col gap width_100">
-                            <!-- Методи оплати -->
-                            <h3 class="text_24">Оплата</h3>
-                            <ul class="woocommerce-checkout-payment col big_gap width_100" id="payment"></ul>
-                        </div>
-                        <div class="col gap width_100">
-                            <!-- Коментар -->
-                            <h3 class="text_24">Коментар до замовлення</h3>
-                            <?php wc_get_template('checkout/ppf-checkout-comment.php'); ?>
-                        </div>
-                    </div>
+                    <!-- Замовник - контакти -->
+                    <?php wc_get_template('checkout/ppf-checkout-billing-recepient.php'); ?>
+                </div>
+                <div class="col gap width_100">
+                    <!-- Методи доставки -->
+                    <?php wc_get_template('checkout/ppf-checkout-delivery.php'); ?>
+                </div>
+                <div class="col gap width_100">
+                    <!-- Методи оплати -->
+                    <h3 class="text_24">Оплата</h3>
+                    <ul class="woocommerce-checkout-payment col big_gap width_100" id="payment"></ul>
+                </div>
+                <div class="col gap width_100">
+                    <!-- Коментар -->
+                    <h3 class="text_24">Коментар до замовлення</h3>
+                    <?php wc_get_template('checkout/ppf-checkout-comment.php'); ?>
                 </div>
             </div>
             <?php do_action('woocommerce_checkout_after_customer_details'); ?>

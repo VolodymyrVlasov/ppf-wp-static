@@ -161,22 +161,39 @@ picture:has(>.product_card__image) {
 .main_announcement {
     display: flex;
     flex: 1;
-    height: 50px;
-    /* border-radius: 999px; */
-    /* background-color: var(--color-light-light-theme); */
+    height: auto;
     overflow: hidden;
     align-items: center;
-    /* border-top: 0.2px solid;
-    border-bottom: 0.2px solid; */
 }
 
 .main_announcement>div {
-    animation: ticker 120s linear infinite;
+    flex-wrap: nowrap;
+    line-height: 100%;
+    animation: ticker 90s linear infinite;
 }
 
-.main_announcement>div * {
+.main_announcement>div>a {
+    display: flex;
+    gap: var(--size-small-gap);
     white-space: nowrap;
+    padding: 4px 8px;
+    border-radius: var(--size-border-radius);
 }
+
+.main_announcement>div>a:hover {
+    padding: 4px 8px;
+    background-color: var(--color-theme);
+    color: white;
+    width: 100%;
+}
+
+.main_announcement:hover>div {
+    animation-play-state: paused;
+}
+
+
+
+
 
 
 

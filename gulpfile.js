@@ -78,9 +78,9 @@ export const buildwp = (done) => {
     // .pipe(concat('style.css'))
 
     // BUILD STATIC CONTENT
-    // gulp.src("dev/static/**/*")
-    //     .pipe(webp({ quality: 80 }))
-    //     .pipe(gulp.dest("paperfox/static/"));
+    gulp.src("dev/static/**/*")
+        .pipe(webp({ quality: 80 }))
+        .pipe(gulp.dest("paperfox/static/"));
 
     gulp.src("dev/wp-theme/js/**/*")
         .pipe(gulp.dest("paperfox/js/"));

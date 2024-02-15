@@ -13,6 +13,7 @@
 
 .viber_before::before {
     content: "";
+    margin-top: -2px;
     margin-right: var(--icon-gap);
     width: var(--icon-width);
     height: 100%;
@@ -21,6 +22,7 @@
 
 .telegram_before::before {
     content: "";
+    margin-top: -2px;
     margin-right: var(--icon-gap);
     width: var(--icon-width);
     height: 100%;
@@ -29,6 +31,7 @@
 
 .phone_before::before {
     content: "";
+    margin-top: -2px;
     margin-right: var(--icon-gap);
     width: var(--icon-width);
     height: 100%;
@@ -37,6 +40,7 @@
 
 .mail_before::before {
     content: "";
+    margin-top: -2px;
     margin-right: var(--icon-gap);
     width: var(--icon-width);
     height: 100%;
@@ -45,6 +49,7 @@
 
 .location_before::before {
     content: "";
+    margin-top: -2px;
     margin-right: var(--icon-gap);
     width: var(--icon-width);
     height: 100%;
