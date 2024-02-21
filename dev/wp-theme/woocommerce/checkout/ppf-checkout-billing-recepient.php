@@ -1,7 +1,7 @@
 <h3 class="text_24">Ваші контактні дані</h3>
 <div class="row gap width_100">
     <div class="checkout_input_text" id="billing_first_name_field" data-priority="10">
-        <label for="billing_first_name">* Імʼя</label>
+        <label for="billing_first_name">Імʼя</label>
         <input type="text" name="billing_first_name" id="billing_first_name" autocomplete="on" required="true" value="Тарас"> 
     </div>
     <div class="checkout_input_text form-row my-custom-class" id="billing_mrkvnp_patronymics_field" data-priority="136" style="display: none;">
@@ -16,7 +16,7 @@
 <div class="row gap width_100">
     <div class="checkout_input_text" id="billing_phone_field" data-priority="100">
         <label for="billing_phone">Мобільний телефон</label>
-        <input type="tel" id="billing_phone" required="true" value="+38 077 777 7777" name="billing_phone" autocomplete="on">
+        <input type="tel" id="billing_phone" required="true" value="+380667777777" name="billing_phone" autocomplete="on">
     </div>
     <div class="checkout_input_text" id="billing_email_field" data-priority="110">
         <label for="billing_email">Електронна пошта</label>

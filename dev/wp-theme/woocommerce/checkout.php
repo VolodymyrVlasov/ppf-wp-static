@@ -4,6 +4,7 @@
  */
 
 defined('ABSPATH') || exit;
+$checkout = WC()->checkout;
 ?>
 
 <!DOCTYPE html>
@@ -26,17 +27,14 @@ defined('ABSPATH') || exit;
     <?php wc_get_template('template-parts/ppf-google-tag-body.php'); ?>
     <?php get_header(); ?>
     <main>
-        <section class="section">
-            <div class="container col big_gap">
-                <?php if (is_wc_endpoint_url('order-received')) {
-                    // Путь к вашему пользовательскому шаблону для страницы "order-received"
-                    wc_get_template('checkout/ppf-order-received.php', array('order' => $order));
-                } else {
-                    wc_get_template('checkout/ppf-checkout-form.php', array('order' => $order));
-                }
-                ?>
-            </div>
-        </section>
+        <?php do_action('woocommerce_before_checkout_form', $checkout); ?>
+        <?php if (is_wc_endpoint_url('order-received')) {
+            // Путь к вашему пользовательскому шаблону для страницы "order-received"
+            wc_get_template('checkout/ppf-order-received.php', array('order' => $order));
+        } else {
+            wc_get_template('checkout/ppf-checkout-form.php', array('order' => $order));
+        }
+        ?>
     </main>
     <?php
     get_footer();

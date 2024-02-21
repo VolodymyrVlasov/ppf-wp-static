@@ -17,23 +17,19 @@ if (post_password_required()) {
 <?php
 the_post();
 global $product;
-
 ?>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?php echo $product->get_name(); ?>
-    </title>
+    <title><?php echo $product->get_name(); ?></title>
     <?php wp_head(); ?>
 </head>
 
 <body>
     <?php get_header(); ?>
     <main>
-
         <section class="section">
             <div class="container col big_gap">
                 <div id="product-<?php the_ID(); ?>">
