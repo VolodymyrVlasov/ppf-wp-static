@@ -1,6 +1,6 @@
 console.log("checkout.js")
 
-const localPickup = document.getElementById("shipping_method_0_local_pickup2");
+const localPickup = document.getElementById("shipping_method_0_local_pickup1");
 const npWrapper = document.getElementById("shipping_method_np_wrapper");
 const np = document.getElementById("shipping_method_0_nova_poshta_shipping_method");
 const anotherRecepient = document.getElementById("ship-to-different-address");
@@ -16,8 +16,7 @@ const checkoutForm = document.getElementsByName("checkout")[0];
 console.log("checkoutForm", checkoutForm)
 
 checkoutForm?.addEventListener("submit", e => {
-    e.stopPropagation;
-    e.preventDefault;
+
     const formData = new FormData(checkoutForm);
 
     // Выводим объект FormData в консоль
@@ -76,7 +75,7 @@ npWrapper?.addEventListener("change", e => {
         setTimeout(() => {
             np.checked = true;
             console.log(np.checked)
-        }, 0)
+        }, 5)
     }
 })
 
