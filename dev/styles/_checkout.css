@@ -365,3 +365,8 @@ ul:has(>.checkout_input_radio_wrapper) {
     border-radius: var(--size-border-radius);
     border: 1px solid var(--color-gray);
 }
+
+.checkout_thankyou_wrapper>.woocommerce-order-details,
+.checkout_thankyou_wrapper>.woocommerce-customer-details {
+    display: none !important;
+}

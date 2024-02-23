@@ -1,20 +1,6 @@
 <?php
 /**
  * "Order received" message.
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/checkout/thankyou.php.
- *
- * HOWEVER, on occasion WooCommerce will need to update template files and you
- * (the theme developer) will need to copy the new files to your theme to
- * maintain compatibility. We try to do this as little as possible, but it does
- * happen. When this occurs the version of the template file will be bumped and
- * the readme will list any important changes.
- *
- * @see https://woo.com/document/template-structure/
- * @package WooCommerce\Templates
- * @version 8.3.0
- *
- * @var WC_Order|false $order
  */
 
 defined('ABSPATH') || exit;
@@ -30,28 +16,22 @@ if ($order_id) {
 			<div class="col_center gap">
 				<img src="{{stylesheet_url}}/static/icons/icon-order-proceed.svg" alt="Замовлення отримано" width="65px" height="65px">
 				<h1 class="text_32__bold">
-					<?php echo "Дякуємо," . $order->get_billing_first_name() . "!"; ?>
+					<?php echo "Дякуємо, " . $order->get_billing_first_name() . "!"; ?>
 				</h1>
-				<p class="text_16 text_center width_75">Замовлення сформоване успішно,<br> найближчим часом ми його отримаємо, перевіремо всі деталі і <bp>надамо зворотній зв'язок.<br>
+				<p class="text_16 text_center width_75">Замовлення сформоване,<br> найближчим часом ми його отримаємо, перевіремо всі деталі і <bp>надамо зворотній зв'язок.<br>
 				</p>
 			</div>
-			<span class="text_12__gray">Всі деталі замовлення надіслано на
+			<span class="text_16 text_center">Подробиці замовлення надіслали на
 				<?php echo $order->get_billing_email() ?>
 			</span>
-
-			<div class="col_center width_100 big_gap">
-				<?php wc_get_template('checkout/ppf-order-receipt.php', array('order' => $order)); ?>
-			</div>
-			<p></p>
+			<?php wc_get_template('checkout/ppf-order-receipt.php', array('order' => $order)); ?>
 		</div>
 	</section>
-	<?php $contact_section_title = "Якщо у Вас є питання, напишіть нам";
-	wc_get_template('template-parts/ppf-contact-section.php'); ?>
 
-	<?
-	echo '$order->get_shipping_method' . $order->get_shipping_method();
-	echo '$order->get_shipping_to_display()' . $order->get_shipping_to_display();
-?>
+	<?php wc_get_template('template-parts/ppf-contact-section.php', array('contact_section_title' => "Якщо у Вас є питання, напишіть нам")); ?>
+	<div class="checkout_thankyou_wrapper">
+		<?php do_action('woocommerce_thankyou', $order->get_id()); ?>
+	</div>
 <?php } else {
 	echo 'ID заказа не найден или некорректен.';
 }

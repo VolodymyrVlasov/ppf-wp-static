@@ -40,7 +40,6 @@ $checkout = WC()->checkout;
     get_footer();
     wp_footer();
     ?>
-
 </body>
 
 </html>

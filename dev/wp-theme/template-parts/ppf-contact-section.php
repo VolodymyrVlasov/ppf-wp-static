@@ -8,7 +8,11 @@
 <section class="section bg_gray">
     <div class="container col big_gap">
         <h3 class="text_32">
-            <?php if ($contact_section_title ? $contact_section_title : "Потрібна консультація?") ?>
+            <?php if (isset($args['contact_section_title'])) {
+                echo $args['contact_section_title'];
+            } else {
+                echo "Потрібна консультація?";
+            } ?>
         </h3>
         <div class="row big_gap width_100">
             <a class="contact_widget_card cards_4" href="tel:{{phone}}">
