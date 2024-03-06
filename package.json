@@ -12,7 +12,9 @@
     "deploy": "npx gulp clear && npx gulp buildwp && npx gulp buildpages && npx gulp deploywww && npx gulp deploywp",
     "deploy-plugin": "npx gulp build_wp_plugins && npx gulp deploywpplugins",
     "deploy-theme": "npx gulp buildwp && npx gulp deploywp",
-    "deploy-plugins": "npx gulp build_wp_plugins && npx gulp deploywpplugins"
+    "deploy-plugins": "npx gulp build_wp_plugins && npx gulp deploywpplugins",
+    "test-build": "npx gulp testBuild",
+    "test-watch-to-local": "npx gulp watchTest"
   },
   "repository": {
     "type": "git",
@@ -55,6 +57,7 @@
   },
   "dependencies": {
     "gulp-sourcemaps": "^3.0.0",
-    "gulp-util": "^3.0.8"
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^5.0.1"
   }
 }
