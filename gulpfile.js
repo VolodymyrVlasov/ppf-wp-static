@@ -12,9 +12,9 @@ import htmlminify from "gulp-html-minify";
 import dotenv from "dotenv";
 import { deleteSync } from "del";
 import { wwwVar, devVar, wpVar } from "./const.js";
-import { deployStylesToLocal } from "./gulp-scripts/deployStyles.js";
+import { deployStylesToLocal } from "./gulp-scripts/deploy/deployStyles.js";
 
-import buildStyles from "./gulp-scripts/buildStyles.js";
+import buildStyles from "./gulp-scripts/build/buildStyles.js";
 
 import through2 from "through2";
 import Vinyl from "vinyl";

@@ -1,6 +1,6 @@
 import gulp from "gulp";
 import replace from "gulp-replace";
-import { wpVar } from "../const.js";
+import { wpVar } from "../../const.js";
 
 const SRC_PATH = ["dev/styles/**/*.css", "!dev/styles/style.css"];
 const TARGET_PATH = "paperfox/styles";
