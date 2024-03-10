@@ -1,7 +1,6 @@
 import vinylFtp from "vinyl-ftp";
 import util from "gulp-util";
 import gulp from "gulp";
-import watch from "gulp-watch";
 import fileInclude from "gulp-file-include";
 import concat from "gulp-concat";
 import sourcemaps from "gulp-sourcemaps";
@@ -12,11 +11,9 @@ import htmlminify from "gulp-html-minify";
 import dotenv from "dotenv";
 import { deleteSync } from "del";
 import { wwwVar, devVar, wpVar } from "./const.js";
-import { deployStylesToLocal } from "./gulp-scripts/deploy/deployStyles.js";
 
-import buildStyles from "./gulp-scripts/build/buildStyles.js";
+import { watchPages } from "./gulp-scripts/watchAndDeployToLocal.js";
 
-import through2 from "through2";
 import Vinyl from "vinyl";
 
 dotenv.config();
@@ -248,19 +245,9 @@ export const deploywww = (done) => {
   return done();
 };
 
-export const testBuild = () => {
-  buildStyles();
-  deployStylesToLocal();
-  console.log("\n\n---> Build completed\n\n");
-};
 
 export const watchTest = () => {
-  watch("dev/styles/**/*.css", () => {
-    testBuild();
-  });
+  watchPages();
 };
 
-const watchToLocalServer = () => {
-  // видстеження змині файлив у wp-theme
-  // виконання функції зам
-};
+

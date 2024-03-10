@@ -20,4 +20,5 @@ const buildStyles = () => {
     .pipe(gulp.dest(MAIN_STYLE_TARGET_PATH));
 };
 
-export default buildStyles;
+export { buildStyles, SRC_PATH, TARGET_PATH };
+

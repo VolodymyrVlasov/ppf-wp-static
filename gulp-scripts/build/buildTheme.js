@@ -28,4 +28,4 @@ const buildTheme = () => {
     .pipe(gulp.dest(TARGET_PATH));
 };
 
-export default buildTheme;
+export { buildTheme, SRC_PATH, TARGET_PATH };

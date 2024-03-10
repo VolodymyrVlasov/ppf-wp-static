@@ -7,4 +7,5 @@ const buildPagesScripts = () => {
   gulp.src(SRC_PATH, { aloowEmpty: true }).pipe(gulp.dest(TARGET_PATH));
 };
 
-export default buildPagesScripts;
+export { buildPagesScripts, SRC_PATH, TARGET_PATH };
+ 
