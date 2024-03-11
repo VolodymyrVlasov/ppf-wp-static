@@ -1,8 +1,8 @@
 import gulp from "gulp";
 import { DeployTypes } from "./deployTypes.js";
-import { ftp } from "../ftp.js";
+import { ftp } from "./ftp.js";
 
-const deployCode = ({
+export const deployCode = ({
   deployType,
   sourcePath,
   localPath,
@@ -19,6 +19,11 @@ const deployCode = ({
         gulp
           .src(sourcePath, { base: basePath, allowEmpty: true })
           .pipe(gulp.dest(`${DeployTypes.LOCAL_SERVER + localPath}`));
+        console.log(
+          `[${new Date().toUTCString()}] ---> COPY * FROM ${sourcePath} TO ${
+            DeployTypes.LOCAL_SERVER + localPath
+          }`
+        );
         break;
       case DeployTypes.REMOTE_SERVER:
         if (!remoteURL) throw new Error("remoteURL is invalid");

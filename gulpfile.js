@@ -6,13 +6,16 @@ import concat from "gulp-concat";
 import sourcemaps from "gulp-sourcemaps";
 import replace from "gulp-replace";
 import webp from "gulp-webp";
-import webpHtml from "gulp-webp-html-nosvg";
 import htmlminify from "gulp-html-minify";
 import dotenv from "dotenv";
 import { deleteSync } from "del";
 import { wwwVar, devVar, wpVar } from "./const.js";
 
-import { watchPages } from "./gulp-scripts/watchAndDeployToLocal.js";
+import {
+  watchPages,
+  watchTheme,
+  watchThemeScripts,
+} from "./gulp-scripts/watchAndDeployToLocal.js";
 
 import Vinyl from "vinyl";
 
@@ -245,9 +248,8 @@ export const deploywww = (done) => {
   return done();
 };
 
-
 export const watchTest = () => {
   watchPages();
+  watchTheme();
+  watchThemeScripts();
 };
-
-
