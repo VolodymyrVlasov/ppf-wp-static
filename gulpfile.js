@@ -15,6 +15,9 @@ import {
   watchPages,
   watchTheme,
   watchThemeScripts,
+  watchStyles,
+  watchAssets,
+  watchPagesScripts,
 } from "./gulp-scripts/watchAndDeployToLocal.js";
 
 import Vinyl from "vinyl";
@@ -252,4 +255,7 @@ export const watchTest = () => {
   watchPages();
   watchTheme();
   watchThemeScripts();
+  watchStyles();
+  watchAssets();
+  watchPagesScripts();
 };

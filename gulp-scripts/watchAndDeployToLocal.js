@@ -19,16 +19,35 @@ import {
   TARGET_PATH as themeScriptsBuildPath,
 } from "./build/buildThemeScripts.js";
 
+import {
+  buildStyles,
+  SRC_PATH as stylesWatchPath,
+  TARGET_PATH as stylesBuildPath,
+} from "./build/buildStyles.js";
+
+import {
+  buildAssets,
+  SRC_PATH as assetsWatchPath,
+  TARGET_PATH as assetsBuildPath,
+} from "./build/buildAssets.js";
+
+import {
+  buildPagesScripts,
+  SRC_PATH as pagesScriptsWatchPath,
+  TARGET_PATH as pagesScriptsBuildPath,
+} from "./build/buildPagesSripts.js";
+
 export const watchPages = () => {
   watch(pagesWatchPath, () => {
     console.log(`[${new Date().toUTCString()}] ---> PAGES CHANGED, REBUILD...`);
+    const options = {
+      deployType: DeployTypes.LOCAL_SERVER,
+      sourcePath: `${pagesBuildPath}**/*`,
+      localPath: "/",
+      basePath: pagesBuildPath,
+    };
     if (buildPages()) {
-      deployCode({
-        deployType: DeployTypes.LOCAL_SERVER,
-        sourcePath: `${pagesBuildPath}**/*`,
-        localPath: "/",
-        basePath: pagesBuildPath,
-      });
+      deployCode(options);
     }
   });
 };
@@ -38,13 +57,14 @@ export const watchTheme = () => {
     console.log(
       `[${new Date().toUTCString()}] ---> WP-THEME CHANGED, REBUILD...`
     );
+    const options = {
+      deployType: DeployTypes.LOCAL_SERVER,
+      sourcePath: `${themeBuildPath}**/*`,
+      localPath: "/wp-content/themes/paperfox/",
+      basePath: themeBuildPath,
+    };
     if (buildTheme()) {
-      deployCode({
-        deployType: DeployTypes.LOCAL_SERVER,
-        sourcePath: `${themeBuildPath}**/*`,
-        localPath: "/wp-content/themes/paperfox/",
-        basePath: themeBuildPath,
-      });
+      deployCode(options);
     }
   });
 };
@@ -54,13 +74,69 @@ export const watchThemeScripts = () => {
     console.log(
       `[${new Date().toUTCString()}] ---> WP-THEME SCRIPTS CHANGED, REBUILD...`
     );
+    const options = {
+      deployType: DeployTypes.LOCAL_SERVER,
+      sourcePath: `${themeScriptsBuildPath}**/*`,
+      localPath: "/wp-content/themes/paperfox/js/",
+      basePath: themeScriptsBuildPath,
+    };
+
     if (buildThemeScripts()) {
-      deployCode({
-        deployType: DeployTypes.LOCAL_SERVER,
-        sourcePath: `${themeScriptsBuildPath}**/*`,
-        localPath: "/wp-content/themes/paperfox/js/",
-        basePath: themeScriptsBuildPath,
-      });
+      deployCode(options);
+    }
+  });
+};
+
+export const watchStyles = () => {
+  watch(stylesWatchPath[0], () => {
+    console.log(
+      `[${new Date().toUTCString()}] ---> STYLES CHANGED, REBUILD...`
+    );
+    console.log("stylesBuildPath", stylesBuildPath);
+
+    const options = {
+      deployType: DeployTypes.LOCAL_SERVER,
+      sourcePath: `dist/paperfox/**/*.css`,
+      localPath: "/wp-content/themes/paperfox/",
+      basePath: "dist/paperfox/",
+    };
+
+    if (buildStyles()) {
+      deployCode(options);
+    }
+  });
+};
+
+export const watchAssets = () => {
+  watch(assetsWatchPath, () => {
+    console.log(
+      `[${new Date().toUTCString()}] ---> ASSETS CHANGED, REBUILD...`
+    );
+    const options = {
+      deployType: DeployTypes.LOCAL_SERVER,
+      sourcePath: `${assetsBuildPath}**/*`,
+      localPath: "/wp-content/themes/paperfox/static",
+      basePath: assetsBuildPath,
+    };
+    if (buildAssets()) {
+      deployCode(options);
+    }
+  });
+};
+
+export const watchPagesScripts = () => {
+  watch(pagesScriptsWatchPath, () => {
+    console.log(
+      `[${new Date().toUTCString()}] ---> ASSETS CHANGED, REBUILD...`
+    );
+    const options = {
+      deployType: DeployTypes.LOCAL_SERVER,
+      sourcePath: `${pagesScriptsBuildPath}**/*`,
+      localPath: "/src/",
+      basePath: pagesScriptsBuildPath,
+    };
+    if (buildPagesScripts()) {
+      deployCode(options);
     }
   });
 };

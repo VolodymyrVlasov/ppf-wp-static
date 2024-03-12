@@ -12,7 +12,6 @@ export const deployCode = ({
 }) => {
   try {
     if (!sourcePath) throw new Error("sourcePath is invalid");
-
     switch (deployType) {
       case DeployTypes.LOCAL_SERVER:
         if (!localPath) throw new Error("localPath is invalid");
