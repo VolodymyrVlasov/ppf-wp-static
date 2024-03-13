@@ -59,9 +59,12 @@ export const watchTheme = () => {
     );
     const options = {
       deployType: DeployTypes.LOCAL_SERVER,
-      sourcePath: `${themeBuildPath}**/*`,
+      sourcePath: `${themeBuildPath}**/*.php`,
       localPath: "/wp-content/themes/paperfox/",
       basePath: themeBuildPath,
+      clearBeforeDeloy: [
+        `${DeployTypes.LOCAL_SERVER}/wp-content/themes/paperfox/**/*.php`,
+      ],
     };
     if (buildTheme()) {
       deployCode(options);

@@ -2,6 +2,7 @@ import gulp from "gulp";
 import replace from "gulp-replace";
 import fileInclude from "gulp-file-include";
 import webpHtml from "gulp-webp-html-nosvg";
+import { deleteSync } from "del";
 
 import { wpVar } from "../../const.js";
 
@@ -13,6 +14,7 @@ const TARGET_PATH = "dist/paperfox/";
 
 const buildTheme = () => {
   try {
+    deleteSync([TARGET_PATH + "**/*.php"]);
     let streamPhp = gulp.src(SRC_PATH, { aloowEmpty: true });
     streamPhp
       .pipe(fileInclude({ prefix: "@@", basepath: "@file" }))
@@ -30,6 +32,9 @@ const buildTheme = () => {
         )
       )
       .pipe(gulp.dest(TARGET_PATH));
+    console.log(
+      `[${new Date().toUTCString()}] ---> REBUILD FINISHED CORRECTLY`
+    );
     return true;
   } catch (error) {
     console.error("---> buildPages interupted with error: " + error);

@@ -56,6 +56,7 @@
     "yargs": "^17.7.1"
   },
   "dependencies": {
+    "fs": "^0.0.1-security",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-util": "^3.0.8",
     "gulp-watch": "^5.0.1"
