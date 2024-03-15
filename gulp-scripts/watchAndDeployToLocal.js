@@ -67,7 +67,11 @@ export const watchTheme = () => {
       ],
     };
     if (buildTheme()) {
-      deployCode(options);
+      let isDeploy = false;
+      isDeploy = deployCode(options);
+      if (isDeploy) {
+        console.log(`[${new Date().toUTCString()}] ---> WATCHING...`);
+      }
     }
   });
 };

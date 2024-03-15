@@ -4,6 +4,34 @@ import { ftp } from "./ftp.js";
 import { deleteSync } from "del";
 import fs from "fs";
 
+const deployToLocal = ({
+  sourcePath,
+  localPath,
+  clearBeforeDeloy,
+  basePath,
+}) => {
+  if (!localPath) throw new Error("invalid localPath");
+
+  clearBeforeDeloy.forEach((rmPath) => {
+    fs.rm(rmPath, { recursive: true, force: true }, () => {
+      console.log(
+        `[${new Date().toUTCString()}] ---> DELETE FILES FROM ${rmPath}`
+      );
+    });
+  });
+
+  // setTimeout(() => {
+  //   console.log(
+  //     `[${new Date().toUTCString()}] ---> DEPLOY * FROM ${sourcePath} TO ${
+  //       DeployTypes.LOCAL_SERVER + localPath
+  //     }`
+  //   );
+  //   gulp
+  //     .src(sourcePath, { base: basePath, allowEmpty: true })
+  //     .pipe(gulp.dest(`${DeployTypes.LOCAL_SERVER + localPath}`));
+  // }, 200);
+};
+
 export const deployCode = ({
   deployType,
   sourcePath,
@@ -14,33 +42,10 @@ export const deployCode = ({
   clearBeforeDeloy,
 }) => {
   try {
-    if (!sourcePath) throw new Error("sourcePath is invalid");
+    if (!sourcePath) throw new Error("invalid sourcePath");
     switch (deployType) {
       case DeployTypes.LOCAL_SERVER:
-        if (!localPath) throw new Error("localPath is invalid");
-
-        let dir =
-          "/Users/volodymyrvlasov/Documents/local-server/paperfox/wp-content/themes/paperfox/test.php";
-        fs.rm(dir, { recursive: true, force: true }, (err) => {
-          if (err) {
-            throw err;
-          }
-          console.log(`${dir} is deleted!`);
-        });
-
-        if (clearBeforeDeloy) {
-        }
-        // setTimeout(() => {
-        //   console.log(
-        //     `[${new Date().toUTCString()}] ---> DEPLOY * FROM ${sourcePath} TO ${
-        //       DeployTypes.LOCAL_SERVER + localPath
-        //     }`
-        //   );
-        //   gulp
-        //     .src(sourcePath, { base: basePath, allowEmpty: true })
-        //     .pipe(gulp.dest(`${DeployTypes.LOCAL_SERVER + localPath}`));
-        // }, 2000);
-
+        deployToLocal({ sourcePath, localPath, clearBeforeDeloy, basePath });
         break;
       case DeployTypes.REMOTE_SERVER:
         if (!remoteURL) throw new Error("remoteURL is invalid");
