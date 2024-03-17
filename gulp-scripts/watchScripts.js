@@ -37,14 +37,15 @@ import {
   TARGET_PATH as pagesScriptsBuildPath,
 } from "./build/buildPagesSripts.js";
 
-export const watchPages = () => {
+const watchPages = (deployType) => {
   watch(pagesWatchPath, () => {
     console.log(`[${new Date().toUTCString()}] ---> PAGES CHANGED, REBUILD...`);
     const options = {
-      deployType: DeployTypes.LOCAL_SERVER,
+      deployType: deployType,
       sourcePath: `${pagesBuildPath}**/*`,
       localPath: "/",
       basePath: pagesBuildPath,
+      clearBeforeDeloy: [`${deployType}/**/*.html`],
     };
     if (buildPages()) {
       deployCode(options);
@@ -52,40 +53,35 @@ export const watchPages = () => {
   });
 };
 
-export const watchTheme = () => {
+const watchTheme = (deployType) => {
   watch(themeWatchPath, () => {
     console.log(
       `[${new Date().toUTCString()}] ---> WP-THEME CHANGED, REBUILD...`
     );
     const options = {
-      deployType: DeployTypes.LOCAL_SERVER,
+      deployType: deployType,
       sourcePath: `${themeBuildPath}**/*.php`,
       localPath: "/wp-content/themes/paperfox/",
       basePath: themeBuildPath,
-      clearBeforeDeloy: [
-        `${DeployTypes.LOCAL_SERVER}/wp-content/themes/paperfox/**/*.php`,
-      ],
+      clearBeforeDeloy: [`${deployType}/wp-content/themes/paperfox/**/*.php`],
     };
     if (buildTheme()) {
-      let isDeploy = false;
-      isDeploy = deployCode(options);
-      if (isDeploy) {
-        console.log(`[${new Date().toUTCString()}] ---> WATCHING...`);
-      }
+      deployCode(options);
     }
   });
 };
 
-export const watchThemeScripts = () => {
+const watchThemeScripts = (deployType) => {
   watch(themeScriptsWatchPath, () => {
     console.log(
       `[${new Date().toUTCString()}] ---> WP-THEME SCRIPTS CHANGED, REBUILD...`
     );
     const options = {
-      deployType: DeployTypes.LOCAL_SERVER,
+      deployType: deployType,
       sourcePath: `${themeScriptsBuildPath}**/*`,
       localPath: "/wp-content/themes/paperfox/js/",
       basePath: themeScriptsBuildPath,
+      clearBeforeDeloy: [`${deployType}/wp-content/themes/paperfox/**/*.js`],
     };
 
     if (buildThemeScripts()) {
@@ -94,7 +90,7 @@ export const watchThemeScripts = () => {
   });
 };
 
-export const watchStyles = () => {
+const watchStyles = (deployType) => {
   watch(stylesWatchPath[0], () => {
     console.log(
       `[${new Date().toUTCString()}] ---> STYLES CHANGED, REBUILD...`
@@ -102,10 +98,11 @@ export const watchStyles = () => {
     console.log("stylesBuildPath", stylesBuildPath);
 
     const options = {
-      deployType: DeployTypes.LOCAL_SERVER,
-      sourcePath: `dist/paperfox/**/*.css`,
+      deployType: deployType,
+      sourcePath: `${stylesBuildPath}**/*.css`,
       localPath: "/wp-content/themes/paperfox/",
-      basePath: "dist/paperfox/",
+      basePath: stylesBuildPath,
+      clearBeforeDeloy: [`${deployType}/wp-content/themes/paperfox/**/*.css`],
     };
 
     if (buildStyles()) {
@@ -114,16 +111,19 @@ export const watchStyles = () => {
   });
 };
 
-export const watchAssets = () => {
+const watchAssets = (deployType) => {
   watch(assetsWatchPath, () => {
     console.log(
       `[${new Date().toUTCString()}] ---> ASSETS CHANGED, REBUILD...`
     );
     const options = {
-      deployType: DeployTypes.LOCAL_SERVER,
+      deployType: deployType,
       sourcePath: `${assetsBuildPath}**/*`,
-      localPath: "/wp-content/themes/paperfox/static",
+      localPath: "/wp-content/themes/paperfox/static/",
       basePath: assetsBuildPath,
+      clearBeforeDeloy: [
+        `${deployType}/wp-content/themes/paperfox/static/**/*`,
+      ],
     };
     if (buildAssets()) {
       deployCode(options);
@@ -131,19 +131,30 @@ export const watchAssets = () => {
   });
 };
 
-export const watchPagesScripts = () => {
+const watchPagesScripts = (deployType) => {
   watch(pagesScriptsWatchPath, () => {
     console.log(
       `[${new Date().toUTCString()}] ---> ASSETS CHANGED, REBUILD...`
     );
     const options = {
-      deployType: DeployTypes.LOCAL_SERVER,
+      deployType: deployType,
       sourcePath: `${pagesScriptsBuildPath}**/*`,
       localPath: "/src/",
       basePath: pagesScriptsBuildPath,
+      clearBeforeDeloy: [`${deployType}/src/**/*.js`],
     };
     if (buildPagesScripts()) {
       deployCode(options);
     }
   });
 };
+
+const watchScripts = [
+  watchPagesScripts,
+  watchAssets,
+  watchStyles,
+  watchThemeScripts,
+  watchTheme,
+  watchPages,
+];
+export default watchScripts;

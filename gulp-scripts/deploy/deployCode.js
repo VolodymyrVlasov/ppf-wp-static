@@ -13,23 +13,22 @@ const deployToLocal = ({
   if (!localPath) throw new Error("invalid localPath");
 
   clearBeforeDeloy.forEach((rmPath) => {
-    fs.rm(rmPath, { recursive: true, force: true }, () => {
-      console.log(
-        `[${new Date().toUTCString()}] ---> DELETE FILES FROM ${rmPath}`
-      );
-    });
+    deleteSync(rmPath, { force: true });
+    console.log(
+      `[${new Date().toUTCString()}] ---> DELETE FILES FROM ${rmPath}`
+    );
   });
 
-  // setTimeout(() => {
-  //   console.log(
-  //     `[${new Date().toUTCString()}] ---> DEPLOY * FROM ${sourcePath} TO ${
-  //       DeployTypes.LOCAL_SERVER + localPath
-  //     }`
-  //   );
-  //   gulp
-  //     .src(sourcePath, { base: basePath, allowEmpty: true })
-  //     .pipe(gulp.dest(`${DeployTypes.LOCAL_SERVER + localPath}`));
-  // }, 200);
+  setTimeout(() => {
+    console.log(
+      `[${new Date().toUTCString()}] ---> DEPLOY * FROM ${sourcePath} TO ${
+        DeployTypes.LOCAL_SERVER + localPath
+      }`
+    );
+    gulp
+      .src(sourcePath, { base: basePath, allowEmpty: true })
+      .pipe(gulp.dest(`${DeployTypes.LOCAL_SERVER + localPath}`));
+  }, 200);
 };
 
 export const deployCode = ({

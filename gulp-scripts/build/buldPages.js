@@ -3,6 +3,7 @@ import replace from "gulp-replace";
 import fileInclude from "gulp-file-include";
 import webpHtml from "gulp-webp-html-nosvg";
 import { wpVar } from "../../const.js";
+import { deleteSync } from "del";
 
 const SRC_PATH = [
   "dev/pages/**/*.html",
@@ -15,8 +16,8 @@ const TARGET_PATH = "dist/www/";
 
 const buildPages = () => {
   try {
+    deleteSync([TARGET_PATH + "**/*.html"]);
     let streamHtml = gulp.src(SRC_PATH, { aloowEmpty: true });
-
     streamHtml.pipe(fileInclude({ prefix: "@@", basepath: "@file" }));
 
     for (const [placeholder, value] of Object.entries(wpVar)) {
