@@ -2,15 +2,14 @@ import gulp from "gulp";
 import { DeployTypes } from "./deployTypes.js";
 import { ftp } from "./ftp.js";
 import { deleteSync } from "del";
-import fs from "fs";
 
 const deployToLocal = ({
   sourcePath,
-  localPath,
+  targetPath,
   clearBeforeDeloy,
   basePath,
 }) => {
-  if (!localPath) throw new Error("invalid localPath");
+  if (!targetPath) throw new Error("invalid targetPath");
 
   clearBeforeDeloy.forEach((rmPath) => {
     deleteSync(rmPath, { force: true });
@@ -22,19 +21,23 @@ const deployToLocal = ({
   setTimeout(() => {
     console.log(
       `[${new Date().toUTCString()}] ---> DEPLOY * FROM ${sourcePath} TO ${
-        DeployTypes.LOCAL_SERVER + localPath
+        DeployTypes.LOCAL_SERVER + targetPath
       }`
     );
     gulp
       .src(sourcePath, { base: basePath, allowEmpty: true })
-      .pipe(gulp.dest(`${DeployTypes.LOCAL_SERVER + localPath}`));
+      .pipe(gulp.dest(`${DeployTypes.LOCAL_SERVER + targetPath}`));
   }, 200);
 };
+
+
+
+
 
 export const deployCode = ({
   deployType,
   sourcePath,
-  localPath,
+  targetPath,
   remoteURL,
   prodURL,
   basePath,
@@ -44,7 +47,7 @@ export const deployCode = ({
     if (!sourcePath) throw new Error("invalid sourcePath");
     switch (deployType) {
       case DeployTypes.LOCAL_SERVER:
-        deployToLocal({ sourcePath, localPath, clearBeforeDeloy, basePath });
+        deployToLocal({ sourcePath, targetPath, clearBeforeDeloy, basePath });
         break;
       case DeployTypes.REMOTE_SERVER:
         if (!remoteURL) throw new Error("remoteURL is invalid");

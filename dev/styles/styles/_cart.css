@@ -74,7 +74,7 @@
     cursor: pointer;
     width: 24px;
     height: 24px;
-    background: url("{{stylesheet_url}}/static/icons/icon-delete-bin.svg") no-repeat center/100%;
+    background: url("https://paperfox.in.ua/wp-content/themes/paperfox/static/icons/icon-delete-bin.svg") no-repeat center/100%;
     transition: var(--time-tr-time);
 }
 

@@ -1,29 +1,44 @@
-@import url("./_accordion.css");
-@import url("./_aminations.css");
-@import url("./_anchorWidget.css");
-@import url("./_buttons.css");
-@import url("./_calculator.css");
-@import url("./_contactWidget.css");
-@import url("./_cupGallery.css");
-@import url("./_footer.css");
-@import url("./_gallery.css");
-@import url("./_header.css");
-@import url("./_headSection.css");
-@import url("./_icons.css");
-@import url("./_imageSlider.css");
-@import url("./_index.css");
-@import url("./_inputNumber.css");
-@import url("./_inputRange.css");
-@import url("./_map.css");
-@import url("./_materialCard.css");
-@import url("./_pages.css");
-@import url("./_productCardSection.css");
-@import url("./_select.css");
-@import url("./_table.css");
-@import url("./_theme.css");
-@import url("./_typography.css");
-@import url("./_variables.css");
-@import url("./_cart.css");
-@import url("./_checkout.css");
-@import url("./_card.css");
-@import url("./_frontPageVideoSection.css");
+/*
+Theme Name: Paperfox
+Author: Paperfox
+Author URI: https://paperfox.com.ua
+Requires at least: 6.1
+Tested up to: 6.2
+Requires PHP: 5.6
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+Text Domain: paperfox
+Tags: 
+*/
+
+@import url("./styles/_accordion.css");
+@import url("./styles/_aminations.css");
+@import url("./styles/_anchorWidget.css");
+@import url("./styles/_buttons.css");
+@import url("./styles/_calculator.css");
+@import url("./styles/_contactWidget.css");
+@import url("./styles/_cupGallery.css");
+@import url("./styles/_footer.css");
+@import url("./styles/_gallery.css");
+@import url("./styles/_header.css");
+@import url("./styles/_headSection.css");
+@import url("./styles/_icons.css");
+@import url("./styles/_imageSlider.css");
+@import url("./styles/_index.css");
+@import url("./styles/_inputNumber.css");
+@import url("./styles/_inputRange.css");
+@import url("./styles/_map.css");
+@import url("./styles/_materialCard.css");
+@import url("./styles/_pages.css");
+@import url("./styles/_productCardSection.css");
+@import url("./styles/_select.css");
+@import url("./styles/_table.css");
+@import url("./styles/_theme.css");
+@import url("./styles/_typography.css");
+@import url("./styles/_variables.css");
+@import url("./styles/_cart.css");
+@import url("./styles/_checkout.css");
+@import url("./styles/_card.css");
+@import url("./styles/_frontPageVideoSection.css");
+@import url("./styles/_style_np.css");

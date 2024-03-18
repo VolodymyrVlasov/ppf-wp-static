@@ -1,5 +1,4 @@
 import watch from "gulp-watch";
-import { DeployTypes } from "./deploy/deployTypes.js";
 import { deployCode } from "./deploy/deployCode.js";
 import {
   buildPages,
@@ -43,7 +42,7 @@ const watchPages = (deployType) => {
     const options = {
       deployType: deployType,
       sourcePath: `${pagesBuildPath}**/*`,
-      localPath: "/",
+      targetPath: "/",
       basePath: pagesBuildPath,
       clearBeforeDeloy: [`${deployType}/**/*.html`],
     };
@@ -60,8 +59,8 @@ const watchTheme = (deployType) => {
     );
     const options = {
       deployType: deployType,
-      sourcePath: `${themeBuildPath}**/*.php`,
-      localPath: "/wp-content/themes/paperfox/",
+      sourcePath: [`${themeBuildPath}**/*.php`, `${themeBuildPath}screenshot.png`],
+      targetPath: "/wp-content/themes/paperfox/",
       basePath: themeBuildPath,
       clearBeforeDeloy: [`${deployType}/wp-content/themes/paperfox/**/*.php`],
     };
@@ -79,7 +78,7 @@ const watchThemeScripts = (deployType) => {
     const options = {
       deployType: deployType,
       sourcePath: `${themeScriptsBuildPath}**/*`,
-      localPath: "/wp-content/themes/paperfox/js/",
+      targetPath: "/wp-content/themes/paperfox/js/",
       basePath: themeScriptsBuildPath,
       clearBeforeDeloy: [`${deployType}/wp-content/themes/paperfox/**/*.js`],
     };
@@ -91,16 +90,15 @@ const watchThemeScripts = (deployType) => {
 };
 
 const watchStyles = (deployType) => {
-  watch(stylesWatchPath[0], () => {
+  watch(stylesWatchPath, () => {
     console.log(
       `[${new Date().toUTCString()}] ---> STYLES CHANGED, REBUILD...`
     );
-    console.log("stylesBuildPath", stylesBuildPath);
 
     const options = {
       deployType: deployType,
       sourcePath: `${stylesBuildPath}**/*.css`,
-      localPath: "/wp-content/themes/paperfox/",
+      targetPath: "/wp-content/themes/paperfox/",
       basePath: stylesBuildPath,
       clearBeforeDeloy: [`${deployType}/wp-content/themes/paperfox/**/*.css`],
     };
@@ -119,7 +117,7 @@ const watchAssets = (deployType) => {
     const options = {
       deployType: deployType,
       sourcePath: `${assetsBuildPath}**/*`,
-      localPath: "/wp-content/themes/paperfox/static/",
+      targetPath: "/wp-content/themes/paperfox/static/",
       basePath: assetsBuildPath,
       clearBeforeDeloy: [
         `${deployType}/wp-content/themes/paperfox/static/**/*`,
@@ -139,7 +137,7 @@ const watchPagesScripts = (deployType) => {
     const options = {
       deployType: deployType,
       sourcePath: `${pagesScriptsBuildPath}**/*`,
-      localPath: "/src/",
+      targetPath: "/src/",
       basePath: pagesScriptsBuildPath,
       clearBeforeDeloy: [`${deployType}/src/**/*.js`],
     };

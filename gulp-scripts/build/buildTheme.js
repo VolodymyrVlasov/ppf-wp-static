@@ -8,6 +8,7 @@ import { wpVar } from "../../const.js";
 
 const SRC_PATH = [
   "dev/wp-theme/**/*.php",
+  "dev/wp-theme/screenshot.png",
   "!dev/wp-theme/woocommerce/disable-checkout.php",
 ];
 const TARGET_PATH = "dist/paperfox/";
@@ -32,12 +33,14 @@ const buildTheme = () => {
         )
       )
       .pipe(gulp.dest(TARGET_PATH));
+
+    // gulp.src("dev/wp-theme/screenshot.png").pipe(gulp.dest("dist/paperfox/"));
     console.log(
       `[${new Date().toUTCString()}] ---> REBUILD FINISHED CORRECTLY`
     );
     return true;
   } catch (error) {
-    console.error("---> buildPages interupted with error: " + error);
+    console.error("---> buildTheme interupted. " + error);
     return false;
   }
 };
