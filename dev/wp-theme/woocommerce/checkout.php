@@ -29,8 +29,24 @@ $checkout = WC()->checkout;
     <main>
         <?php do_action('woocommerce_before_checkout_form', $checkout); ?>
         <?php if (is_wc_endpoint_url('order-received')) {
-            // Путь к вашему пользовательскому шаблону для страницы "order-received"
-            wc_get_template('checkout/ppf-order-received.php', array('order' => $order));
+
+            $order_id = isset ($_GET['key']) ? wc_get_order_id_by_order_key($_GET['key']) : 0;
+            $order = wc_get_order($order_id);
+
+            echo 'order #' . $order_id . ' status: ' . $order->get_status() . '<br>';
+
+            if ($order && in_array($order->get_status(), array('pending'))) {
+                echo 'Order pending';
+            } elseif ($order && in_array($order->get_status(), array('failed'))) {
+                echo 'Order failed';
+            } elseif ($order && in_array($order->get_status(), array('processing'))) {
+                echo 'Order processing';
+                wc_get_template('checkout/ppf-order-received.php', array('order' => $order));
+            } elseif ($order && in_array($order->get_status(), array('on-hold'))) {
+                echo 'Order on-hold';
+            } elseif ($order && in_array($order->get_status(), array('cancelled'))) {
+                echo 'Order cancelled';
+            }
         } else {
             wc_get_template('checkout/ppf-checkout-form.php', array('order' => $order));
         }
