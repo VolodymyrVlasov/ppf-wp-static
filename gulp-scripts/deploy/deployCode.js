@@ -11,7 +11,7 @@ const deployToLocal = ({
 }) => {
   if (!targetPath) throw new Error("invalid targetPath");
 
-  const delay = 2000;
+  const delay = 1000;
 
   clearBeforeDeloy.forEach((rmPath) => {
     deleteSync(rmPath, { force: true });
