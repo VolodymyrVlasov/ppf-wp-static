@@ -4,7 +4,7 @@ import { deleteSync } from "del";
 
 const SRC_PATH = ["dev/static/**/*"];
 const TARGET_PATH = "dist/paperfox/static/";
-const QUALITY_FACTOR = 80;
+const QUALITY_FACTOR = 90;
 
 const buildAssets = () => {
   try {

@@ -1,12 +1,11 @@
 import gulp from "gulp";
 import replace from "gulp-replace";
-import { wpVar } from "../../const.js";
 import { deleteSync } from "del";
 
 const SRC_PATH = "dev/styles/";
 const TARGET_PATH = "dist/paperfox/";
 
-const buildStyles = () => {
+const buildStyles = (vars) => {
   try {
     deleteSync(TARGET_PATH + "**/*.css");
     let streamCss = gulp.src(SRC_PATH + "**/*.css", {
@@ -14,7 +13,7 @@ const buildStyles = () => {
       alowEmpty: true,
     });
 
-    for (const [placeholder, value] of Object.entries(wpVar)) {
+    for (const [placeholder, value] of Object.entries(vars)) {
       streamCss = streamCss.pipe(replace(placeholder, value));
     }
 

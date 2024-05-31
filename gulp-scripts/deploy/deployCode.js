@@ -11,10 +11,15 @@ const deployToLocal = ({
 }) => {
   if (!targetPath) throw new Error("invalid targetPath");
 
+  const delay = 2000;
+
   clearBeforeDeloy.forEach((rmPath) => {
     deleteSync(rmPath, { force: true });
     console.log(
       `[${new Date().toUTCString()}] ---> DELETE FILES FROM ${rmPath}`
+    );
+    console.log(
+      `[${new Date().toUTCString()}] ---> WAITING ${delay}MS WHILE BUILDING`
     );
   });
 
@@ -27,12 +32,8 @@ const deployToLocal = ({
     gulp
       .src(sourcePath, { base: basePath, allowEmpty: true })
       .pipe(gulp.dest(`${DeployTypes.LOCAL_SERVER + targetPath}`));
-  }, 200);
+  }, delay);
 };
-
-
-
-
 
 export const deployCode = ({
   deployType,

@@ -4,8 +4,6 @@ import fileInclude from "gulp-file-include";
 import webpHtml from "gulp-webp-html-nosvg";
 import { deleteSync } from "del";
 
-import { wpVar } from "../../const.js";
-
 const SRC_PATH = [
   "dev/wp-theme/**/*.php",
   "dev/wp-theme/screenshot.png",
@@ -13,7 +11,7 @@ const SRC_PATH = [
 ];
 const TARGET_PATH = "dist/paperfox/";
 
-const buildTheme = () => {
+const buildTheme = (vars) => {
   try {
     deleteSync([TARGET_PATH + "**/*.php"]);
     let streamPhp = gulp.src(SRC_PATH, { aloowEmpty: true });
@@ -21,7 +19,7 @@ const buildTheme = () => {
       .pipe(fileInclude({ prefix: "@@", basepath: "@file" }))
       .pipe(gulp.dest(TARGET_PATH));
 
-    for (const [placeholder, value] of Object.entries(wpVar)) {
+    for (const [placeholder, value] of Object.entries(vars)) {
       streamPhp = streamPhp.pipe(replace(placeholder, value));
     }
     streamPhp

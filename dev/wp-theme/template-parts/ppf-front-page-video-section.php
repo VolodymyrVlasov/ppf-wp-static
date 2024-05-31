@@ -8,7 +8,7 @@
 
 <section class="section">
     <video autoplay muted loop id="background-video">
-        <source src="{{domain}}/static/video/paperfox_office_review_demo.mp4"
+        <source src="{{stylesheet_url}}/static/video/paperfox_office_review_demo.mp4"
             type="video/mp4">
     </video>
     <div class="main_page_h1">
