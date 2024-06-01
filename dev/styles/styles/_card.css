@@ -21,7 +21,6 @@
   width: 100%;
   gap: var(--size-small-gap);
 }
-
 .card__details {
   display: block;
   display: -webkit-box;
@@ -44,7 +43,7 @@
   width: 100%;
   /* min-width: 380px; */
   height: 200px !important;
-  /* box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.15); */
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.15);
   /* filter: sepia(10%); */
   outline: none;
   border: none;
@@ -64,9 +63,8 @@ picture:has(> .card__image) {
 
 .card_close {
   position: absolute;
-  top: -4px;
-  right: -4px;
-  transform: translate(100%, -70%) rotate(45deg) scale(1.5);
+  top: -20px;
+  right: -15px;
   border-radius: 50%;
   font-size: 40px;
   color: white;
@@ -77,6 +75,7 @@ picture:has(> .card__image) {
 
 .card_close:hover {
   color: var(--color-theme) !important;
+  cursor: pointer;
   pointer-events: none;
 }
 
@@ -97,6 +96,7 @@ picture:has(> .card__image) {
     transform: scale(1.15);
     background-color: var(--color-theme);
     color: white;
+    cursor: auto;
 }
 
 .card__wrapper:focus-within {
@@ -112,14 +112,15 @@ picture:has(> .card__image) {
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .card:focus-within {
   flex-direction: row;
   gap: var(--size-gap);
   width: 75%;
-  height: 70%;
+  height: 75%;
   max-height: fit-content;
   margin-top: 24px;
   background-color: white;
@@ -142,10 +143,8 @@ picture:has(> .card__image) {
 .card:focus-within picture .card__image {
   height: 100% !important;
   width: 100%;
-  border-radius: var(--size-border-radius) 0 0 var(--size-border-radius) !important;
 }
-
-.card:focus-within picture:has(> .card__image),
+ 
 .card:focus-within picture:has(> .card__image) {
   border-radius: var(--size-border-radius) 0 0 var(--size-border-radius) !important;
 }
