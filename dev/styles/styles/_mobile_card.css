@@ -16,9 +16,11 @@
 
 /* `sm` applies to small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
+
   .card {
     border-radius: var(--size-border-radius);
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.08);
+   
   }
 
   .card__wrapper:focus-within {
@@ -33,6 +35,7 @@
     border-radius: var(--size-border-radius) var(--size-border-radius) 0 0;
     width: 100%;
     height: fit-content;
+    animation: slide-from-bottom 1 500ms;
   }
 
   .card__info {
@@ -79,6 +82,10 @@
   .card:focus-within:has(.card_close:active),
   .card:focus-within:has(.card_close:focus) {
     pointer-events: none;
+  }
+
+  picture:has(> .card__image) {
+    border-radius: var(--size-border-radius) var(--size-border-radius) 0 0;
   }
 }
 
