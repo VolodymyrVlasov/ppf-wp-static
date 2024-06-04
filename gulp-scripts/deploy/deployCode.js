@@ -6,14 +6,14 @@ import { deleteSync } from "del";
 const deployToLocal = ({
   sourcePath,
   targetPath,
-  clearBeforeDeloy,
+  clearBeforeDeploy,
   basePath,
 }) => {
   if (!targetPath) throw new Error("invalid targetPath");
 
   const delay = 1000;
 
-  clearBeforeDeloy.forEach((rmPath) => {
+  clearBeforeDeploy.forEach((rmPath) => {
     deleteSync(rmPath, { force: true });
     console.log(
       `[${new Date().toUTCString()}] ---> DELETE FILES FROM ${rmPath}`
@@ -39,27 +39,39 @@ export const deployCode = ({
   deployType,
   sourcePath,
   targetPath,
-  remoteURL,
   prodURL,
   basePath,
-  clearBeforeDeloy,
+  clearBeforeDeploy,
 }) => {
   try {
     if (!sourcePath) throw new Error("invalid sourcePath");
     switch (deployType) {
       case DeployTypes.LOCAL_SERVER:
-        deployToLocal({ sourcePath, targetPath, clearBeforeDeloy, basePath });
+        deployToLocal({ sourcePath, targetPath, clearBeforeDeploy, basePath });
         break;
       case DeployTypes.REMOTE_SERVER:
-        if (!remoteURL) throw new Error("remoteURL is invalid");
-        if (clearBeforeDeloy) ftp.rmdir(clearBeforeDeloy);
-        gulp
-          .src(sourcePath, { base: basePath, allowEmpty: true })
-          .pipe(ftp.dest(`${DeployTypes.REMOTE_SERVER + remoteURL}`));
+        if (!targetPath) throw new Error("targetPath is invalid");
+        console.log(
+          `[${new Date().toUTCString()}] ---> DELETE FILES FROM ${clearBeforeDeploy}`
+        );
+        if (clearBeforeDeploy) ftp.rmdir(clearBeforeDeploy);
+        setTimeout(() => {
+          console.log(`[${new Date().toUTCString()}] ---> DELETED SUCCESFULY`);
+
+          console.log(
+            `[${new Date().toUTCString()}] ---> DEPLOY * FROM ${sourcePath} TO ${
+              DeployTypes.REMOTE_SERVER + targetPath
+            }`
+          );
+          gulp
+            .src(sourcePath, { base: basePath, allowEmpty: true })
+            .pipe(ftp.dest(`${DeployTypes.REMOTE_SERVER + targetPath}`));
+        }, 2000);
+
         break;
       case DeployTypes.PROD_SERVER:
         if (!prodURL) throw new Error("prodURL is invalid");
-        if (clearBeforeDeloy) ftp.rmdir(clearBeforeDeloy);
+        if (clearBeforeDeploy) ftp.rmdir(clearBeforeDeploy);
         gulp
           .src(sourcePath, { base: basePath, allowEmpty: true })
           .pipe(ftp.dest(`${DeployTypes.PROD_SERVER + prodURL}`));
