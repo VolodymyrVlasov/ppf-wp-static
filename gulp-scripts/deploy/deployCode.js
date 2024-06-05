@@ -9,30 +9,26 @@ const deployToLocal = ({
   clearBeforeDeploy,
   basePath,
 }) => {
-  if (!targetPath) throw new Error("invalid targetPath");
-
-  const delay = 1000;
+  if (!targetPath)  throw new Error("invalid targetPath");
+  const delay = 300;
 
   clearBeforeDeploy.forEach((rmPath) => {
     deleteSync(rmPath, { force: true });
-    console.log(
-      `[${new Date().toUTCString()}] ---> DELETE FILES FROM ${rmPath}`
-    );
-    console.log(
-      `[${new Date().toUTCString()}] ---> WAITING ${delay}MS WHILE BUILDING`
-    );
+    console.log(`[${new Date().toUTCString()}] ---> DELETE FILES FROM ${rmPath}`);
   });
 
   setTimeout(() => {
-    console.log(
-      `[${new Date().toUTCString()}] ---> DEPLOY * FROM ${sourcePath} TO ${
-        DeployTypes.LOCAL_SERVER + targetPath
-      }`
-    );
+    console.log(`[${new Date().toUTCString()}] ---> DEPLOY * FROM ${sourcePath} TO ${DeployTypes.LOCAL_SERVER + targetPath}`);
     gulp
       .src(sourcePath, { base: basePath, allowEmpty: true })
       .pipe(gulp.dest(`${DeployTypes.LOCAL_SERVER + targetPath}`));
+
+    console.log(
+      `[${new Date().toUTCString()}] ---> DEPLOY SUCCESFULY, WAIT FOR CHANGES`
+    );
   }, delay);
+
+
 };
 
 export const deployCode = ({
@@ -47,9 +43,12 @@ export const deployCode = ({
     if (!sourcePath) throw new Error("invalid sourcePath");
     switch (deployType) {
       case DeployTypes.LOCAL_SERVER:
+        console.log(`[${new Date().toUTCString()}] ---> DEPLOY TO LOCAL SERVER SELECTED...`);
         deployToLocal({ sourcePath, targetPath, clearBeforeDeploy, basePath });
         break;
       case DeployTypes.REMOTE_SERVER:
+        console.log(`[${new Date().toUTCString()}] ---> DEPLOY TO REMOTE SERVER SELECTED...`);
+
         if (!targetPath) throw new Error("targetPath is invalid");
         console.log(
           `[${new Date().toUTCString()}] ---> DELETE FILES FROM ${clearBeforeDeploy}`
@@ -59,8 +58,7 @@ export const deployCode = ({
           console.log(`[${new Date().toUTCString()}] ---> DELETED SUCCESFULY`);
 
           console.log(
-            `[${new Date().toUTCString()}] ---> DEPLOY * FROM ${sourcePath} TO ${
-              DeployTypes.REMOTE_SERVER + targetPath
+            `[${new Date().toUTCString()}] ---> DEPLOY * FROM ${sourcePath} TO ${DeployTypes.REMOTE_SERVER + targetPath
             }`
           );
           gulp

@@ -1,7 +1,7 @@
 export const localVars = {
-    '{{domain}}': 'http://192.168.50.97/paperfox',
-    '{{sub_domain}}': 'http://192.168.50.97/paperfox',
-    '{{stylesheet_url}}': 'http://192.168.50.97/paperfox/wp-content/themes/paperfox',
+    '{{domain}}': 'http://192.168.1.179/paperfox',
+    '{{sub_domain}}': 'http://192.168.1.179/paperfox',
+    '{{stylesheet_url}}': 'http://192.168.1.179/paperfox/wp-content/themes/paperfox',
     '{{email}}': 'print@paperfox.in.ua',
     '{{phone}}': '0800 332 042',
     '{{viber}}': 'viber://add?number=380730472212',

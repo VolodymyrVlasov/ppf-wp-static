@@ -2,6 +2,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: var(--font-text-16);
     line-height: 130%;
+    font-weight: 510;
 }
 
 select {
@@ -111,6 +112,8 @@ select {
 .link {
     cursor: pointer;
     color: inherit;
+    transition: 100ms;
+    font-weight: bolder;
 }
 
 .link_text {

@@ -44,9 +44,11 @@ const watchPages = (deployType, vars) => {
       sourcePath: `${pagesBuildPath}**/*`,
       targetPath: "/",
       basePath: pagesBuildPath,
-      clearBeforeDeloy: [`${deployType}/**/*.html`],
+      clearBeforeDeploy: [`${deployType}/**/*.html`],
     };
+
     if (buildPages(vars)) {
+      console.log(`[${new Date().toUTCString()}] ---> REBUILDED SUCCESFULY...`);
       deployCode(options);
     }
   });
@@ -62,7 +64,7 @@ const watchTheme = (deployType, vars) => {
       sourcePath: [`${themeBuildPath}**/*.php`, `${themeBuildPath}screenshot.png`],
       targetPath: "/wp-content/themes/paperfox/",
       basePath: themeBuildPath,
-      clearBeforeDeloy: [`${deployType}/wp-content/themes/paperfox/**/*.php`],
+      clearBeforeDeploy: [`${deployType}/wp-content/themes/paperfox/**/*.php`],
     };
     if (buildTheme(vars)) {
       deployCode(options);
@@ -80,7 +82,7 @@ const watchThemeScripts = (deployType, vars) => {
       sourcePath: `${themeScriptsBuildPath}**/*`,
       targetPath: "/wp-content/themes/paperfox/js/",
       basePath: themeScriptsBuildPath,
-      clearBeforeDeloy: [`${deployType}/wp-content/themes/paperfox/**/*.js`],
+      clearBeforeDeploy: [`${deployType}/wp-content/themes/paperfox/**/*.js`],
     };
 
     if (buildThemeScripts(vars)) {
@@ -100,7 +102,7 @@ const watchStyles = (deployType, vars) => {
       sourcePath: `${stylesBuildPath}**/*.css`,
       targetPath: "/wp-content/themes/paperfox/",
       basePath: stylesBuildPath,
-      clearBeforeDeloy: [`${deployType}/wp-content/themes/paperfox/**/*.css`],
+      clearBeforeDeploy: [`${deployType}/wp-content/themes/paperfox/**/*.css`],
     };
 
     if (buildStyles(vars)) {
@@ -119,7 +121,7 @@ const watchAssets = (deployType, vars) => {
       sourcePath: `${assetsBuildPath}**/*`,
       targetPath: "/wp-content/themes/paperfox/static/",
       basePath: assetsBuildPath,
-      clearBeforeDeloy: [
+      clearBeforeDeploy: [
         `${deployType}/wp-content/themes/paperfox/static/**/*`,
       ],
     };
@@ -139,7 +141,7 @@ const watchPagesScripts = (deployType, vars) => {
       sourcePath: `${pagesScriptsBuildPath}**/*`,
       targetPath: "/src/",
       basePath: pagesScriptsBuildPath,
-      clearBeforeDeloy: [`${deployType}/src/**/*.js`],
+      clearBeforeDeploy: [`${deployType}/src/**/*.js`],
     };
     if (buildPagesScripts(vars)) {
       deployCode(options);
