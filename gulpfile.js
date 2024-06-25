@@ -12,7 +12,7 @@ export const watchToLocal = () => {
 
 export const watchToRemote = () => {
   watchBuildDeployScripts.forEach((script) => {
-    script(DeployTypes.REMOTE_SERVER, localVars, true);
+    script(DeployTypes.REMOTE_SERVER, testRemoteVars, true);
   });
 };
 
@@ -24,6 +24,6 @@ export const deployToLocal = () => {
 
 export const deployToRemote = () => {
   watchBuildDeployScripts.forEach((script) => {
-    script(DeployTypes.REMOTE_SERVER, localVars, false);
+    script(DeployTypes.REMOTE_SERVER, testRemoteVars, false);
   });
 };
