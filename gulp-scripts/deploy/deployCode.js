@@ -24,11 +24,9 @@ const deployToLocal = ({
       .pipe(gulp.dest(`${DeployTypes.LOCAL_SERVER + targetPath}`));
 
     console.log(
-      `[${new Date().toUTCString()}] ---> DEPLOY SUCCESFULY, WAIT FOR CHANGES`
+      `[${new Date().toUTCString()}] ---> DEPLOY SUCCESFULY`
     );
   }, delay);
-
-
 };
 
 export const deployCode = ({

@@ -4,8 +4,10 @@
   "description": "Paperfox webapp WordPress with static pages",
   "main": "gulpfile.js",
   "scripts": {
-    "watch-to-local": "npx gulp watchToLocal",
-    "watch-to-remote": "npx gulp watchToRemote"
+    "watch_to_local": "npx gulp watchToLocal",
+    "watch_to_remote": "npx gulp watchToRemote",
+    "deploy_to_local": "npx gulp deployToLocal",
+    "deploy_to_remote": "npx gulp deployToRemote"
   },
   "repository": {
     "type": "git",

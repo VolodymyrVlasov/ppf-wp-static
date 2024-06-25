@@ -31,11 +31,6 @@ const buildTheme = (vars) => {
         )
       )
       .pipe(gulp.dest(TARGET_PATH));
-
-    // gulp.src("dev/wp-theme/screenshot.png").pipe(gulp.dest("dist/paperfox/"));
-    console.log(
-      `[${new Date().toUTCString()}] ---> REBUILD FINISHED CORRECTLY`
-    );
     return true;
   } catch (error) {
     console.error("---> buildTheme interupted. " + error);

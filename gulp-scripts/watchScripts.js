@@ -36,9 +36,126 @@ import {
   TARGET_PATH as pagesScriptsBuildPath,
 } from "./build/buildPagesSripts.js";
 
-const watchPages = (deployType, vars) => {
-  watch(pagesWatchPath, () => {
-    console.log(`[${new Date().toUTCString()}] ---> PAGES CHANGED, REBUILD...`);
+// const watchPages = (deployType, vars) => {
+//   watch(pagesWatchPath, () => {
+//     console.log(`[${new Date().toUTCString()}] ---> PAGES CHANGED, REBUILD...`);
+//     const options = {
+//       deployType: deployType,
+//       sourcePath: `${pagesBuildPath}**/*`,
+//       targetPath: "/",
+//       basePath: pagesBuildPath,
+//       clearBeforeDeploy: [`${deployType}/**/*.html`],
+//     };
+
+//     if (buildPages(vars)) {
+//       console.log(`[${new Date().toUTCString()}] ---> REBUILDED SUCCESFULY...`);
+//       deployCode(options);
+//     }
+//   });
+// };
+
+// const watchTheme = (deployType, vars) => {
+//   watch(themeWatchPath, () => {
+//     console.log(
+//       `[${new Date().toUTCString()}] ---> WP-THEME CHANGED, REBUILD...`
+//     );
+//     const options = {
+//       deployType: deployType,
+//       sourcePath: [
+//         `${themeBuildPath}**/*.php`,
+//         `${themeBuildPath}screenshot.png`,
+//       ],
+//       targetPath: "/wp-content/themes/paperfox/",
+//       basePath: themeBuildPath,
+//       clearBeforeDeploy: [`${deployType}/wp-content/themes/paperfox/**/*.php`],
+//     };
+//     if (buildTheme(vars)) {
+//       deployCode(options);
+//     }
+//   });
+// };
+
+// const watchThemeScripts = (deployType, vars) => {
+//   watch(themeScriptsWatchPath, () => {
+//     console.log(
+//       `[${new Date().toUTCString()}] ---> WP-THEME SCRIPTS CHANGED, REBUILD...`
+//     );
+//     const options = {
+//       deployType: deployType,
+//       sourcePath: `${themeScriptsBuildPath}**/*`,
+//       targetPath: "/wp-content/themes/paperfox/js/",
+//       basePath: themeScriptsBuildPath,
+//       clearBeforeDeploy: [`${deployType}/wp-content/themes/paperfox/**/*.js`],
+//     };
+
+//     if (buildThemeScripts(vars)) {
+//       deployCode(options);
+//     }
+//   });
+// };
+
+// const watchStyles = (deployType, vars) => {
+//   watch(stylesWatchPath, () => {
+//     console.log(
+//       `[${new Date().toUTCString()}] ---> STYLES CHANGED, REBUILD...`
+//     );
+
+//     const options = {
+//       deployType: deployType,
+//       sourcePath: `${stylesBuildPath}**/*.css`,
+//       targetPath: "/wp-content/themes/paperfox/",
+//       basePath: stylesBuildPath,
+//       clearBeforeDeploy: [`${deployType}/wp-content/themes/paperfox/**/*.css`],
+//     };
+
+//     if (buildStyles(vars)) {
+//       deployCode(options);
+//     }
+//   });
+// };
+
+// const watchAssets = (deployType, vars) => {
+//   watch(assetsWatchPath, () => {
+//     console.log(
+//       `[${new Date().toUTCString()}] ---> ASSETS CHANGED, REBUILD...`
+//     );
+//     const options = {
+//       deployType: deployType,
+//       sourcePath: `${assetsBuildPath}**/*`,
+//       targetPath: "/wp-content/themes/paperfox/static/",
+//       basePath: assetsBuildPath,
+//       clearBeforeDeploy: [
+//         `${deployType}/wp-content/themes/paperfox/static/**/*`,
+//       ],
+//     };
+//     if (buildAssets(vars)) {
+//       deployCode(options);
+//     }
+//   });
+// };
+
+// const watchPagesScripts = (deployType, vars) => {
+//   watch(pagesScriptsWatchPath, () => {
+//     console.log(
+//       `[${new Date().toUTCString()}] ---> ASSETS CHANGED, REBUILD...`
+//     );
+//     const options = {
+//       deployType: deployType,
+//       sourcePath: `${pagesScriptsBuildPath}**/*`,
+//       targetPath: "/src/",
+//       basePath: pagesScriptsBuildPath,
+//       clearBeforeDeploy: [`${deployType}/src/**/*.js`],
+//     };
+//     if (buildPagesScripts(vars)) {
+//       deployCode(options);
+//     }
+//   });
+// };
+
+const watchWrapper = (watchPath, func) => watch(watchPath, () => func());
+
+const buildAndDeployPages = (deployType, vars, isWatch) => {
+  const func = () => {
     const options = {
       deployType: deployType,
       sourcePath: `${pagesBuildPath}**/*`,
@@ -48,20 +165,20 @@ const watchPages = (deployType, vars) => {
     };
 
     if (buildPages(vars)) {
-      console.log(`[${new Date().toUTCString()}] ---> REBUILDED SUCCESFULY...`);
       deployCode(options);
     }
-  });
+  };
+  isWatch ? watchWrapper(pagesWatchPath, func) : func();
 };
 
-const watchTheme = (deployType, vars) => {
-  watch(themeWatchPath, () => {
-    console.log(
-      `[${new Date().toUTCString()}] ---> WP-THEME CHANGED, REBUILD...`
-    );
+const buildAndDeployTheme = (deployType, vars, isWatch) => {
+  const func = () => {
     const options = {
       deployType: deployType,
-      sourcePath: [`${themeBuildPath}**/*.php`, `${themeBuildPath}screenshot.png`],
+      sourcePath: [
+        `${themeBuildPath}**/*.php`,
+        `${themeBuildPath}screenshot.png`,
+      ],
       targetPath: "/wp-content/themes/paperfox/",
       basePath: themeBuildPath,
       clearBeforeDeploy: [`${deployType}/wp-content/themes/paperfox/**/*.php`],
@@ -69,14 +186,12 @@ const watchTheme = (deployType, vars) => {
     if (buildTheme(vars)) {
       deployCode(options);
     }
-  });
+  };
+  isWatch ? watchWrapper(themeWatchPath, func) : func();
 };
 
-const watchThemeScripts = (deployType, vars) => {
-  watch(themeScriptsWatchPath, () => {
-    console.log(
-      `[${new Date().toUTCString()}] ---> WP-THEME SCRIPTS CHANGED, REBUILD...`
-    );
+const buildAndDeployThemeScripts = (deployType, vars, isWatch) => {
+  const func = () => {
     const options = {
       deployType: deployType,
       sourcePath: `${themeScriptsBuildPath}**/*`,
@@ -88,15 +203,12 @@ const watchThemeScripts = (deployType, vars) => {
     if (buildThemeScripts(vars)) {
       deployCode(options);
     }
-  });
+  };
+  isWatch ? watchWrapper(pagesScriptsWatchPath, func) : func();
 };
 
-const watchStyles = (deployType, vars) => {
-  watch(stylesWatchPath, () => {
-    console.log(
-      `[${new Date().toUTCString()}] ---> STYLES CHANGED, REBUILD...`
-    );
-
+const buildAndDeployStyles = (deployType, vars, isWatch) => {
+  const func = () => {
     const options = {
       deployType: deployType,
       sourcePath: `${stylesBuildPath}**/*.css`,
@@ -108,14 +220,12 @@ const watchStyles = (deployType, vars) => {
     if (buildStyles(vars)) {
       deployCode(options);
     }
-  });
+  };
+  isWatch ? watchWrapper(stylesWatchPath, func) : func();
 };
 
-const watchAssets = (deployType, vars) => {
-  watch(assetsWatchPath, () => {
-    console.log(
-      `[${new Date().toUTCString()}] ---> ASSETS CHANGED, REBUILD...`
-    );
+const buildAndDeployAssets = (deployType, vars, isWatch) => {
+  const func = () => {
     const options = {
       deployType: deployType,
       sourcePath: `${assetsBuildPath}**/*`,
@@ -128,14 +238,12 @@ const watchAssets = (deployType, vars) => {
     if (buildAssets(vars)) {
       deployCode(options);
     }
-  });
+  };
+  isWatch ? watchWrapper(assetsWatchPath, func) : func();
 };
 
-const watchPagesScripts = (deployType, vars) => {
-  watch(pagesScriptsWatchPath, () => {
-    console.log(
-      `[${new Date().toUTCString()}] ---> ASSETS CHANGED, REBUILD...`
-    );
+const buildAndDeployPagesScripts = (deployType, vars, isWatch) => {
+  const func = () => {
     const options = {
       deployType: deployType,
       sourcePath: `${pagesScriptsBuildPath}**/*`,
@@ -146,15 +254,16 @@ const watchPagesScripts = (deployType, vars) => {
     if (buildPagesScripts(vars)) {
       deployCode(options);
     }
-  });
+    isWatch ? watchWrapper(pagesScriptsWatchPath, func) : func();
+  };
 };
 
-const watchScripts = [
-  watchPagesScripts,
-  watchAssets,
-  watchStyles,
-  watchThemeScripts,
-  watchTheme,
-  watchPages,
+const watchBuildDeployScripts = [
+  buildAndDeployPages,
+  buildAndDeployTheme,
+  buildAndDeployThemeScripts,
+  buildAndDeployStyles,
+  buildAndDeployAssets,
+  buildAndDeployPagesScripts,
 ];
-export default watchScripts;
+export default watchBuildDeployScripts;

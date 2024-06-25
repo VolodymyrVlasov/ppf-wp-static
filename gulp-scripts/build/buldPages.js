@@ -20,7 +20,6 @@ const buildPages = (vars) => {
     streamHtml.pipe(fileInclude({ prefix: "@@", basepath: "@file" }));
 
     for (const [placeholder, value] of Object.entries(vars)) {
-      console.log(placeholder, value)
       streamHtml = streamHtml.pipe(replace(placeholder, value));
     }
 

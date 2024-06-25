@@ -3,7 +3,7 @@ window.addEventListener("load", () => {
   const priceLabel = document.getElementById("summ");
   const orderButton = document.getElementById("canvas-order-button");
   const image = document.getElementById("Img");
-  const domain = "https://www.paperfox.com.ua";
+  const domain = window.location.origin;
 
   const selectedValues = {
     material: "cotton",
@@ -173,8 +173,6 @@ window.addEventListener("load", () => {
     orderButton.href = `${domain}/product/canvas-${size}${
       material == "syntetic" ? "-eco" : ""
     }${cover == "cover" ? "-lak" : ""}/ `;
-
-    console.log({ material, size, cover }, image.src, orderButton.href);
   };
 
   orderForm.addEventListener("change", (e) => {
