@@ -50,15 +50,6 @@
     background-color: transparent;
 }
 
-.price {
-    padding: 8px var(--size-gap);
-    background-color: var(--color-light-theme);
-    border-radius: 8px;
-    font-size: 24px;
-    color: var(--color-theme);
-    cursor: pointer;
-}
-
 .calculator_summary_cards {
     animation: fade_in 230ms;
 }

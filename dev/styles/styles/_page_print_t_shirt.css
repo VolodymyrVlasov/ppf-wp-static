@@ -1,0 +1,25 @@
+.collapsable_cnt:has(input[type="checkbox"]:checked) .collapsable_cnt_legend {
+  height: auto !important;
+  transform: translateY(0);
+  transition: ease 1000ms;
+  opacity: 1;
+}
+
+.collapsable_cnt_input > input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 0;
+}
+
+.collapsable_cnt_input > label {
+  padding: 0 !important;
+  margin-top: -12px;
+}
+
+.collapsable_cnt_legend {
+  height: 0 !important;
+  opacity: 0;
+  transition: ease 100ms;
+  transform: translateY(-50%);
+}

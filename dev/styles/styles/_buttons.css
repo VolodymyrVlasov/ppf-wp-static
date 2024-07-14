@@ -132,3 +132,35 @@
     filter: none !important;
     transition: calc(var(--time-tr-time) / 2);    
 }
+
+.attribute_radio_input > input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 0;
+  }
+  .attribute_radio_input > span {
+      margin-left: -4px;
+  }
+  
+  .attribute_radio_input {
+    padding: 12px 24px;
+    border: 1px solid var(--color-gray);
+    border-radius: var(--size-border-radius);
+    background-color: var(--color-light-light-gray);
+    cursor: pointer;
+    transition: ease 300ms;
+  }
+  
+  .attribute_radio_input:hover {
+      border: 1px solid var(--color-theme);
+      background-color: var(--color-light-theme);
+      color: var(--color-theme);
+    }
+  
+  .attribute_radio_input:has(input[type="radio"]:checked) {
+    border: 1px solid var(--color-theme);
+    background-color: var(--color-light-light-theme);
+    color: var(--color-theme);
+  }
+  

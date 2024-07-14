@@ -134,6 +134,21 @@ select {
 }
 
 
+.price {
+    padding: 8px var(--size-gap);
+    background-color: var(--color-light-theme);
+    border-radius: 8px;
+    font-size: 24px;
+    color: var(--color-theme);
+}
+
+.price::after {
+    content:"₴";
+    font-size: 24px;
+    margin-left: 4px;
+}
+
+
 @media (max-width: 991.98px) {
     :root {
         --font-text-60: 48px;
