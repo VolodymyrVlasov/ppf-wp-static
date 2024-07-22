@@ -37,7 +37,7 @@
 
       <section class="section">
         <div class="container col big_gap">
-          <div class="row big_gap">
+          <div class="row big_gap" id="t-shirt-calculator">
             <div id="image-cnt" class="flex_1">
               <img
                 class="t_shirt_image bg_img"
@@ -52,7 +52,7 @@
             <div class="col gap">
               <div class="col small_gap">
                 <span class="text_12__gray">Тип футболки</span>
-                <div class="row small_gap">
+                <div class="row small_gap" id="t-shirt-type-input">
                   <label class="attribute_radio_input" for="t-shirt-type-man">
                     <input type="radio" name="t-shirt-type" id="t-shirt-type-man" value="sols-imperial" checked />
                     <span>Чоловіча</span>
@@ -69,7 +69,7 @@
               </div>
               <div class="col small_gap">
                 <span class="text_12__gray">Колір футболки</span>
-                <div class="row small_gap">
+                <div class="row small_gap" id="t-shirt-color-input">
                   <label class="attribute_radio_input" for="t-shirt-color-black">
                     <input type="radio" name="t-shirt-color" id="t-shirt-color-black" value="black" />
                     <span>Чорний</span>
@@ -82,7 +82,7 @@
               </div>
               <div class="col small_gap">
                 <span class="text_12__gray">Розмір</span>
-                <div class="row small_gap">
+                <div class="row small_gap" id="t-shirt-size-input">
                   <label class="attribute_radio_input" for="t-shirt-size-xs">
                     <input type="radio" name="t-shirt-size" id="t-shirt-size-xs" value="xs" checked />
                     <span>XS</span>
@@ -111,8 +111,8 @@
 
                 <div class="collapsable_cnt width_100">
                   <div class="collapsable_cnt_input">
-                    <input type="checkbox" id="sizes-table" />
-                    <label for="sizes-table" class="sub_link"><span>Таблиця розмірів</span></label>
+                    <input type="checkbox" id="sizes-table-popover" />
+                    <label for="sizes-table-popover" class="sub_link"><span>Таблиця розмірів</span></label>
                   </div>
                   <div class="collapsable_cnt_legend row width_100 small_gap">
                     <img
@@ -121,53 +121,65 @@
                       height="100"
                       alt="футболка з розмірами"
                     />
-                    <div class="col_center gap">
-                      <span>XS</span>
-                      <span>64/48</span>
-                    </div>
-                    <div class="col_center gap">
-                      <span>S</span>
-                      <span>64/48</span>
-                    </div>
-                    <div class="col_center gap">
-                      <span>M</span>
-                      <span>70/50</span>
-                    </div>
-                    <div class="col_center gap">
-                      <span>L</span>
-                      <span>72/53</span>
-                    </div>
-                    <div class="col_center gap">
-                      <span>XL</span>
-                      <span>74/56</span>
-                    </div>
-                    <div class="col_center gap">
-                      <span>XXL</span>
-                      <span>76/59</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col small_gap">
-                <span class="text_12__gray">Вартість:</span>
-                <div class="row gap">
-                  <div class="popover_wrapper">
-                    <div class="popover_content">
-                      <div class="price col_center">
-                        <span class="plain_text_smaller ">Футболка з друком</span>
-                        <span>540...740 ₴</span>
+                    <div id="t-shirt-size-table">
+                      <div class="col_center gap">
+                        <span>XS</span>
+                        <span>64/48</span>
+                      </div>
+                      <div class="col_center gap">
+                        <span>S</span>
+                        <span>64/48</span>
+                      </div>
+                      <div class="col_center gap">
+                        <span>M</span>
+                        <span>70/50</span>
+                      </div>
+                      <div class="col_center gap">
+                        <span>L</span>
+                        <span>72/53</span>
+                      </div>
+                      <div class="col_center gap">
+                        <span>XL</span>
+                        <span>74/56</span>
+                      </div>
+                      <div class="col_center gap">
+                        <span>XXL</span>
+                        <span>76/59</span>
                       </div>
                     </div>
-                    <div class="popover_description">
-                      <span class="plain_text_small"
-                        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia unde neque quisquam commodi natus iure eos facere, possimus blanditiis molestias doloribus aperiam dolorem voluptas ipsa, amet alias! Architecto aperiam explicabo, ab asperiores totam minus pariatur nemo enim animi, a tempora doloremque dolores delectus quas! Ipsa saepe ratione maxime ut consectetur!</span
-                      >
-                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col small_gap width_100">
-                <a class="t_shirt_order_btn button__primary" href="/">Створити дизайн</a>
+              <div class="col big_gap">
+                <div class="col small_gap">
+                  <span class="text_12__gray">Вартість:</span>
+                  <div class="row gap">
+                    <div class="popover_wrapper">
+                      <div class="popover_content">
+                        <div class="price col_center">
+                          <span class="plain_text_smaller text_color_black">Футболка з друком</span>
+                          <span id="t-shirt-price-label">540...740 ₴</span>
+                        </div>
+                      </div>
+                      <div class="popover_description">
+                        <div class="plain_text_small col small_gap">
+                          <span>Вартість готового виробу складається з вартості футболки та вартості друку.</span>
+                          <span
+                            >Вартість друку, для роздрібних замовлень (до 5 шт), залежить лише від кольору футболки і наявності самого друку
+                            з однієї чи двох сторін.</span
+                          >
+                          <span
+                            >Вартість за друк буде додано після завантаження хоча б одного зображення на одну з сторін футболки, якщо буде
+                            додано зображення і на другу сторону футболки, вартість за друк збільшиться</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col small_gap width_100">
+                  <a class="t_shirt_order_btn button__primary" href="/" id="t-shirt-link">Створити дизайн</a>
+                </div>
               </div>
             </div>
           </div>
