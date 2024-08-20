@@ -43,7 +43,7 @@
 }
 
 .cart_item:hover {
-    transform: scale(1.025);
+    /* transform: scale(1.025); */
     /* background-color: var(--color-light-light-gray); */
 }
 
@@ -54,14 +54,14 @@
     font-size: 16px;
     font-weight: bold;
     color: var(--color-theme);
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .cart_item_image {
     width: 200px;
     height: 100px;
     border-radius: var(--size-border-radius);
-    object-fit: contain;
+    object-fit: cover;
     border: 0.5px solid var(--color-light-gray);
     -webkit-box-shadow: inset 0px 0px 23px 2px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: inset 0px 0px 23px 2px rgba(0, 0, 0, 0.05);
@@ -74,12 +74,13 @@
     cursor: pointer;
     width: 24px;
     height: 24px;
-    background: url("https://paperfox.in.ua/wp-content/themes/paperfox/static/icons/icon-delete-bin.svg") no-repeat center/100%;
-    transition: var(--time-tr-time);
+    background: url("https://paperfox.in.ua/wp-content/themes/paperfox/static/icons/icon-delete-bin.svg") no-repeat top/100%;
+    transition: 0ms !important;
 }
 
 .cart_item_del:hover {
-    transform: scale(1.1);
+    background: url("https://paperfox.in.ua/wp-content/themes/paperfox/static/icons/icon-delete-bin.svg") no-repeat bottom/100%;
+
 }
 
 .cart_item_category {

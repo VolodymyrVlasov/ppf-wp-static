@@ -65,6 +65,18 @@ select {
   cursor: default;
 }
 
+.text_truncated_1_line {
+  display: block !important;
+  display: -webkit-box !important;
+  max-height: calc(var(--size-line-height) * 3) !important;
+  line-height: var(--size-line-height);
+  -webkit-line-clamp: 1 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  cursor: default;
+}
+
 .text_underline {
   text-decoration: underline !important;
 }
@@ -141,6 +153,16 @@ select {
 
 .clear_list {
   list-style: none outside !important;
+}
+
+.link {
+  cursor: pointer;
+  color: inherit;
+  transition: 100ms;
+}
+
+.link:hover {
+  color: var(--color-theme);
 }
 
 /* DEPRECATED DO NOT USE */
@@ -239,14 +261,6 @@ select {
 .text_12__gray {
   font-size: var(--font-text-12);
   color: var(--color-gray);
-}
-
-/* DEPRECATED DO NOT USE */
-.link {
-  cursor: pointer;
-  color: inherit;
-  transition: 100ms;
-  font-weight: bolder;
 }
 
 /* DEPRECATED DO NOT USE */
