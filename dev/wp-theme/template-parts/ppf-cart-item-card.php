@@ -11,23 +11,34 @@
 
     $alt_text = $_product->get_name();
     ?>
+    <div class="cart_item_description flex_2">
+        <img src="<?php echo $product_image_url; ?>"
+            alt="<?php echo esc_attr($alt_text); ?>" width="200" height="100"
+            class="cart_item_image bg_img">
+        <div class="col small_gap ">
+            <div class="popover_wrapper">
+                <div class="popover_content">
+                    <div class="col_center">
+                        <span class="plain_text text_bold cart_item_name_truncated"><?php echo $_product->get_name(); ?></span>
+                    </div>
+                </div>
+                <div class="popover_description">
+                    <div class="plain_text_small col small_gap">
+                        <span><?php echo $_product->get_name(); ?></span>
+                    </div>
+                </div>
+            </div>
 
-    <img src="<?php echo $product_image_url; ?>"
-        alt="<?php echo esc_attr($alt_text); ?>" width="200" height="100"
-        class="cart_item_image bg_img">
-
-    <div class="col small_gap flex_3">
-        <span class="plain_text text_bold text_truncated_1_line">
-            <?php echo $_product->get_name(); ?>
-        </span>
-        <span class="cart_item_category">
-            <?php echo wc_get_product_category_list($product_id); ?>
-        </span>
-        <a href="<?php echo esc_url($product_permalink); ?>"
-            class="plain_text_smaller link">Редагувати
-            дизайн</a>
+            <span class="cart_item_category">
+                <?php echo wc_get_product_category_list($product_id); ?>
+            </span>
+            <a href="<?php echo esc_url($product_permalink); ?>"
+                class="plain_text_smaller link">Редагувати
+                дизайн</a>
+        </div>
     </div>
-    <div class="col_end flex_2">
+
+    <div class="col_end flex_1">
         <span class="cart_item_price">
             <?php echo WC()->cart->get_product_subtotal($_product, $cart_item['quantity']); ?>
         </span>
@@ -62,4 +73,5 @@
             ?>
         </div>
     </div>
+
 </li>

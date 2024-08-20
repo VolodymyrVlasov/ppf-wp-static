@@ -238,7 +238,8 @@ picture:has(>.product_card__image) {
 
     #paperfox_services,
     #products-section,
-    #materials-section {
+    #materials-section,
+    #cart-section {
         background-color: var(--color-light-light-gray);
     }
 

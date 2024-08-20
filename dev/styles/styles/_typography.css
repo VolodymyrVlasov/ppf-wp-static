@@ -65,17 +65,6 @@ select {
   cursor: default;
 }
 
-.text_truncated_1_line {
-  display: block !important;
-  display: -webkit-box !important;
-  max-height: calc(var(--size-line-height) * 3) !important;
-  line-height: var(--size-line-height);
-  -webkit-line-clamp: 1 !important;
-  -webkit-box-orient: vertical !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  cursor: default;
-}
 
 .text_underline {
   text-decoration: underline !important;

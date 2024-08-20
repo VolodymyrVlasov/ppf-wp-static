@@ -18,7 +18,7 @@ defined('ABSPATH') || exit;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{domain}}/static/icons/favicon.png" type="image/x-icon">
 
-    <title>cart.php | PaperFox</title>
+    <title>Кошик | PaperFox</title>
     <?php wp_head(); ?>
 </head>
 
