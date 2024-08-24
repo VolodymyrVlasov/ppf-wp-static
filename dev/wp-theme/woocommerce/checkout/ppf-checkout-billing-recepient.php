@@ -1,5 +1,5 @@
-<h3 class="text_24">Ваші контактні дані</h3>
-<div class="woocommerce-billing-fields row gap width_100">
+<h3 class="header_4">Ваші контактні дані</h3>
+<div class="woocommerce-billing-fields">
     <div class="checkout_input_text" id="billing_first_name_field" data-priority="10">
         <label for="billing_first_name">Імʼя</label>
         <input type="text" name="billing_first_name" id="billing_first_name" autocomplete="on" required="true" placeholder="Тарас"> 
@@ -13,7 +13,7 @@
         <input type="text" name="billing_last_name" id="billing_last_name" autocomplete="on" required="true" placeholder="Шевченко">
     </div>
 </div>
-<div class="row gap width_100">
+<div class="woocommerce-billing-fields">
     <div class="checkout_input_text" id="billing_phone_field" data-priority="100">
         <label for="billing_phone">Мобільний телефон</label>
         <input type="tel" id="billing_phone" required="true" placeholder="+380667777777" name="billing_phone" autocomplete="on">

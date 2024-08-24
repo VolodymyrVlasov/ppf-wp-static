@@ -1,4 +1,4 @@
-<h2 class="text_24">Доставка</h2>
+<h2 class="header_4">Доставка</h2>
 <div class="woocommerce-shipping-fields">
 </div>
 <ul id="shipping_method" class="woocommerce-shipping-methods col gap width_100">

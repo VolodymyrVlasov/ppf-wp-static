@@ -10,27 +10,27 @@ if (!defined('ABSPATH')) {
 
 <section class="section">
     <div class="container col big_gap">
-        <h1 class="text_32__bold">Оформлення замовлення</h1>
+        <h1 class="header_3">Оформлення замовлення</h1>
         <form name="checkout" method="post" class="checkout col big_gap width_100" action="{{domain}}/checkout/" enctype="multipart/form-data" novalidate="novalidate">
             <?php do_action('woocommerce_checkout_before_customer_details'); ?>
-            <div class="row big_gap">
-                <div class="woocommerce-billing-fields col big_gap flex_4" id="customer_details">
-                    <div class="col gap width_100">
+            <div class="checkout_container">
+                <div class="woocommerce-billing-fields" id="customer_details">
+                    <div class="checkout_detail_card">
                         <!-- Замовник - контакти -->
                         <?php wc_get_template('checkout/ppf-checkout-billing-recepient.php'); ?>
                     </div>
-                    <div class="col gap width_100">
+                    <div class="checkout_detail_card">
                         <!-- Методи доставки -->
                         <?php wc_get_template('checkout/ppf-checkout-delivery.php'); ?>
                     </div>
-                    <div class="col gap width_100">
+                    <div class="checkout_detail_card">
                         <!-- Методи оплати -->
-                        <h3 class="text_24">Оплата</h3>
+                        <h3 class="header_4">Оплата</h3>
                         <ul class="woocommerce-checkout-payment col big_gap width_100" id="payment"></ul>
                     </div>
-                    <div class="col gap width_100">
+                    <div class="checkout_detail_card">
                         <!-- Коментар -->
-                        <h3 class="text_24">Коментар до замовлення</h3>
+                        <h3 class="header_4">Коментар до замовлення</h3>
                         <?php wc_get_template('checkout/ppf-checkout-comment.php'); ?>
                     </div>
                 </div>
