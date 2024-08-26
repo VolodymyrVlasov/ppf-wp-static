@@ -12,8 +12,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{domain}}/static/icons/favicon.png" type="image/x-icon">
+    <title>Цифровий та Широкоформатний друк. Поліграфія в Києві | PaperFox</title>
+    <meta name="description"
+        content="Поліграфія в Києві - PAPERFOX. Друк А0, А1, А2 та цифровий друк А3 та А4 формата. Якісний друк на полотні, футболках, фото на чашках. Самовивіз в Києві на Подолі та доставка Новою Поштою по Україні">
+    <meta name="keywords"
+        content="Печать а0 киев, друк А0 київ, печать а1 киев,  друк А1 київ, печать а2 киев,  друк А2 київ, печать а4 киев, друк А4 київ, печать а3 киев, друк А3 київ, печать на чашках киев, друк на чашках київ,  печать на холсте, друк на холсті (полотні), фото на холсте, фото на холсті (полотні), фотохолст, цветная печать, кольоровий друк, фото на чашках киев, печать наклеек, друк наклейок (наліпок), печать стикеров, друк стікерів,  круглые наклейки, круглі наліпки, фигурные наклейки, фігрні наліпки">
 
-    <title>front-page.php | PaperFox</title>
+    <meta property="og:title" content="PaperFox - Цифровий та Широкоформатний Друк в Києві">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://paperfox.com.ua">
+    <meta property="og:image" content="https://paperfox.com.ua/wp-content/uploads/images/og-paperfox-main.jpg">
+    <meta property="og:image" content="https://paperfox.com.ua/wp-content/uploads/images/og-paperfox-main.jpg">
+    <meta property="og:description"
+        content="Послуги цифрового друку Paperfox допоможуть вам замовити найкращі індивідуальні продукти:  маркетингові матеріали, листівки, наліпки, рекламну продукцію, холсти, чашки, футболки">
+    <meta property="og:site_name" content="PaperFox">
+    <meta property="og:locale" content="uk_UA">
+
     <?php wp_head(); ?>
 </head>
 
@@ -43,21 +57,9 @@
                                 $category_link = get_term_link($product_category->term_id);
                                 ?>
                                 <li class="cards_3">
-                                    <article class="product_card">
-                                        <img src="<?php echo esc_url($image_url); ?>"
-                                            alt="<?php echo esc_attr($product_category->name); ?>" class="bg_img width_100"
-                                            width="200" height="200" loading="lazy" decoding="async" />
-                                        <h3 class="text_16__bold width_100">
-                                            <?php echo esc_html($product_category->name); ?>
-                                        </h3>
-                                        <p class="text_14 width_100">
-                                            <?php echo wp_strip_all_tags($product_category->description); ?>
-                                        </p>
-                                        <a title="Перейти на сторінку категории <?php echo esc_attr($product_category->name); ?>"
-                                            href="<?php echo esc_url($category_link); ?>" class="sub_link">
-                                            <span>ДОКЛАДНІШЕ</span>
-                                        </a>
-                                    </article>
+
+                                    <?php include get_template_directory() . '/template-parts/ppf-product-category-card.php'; ?>
+
                                 </li>
                                 <?php
                             }
@@ -72,7 +74,7 @@
         </section>
 
 
-        <section class="section">
+        <section class="section" id="paperfox_products">
             <div class="container col big_gap">
                 <h2>PRODUCTS</h2>
                 <ul class="row big_gap width_100">
@@ -94,22 +96,7 @@
                             }
                             ?>
                             <li class="cards_3">
-                                <article class="product_card">
-                                    <?php $image_url = wp_get_attachment_image_src($product->get_image_id(), 'full')[0]; ?>
-                                    <img src="<?php echo esc_url($image_url); ?>" alt="<?php the_title(); ?>"
-                                        class="product_card_image bg_img width_100" width="380" height="180" loading="lazy"
-                                        decoding="async" style="object-fit: cover;" />
-                                    <h3 class="text_16__bold width_100">
-                                        <?php echo get_the_title(); ?>
-                                    </h3>
-                                    <p class="text_14 width_100">
-                                        <?php echo wp_strip_all_tags($product->get_short_description()); ?>
-                                    </p>
-                                    <a title="Перейти на сторінку товара <?php the_title(); ?>" href="<?php the_permalink(); ?>"
-                                        class="sub_link">
-                                        <span>ЗАМОВИТИ</span>
-                                    </a>
-                                </article>
+                                <?php include get_template_directory() . '/template-parts/ppf-product-card.php'; ?>
                             </li>
                             <?php
                         endwhile;
