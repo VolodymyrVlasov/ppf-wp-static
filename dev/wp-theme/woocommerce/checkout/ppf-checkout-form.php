@@ -8,13 +8,13 @@ if (!defined('ABSPATH')) {
 }
 ?>
 
-<section class="section">
+<section class="section" id="checkout-section">
     <div class="container col big_gap">
         <h1 class="header_3">Оформлення замовлення</h1>
         <form name="checkout" method="post" class="checkout col big_gap width_100" action="{{domain}}/checkout/" enctype="multipart/form-data" novalidate="novalidate">
             <?php do_action('woocommerce_checkout_before_customer_details'); ?>
             <div class="checkout_container">
-                <div class="woocommerce-billing-fields" id="customer_details">
+                <div class="woocommerce-billing-fields big_gap" id="customer_details">
                     <div class="checkout_detail_card">
                         <!-- Замовник - контакти -->
                         <?php wc_get_template('checkout/ppf-checkout-billing-recepient.php'); ?>
@@ -52,10 +52,6 @@ if (!defined('ABSPATH')) {
                 <input type="hidden" id="woocommerce-process-checkout-nonce" name="woocommerce-process-checkout-nonce" value="<?php echo esc_attr($checkout_nonce) ?>" />
             </div>
         </form>
-
         <?php do_action('woocommerce_after_checkout_form', $checkout); ?>
-
-        </article>
     </div>
 </section>
-<article class="col big_gap">
