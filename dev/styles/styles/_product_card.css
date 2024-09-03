@@ -45,8 +45,20 @@
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.08);
   }
 
-  .product_card_description {
-    padding: 8px 16px 0 16px;
+  .cards_3:has( .product_card) {
+    width: calc((100% - var(--size-big-gap)) / 2) !important;
+  }
+
+  .product_card_description > h3 {
+    padding-bottom: 8px;
+    width: 100%;
+    text-align: center;
+    /* padding: 8px 16px 0 16px; */
+  }
+
+  .product_card_description > .plain_text_small.text_truncated,
+  .product_card_description > .sub_link {
+    display: none !important;
   }
 
   .product_card_image_container,
