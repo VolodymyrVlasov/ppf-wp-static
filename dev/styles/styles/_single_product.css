@@ -1,0 +1,32 @@
+.bg_theme {
+    border: 1px solid var(--color-theme);
+}
+
+.single_product_card_row {
+    display: flex;
+    flex-direction: row;
+    gap: var(--size-big-gap);
+    width: 100%;
+    min-height: 360px;
+}
+
+.single_product_card_col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-big-gap);
+}
+
+.single_product_card_image_cnt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-contentb;
+    flex: 1;
+}
+
+.single_product_card_description_cnt {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-gap);
+    flex: 1;
+}
