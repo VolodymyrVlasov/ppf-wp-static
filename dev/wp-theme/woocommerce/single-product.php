@@ -37,17 +37,61 @@ global $product;
 
         <section class="section">
             <div class="container">
-                <div class="single_product_card_row">
-                    <div class="single_product_card_image_cnt bg_theme">FPD</div>
-                    <div class="single_product_card_description_cnt bg_theme">
-                        <div class="row gap width_100">
-                            <h1 class="header_4 flex_1 bg_theme">Name</h1>
-                            <div class="row_end gap flex_1 bg_theme">
-                                <span>Amount</span>
-                                <span>Add to cart</span>
-                            </div>
+                <div class="row">
+                    <? if (function_exists('woocommerce_breadcrumb')) {
+                        woocommerce_breadcrumb();
+                    } ?>
+                </div>
+                <?php $isFPD = do_shortcode('[fpd]') ?>
+                <div class="<?php echo ($isFPD == true) ? 'single_product_card_col' : 'single_product_card_row'; ?>">
+                    <div
+                        class="<?php echo ($isFPD == true) ? 'single_product_card_fpd_cnt bg_img' : 'single_product_card_image_cnt'; ?> bg_theme">
+                        <img class="bg_img"
+                            src="{{stylesheet_url}}/static/global/ppf-image-not-found.png"
+                            alt="<?php echo $relate_product_name; ?>"
+                            width="500" height="450" loading="lazy" decoding="async" />
+                    </div>
+                    <div class="single_product_card_description_cnt ">
+                        <div class="col gap">
+                            <h1 class="header_4"><?php echo $product->get_name(); ?></h1>
+                            <p class="plain_text"><?php the_content(); ?></p>
+
+                            
+                            <p class="plain_text"><?php echo $product->get_description(); ?></p>
                         </div>
-                        <p>Description</p>
+
+                        <form class="single_product_summary_card"
+                            action="<?php echo esc_url(apply_filters('woocommerce_add_to_cart_form_action', $product->get_permalink())); ?>"
+                            method="post" enctype='multipart/form-data'>
+                            <div class="row_sp_btw">
+                                <div class="col small_gap">
+                                    <span class="plain_text_smaller text_color_gray">Кількість</span>
+                                    <div class="col_center">
+                                        <?php woocommerce_quantity_input(
+                                            array(
+                                                'min_value' => apply_filters('woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product),
+                                                'max_value' => apply_filters('woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product),
+                                                'input_value' => isset($_POST['quantity']) ? wc_stock_amount(wp_unslash($_POST['quantity'])) : $product->get_min_purchase_quantity(),
+                                                // WPCS: CSRF ok, input var ok.
+                                            )
+                                        ); ?>
+                                    </div>
+
+                                </div>
+                                <div class="col small_gap">
+                                    <span class="plain_text_smaller text_color_gray">Вартість за одиницю</span>
+                                    <p class="price">
+                                        <?php echo $product->get_price_html(); ?>
+                                    </p>
+                                </div>
+                            </div>
+                            <button type="submit" name="add-to-cart"
+                                value="<?php echo esc_attr($product->get_id()); ?>"
+                                class="button__primary width_100">ДОДАТИ У
+                                КОШИК</button>
+
+                        </form>
+
                     </div>
                 </div>
             </div>
