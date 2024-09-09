@@ -8,7 +8,9 @@ add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
 
 function ppf_theme_scripts()
 {
-    wp_enqueue_script('ppf-script-checkout', get_template_directory_uri() . '/js/checkout.js', array(), null, true);
+    if (is_checkout()) {
+        wp_enqueue_script('ppf-script-checkout', get_template_directory_uri() . '/js/checkout.js', array(), null, true);
+    }
 }
 
 // Запуск функции при загрузке скриптов

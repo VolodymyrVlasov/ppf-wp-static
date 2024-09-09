@@ -34,7 +34,7 @@
 
 .single_product_card_description_cnt {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: var(--size-gap);
     flex: 1;
 }
@@ -43,7 +43,7 @@
     display: flex;
     height: fit-content;
     flex-direction: column;
-    gap: var(--size-big-gap);
+    gap: var(--size-small-gap);
     background-color: var(--color-light-light-gray);
     border: 0.5px solid var(--color-light-gray);
     border-radius: var(--size-border-radius);
