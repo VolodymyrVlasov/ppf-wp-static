@@ -108,6 +108,20 @@
 	}
 }
 
+@keyframes fade-out {
+	0% {
+		opacity: 1;
+	}
+
+	95% {
+		opacity: 0.0;
+	}
+
+	100% {
+		display: none !important;
+	}
+}
+
 @keyframes slide-from-left {
 	00% {
 		transform: translateX(100%);
