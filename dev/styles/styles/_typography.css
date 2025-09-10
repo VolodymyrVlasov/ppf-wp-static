@@ -118,16 +118,63 @@ select {
 
 .price {
   padding: 8px var(--size-gap);
-  background-color: var(--color-light-theme);
+  background-color: var(--color-light-light-theme);
   border-radius: 8px;
   font-size: 24px;
   color: var(--color-theme);
+  border: 1px solid var(--color-light-theme);
+
 }
 
 .price_after::after {
   content: "₴";
   font-size: 24px;
   margin-left: 4px;
+  font-weight: 400;
+}
+
+.price_label {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px 4px 16px;
+  min-width: 96px;
+  border-radius: var(--size-border-radius);
+  background-color: var(--color-light-light-theme);
+  border: 1px solid var(--color-light-theme);
+  color: var(--color-theme);
+  text-align: left;
+
+}
+
+.price_label>span {
+  font-size: 10px;
+  font-weight: 600;
+  text-align: left;
+  color: var(--light-theme);
+}
+
+.price_label>p{
+  font-size: 36px;
+  font-weight: 600;
+  padding: 0;
+  line-height: 100%;
+}
+
+.prop_label {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 16px;
+  min-width: 96px;
+  border-radius: var(--size-border-radius);
+  background-color: var(--color-light-light-gray);
+  border: 1px solid var(--color-light-gray);
+}
+
+.prop_label>span {
+  font-size: 10px;
+  font-weight: 600;
+  text-align: left;
+  color: var(--color-gray);
 }
 
 .doted_list {
