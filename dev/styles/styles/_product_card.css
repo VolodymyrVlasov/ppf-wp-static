@@ -35,6 +35,8 @@
   filter: sepia(10%) !important;
   object-fit: cover;
   z-index: -1;
+  border-radius: var(--size-border-radius);
+
 }
 
 /* `sm` applies to small devices (portrait phones, less than 576px) */

@@ -1,2 +1,2 @@
 ErrorDocument 404 /paperfox/404/index.html
-RewriteRule ^(.*?/)category/(.+)$ $1$2 [R=301,L]
+#RewriteRule ^(.*?/)category/(.+)$ $1$2 [R=301,L]

@@ -1,7 +1,9 @@
 <li class="cart_item">
     <?php
-    $fpd_data = $cart_item['fpd_data'];
-    $fpd_preview_image = $fpd_data['fpd_product_thumbnail']; // Замініть 'fpd_data' на відповідний ключ метаданих
+
+
+    // $fpd_data = $cart_item['fpd_data'];
+    // $fpd_preview_image = $fpd_data['fpd_product_thumbnail']; // Замініть 'fpd_data' на відповідний ключ метаданих
     
     if (!empty($fpd_preview_image)) {
         $product_image_url = $fpd_preview_image;
@@ -19,7 +21,8 @@
             <div class="popover_wrapper">
                 <div class="popover_content">
                     <div class="col_center">
-                        <span class="plain_text text_bold cart_item_name_truncated"><?php echo $_product->get_name(); ?></span>
+                        <span
+                            class="plain_text text_bold cart_item_name_truncated"><?php echo $_product->get_name(); ?></span>
                     </div>
                 </div>
                 <div class="popover_description">
