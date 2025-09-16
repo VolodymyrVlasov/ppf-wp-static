@@ -98,6 +98,7 @@
 .button__primary:hover {
     background-color: var(--color-light-theme);
     color: var(--color-theme);
+    cursor: pointer;
 }
 
 .button_icon {

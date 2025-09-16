@@ -123,7 +123,6 @@ select {
   font-size: 24px;
   color: var(--color-theme);
   border: 1px solid var(--color-light-theme);
-
 }
 
 .price_after::after {
@@ -138,6 +137,7 @@ select {
   flex-direction: column;
   padding: 8px 12px 4px 16px;
   min-width: 96px;
+  width: fit-content;
   border-radius: var(--size-border-radius);
   background-color: var(--color-light-light-theme);
   border: 1px solid var(--color-light-theme);
@@ -167,7 +167,7 @@ select {
   min-width: 96px;
   border-radius: var(--size-border-radius);
   background-color: var(--color-light-light-gray);
-  border: 1px solid var(--color-light-gray);
+  border: 1px solid var(--color-gray);
 }
 
 .prop_label>span {
