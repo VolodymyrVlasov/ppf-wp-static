@@ -5,11 +5,6 @@
  * @hooked woocommerce_output_all_notices - 10
  */
 do_action('woocommerce_before_single_product');
-
-if (post_password_required()) {
-    echo get_the_password_form(); // WPCS: XSS ok.
-    return;
-}
 ?>
 
 <!DOCTYPE html>
@@ -30,154 +25,70 @@ global $product;
 <body>
     <?php get_header(); ?>
     <main>
+
+
+        <?php
+        $product_id = $product ? $product->get_id() : get_the_ID();
+        if (ppf_product_has_fpd($product_id)) {
+            wc_get_template('template-parts/ppf-single-product-fpd.php', ['order' => $order]);
+        } else {
+            wc_get_template('template-parts/ppf-single-product.php', ['order' => $order]);
+        } ?>
+
+
         <section class="section">
-            <div class="container col big_gap">
-                <div id="product-<?php the_ID(); ?>">
-                    <div class="row big_gap">
-                        <div class="col">
-                            <?php if (!do_shortcode('[fpd]')) {
-                                ?>
-                                <picture class="col Width_100">
-                                    <?php $image_url = wp_get_attachment_url($product->get_image_id()); ?>
-                                    <img src="<?php echo $image_url ?>" class="product_card__image bg_img width_100"
-                                        width="380" height="180" alt="<?php echo $relate_product_name; ?>">
-                                </picture>
-                                <?php
-                            } else {
-                                echo do_shortcode('[fpd]');
-                            } ?>
-                        </div>
+            <div class="container col gap">
 
-                        <div class="col gap">
-                            <p class="text_24">
-                                <?php echo $product->get_name(); ?>
-                            </p>
-                            <span class="text_12">
-                                <?php echo $product->get_categories()->name; ?>
-                            </span>
+                <?php
+                // Основні властивості
+                echo "ID: " . $product->get_id() . "\n";
+                echo "Назва: " . $product->get_name() . "\n";
+                echo "SKU: " . $product->get_sku() . "\n";
+                echo "Тип: " . $product->get_type() . "\n";
+                echo "Статус: " . $product->get_status() . "\n";
+                echo "Посилання: " . $product->get_permalink() . "\n";
 
-                            <span class="text_16">
-                                <?php echo $product->get_short_description(); ?>
-                                <?php echo $product->get_description(); ?>
-                            </span>
-                            <div class="row_sp_btw width_100">
-                                <p class="text_16">Вага товару:</p>
-                                <div>
-                                    <?php echo $product->get_weight(); ?>
-                                </div>
-                            </div>
-                            <div class="row_sp_btw width_100">
-                                <p class="text_16">Розміри товару:</p>
-                                <div>
-                                    <?php echo $dimensions = $product->get_dimensions(); ?>
-                                </div>
-                            </div>
-                            <p class="price">
-                                <?php echo $product->get_price_html(); ?>
-                            </p>
-                            <form class="row_sp_btw width_100"
-                                action="<?php echo esc_url(apply_filters('woocommerce_add_to_cart_form_action', $product->get_permalink())); ?>"
-                                method="post" enctype='multipart/form-data'>
-                                <?php
-                                woocommerce_quantity_input(
-                                    array(
-                                        'min_value' => apply_filters('woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product),
-                                        'max_value' => apply_filters('woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product),
-                                        'input_value' => isset($_POST['quantity']) ? wc_stock_amount(wp_unslash($_POST['quantity'])) : $product->get_min_purchase_quantity(),
-                                        // WPCS: CSRF ok, input var ok.
-                                    )
-                                );
-                                ?>
-                                <button type="submit" name="add-to-cart"
-                                    value="<?php echo esc_attr($product->get_id()); ?>" class="button__primary">ДОДАТИ У
-                                    КОШИК</button>
+                // Ціна
+                echo "Ціна (звичайна): " . $product->get_regular_price() . "\n";
+                echo "Ціна (акційна): " . $product->get_sale_price() . "\n";
+                echo "Ціна (поточна): " . $product->get_price() . "\n";
+                echo "HTML ціни: " . $product->get_price_html() . "\n";
 
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col width_100">
-                    <p class="text_24">Асоційовані товари:</p>
-                    <div class="row big_gap width_100">
-                        <?php
-                        $upsells = $product->get_upsell_ids();
-                        if (!empty($upsells)) {
-                            foreach ($upsells as $upsell_id) {
-                                $upsell = wc_get_product($upsell_id);
-                                $upsell_product_name = $upsell->get_name();
-                                $upsell_image_url = wp_get_attachment_url($upsell->get_image_id());
-                                ?>
-                                <div class="product_card cards_3">
-                                    <picture>
-                                        <img src="<?php echo $upsell_image_url ?>" class="product_card__image bg_img width_100"
-                                            width="380" height="180" alt="<?php echo $upsell_product_name; ?>">
-                                    </picture>
-                                    <h3 class="text_24 width_100">
-                                        <?php echo $upsell_product_name; ?>
-                                    </h3>
-                                    <p class="text_14 width_100">
-                                        <?php echo $upsell->get_short_description(); ?>
-                                    </p>
-                                    <div class="row_sp_btw">
-                                        <span class="price">
-                                            <?php echo $upsell->get_price_html(); ?>
-                                        </span>
-                                        <a title="Натисніть щоб перейти до сторінки замовлення <?php echo $upsell_product_name; ?>"
-                                            href="<?php echo get_permalink($upsell_id); ?>" class="sub_link">
-                                            <span>ЗАМОВИТИ</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <?php
-                            }
-                        } ?>
-                    </div>
-                </div>
+                // Склад
+                echo "Є у наявності? " . ($product->is_in_stock() ? 'так' : 'ні') . "\n";
+                echo "Статус складу: " . $product->get_stock_status() . "\n";
+                echo "Кількість на складі: " . $product->get_stock_quantity() . "\n";
 
-                <div class="col width_100">
-                    <p class="text_24">Рекомендовані товари:</p>
-                    <div class="row big_gap width_100">
-                        <?php
-                        $related = $product->get_related();
-                        if (!empty($related)) {
-                            foreach ($related as $related_id) {
-                                $related_product = wc_get_product($related_id);
-                                $relate_product_name = $related_product->get_name();
+                // Вага та розміри
+                echo "Вага: " . wc_format_weight($product->get_weight()) . "\n";
+                echo "Розміри: " . wc_format_dimensions($product->get_dimensions(false)) . "\n";
 
-                                $image_url = wp_get_attachment_url($related_product->get_image_id());
+                // Зображення
+                echo "Головне зображення: " . wp_get_attachment_image_url($product->get_image_id(), 'full') . "\n";
+                echo "Галерея:\n";
+                print_r($product->get_gallery_image_ids());
 
-                                ?>
-                                <div class="product_card cards_3">
-                                    <picture>
-                                        <img src="<?php echo $image_url ?>" class="product_card__image bg_img width_100"
-                                            width="380" height="180" alt="<?php echo $relate_product_name; ?>">
-                                    </picture>
-                                    <h3 class="text_24 width_100">
-                                        <?php echo $relate_product_name; ?>
-                                    </h3>
-                                    <p class="text_14 width_100">
-                                        <?php echo $related_product->get_short_description(); ?>
-                                    </p>
-                                    <div class="row_sp_btw">
-                                        <span class="price">
-                                            <?php echo $related_product->get_price_html(); ?>
-                                        </span>
-                                        <a title="Натисніть щоб перейти до сторінки замовлення <?php echo $relate_product_name; ?>"
-                                            href="<?php echo get_permalink($related_id); ?>" class="sub_link">
-                                            <span>ЗАМОВИТИ</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <?php
-                            }
-                        }
-                        ?>
-                    </div>
-                </div>
+                // Атрибути
+                echo "Атрибути:\n";
+                print_r($product->get_attributes());
 
+                // Категорії і теги
+                echo "Категорії: " . wc_get_product_category_list($product->get_id()) . "\n";
+                echo "Теги: " . wc_get_product_tag_list($product->get_id()) . "\n";
 
+                // Відгуки
+                echo "Кількість відгуків: " . $product->get_review_count() . "\n";
+                echo "Середній рейтинг: " . $product->get_average_rating() . "\n";
+
+                // Опис
+                echo "Короткий опис:\n" . $product->get_short_description() . "\n";
+                echo "Повний опис:\n" . $product->get_description() . "\n";
+
+                echo '</pre>';
+                ?>
             </div>
         </section>
+
     </main>
     <?php
     get_footer();

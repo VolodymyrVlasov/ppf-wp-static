@@ -4,8 +4,7 @@
 }
 
 .single_product_card,
-.single_product_card_fpd,
-.single_product_card_fpd_cnt {
+.single_product_card_fpd {
   display: flex;
   flex-direction: row;
   gap: var(--size-big-gap);
@@ -20,12 +19,17 @@
 }
 .single_product_card_fpd_cnt {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: fit-content;
   width: 100%;
-  overflow: hidden;
-  border-radius: var(--size-border-radius);
+}
+
+.single_product_card_fpd_cnt__fpd {
+  width: 100%;
+  height: fit-content;
+
 }
 
 .single_product_card_image_cnt {
@@ -87,14 +91,14 @@
 
 .related_product_title {
   margin: 8px;
-  font-size: 14px;
+  font-size: 12px;
   text-align: left;
   line-height: 1.2em;
-  height: 2.4em;
+  height: 3.6em;
   /* рівно 2 рядки */
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   /* обмеження у 2 рядки */
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
