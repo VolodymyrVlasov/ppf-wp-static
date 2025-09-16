@@ -229,6 +229,22 @@
 }
 
 
+.copy_btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  color: #333; /* початковий колір SVG */
+}
+
+.copy_btn:hover {
+  transform: scale(1.2);
+}
+
+.copy_btn:active>svg{
+   transform: scale(2);
+}
+
 
 .raiting_0 {
   display: flex;
