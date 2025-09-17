@@ -1,15 +1,20 @@
+<?php global $product; ?>
+
 <!-- ====== START: Single Product Section ====== -->
+
 <section class="section">
     <div class="container col big_gap">
+        <?php do_action('woocommerce_before_single_product'); ?>
+
         <!-- === START: Single Product Card === -->
         <div class="single_product_card">
             <!-- -- START: Product Image -- -->
             <div class="flex_1">
                 <picture class="single_product_card_image_cnt bg_img width_100">
                     <img
-                        src="http://localhost/paperfox/wp-content/themes/paperfox/static/global/cup-battery.webp"
+                        src="<?php echo wp_get_attachment_image_url($product->get_image_id(), 'full') ?>"
                         class="bg_img width_100"
-                        alt="Чашка-батарейка, вигляд зверху" />
+                        alt="<?php echo $product->get_name() ?>" />
                 </picture>
             </div>
             <!-- -- END: Product Image -- -->
@@ -17,37 +22,27 @@
             <!-- -- START: Product Info (title, props, price, related) -- -->
             <div class="col gap flex_1">
                 <div class="col big_gap">
-                    <!-- --- START: Title & Props --- -->
-                    <h1 class="header_2">Чашка-батарейка</h1>
+                    <h1 class="header_2"><?php echo $product->get_name() ?></h1>
+                    <?php wc_get_template('template-parts/ppf-single-product-props.php', ['order' => $order]); ?>
 
-                    <div class="row small_gap">
-                        <div class="prop_label">
-                            <span>Обʼєм</span>
-                            <p>310 мл</p>
-                        </div>
-
-                        <div class="prop_label">
-                            <span>Вага</span>
-                            <p>0.5 кг</p>
-                        </div>
-
-                        <div class="prop_label">
-                            <span>Розміри</span>
-                            <p>10х10х10 см</p>
-                        </div>
-                    </div>
-                    <!-- --- END: Title & Props --- -->
-
-                    <!-- --- START: Price & CTA --- -->
                     <div class="col small_gap">
                         <div class="price_label">
                             <span>Вартість</span>
-                            <p class="price_after">300</p>
+                            <p class="price_after"><?php echo $product->get_price() ?></p>
                         </div>
 
-                        <button type="submit" name="add-to-cart" class="button__primary">ДОДАТИ У КОШИК</button>
+                        <?php
+                        global $product;
+                        $product_id = $product ? $product->get_id() : get_the_ID();
+                        ?>
+                        <a href="<?php echo esc_url($product->add_to_cart_url()); ?>"
+                            data-quantity="1"
+                            data-product_id="<?php echo esc_attr($product_id); ?>"
+                            data-product_sku="<?php echo esc_attr($product->get_sku()); ?>"
+                            class="button__primary">
+                            <span><?php echo esc_html($product->add_to_cart_text()); ?></span>
+                        </a>
                     </div>
-                    <!-- --- END: Price & CTA --- -->
 
                     <!-- --- START: Related Products --- -->
                     <div class="col small_gap">
@@ -71,29 +66,18 @@
                         ?>
                     </div>
                     <!-- --- END: Related Products --- -->
+
                 </div>
             </div>
             <!-- -- END: Product Info -- -->
         </div>
-        <!-- === END: Single Product Card === -->
-
         <!-- === START: Product Description Block === -->
-        <div class="col big_gap">
-            <div class="col small_gap">
-                <h4 class="header_4">Опис товару</h4>
-                <p>
-                    Short product description<br />
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem vel impedit consequuntur ratione
-                    quidem nam magnam id amet harum
-                    dolore, nihil dolorum esse doloribus aut praesentium in reprehenderit beatae quasi, eligendi ea
-                    nostrum deserunt cupiditate
-                    porro. Aperiam consequuntur facilis maiores ad libero quasi reiciendis officia debitis, veniam
-                    minima, sunt perspiciatis
-                    explicabo optio. Quo nulla quidem nam sit quasi hic aspernatur!
-                </p>
-            </div>
+        <div class="col small_gap">
+            <h4 class="header_4">Опис товару</h4>
+            <p><?php echo $product->get_description() ?></p>
         </div>
         <!-- === END: Product Description Block === -->
+        <!-- === END: Single Product Card === -->
     </div>
 </section>
 <!-- ====== END: Single Product Section ====== -->

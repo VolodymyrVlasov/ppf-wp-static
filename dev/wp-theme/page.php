@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="uk">
+<?php the_post();
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{domain}}/static/icons/favicon.png" type="image/x-icon">
+ppf_add_head_tag(
+    '<link rel="shortcut icon" href="' . esc_url(get_stylesheet_directory_uri() . '/static/icons/favicon.png') . '" type="image/x-icon">'
+);
 
-    <title><?php the_title(); ?> | PaperFox</title>
-    <?php wp_head(); ?>
-</head>
+wp_head();
+do_action('woocommerce_before_single_product');
+global $product;
+$product_id = $product ? $product->get_id() : get_the_ID();
+?>
+
 
 <body>
     <?php get_header(); ?>
@@ -25,7 +25,5 @@
         <?php get_template_part('map', 'widget'); ?>
     </main>
     <?php get_footer(); ?>
-    <?php wp_footer(); ?>
 </body>
-
-</html>
+<?php wp_footer(); ?>

@@ -1,121 +1,182 @@
 <footer class="section footer bg_gray col big_gap">
-    <div class="container row big_gap row_sp_btw">
-        <div class="col big_gap">
-            <a class="logo" href="{{domain}}" aria-label="Перейти на головну сторінку">
-                <img title="PAPERFOX LOGO" class="logo__img" src="{{stylesheet_url}}/static/paperfox-logo.svg" width="4" height="1"
-                    loading="lazy" decoding="async" alt="Лого PAPERFOX">
-            </a>
-            <ul class="col gap">
-                <li>
-                    <a class="before_tel link" href="tel:{{phone}}" target="_blank">{{phone}}</a>
-                </li>
-                <li>
-                    <a class="before_mail link" href="mailto:{{email}}"
-                        target="_blank">{{email}}</a>
-                </li>
-                <li>
-                    <a class="before_telegram link" href="{{telegram}}" target="_blank">Telegram</a>
-                </li>
-                <li>
-                    <a class="before_viber link" href="{{viber}}" target="_blank">Viber</a>
-                </li>
-                <li>
-                    <a class="before_location link" target="_blank" rel="noreferrer noopener"
-                        href="https://www.google.com.ua/maps/place/%D1%83%D0%BB.+%D0%AF%D1%80%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D1%81%D0%BA%D0%B0%D1%8F,+14,+%D0%9A%D0%B8%D0%B5%D0%B2,+02000/@50.4675666,30.5094684,17z/data=!4m5!3m4!1s0x40d4ce6b488d6537:0x6c0f58a981bc9200!8m2!3d50.4675666!4d30.5116571">вул.
-                        Ярославська, 14</a>
-                </li>
-            </ul>
-        </div>
-        <div class="col gap">
-            <p class="text_16__bold">Поліграфічні послуги</p>
-            <ul class="col gap">
-                <li>
-                    <a class="link" title="Друк наклейок та стікер паків [стікер сетів] в Києві на Подолі | PaperFox"
-                        href="{{domain}}/print-sticker/"
-                        aria-label="Друк наклейок: Порізка, висічка, ламінація" aria-current="page">Друк наклейок</a>
-                </li>
-                <li>
-                    <a class="link" title="Якісний кольоровий друк А3 та А4 формата в Києві | PaperFox"
-                        href="{{domain}}/digital-print/"
-                        aria-label="Цифровий друк: Розмір від А7 до А3. Пілсядрукарські роботи: порізка, ламінація, біговка, зклеювання, брошюровка"
-                        aria-current="page">Цифровий друк</a>
-                </li>
-                <li>
-                    <a class="link"
-                        title="Широкоформатний друк А2, А1 і А0 в Києві. Плакати, креслення, фото | PaperFox"
-                        href="{{domain}}/large-print/"
-                        aria-label="Широкоформатний друк: плакати, креслення, постери та фотографії: А2, А1 та А0"
-                        aria-current="page">Широкоформатний друк</a>
-                </li>
-                <li>
-                    <a class="link"
-                        title="Друк візиток в Києві на Подолі: візитки швидко, якісно, зручно. Візитки терміново | PaperFox"
-                        href="{{domain}}/print-vizitki/" aria-label="Друк візиток: цифрові та офсетні"
-                        aria-current="page">Друк візиток</a>
-                </li>
-                <li>
-                    <a class="link" title="Друк буклетів, каталогів, брошур. Друк буклетів в Києві на Подолі | PaperFox"
-                        href="{{domain}}/print-flyer/"
-                        aria-label="Друк буклетів: брошури, буклети, меню" aria-current="page">Друк буклетів</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="col gap">
-            <p class="text_16__bold">Сувенірна поліграфія</p>
-            <ul class="col gap">
-                <li>
-                    <a class="link"
-                        title="Друк фото на холсті в Києві на Подолі. Готовність та відправка в день замовлення | PaperFox"
-                        href="{{domain}}/print-canvas/"
-                        aria-label="Друк на холсті: полотно преміум та економ, покриття лаком, індивідуальні розміри"
-                        aria-current="page">Друк на холсті</a>
-                </li>
-                <li>
-                    <a class="link" title="👕 Друк на футболках в Києві. Друк на тканині на Подолі | PaperFox"
-                        href="{{domain}}/print-t-shirt/"
-                        aria-label="Друк на футболках: флекс, прямий друк, термо" aria-current="page">Друк на
-                        футболках</a>
-                </li>
-                <li>
-                    <a class="link"
-                        title="☕ Друк на чашках [горнятках, кружках]. Конструктор чашок з фото і написом | PaperFox"
-                        href="{{domain}}/mug-print/"
-                        aria-label="Друк на чашках: стандартні, великі та міні, металеві: керамічні та хамелеони"
-                        aria-current="page">Друк на чашках</a>
-                </li>
-
-                <li>
-                    <a class="link"
-                        title="Друк календарів з фото. Замовити онлайн друк календарів в Києві на Подолі | PaperFox"
-                        href="{{domain}}/print-calendar/"
-                        aria-label="Друк календарі: будиночки та перекідні від А5 до А1" aria-current="page">Друк
-                        календарів</a>
-                </li>
-            </ul>
-        </div>
+  <div class="container row big_gap row_sp_btw">
+    <div class="col big_gap">
+      <a class="logo" href="{{domain}}" aria-label="Перейти на головну сторінку">
+        <img
+          title="PAPERFOX LOGO"
+          class="logo__img"
+          src="{{stylesheet_url}}/static/paperfox-logo.svg"
+          width="4"
+          height="1"
+          loading="lazy"
+          decoding="async"
+          alt="Лого PAPERFOX"
+        />
+      </a>
+      <ul class="col gap">
+        <li>
+          <a class="before_tel link" href="tel:{{phone}}" target="_blank">{{phone}}</a>
+        </li>
+        <li>
+          <a class="before_mail link" href="mailto:{{email}}" target="_blank">{{email}}</a>
+        </li>
+        <li>
+          <a class="before_telegram link" href="{{telegram}}" target="_blank">Telegram</a>
+        </li>
+        <li>
+          <a class="before_viber link" href="{{viber}}" target="_blank">Viber</a>
+        </li>
+        <li>
+          <a
+            class="before_location link"
+            target="_blank"
+            rel="noreferrer noopener"
+            href="https://www.google.com.ua/maps/place/%D1%83%D0%BB.+%D0%AF%D1%80%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D1%81%D0%BA%D0%B0%D1%8F,+14,+%D0%9A%D0%B8%D0%B5%D0%B2,+02000/@50.4675666,30.5094684,17z/data=!4m5!3m4!1s0x40d4ce6b488d6537:0x6c0f58a981bc9200!8m2!3d50.4675666!4d30.5116571"
+            >вул. Ярославська, 14</a
+          >
+        </li>
+      </ul>
     </div>
-    <div class="container col_center gap width_100">
-        <div class="row_center width_100">
-            <ul class="row_center gap">
-                <li>
-                    <a class="social_btn facebook_btn" title="PaperFox у Facebook" target="_blank"
-                        rel="noreferrer noopener" href="https://www.facebook.com/paperfoxua"
-                        aria-label="PaperFox у facebook"></a>
-                </li>
-                <li>
-                    <a class="social_btn instagram_btn" title="PaperFox у Instagram" target="_blank"
-                        rel="noreferrer noopener" href="https://www.instagram.com/paperfox.print/"
-                        aria-label="PaperFox у Instagram"></a>
-                </li>
-                <li>
-                    <a class="social_btn youtube_btn" title="PaperFox у YouTube" target="_blank"
-                        rel="noreferrer noopener" href="" aria-label="PaperFox у YouTube"></a>
-                </li>
-            </ul>
-        </div>
-        <div class="row_center width_100">
-            <span class="text_14__gray">© PaperFox 2016-2023</span>
-        </div>
+    <div class="col gap">
+      <p class="text_16__bold">Поліграфічні послуги</p>
+      <ul class="col gap">
+        <li>
+          <a
+            class="link"
+            title="Друк наклейок та стікер паків [стікер сетів] в Києві на Подолі | PaperFox"
+            href="{{domain}}/print-sticker/"
+            aria-label="Друк наклейок: Порізка, висічка, ламінація"
+            aria-current="page"
+            >Друк наклейок</a
+          >
+        </li>
+        <li>
+          <a
+            class="link"
+            title="Якісний кольоровий друк А3 та А4 формата в Києві | PaperFox"
+            href="{{domain}}/digital-print/"
+            aria-label="Цифровий друк: Розмір від А7 до А3. Пілсядрукарські роботи: порізка, ламінація, біговка, зклеювання, брошюровка"
+            aria-current="page"
+            >Цифровий друк</a
+          >
+        </li>
+        <li>
+          <a
+            class="link"
+            title="Широкоформатний друк А2, А1 і А0 в Києві. Плакати, креслення, фото | PaperFox"
+            href="{{domain}}/large-print/"
+            aria-label="Широкоформатний друк: плакати, креслення, постери та фотографії: А2, А1 та А0"
+            aria-current="page"
+            >Широкоформатний друк</a
+          >
+        </li>
+        <li>
+          <a
+            class="link"
+            title="Друк візиток в Києві на Подолі: візитки швидко, якісно, зручно. Візитки терміново | PaperFox"
+            href="{{domain}}/print-vizitki/"
+            aria-label="Друк візиток: цифрові та офсетні"
+            aria-current="page"
+            >Друк візиток</a
+          >
+        </li>
+        <li>
+          <a
+            class="link"
+            title="Друк буклетів, каталогів, брошур. Друк буклетів в Києві на Подолі | PaperFox"
+            href="{{domain}}/print-flyer/"
+            aria-label="Друк буклетів: брошури, буклети, меню"
+            aria-current="page"
+            >Друк буклетів</a
+          >
+        </li>
+      </ul>
     </div>
+
+    <div class="col gap">
+      <p class="text_16__bold">Сувенірна поліграфія</p>
+      <ul class="col gap">
+        <li>
+          <a
+            class="link"
+            title="Друк фото на холсті в Києві на Подолі. Готовність та відправка в день замовлення | PaperFox"
+            href="{{domain}}/print-canvas/"
+            aria-label="Друк на холсті: полотно преміум та економ, покриття лаком, індивідуальні розміри"
+            aria-current="page"
+            >Друк на холсті</a
+          >
+        </li>
+        <li>
+          <a
+            class="link"
+            title="👕 Друк на футболках в Києві. Друк на тканині на Подолі | PaperFox"
+            href="{{domain}}/print-t-shirt/"
+            aria-label="Друк на футболках: флекс, прямий друк, термо"
+            aria-current="page"
+            >Друк на футболках</a
+          >
+        </li>
+        <li>
+          <a
+            class="link"
+            title="☕ Друк на чашках [горнятках, кружках]. Конструктор чашок з фото і написом | PaperFox"
+            href="{{domain}}/mug-print/"
+            aria-label="Друк на чашках: стандартні, великі та міні, металеві: керамічні та хамелеони"
+            aria-current="page"
+            >Друк на чашках</a
+          >
+        </li>
+
+        <li>
+          <a
+            class="link"
+            title="Друк календарів з фото. Замовити онлайн друк календарів в Києві на Подолі | PaperFox"
+            href="{{domain}}/print-calendar/"
+            aria-label="Друк календарі: будиночки та перекідні від А5 до А1"
+            aria-current="page"
+            >Друк календарів</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="container col_center gap width_100">
+    <div class="row_center width_100">
+      <ul class="row_center gap">
+        <li>
+          <a
+            class="social_btn facebook_btn"
+            title="PaperFox у Facebook"
+            target="_blank"
+            rel="noreferrer noopener"
+            href="https://www.facebook.com/paperfoxua"
+            aria-label="PaperFox у facebook"
+          ></a>
+        </li>
+        <li>
+          <a
+            class="social_btn instagram_btn"
+            title="PaperFox у Instagram"
+            target="_blank"
+            rel="noreferrer noopener"
+            href="https://www.instagram.com/paperfox.print/"
+            aria-label="PaperFox у Instagram"
+          ></a>
+        </li>
+        <li>
+          <a
+            class="social_btn youtube_btn"
+            title="PaperFox у YouTube"
+            target="_blank"
+            rel="noreferrer noopener"
+            href=""
+            aria-label="PaperFox у YouTube"
+          ></a>
+        </li>
+      </ul>
+    </div>
+    <div class="row_center width_100">
+      <span class="text_14__gray">© PaperFox</span>
+    </div>
+  </div>
 </footer>

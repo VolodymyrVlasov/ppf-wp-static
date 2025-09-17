@@ -40,7 +40,6 @@
                         wp_reset_postdata();
                     endif;
                     ?>
-
                     <!-- ---- END: Related Products ---- -->
 
                     <!-- ---- START: Product Description ---- -->
