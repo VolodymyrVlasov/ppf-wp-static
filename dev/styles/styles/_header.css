@@ -55,7 +55,7 @@
 
 .logo__img {
     width: 200px;
-    height: 28px;
+    height: 28px !important;
     object-fit: cover;
     object-position: top;
     transition: var(--time-tr-time);

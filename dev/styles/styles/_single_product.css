@@ -17,6 +17,7 @@
   flex-direction: column;
   gap: var(--size-big-gap);
 }
+
 .single_product_card_fpd_cnt {
   display: flex;
   flex-direction: column;
@@ -36,15 +37,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 580px;
-  height: fit-content;
+  /* max-height: 580px; */
+  height: 100%;
   width: 100%;
   overflow: hidden;
   border-radius: var(--size-border-radius);
 }
 
-.single_product_card_image_cnt > picture {
-  flex: 1 1 auto;
+.single_product_card_image_cnt>picture,
+.single_product_card_image_cnt>img {
   min-width: 100%;
   min-height: 100%;
   object-fit: cover;
@@ -82,7 +83,7 @@
   border-radius: var(--size-border-radius) var(--size-border-radius) 0 0 !important;
 }
 
-.related_product_img > img {
+.related_product_img>img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -102,6 +103,40 @@
   /* обмеження у 2 рядки */
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+}
+
+/* Квадратна «картка» для плюса, підженете під свою сітку */
+.ppf-upsell-plus-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  /* або як у карток товарів */
+  aspect-ratio: 1/1;
+  border: 1px solid var(--color-light-gray);
+  border-radius: 12px;
+  transition: 0.3s ease;
+  color: var(--color-gray);
+}
+
+.ppf-upsell-plus-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 48px;
+  line-height: 1;
+  text-decoration: none;
+
+}
+
+.ppf-upsell-plus-card:hover {
+  border-radius: 12px;
+  color: var(--color-theme);
+  background-color: var(--color-light-light-theme);
+  border: 1px solid var(--color-theme);
+
 }
 
 .single_product_summary_card {
@@ -132,7 +167,7 @@
   color: var(--color-theme) !important;
 }
 
-.woocommerce-message > .button.wc-forward {
+.woocommerce-message>.button.wc-forward {
   color: black;
   text-transform: uppercase;
   font-weight: 600;
@@ -140,7 +175,7 @@
   transition: var(--time-tr-time);
 }
 
-.woocommerce-message > .button.wc-forward:after {
+.woocommerce-message>.button.wc-forward:after {
   content: "";
   background: url("https://paperfox.in.ua/wp-content/themes/paperfox/static/icons/icon-arrow-menu.svg") no-repeat 100% top;
   background-size: 100% 200%;
@@ -159,6 +194,7 @@
 .button.wc-forward:hover {
   color: var(--color-theme);
 }
+
 /* `lg` applies to large devices (tablets, less than 992px) */
 @media (max-width: 991.98px) {
   .single_product_card_fpd_cnt {
@@ -176,13 +212,14 @@
     border: none;
   }
 }
+
 /* `sm` applies to small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
   .single_product_card_image_cnt {
     max-height: 300px;
   }
 
-  .single_product_card_image_cnt > img {
+  .single_product_card_image_cnt>img {
     object-fit: cover;
     height: 300px !important;
   }

@@ -13,48 +13,62 @@
             <div class="single_product_card_fpd">
                 <!-- --- START: Related Products + Description --- -->
                 <div class="col big_gap flex_2">
-                    <!-- ---- START: Related Products ---- -->
-                    <?php
-                    global $product;
-                    $upsell_ids = $product ? $product->get_upsell_ids() : [];
-                    if (!empty($upsell_ids)):
-                        $q = new WP_Query([
-                            'post_type' => 'product',
-                            'post__in' => $upsell_ids,
-                            'orderby' => 'post__in',
-                            'posts_per_page' => -1,
-                        ]);
-                        if ($q->have_posts()): ?>
-                            <div class="col small_gap">
-                                <p class="header_4">Разом купують</p>
-                                <div class="row small_gap">
-                                    <?php while ($q->have_posts()):
-                                        $q->the_post();
-                                        $prod = wc_get_product(get_the_ID());
-                                        get_template_part('ppf-upsell-product-card.php', 'upsell', ['product' => $prod]);
-                                    endwhile; ?>
-                                </div>
-                            </div>
+                    <!-- --- START: Related Products --- -->
+                        <div class="col small_gap">
                             <?php
-                        endif;
-                        wp_reset_postdata();
-                    endif;
-                    ?>
-                    <!-- ---- END: Related Products ---- -->
+                            global $product;
+                            $upsell_ids = $product ? $product->get_upsell_ids() : [];
+
+                            if (!empty($upsell_ids)):
+
+                                // показуємо максимум 3 товари
+                                $display_ids = array_slice($upsell_ids, 0, 3);
+
+                                // беремо перший товар і його першу категорію
+                                $first_id = reset($display_ids);
+                                $first_cats = $first_id ? get_the_terms($first_id, 'product_cat') : [];
+                                $cat_link = '';
+                                $cat_count = 0;
+
+                                if (!empty($first_cats) && !is_wp_error($first_cats)) {
+                                    $term = is_array($first_cats) ? $first_cats[0] : $first_cats;
+                                    $termlink = get_term_link($term);
+                                    if (!is_wp_error($termlink)) {
+                                        $cat_link = $termlink;
+                                    }
+
+                                    // рахуємо товари у цій категорії
+                                    $cat_count = (int) $term->count;
+                                }
+                                ?>
+                                <div class="col small_gap">
+                                    <p class="header_4">Разом купують</p>
+                                    <div class="row small_gap">
+                                        <?php
+                                        foreach ($display_ids as $id) {
+                                            $prod = wc_get_product($id);
+                                            if ($prod) {
+                                                get_template_part('template-parts/ppf-upsell-product-card', 'upsell', ['product' => $prod]);
+                                            }
+                                        }
+
+                                        // Кнопка "+" тільки якщо товарів у категорії > 3
+                                        if (!empty($cat_link) && $cat_count > 3): ?>
+                                            <div class="ppf-upsell-plus-card">
+                                                <a class="ppf-upsell-plus-btn" href="<?php echo esc_url($cat_link); ?>"
+                                                    aria-label="<?php echo esc_attr__('Більше з цієї категорії', 'your-textdomain'); ?>">+</a>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <!-- --- END: Related Products --- -->
 
                     <!-- ---- START: Product Description ---- -->
                     <div class="col small_gap">
                         <h4 class="header_4">Опис товару</h4>
-                        <p>
-                            Short product description<br />
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem vel impedit consequuntur
-                            ratione quidem nam magnam id amet
-                            harum dolore, nihil dolorum esse doloribus aut praesentium in reprehenderit beatae quasi,
-                            eligendi ea nostrum deserunt
-                            cupiditate porro. Aperiam consequuntur facilis maiores ad libero quasi reiciendis officia
-                            debitis, veniam minima, sunt
-                            perspiciatis explicabo optio. Quo nulla quidem nam sit quasi hic aspernatur!
-                        </p>
+                        <p><?php echo apply_filters('the_content', $product->get_description()); ?></p>
                     </div>
                     <!-- ---- END: Product Description ---- -->
                 </div>

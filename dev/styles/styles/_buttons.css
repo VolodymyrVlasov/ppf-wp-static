@@ -34,6 +34,7 @@
 }
 
 .sub_link:hover :first-child:after {
+    cursor: pointer;
     background-position: bottom;
     transition: var(--time-tr-time);
 }
