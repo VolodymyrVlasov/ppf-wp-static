@@ -42,8 +42,10 @@
                 <div class="row big_gap products_cards">
                     <a class="product_card cards_3" href="{{domain}}/print-sticker/stickerpack/"
                         title="Натисніть щоб перейти до сторінки Друк стікерпаків">
-                        <img src="{{stylesheet_url}}/static/main-page/main-page-stickerpack-print.png" alt="Друк стікерпаків"
-                            class="product_card_image bg_img" width="200" height="200" loading="lazy" decoding="async" />
+                        <img src="{{stylesheet_url}}/static/main-page/main-page-stickerpack-print.png"
+                            alt="Друк стікерпаків"
+                            class="product_card_image bg_img" width="200" height="200" loading="lazy"
+                            decoding="async" />
                         <h3 class="header_4 width_100 ">Друк стікерпаків</h3>
                         <p class="text_14 width_100">Стікерпаки - швидко, зручно та індивідуально.
                             Ідеальний спосіб створити унікальні наліпки для особистого використання, стартапу або малого
@@ -56,7 +58,8 @@
                     <a class="product_card cards_3" href="{{domain}}/print-sticker/"
                         title="Натисніть щоб перейти до сторінки Друк наклейок">
                         <img src="{{stylesheet_url}}/static/main-page/main-page-sticker-print.png" alt="Друк наклейок"
-                            class="product_card_image bg_img" width="200" height="200" loading="lazy" decoding="async" />
+                            class="product_card_image bg_img" width="200" height="200" loading="lazy"
+                            decoding="async" />
                         <h3 class="header_4 width_100 ">Друк наклейок</h3>
                         <p class="text_14 width_100">Друк наклейок та стікерів різних форматів, будь яких конфігурацій.
                             Яскравий дизайн, оригінальна подача, висока якість і швидкий друк та порізка наклейок в
@@ -70,7 +73,8 @@
                     <a class="product_card cards_3" href="{{domain}}/digital-print"
                         title="Натисніть щоб перейти до сторінки Цифровий друк">
                         <img src="{{stylesheet_url}}/static/main-page/main-page-digital-print.png" alt="Цифровий друк"
-                            class="product_card_image bg_img" width="200" height="200" loading="lazy" decoding="async" />
+                            class="product_card_image bg_img" width="200" height="200" loading="lazy"
+                            decoding="async" />
                         <h3 class="header_4 width_100 ">Цифровий друк</h3>
                         <p class="text_14 width_100">Формат: А5, А4 и А3. Кольоровий цифровий друк на сучасних лазерних
                             аппаратах
@@ -83,8 +87,10 @@
                     </a>
                     <a class="product_card cards_3" href="{{domain}}/large-print/"
                         title="Натисніть щоб перейти до сторінки Широкоформатний друк">
-                        <img src="{{stylesheet_url}}/static/main-page/main-large-format-print.png" alt="Широкоформатний друк"
-                            class="product_card_image bg_img" width="200" height="200" loading="lazy" decoding="async" />
+                        <img src="{{stylesheet_url}}/static/main-page/main-large-format-print.png"
+                            alt="Широкоформатний друк"
+                            class="product_card_image bg_img" width="200" height="200" loading="lazy"
+                            decoding="async" />
                         <h3 class="header_4 width_100 ">Широкоформатний друк</h3>
                         <p class="text_14 width_100">Формат: А0, А1 и А2. Кольоровий і чорно-білий широкоформатний друк
                             плакатів, афіш, постерів, фотографій, креслень, схем, технічної та ділової документації.
@@ -96,7 +102,8 @@
                     <a class="product_card cards_3" href="{{domain}}/mug-print/"
                         title="Натисніть щоб перейти до сторінки Друк на чашках">
                         <img src="{{stylesheet_url}}/static/main-page/main-page-mug-print.png" alt="Друк на чашках"
-                            class="product_card_image bg_img" width="200" height="200" loading="lazy" decoding="async" />
+                            class="product_card_image bg_img" width="200" height="200" loading="lazy"
+                            decoding="async" />
                         <h3 class="header_4 width_100 ">Друк на чашках</h3>
                         <p class="text_14 width_100">Оригінальний друк на чашках фотографій, логотипів, малюнків,
                             надписів, привітань. Друк на чашках різних розмірів, чашках – хамелеонах, кавових чашках.
@@ -108,7 +115,8 @@
                     <a class="product_card cards_3" href="{{domain}}/print-poster/"
                         title="Натисніть щоб перейти до сторінки Друк плакатів">
                         <img src="{{stylesheet_url}}/static/main-page/main-page-poster-print.png" alt="Друк візиток"
-                            class="product_card_image bg_img" width="200" height="200" loading="lazy" decoding="async" />
+                            class="product_card_image bg_img" width="200" height="200" loading="lazy"
+                            decoding="async" />
                         <h3 class="header_4 width_100 ">Друк плакатів</h3>
                         <p class="text_14 width_100">Якісний оперативний друк візиток від Економ до Еліт класу на різних
                             видах картону; ламінація, скруглення кутів, висікання отворів – все для унікальних візиток.
@@ -120,75 +128,83 @@
                     <a class="product_card cards_3" href="{{domain}}/print-vizitki/"
                         title="Натисніть щоб перейти до сторінки Друк візиток">
                         <img src="{{stylesheet_url}}/static/main-page/main-page-biz-cards-print.png" alt="Друк візиток"
-                            class="product_card_image bg_img" width="200" height="200" loading="lazy" decoding="async" />
+                            class="product_card_image bg_img" width="200" height="200" loading="lazy"
+                            decoding="async" />
                         <h3 class="header_4 width_100 ">Друк візиток</h3>
                         <p class="text_14 width_100">Якісний оперативний друк візиток від Економ до Еліт класу на різних
                             видах картону; ламінація, скруглення кутів, висікання отворів – все для унікальних візиток.
                         </p>
-                         <button class="sub_link" aria-label="Друк на чашках">
+                        <button class="sub_link" aria-label="Друк на чашках">
                             <span>ДОКЛАДНІШЕ</span>
                         </button>
                     </a>
                     <a class="product_card cards_3" href="{{domain}}/print-flyer/"
                         title="Натисніть щоб перейти до сторінки Друк флаєрів">
                         <img src="{{stylesheet_url}}/static/main-page/main-page-flyer-print.png" alt="Друк флаєрів"
-                            class="product_card_image bg_img" width="200" height="200" loading="lazy" decoding="async" />
+                            class="product_card_image bg_img" width="200" height="200" loading="lazy"
+                            decoding="async" />
                         <h3 class="header_4 width_100 ">Друк флаєрів</h3>
                         <p class="text_14 width_100">Повнокольоровий друк флаєрів і листівок різноманітних форматів від
                             100 шт. Доступний терміновий друк флаєрів за 15 хвилин. Офсетний друк листівок великих
                             тиражів.
                         </p>
-                         <button class="sub_link" aria-label="Друк на чашках">
+                        <button class="sub_link" aria-label="Друк на чашках">
                             <span>ДОКЛАДНІШЕ</span>
                         </button>
                     </a>
                     <a class="product_card cards_3" href="{{domain}}/booklet-print/"
                         title="Натисніть щоб перейти до сторінки Друк буклетів">
                         <img src="{{stylesheet_url}}/static/main-page/main-page-brochure-print.png" alt="Друк буклетів"
-                            class="product_card_image bg_img" width="200" height="200" loading="lazy" decoding="async" />
+                            class="product_card_image bg_img" width="200" height="200" loading="lazy"
+                            decoding="async" />
                         <h3 class="header_4 width_100 ">Друк буклетів</h3>
                         <p class="text_14 width_100">Двостороння цифровий та офсетний друк буклетів, каталогів, брошур
                             на крейдованому матовому і глянцевому папері; ламінація, біговка, фальцювання, брошурування.
                         </p>
-                         <button class="sub_link" aria-label="Друк на чашках">
+                        <button class="sub_link" aria-label="Друк на чашках">
                             <span>ДОКЛАДНІШЕ</span>
                         </button>
                     </a>
                     <a class="product_card cards_3" href="{{domain}}/print-canvas/"
                         title="Натисніть щоб перейти до сторінки Друк на холсті">
                         <img src="{{stylesheet_url}}/static/main-page/main-page-canvas-print.png" alt="Друк на холсті"
-                            class="product_card_image bg_img" width="200" height="200" loading="lazy" decoding="async" />
+                            class="product_card_image bg_img" width="200" height="200" loading="lazy"
+                            decoding="async" />
                         <h3 class="header_4 width_100 ">Друк на холсті</h3>
                         <p class="text_14 width_100">Якісний друк на полотні фотографій та артів з високою роздільною
                             здатністю та галерейная натяжка на дерев’яний підрамник. Перед друком опрацьовуємо
                             фотографії
                         </p>
-                         <button class="sub_link" aria-label="Друк на чашках">
+                        <button class="sub_link" aria-label="Друк на чашках">
                             <span>ДОКЛАДНІШЕ</span>
                         </button>
                     </a>
                     <a class="product_card cards_3" href="{{domain}}/print-t-shirt/"
                         title="Натисніть щоб перейти до сторінки Друк на Футболках">
-                        <img src="{{stylesheet_url}}/static/main-page/main-page-t-shirt-print.png" alt="Друк на Футболках"
-                            class="product_card_image bg_img" width="200" height="200" loading="lazy" decoding="async" />
+                        <img src="{{stylesheet_url}}/static/main-page/main-page-t-shirt-print.png"
+                            alt="Друк на Футболках"
+                            class="product_card_image bg_img" width="200" height="200" loading="lazy"
+                            decoding="async" />
                         <h3 class="header_4 width_100 ">Друк на Футболках</h3>
                         <p class="text_14 width_100">Цифровий друк на футболках зображень, фотографій, логотипів,
                             надписів, номерів: стійкий друк на футболках полімерними плівками (флекс), термо друк.
                         </p>
-                         <button class="sub_link" aria-label="Друк на чашках">
+                        <button class="sub_link" aria-label="Друк на чашках">
                             <span>ДОКЛАДНІШЕ</span>
                         </button>
                     </a>
                     <a class="product_card cards_3" href="{{domain}}/print-calendar/"
                         title="Натисніть щоб перейти до сторінки Друк календарів">
-                        <img src="{{stylesheet_url}}/static/main-page/main-page-calendar-print.png" alt="Друк календарів"
-                            class="product_card_image bg_img" width="200" height="200" loading="lazy" decoding="async" />
+                        <img src="{{stylesheet_url}}/static/main-page/main-page-calendar-print.png"
+                            alt="Друк календарів"
+                            class="product_card_image bg_img" width="200" height="200" loading="lazy"
+                            decoding="async" />
                         <h3 class="header_4 width_100 ">Друк календарів</h3>
                         <p class="text_14 width_100">Друк календарів будь-яких видів, розмірів та типів: перекидні
-                            настінні та будиночки, планінги, квартальні календарі. 
+                            настінні та будиночки, планінги, квартальні календарі.
                             <br>Тираж від 1 штуки
                         </p>
-                         <button class="sub_link" aria-label="Друк на чашках">
+                        <button class="sub_link" aria-label="Друк на чашках">
                             <span>ДОКЛАДНІШЕ</span>
                         </button>
                     </a>
@@ -247,6 +263,29 @@
                 </div>
             </div>
         </section>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const video = document.getElementById("background-video");
+
+                // Використовуємо requestIdleCallback або setTimeout для відкладеного завантаження
+                const loadVideo = () => {
+                    const source = document.createElement("source");
+                    source.src = "{{stylesheet_url}}/static/video/paperfox_office_review_demo.mp4";
+                    source.type = "video/mp4";
+                    source.onloadstart = () => {
+                        // можна показати спінер або превʼю
+                    };
+                    video.appendChild(source);
+                    video.load();
+                };
+
+                if ("requestIdleCallback" in window) {
+                    requestIdleCallback(loadVideo, { timeout: 2000 });
+                } else {
+                    setTimeout(loadVideo, 1500);
+                }
+            });
+        </script>
     </main>
     <?php get_footer(); ?>
     <?php wp_footer(); ?>

@@ -163,7 +163,7 @@ picture:has(> .card__image) {
 .card:focus-within .card__raiting {
   display: flex;
   flex-direction: column;
-  gap: var(--small-size-gap);
+  gap: var(--size-small-gap);
   width: 100%;
 }
 

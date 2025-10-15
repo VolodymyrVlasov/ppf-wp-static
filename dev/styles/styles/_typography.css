@@ -150,7 +150,7 @@ select {
   font-size: 10px;
   font-weight: 600;
   text-align: left;
-  color: var(--light-theme);
+  color: var(--color-light-theme);
 }
 
 .price_label>p{

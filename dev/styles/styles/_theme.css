@@ -581,10 +581,6 @@
   border-left: 1px solid var(--color-theme);
 }
 
-.border_right {
-  border-right: 1px solid var(--color-light-gray);
-}
-
 .margin-top-small {
   margin-top: var(--size-small-gap);
 }

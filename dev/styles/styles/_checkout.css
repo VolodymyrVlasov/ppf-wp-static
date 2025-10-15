@@ -73,7 +73,7 @@
   border-radius: 2px;
 }
 
-.checkout_checkbox:checked ~ ::before {
+.checkout_checkbox:checked ~ .checkout_checkbox_label::before {
   content: "✔";
   display: flex;
   justify-content: center;
@@ -166,7 +166,7 @@ ul:has(> .checkout_input_radio_wrapper) {
   border-radius: 999px;
 }
 
-.checkout_input_radio > input:checked ~ ::before {
+.checkout_input_radio > input:checked ~ label::before {
   content: "";
   display: flex;
   justify-content: center;
@@ -248,7 +248,7 @@ ul:has(> .checkout_input_radio_wrapper) {
   border-radius: 2px;
 }
 
-.checkout_input_checkbox > input:checked ~ ::before {
+.checkout_input_checkbox > input:checked ~ label::before {
   content: "✓";
   display: flex;
   justify-content: center;

@@ -20,7 +20,7 @@
     cursor: pointer;
 }
 
-.ahchor_link {
+.anchor_link {
     display: flex;
     flex: 1;
     font-size: 12px;
@@ -28,7 +28,7 @@
 
 }
 
-.ahchor_link::before {
+.anchor_link::before {
     content: '#';
     margin-right: 2px;
     padding: 8px 24px;
@@ -36,7 +36,7 @@
     border-radius: var(--size-border-radius);
 }
 
-.ahchor_link:hover {
+.anchor_link:hover {
     color: var(--color-theme);
     transform: scale(1.05);
     transition: var(--time-tr-time);

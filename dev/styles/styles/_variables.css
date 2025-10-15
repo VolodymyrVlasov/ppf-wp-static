@@ -38,6 +38,7 @@
   --font-text-12: 12px;
 
   --size-line-height: 1.5em;
+  --mcard-image-height: 180px;
 }
 
 /* `xxl` applies to xx-large devices (large desktops, less than 1400px) */
@@ -84,10 +85,8 @@
 /* `sm` applies to small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
   :root {
-    --color-background-overlayout: linear-gradient(
-      rgba(255, 255, 255, 0.9),
-      rgba(255, 255, 255, 0.85)
-    );
+    --color-background-overlayout: linear-gradient(rgba(255, 255, 255, 0.9),
+        rgba(255, 255, 255, 0.85));
 
     --size-small-gap: 8px;
     --size-gap: 12px;
@@ -97,5 +96,4 @@
 }
 
 /* `xsm` applies to x-small devices (iPhone 5/5s/SE, equals to 320px) */
-@media (max-width: 320px) {
-}
+@media (max-width: 320px) {}

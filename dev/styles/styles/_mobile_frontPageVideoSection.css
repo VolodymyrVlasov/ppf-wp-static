@@ -1,18 +1,14 @@
 /* `xxl` applies to xx-large devices (large desktops, less than 1400px) */
-@media (max-width: 1399.98px) {
-}
+@media (max-width: 1399.98px) {}
 
 /*`xl` applies to x-large devices (desktops, less than 1200px) */
-@media (max-width: 1199.98px) {
-}
+@media (max-width: 1199.98px) {}
 
 /* `lg` applies to large devices (tablets, less than 992px) */
-@media (max-width: 991.98px) {
-}
+@media (max-width: 991.98px) {}
 
 /* `md` applies to medium devices (landscape phones, less than 768px) */
-@media (max-width: 767.98px) {
-}
+@media (max-width: 767.98px) {}
 
 /* `sm` applies to small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
@@ -35,8 +31,8 @@
     margin-bottom: -24px;
     margin-top: -24px;
     margin-left: -12px;
+  }
 }
 
 /* `xsm` applies to x-small devices (iPhone 5/5s/SE, equals to 320px) */
-@media (max-width: 320px) {
-}
+@media (max-width: 320px) {}
