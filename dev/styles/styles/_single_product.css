@@ -3,6 +3,10 @@
   border: 1px solid var(--color-theme);
 }
 
+.ppf-fpd-wrapper {
+  width: 100%;
+}
+
 .single_product_card,
 .single_product_card_fpd {
   display: flex;

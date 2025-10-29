@@ -11,7 +11,7 @@ import { buildStyles, SRC_PATH as stylesWatchPath, TARGET_PATH as stylesBuildPat
 
 import { buildAssets, SRC_PATH as assetsWatchPath, TARGET_PATH as assetsBuildPath } from "./build/buildAssets.js";
 
-import { buildPagesScripts, SRC_PATH as pagesScriptsWatchPath, TARGET_PATH as pagesScriptsBuildPath } from "./build/buildPagesSripts.js";
+import { buildPagesScripts, SRC_PATH as pagesScriptsWatchPath, TARGET_PATH as pagesScriptsBuildPath } from "./build/buildPagesScripts.js";
 
 /* ------------------------ helpers ------------------------ */
 

@@ -1,24 +1,26 @@
-<!DOCTYPE html>
-<html lang="uk">
+<?php
+if (function_exists('ppf_add_head_tag')) {
+    ppf_add_head_tag('<link rel="shortcut icon" href="{{domain}}/static/icons/favicon.png" type="image/x-icon">');
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{domain}}/static/icons/favicon.png" type="image/x-icon">
+add_filter(
+    'document_title_parts',
+    static function ($parts) {
+        if (is_404()) {
+            $parts['title'] = 'Сторінки не існує | PaperFox';
+        }
 
-    <title> Сторінки не існує | PaperFox</title>
-    <?php wp_head(); ?>
-</head>
+        return $parts;
+    },
+    50
+);
 
-<body>
-    <?php get_header(); ?>
-    <main>
-        @@include('../partials/404.html')
-    </main>
-    <?php get_footer(); ?>
-    <?php wp_footer(); ?>
-</body>
+get_header();
+?>
 
-</html>
+<main id="primary" class="site-main">
+    @@include('../partials/404.html')
+</main>
 
+<?php
+get_footer();

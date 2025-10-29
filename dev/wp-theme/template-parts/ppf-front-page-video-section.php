@@ -7,11 +7,7 @@
 ?>
 
 <section class="section">
-    <video autoplay muted loop id="background-video" 
-        aria-hidden="true"
-        id="background-video"
-        oop id="background-video" 
-        aria-hidden="true"
+    <video id="background-video" class="ppf-front-video" autoplay muted loop playsinline aria-hidden="true"
         poster="{{stylesheet_url}}/static/video/paperfox_office_preview.jpg">
     </video>
     <div class="main_page_h1">

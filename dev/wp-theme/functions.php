@@ -15,7 +15,7 @@ add_action('wp', function(){
     add_action('woocommerce_before_single_product', function(){
       echo '<div class="ppf-edit-bar" style="margin:10px 0;padding:10px;border:1px dashed #bbb;display:flex;gap:10px;align-items:center;">';
       echo '<strong>' . esc_html__('Редагування макету', 'ppf') . '</strong>';
-      echo '<button id="ppf-save-design" class="button">' . esc_html__('Зберегти', 'ppf') . '</button>';
+      echo '<span>' . esc_html__('Оновіть дизайн та натисніть «Зберегти макет» перед додаванням у кошик.', 'ppf') . '</span>';
       echo '</div>';
     });
 

@@ -1,28 +1,36 @@
-<!DOCTYPE html>
-<html lang="uk">
+<?php
+get_header();
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{domain}}/static/icons/favicon.png" type="image/x-icon">
+<main id="primary" class="site-main">
+    <div class="container col big_gap">
+        <?php if (have_posts()) : ?>
+            <?php if (!is_home() && !is_front_page()) : ?>
+                <header class="page-header">
+                    <h1 class="text_32__bold"><?php single_post_title(); ?></h1>
+                </header>
+            <?php endif; ?>
 
-    <title> index.php | PaperFox</title>
-    <?php wp_head(); ?>
-</head>
+            <div class="col big_gap">
+                <?php
+                while (have_posts()) :
+                    the_post();
 
-<body>
-    <?php get_header(); ?>
-    <main>
-        <section class="section" id="head-section">
-            <div class="container">
-                <span class="template">INDEX.PHP</span>
+                    if ('page' === get_post_type()) {
+                        get_template_part('template-parts/ppf-content', 'page');
+                    } else {
+                        get_template_part('template-parts/ppf-content', 'entry');
+                    }
+                endwhile;
+                ?>
             </div>
-        </section>
-        <?php get_template_part( 'map', 'widget' ); ?>
-    </main>
-    <?php get_footer(); ?>
-    <?php wp_footer(); ?>
-</body>
 
-</html>
+            <?php the_posts_pagination(); ?>
+        <?php else : ?>
+            <?php get_template_part('template-parts/ppf-content', 'none'); ?>
+        <?php endif; ?>
+    </div>
+</main>
+
+<?php
+get_footer();
