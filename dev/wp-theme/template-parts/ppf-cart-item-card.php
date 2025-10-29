@@ -1,21 +1,17 @@
 <li class="cart_item">
     <?php
-
-
-    // $fpd_data = $cart_item['fpd_data'];
-    // $fpd_preview_image = $fpd_data['fpd_product_thumbnail']; // Замініть 'fpd_data' на відповідний ключ метаданих
-    
-    if (!empty($fpd_preview_image)) {
-        $product_image_url = $fpd_preview_image;
-    } else {
-        $product_image_url = esc_url(get_the_post_thumbnail_url($_product->get_id()));
-    }
+    $product_image_url = function_exists('ppf_get_fpd_preview')
+        ? ppf_get_fpd_preview($cart_item, $_product->get_id())
+        : esc_url(get_the_post_thumbnail_url($_product->get_id()));
 
     $alt_text = $_product->get_name();
+    $edit_url = function_exists('ppf_get_fpd_edit_url')
+        ? ppf_get_fpd_edit_url($cart_item_key, $cart_item)
+        : get_permalink($_product->get_id());
     ?>
     <div class="cart_item_description flex_2">
-        <img src="<?php echo $product_image_url; ?>"
-            alt="<?php echo esc_attr($alt_text); ?>" width="200" height="100"
+        <img src="<?php echo get_the_post_thumbnail_url($product_id); ?>"
+            alt="<?php echo esc_attr($alt_text); ?>" width="100" height="100"
             class="cart_item_image bg_img">
         <div class="col small_gap ">
             <div class="popover_wrapper">
@@ -45,7 +41,7 @@
         <span class="cart_item_price">
             <?php echo WC()->cart->get_product_subtotal($_product, $cart_item['quantity']); ?>
         </span>
-        <div class="row big_gap">
+        <div class="row_center big_gap">
             <div class="quantity">
                 <?php
                 $product_quantity = woocommerce_quantity_input(

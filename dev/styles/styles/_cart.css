@@ -59,8 +59,8 @@
 }
 
 .cart_item_image {
-  width: 200px;
-  height: 100px;
+  width: 100px !important;
+  height: 100px !important;
   border-radius: var(--size-border-radius);
   object-fit: cover;
   border: 0.5px solid var(--color-light-gray);
