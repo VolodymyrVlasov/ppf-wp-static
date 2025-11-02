@@ -128,6 +128,43 @@
   }
   
 
+.cart_summary_coupon {
+  display: flex;
+  flex-direction: row !important;
+  align-items: end;
+  gap: var(--size-small-gap);
+}
+
+.cart_summary_coupon .checkout_input_text {
+  width: 100%;
+}
+
+.cart_summary_coupon .button__normal {
+  width: 100%;
+}
+
+.cart_item_price.is-loading,
+.cart_summary_card .woocommerce-Price-amount.is-loading {
+  color: inherit;
+}
+
+.cart_price_loader {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-top-color: var(--color-theme);
+  animation: cart-price-spin 0.75s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@keyframes cart-price-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* `sm` applies to small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
   .cart_item {

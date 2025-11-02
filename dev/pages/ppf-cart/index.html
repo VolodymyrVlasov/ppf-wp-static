@@ -1,11 +1,11 @@
-@@include('../../partials/dev-build-templates/start-doc.html') 
+@@include('../../partials/dev-build-templates/start-doc.html')
 @@include('../../partials/header.html')
 
 <body>
     <main>
-        <section class="section" id="cart-section">
+        <section class="section">
             <div class="container">
-                <form class="row big_gap" action="https://www.paperfox.in.ua/cart/" method="post">
+                <form class="row big_gap">
                     <article class="cart_items_card flex_4">
                         <div class="col big_gap width_100">
                             <h2 class="text_24">Ваш кошик</h2>
@@ -31,7 +31,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <span class="cart_item_category">
                                                 <a href="https://www.paperfox.in.ua/./print-t-shirt/%d0%b4%d0%b8%d1%82%d1%8f%d1%87%d0%b0-%d1%87%d0%be%d1%80%d0%bd%d0%b0/"
                                                     rel="tag">Дитяча чорна</a> </span>
@@ -46,7 +45,7 @@
                                             <span class="woocommerce-Price-amount amount"><bdi>320,00&nbsp;<span
                                                         class="woocommerce-Price-currencySymbol">&#8372;</span></bdi></span>
                                         </span>
-                                        <div class="row big_gap">
+                                        <div class="row_center big_gap">
                                             <div class="quantity">
                                                 <div class="row small_gap">
                                                     <div class="custom_number_wrapper">
@@ -69,6 +68,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <a href="https://www.paperfox.in.ua/cart/?remove_item=b3e3e393c77e35a4a3f3cbd1e429b5dc&#038;_wpnonce=739f4c32f4"
                                                 class="cart_item_del" aria-label="Remove this item"></a>
                                         </div>
@@ -111,7 +111,7 @@
                                             <span class="woocommerce-Price-amount amount"><bdi>320,00&nbsp;<span
                                                         class="woocommerce-Price-currencySymbol">&#8372;</span></bdi></span>
                                         </span>
-                                        <div class="row big_gap">
+                                        <div class="row_center big_gap">
                                             <div class="quantity">
                                                 <div class="row small_gap">
                                                     <div class="custom_number_wrapper">
@@ -176,7 +176,7 @@
                                             <span class="woocommerce-Price-amount amount"><bdi>640,00&nbsp;<span
                                                         class="woocommerce-Price-currencySymbol">&#8372;</span></bdi></span>
                                         </span>
-                                        <div class="row big_gap">
+                                        <div class="row_center big_gap">
                                             <div class="quantity">
                                                 <div class="row small_gap">
                                                     <div class="custom_number_wrapper">
@@ -241,7 +241,7 @@
                                             <span class="woocommerce-Price-amount amount"><bdi>320,00&nbsp;<span
                                                         class="woocommerce-Price-currencySymbol">&#8372;</span></bdi></span>
                                         </span>
-                                        <div class="row big_gap">
+                                        <div class="row_center big_gap">
                                             <div class="quantity">
                                                 <div class="row small_gap">
                                                     <div class="custom_number_wrapper">
@@ -289,11 +289,14 @@
                                 <span class="woocommerce-Price-amount amount"><bdi>1600,00&nbsp;<span
                                             class="woocommerce-Price-currencySymbol">&#8372;</span></bdi></span> </span>
                         </div>
+                        <div class="woocommerce-cart-form__coupon cart_summary_coupon col small_gap">
+                            <div class="checkout_input_text">
+                                <label for="promo">Купон на знижку</label>
+                                <input type="text" id="promo" placeholder="Введіть код купона">
+                            </div>
+                            <button type="submit" class="button__normal width_100">Застосувати</button>
+                        </div>
                         <div class="col small_gap">
-                            <button type="submit" class="button__normal width_100" name="update_cart"
-                                value="Оновити кошик">ОНОВИТИ КОШИК</button>
-                            <input type="hidden" id="_wpnonce" name="_wpnonce" value="739f4c32f4" /><input type="hidden"
-                                name="_wp_http_referer" value="/cart/" />
                             <a class="button__primary width_100" href="https://www.paperfox.in.ua/checkout/"
                                 title="Натисніть щоб перейти до оформлення замовлення">ПЕРЕЙТИ ДО ОФОРМЛЕННЯ</a>
                         </div>
@@ -306,5 +309,5 @@
 
     </main>
 </body>
-@@include('../../partials/footer.html') 
+@@include('../../partials/footer.html')
 @@include('../../partials/dev-build-templates/end-doc.html')
