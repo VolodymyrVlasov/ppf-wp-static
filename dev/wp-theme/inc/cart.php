@@ -53,57 +53,15 @@ function paperfox_get_cart_content_html(): string
                 </div>
             </article>
 
-            <article class="cart_summary_card flex_2">
-                <span class="text_32"><?php esc_html_e('Разом', 'paperfox'); ?></span>
-
-                <div class="row_sp_btw">
-                    <span class="text_12">
-                        <?php
-                        printf(
-                            /* translators: %d: cart items count */
-                            esc_html__('Товарів: %d шт.', 'paperfox'),
-                            WC()->cart->get_cart_contents_count()
-                        );
-                        ?>
-                    </span>
-                    <span class="text_12">
-                        <?php wc_cart_totals_subtotal_html(); ?>
-                    </span>
-                </div>
-
-                <div class="cart_summary_card_price">
-                    <span class="text_12"><?php esc_html_e('До сплати', 'paperfox'); ?></span>
-                    <span class="text_24"><?php wc_cart_totals_order_total_html(); ?></span>
-                </div>
-
-                <?php if (wc_coupons_enabled()) : ?>
-                    <div class="woocommerce-cart-form__coupon cart_summary_coupon col small_gap">
-                        <div class="checkout_input_text">
-                            <label for="coupon_code"><?php esc_html_e('Купон на знижку', 'paperfox'); ?></label>
-                            <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e('Введіть код купона', 'paperfox'); ?>" />
-                        </div>
-                        <button type="submit" class="button__normal width_100" name="apply_coupon" value="<?php esc_attr_e('Застосувати купон', 'paperfox'); ?>">
-                            <?php esc_html_e('Застосувати', 'paperfox'); ?>
-                        </button>
-                        <?php do_action('woocommerce_cart_coupon'); ?>
-                    </div>
-                <?php endif; ?>
-
-                <div class="col small_gap">
-                    <?php do_action('woocommerce_cart_actions'); ?>
-
-                    <a class="button__primary width_100" href="<?php echo esc_url(wc_get_checkout_url()); ?>" title="<?php echo esc_attr__('Натисніть, щоб перейти до оформлення замовлення', 'paperfox'); ?>">
-                        <?php esc_html_e('ПЕРЕЙТИ ДО ОФОРМЛЕННЯ', 'paperfox'); ?>
-                    </a>
-                </div>
-
-                <span class="text_12">
-                    <?php esc_html_e('Підтверджуючи оформлення, ви переконуєтеся у відповідності дизайну або виробу, з можливими відхиленнями через технічні обмеження.', 'paperfox'); ?>
-                </span>
-
-                <?php wp_nonce_field('woocommerce-cart', 'woocommerce-cart-nonce'); ?>
-                <input type="hidden" name="cart" value="1" />
-            </article>
+            <?php
+            get_template_part(
+                'template-parts/woocommerce/cart/cart-summary',
+                null,
+                [
+                    'show_coupon' => true,
+                ]
+            );
+            ?>
         </form>
 
         <?php do_action('woocommerce_before_cart_collaterals'); ?>

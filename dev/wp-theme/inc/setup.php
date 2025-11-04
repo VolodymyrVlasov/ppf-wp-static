@@ -49,5 +49,4 @@ function paperfox_inline_styles(): void
 }
 add_action('wp_enqueue_scripts', 'paperfox_inline_styles', 20);
 
-add_filter( 'woocommerce_currency_symbol', '__return_empty_string' );
 ?>

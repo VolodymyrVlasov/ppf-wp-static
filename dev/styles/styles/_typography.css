@@ -125,13 +125,6 @@ select {
   border: 1px solid var(--color-light-theme);
 }
 
-.price_after::after {
-  content: "₴";
-  font-size: 24px;
-  margin-left: -4px;
-  font-weight: 400;
-}
-
 .price_label {
   display: flex;
   flex-direction: column;

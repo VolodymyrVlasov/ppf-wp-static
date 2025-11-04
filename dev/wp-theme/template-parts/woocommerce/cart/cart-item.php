@@ -50,9 +50,14 @@ $item_subtotal  = apply_filters('woocommerce_cart_item_subtotal', WC()->cart->ge
 $categories     = wc_get_product_category_list($product_id, ', ');
 $product_meta   = wc_get_formatted_cart_item_data($cart_item);
 $backorder_info = '';
+$can_edit_design = false;
 
 if ($product->backorders_require_notification() && $product->is_on_backorder($cart_item['quantity'])) {
     $backorder_info = esc_html__('Доступно для передзамовлення', 'paperfox');
+}
+
+if ($product_permalink && function_exists('ppf_product_has_fpd')) {
+    $can_edit_design = (bool) ppf_product_has_fpd($product_id);
 }
 
 if ($product->is_sold_individually()) {
@@ -143,7 +148,7 @@ $product_quantity = apply_filters('woocommerce_cart_item_quantity', $product_qua
                 <span class="cart_item_category"><?php echo wp_kses_post($categories); ?></span>
             <?php endif; ?>
 
-            <?php if ($product_permalink) : ?>
+            <?php if ($can_edit_design) : ?>
                 <a href="<?php echo esc_url($product_permalink); ?>" class="plain_text_smaller link">
                     <?php esc_html_e('Редагувати дизайн', 'paperfox'); ?>
                 </a>
