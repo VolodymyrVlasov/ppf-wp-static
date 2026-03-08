@@ -75,12 +75,12 @@
   cursor: pointer;
   width: 24px;
   height: 24px;
-  background: url("https://paperfox.in.ua/wp-content/themes/paperfox/static/icons/icon-delete-bin.svg") no-repeat top/100%;
+  background: url("{{domain}}/wp-content/themes/paperfox/static/icons/icon-delete-bin.svg") no-repeat top/100%;
   transition: 0ms !important;
 }
 
 .cart_item_del:hover {
-  background: url("https://paperfox.in.ua/wp-content/themes/paperfox/static/icons/icon-delete-bin.svg") no-repeat bottom/100%;
+  background: url("{{domain}}/wp-content/themes/paperfox/static/icons/icon-delete-bin.svg") no-repeat bottom/100%;
 }
 
 .cart_item_category {

@@ -1,0 +1,41 @@
+#print-vizitki-head {
+    background-image: url("{{domain}}/wp-content/themes/paperfox/static/print-vizitki/business-card-background.png");
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+
+/* 1. Ховаємо всі блоки за замовчуванням */
+.b-card-classic,
+.b-card-black,
+.b-card-designer,
+#slider_UPM350,
+#slider_CC300_MATT,
+#slider_CC300_GLOSS,
+#slider_CC300_SOFT_TOUCH,
+#slider_CC300_ANTI_SCUFF,
+#slider_PERGRAPHICA_BLACK,
+#slider_PLIKE_BLACK,
+#slider_LINEN,
+#slider_SHYNE_OPAL,
+#slider_SHYNE_WHITEGOLD,
+#slider_PERGRAPHICA_NATURAL_SMOOTH {
+    display: none !important;
+}
+
+/* 2. Магія :has() — якщо всередині контейнера вибрано конкретний ID, 
+      показуємо відповідний клас */
+
+#b-card-type-input:has(#b-card-classic:checked) .b-card-classic {
+    display: flex !important;
+}
+
+#b-card-type-input:has(#b-card-black:checked) .b-card-black {
+    display: flex !important;
+}
+
+#b-card-type-input:has(#b-card-designer:checked) .b-card-designer {
+    display: flex !important;
+}
+

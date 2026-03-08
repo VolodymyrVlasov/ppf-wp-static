@@ -181,7 +181,7 @@
 
 .woocommerce-message>.button.wc-forward:after {
   content: "";
-  background: url("https://paperfox.in.ua/wp-content/themes/paperfox/static/icons/icon-arrow-menu.svg") no-repeat 100% top;
+  background: url("{{domain}}/wp-content/themes/paperfox/static/icons/icon-arrow-menu.svg") no-repeat 100% top;
   background-size: 100% 200%;
   display: inline-block;
   width: 20px;
