@@ -1,0 +1,946 @@
+{
+"syntetic-glossy": [
+{ 
+  "idWoo": 8760,
+  "idBAS": 409,
+  "size": "15х20",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 220,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/1520.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-15x20-syntetic-gloss"
+  },
+{ 
+  "idWoo": 8756,
+  "idBAS": 413,
+  "size": "20х20",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 250,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/2020.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-20x20-syntetic-gloss"
+  },
+{ 
+  "idWoo": 8749,
+  "idBAS": 417,
+  "size": "20х30",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 290,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/2030.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-20x30-syntetic-gloss"
+  },
+{ 
+  "idWoo": 13651,
+  "idBAS": 421,
+  "size": "20х60",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 470,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/2060.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-20x60-syntetic-gloss"
+  },
+{ 
+  "idWoo": 8757,
+  "idBAS": 425,
+  "size": "30х30",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 370,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/3030.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x30-syntetic-gloss"
+  },
+{ 
+  "idWoo": 8751,
+  "idBAS": 993,
+  "size": "30х40",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 400,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/3040.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x40-syntetic-gloss"
+  },
+{ 
+  "idWoo": 23580,
+  "idBAS": 926,
+  "size": "30х45",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 420,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/3045.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x45-syntetic-gloss"
+  },
+{ 
+  "idWoo": 13655,
+  "idBAS": 433,
+  "size": "30х60",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 590,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/3060.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x60-syntetic-gloss"
+  },
+{ 
+  "idWoo": 13659,
+  "idBAS": 437,
+  "size": "30х90",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 690,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/3090.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x90-syntetic-gloss"
+  },
+{ 
+  "idWoo": 8758,
+  "idBAS": 441,
+  "size": "40х40",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 480,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/4040.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-40x40-syntetic-gloss"
+  },
+{ 
+  "idWoo": 8752,
+  "idBAS": 445,
+  "size": "40х50",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 510,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/4050.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-40x50-syntetic-gloss"
+  },
+{ 
+  "idWoo": 8753,
+  "idBAS": 449,
+  "size": "40х60",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 630,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/4060.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-40x60-syntetic-gloss"
+  },
+{ 
+  "idWoo": 13663,
+  "idBAS": 453,
+  "size": "40х80",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 770,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/4080.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-40x80-syntetic-gloss"
+  },
+{ 
+  "idWoo": null,
+  "idBAS": null,
+  "size": "45х60",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 650,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/4560.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-45x60-syntetic-gloss"
+  },
+{ 
+  "idWoo": 8759,
+  "idBAS": 457,
+  "size": "50х50",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 590,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/5050.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-50x50-syntetic-gloss"
+  },
+{ 
+  "idWoo": 8754,
+  "idBAS": 461,
+  "size": "50х70",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 740,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/5070.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-50x70-syntetic-gloss"
+  },
+{ 
+  "idWoo": 8755,
+  "idBAS": 473,
+  "size": "55х85",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 880,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/5585.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-55x85-syntetic-gloss"
+  },
+{ 
+  "idWoo": 13671,
+  "idBAS": 465,
+  "size": "55х110",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 1170,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/55110.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-55x110-syntetic-gloss"
+  },
+{ 
+  "idWoo": 13675,
+  "idBAS": 469,
+  "size": "55х160",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 1630,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/55160.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-55x160-syntetic-gloss"
+  },
+{ 
+  "idWoo": 13667,
+  "idBAS": 477,
+  "size": "60х80",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 980,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/6080.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-60x80-syntetic-gloss"
+  },
+{ 
+  "idWoo": 23870,
+  "idBAS": 971,
+  "size": "60х90",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 1020,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/6090.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-60x90-syntetic-gloss"
+  },
+{ 
+  "idWoo": 13642,
+  "idBAS": 481,
+  "size": "65х65",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 990,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/6565.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-65x65-syntetic-gloss"
+  },
+{ 
+  "idWoo": 23613,
+  "idBAS": 977,
+  "size": "70х100",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 1280,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/70100.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-70x100-syntetic-gloss"
+  },
+{ 
+  "idWoo": 13647,
+  "idBAS": 489,
+  "size": "85х85",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 1270,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/8585.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-85x85-syntetic-gloss"
+  },
+{ 
+  "idWoo": 13679,
+  "idBAS": 485,
+  "size": "85х120",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 1800,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/85120.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-85x120-syntetic-gloss"
+  },
+{ 
+  "idWoo": 23874,
+  "idBAS": 987,
+  "size": "100х100",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 1650,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/100100.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-100x100-syntetic-gloss"
+  },
+{ 
+  "idWoo": null,
+  "idBAS": null,
+  "size": "100х150",
+  "material": "Синтетичне глянцеве полотно",
+  "price": 2190,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/100150.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-100x150-syntetic-gloss"
+  }
+],
+"syntetic": [
+{ 
+  "idWoo": 8760,
+  "idBAS": 409,
+  "size": "15х20",
+  "material": "Синтетичне матове полотно",
+  "price": 220,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/1520.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-15x20-syntetic"
+  },
+{ 
+  "idWoo": 8756,
+  "idBAS": 413,
+  "size": "20х20",
+  "material": "Синтетичне матове полотно",
+  "price": 250,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/2020.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-20x20-syntetic"
+  },
+{ 
+  "idWoo": 8749,
+  "idBAS": 417,
+  "size": "20х30",
+  "material": "Синтетичне матове полотно",
+  "price": 290,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/2030.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-20x30-syntetic"
+  },
+{ 
+  "idWoo": 13651,
+  "idBAS": 421,
+  "size": "20х60",
+  "material": "Синтетичне матове полотно",
+  "price": 470,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/2060.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-20x60-syntetic"
+  },
+{ 
+  "idWoo": 8757,
+  "idBAS": 425,
+  "size": "30х30",
+  "material": "Синтетичне матове полотно",
+  "price": 370,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/3030.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x30-syntetic"
+  },
+{ 
+  "idWoo": 8751,
+  "idBAS": 993,
+  "size": "30х40",
+  "material": "Синтетичне матове полотно",
+  "price": 400,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/3040.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x40-syntetic"
+  },
+{ 
+  "idWoo": 23580,
+  "idBAS": 926,
+  "size": "30х45",
+  "material": "Синтетичне матове полотно",
+  "price": 420,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/3045.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x45-syntetic"
+  },
+{ 
+  "idWoo": 13655,
+  "idBAS": 433,
+  "size": "30х60",
+  "material": "Синтетичне матове полотно",
+  "price": 590,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/3060.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x60-syntetic"
+  },
+{ 
+  "idWoo": 13659,
+  "idBAS": 437,
+  "size": "30х90",
+  "material": "Синтетичне матове полотно",
+  "price": 690,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/3090.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x90-syntetic"
+  },
+{ 
+  "idWoo": 8758,
+  "idBAS": 441,
+  "size": "40х40",
+  "material": "Синтетичне матове полотно",
+  "price": 480,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/4040.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-40x40-syntetic"
+  },
+{ 
+  "idWoo": 8752,
+  "idBAS": 445,
+  "size": "40х50",
+  "material": "Синтетичне матове полотно",
+  "price": 510,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/4050.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-40x50-syntetic"
+  },
+{ 
+  "idWoo": 8753,
+  "idBAS": 449,
+  "size": "40х60",
+  "material": "Синтетичне матове полотно",
+  "price": 630,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/4060.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-40x60-syntetic"
+  },
+{ 
+  "idWoo": 13663,
+  "idBAS": 453,
+  "size": "40х80",
+  "material": "Синтетичне матове полотно",
+  "price": 770,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/4080.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-40x80-syntetic"
+  },
+{ 
+  "idWoo": null,
+  "idBAS": null,
+  "size": "45х60",
+  "material": "Синтетичне матове полотно",
+  "price": 650,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/4560.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-45x60-syntetic"
+  },
+{ 
+  "idWoo": 8759,
+  "idBAS": 457,
+  "size": "50х50",
+  "material": "Синтетичне матове полотно",
+  "price": 590,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/5050.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-50x50-syntetic"
+  },
+{ 
+  "idWoo": 8754,
+  "idBAS": 461,
+  "size": "50х70",
+  "material": "Синтетичне матове полотно",
+  "price": 740,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/5070.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-50x70-syntetic"
+  },
+{ 
+  "idWoo": 8755,
+  "idBAS": 473,
+  "size": "55х85",
+  "material": "Синтетичне матове полотно",
+  "price": 880,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/5585.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-55x85-syntetic"
+  },
+{ 
+  "idWoo": 13671,
+  "idBAS": 465,
+  "size": "55х110",
+  "material": "Синтетичне матове полотно",
+  "price": 1170,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/55110.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-55x110-syntetic"
+  },
+{ 
+  "idWoo": 13675,
+  "idBAS": 469,
+  "size": "55х160",
+  "material": "Синтетичне матове полотно",
+  "price": 1630,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/55160.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-55x160-syntetic"
+  },
+{ 
+  "idWoo": 13667,
+  "idBAS": 477,
+  "size": "60х80",
+  "material": "Синтетичне матове полотно",
+  "price": 980,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/6080.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-60x80-syntetic"
+  },
+{ 
+  "idWoo": 23870,
+  "idBAS": 971,
+  "size": "60х90",
+  "material": "Синтетичне матове полотно",
+  "price": 1020,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/6090.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-60x90-syntetic"
+  },
+{ 
+  "idWoo": 13642,
+  "idBAS": 481,
+  "size": "65х65",
+  "material": "Синтетичне матове полотно",
+  "price": 990,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/6565.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-65x65-syntetic"
+  },
+{ 
+  "idWoo": 23613,
+  "idBAS": 977,
+  "size": "70х100",
+  "material": "Синтетичне матове полотно",
+  "price": 1280,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/70100.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-70x100-syntetic"
+  },
+{ 
+  "idWoo": 13647,
+  "idBAS": 489,
+  "size": "85х85",
+  "material": "Синтетичне матове полотно",
+  "price": 1270,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/8585.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-85x85-syntetic"
+  },
+{ 
+  "idWoo": 13679,
+  "idBAS": 485,
+  "size": "85х120",
+  "material": "Синтетичне матове полотно",
+  "price": 1800,
+  "image": "https://www.paperfox.com.ua/wp-content/uploads/custom-canvas/85120.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-85x120-syntetic"
+  }
+],
+"cotton": [
+{ 
+  "idWoo": 7678,
+  "idBAS": 407,
+  "size": "15х20",
+  "material": "Натуральне полотно",
+  "price": 230,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/1520.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-15x20-cotton"
+  },
+{ 
+  "idWoo": 7771,
+  "idBAS": 411,
+  "size": "20х20",
+  "material": "Натуральне полотно",
+  "price": 270,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/2020.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-20x20-cotton"
+  },
+{ 
+  "idWoo": 7681,
+  "idBAS": 415,
+  "size": "20х30",
+  "material": "Натуральне полотно",
+  "price": 310,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/2030.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-20x30-cotton"
+  },
+{ 
+  "idWoo": 13649,
+  "idBAS": 419,
+  "size": "20х60",
+  "material": "Натуральне полотно",
+  "price": 540,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/2060.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-20x60-cotton"
+  },
+{ 
+  "idWoo": 7772,
+  "idBAS": 423,
+  "size": "30х30",
+  "material": "Натуральне полотно",
+  "price": 410,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/3030.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x30-cotton"
+  },
+{ 
+  "idWoo": 7683,
+  "idBAS": 427,
+  "size": "30х40",
+  "material": "Натуральне полотно",
+  "price": 440,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/3040.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x40-cotton"
+  },
+{ 
+  "idWoo": 23581,
+  "idBAS": 928,
+  "size": "30х45",
+  "material": "Натуральне полотно",
+  "price": 510,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/3045.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x45-cotton"
+  },
+{ 
+  "idWoo": 13653,
+  "idBAS": 431,
+  "size": "30х60",
+  "material": "Натуральне полотно",
+  "price": 650,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/3060.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x60-cotton"
+  },
+{ 
+  "idWoo": 13657,
+  "idBAS": 435,
+  "size": "30х90",
+  "material": "Натуральне полотно",
+  "price": 910,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/3090.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x90-cotton"
+  },
+{ 
+  "idWoo": 7773,
+  "idBAS": 439,
+  "size": "40х40",
+  "material": "Натуральне полотно",
+  "price": 520,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/4040.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-40x40-cotton"
+  },
+{ 
+  "idWoo": 7685,
+  "idBAS": 443,
+  "size": "40х50",
+  "material": "Натуральне полотно",
+  "price": 610,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/4050.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-40x50-cotton"
+  },
+{ 
+  "idWoo": 7688,
+  "idBAS": 447,
+  "size": "40х60",
+  "material": "Натуральне полотно",
+  "price": 690,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/4060.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-40x60-cotton"
+  },
+{ 
+  "idWoo": 13661,
+  "idBAS": 451,
+  "size": "40х80",
+  "material": "Натуральне полотно",
+  "price": 860,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/4080.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-40x80-cotton"
+  },
+{ 
+  "idWoo": null,
+  "idBAS": null,
+  "size": "45х60",
+  "material": "Натуральне полотно",
+  "price": 810,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/4560.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-45x60-cotton"
+  },
+{ 
+  "idWoo": 7774,
+  "idBAS": 455,
+  "size": "50х50",
+  "material": "Натуральне полотно",
+  "price": 730,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/5050.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-50x50-cotton"
+  },
+{ 
+  "idWoo": 7689,
+  "idBAS": 459,
+  "size": "50х70",
+  "material": "Натуральне полотно",
+  "price": 930,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/5070.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-50x70-cotton"
+  },
+{ 
+  "idWoo": 7691,
+  "idBAS": 471,
+  "size": "55х85",
+  "material": "Натуральне полотно",
+  "price": 1110,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/5585.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-55x85-cotton"
+  },
+{ 
+  "idWoo": 13669,
+  "idBAS": 463,
+  "size": "55х110",
+  "material": "Натуральне полотно",
+  "price": 1460,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/55110.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-55x110-cotton"
+  },
+{ 
+  "idWoo": 13673,
+  "idBAS": 467,
+  "size": "55х160",
+  "material": "Натуральне полотно",
+  "price": 2050,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/55160.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-55x160-cotton"
+  },
+{ 
+  "idWoo": 13665,
+  "idBAS": 475,
+  "size": "60х80",
+  "material": "Натуральне полотно",
+  "price": 1160,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/6080.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-60x80-cotton"
+  },
+{ 
+  "idWoo": 23869,
+  "idBAS": 945,
+  "size": "60х90",
+  "material": "Натуральне полотно",
+  "price": 1460,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/6090.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-60x90-cotton"
+  },
+{ 
+  "idWoo": 13641,
+  "idBAS": 479,
+  "size": "65х65",
+  "material": "Натуральне полотно",
+  "price": 1170,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/6565.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-65x65-cotton"
+  },
+{ 
+  "idWoo": 23614,
+  "idBAS": 976,
+  "size": "70х100",
+  "material": "Натуральне полотно",
+  "price": 1780,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/70100.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-70x100-cotton"
+  },
+{ 
+  "idWoo": 13645,
+  "idBAS": 487,
+  "size": "85х85",
+  "material": "Натуральне полотно",
+  "price": 1520,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/8585.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-85x85-cotton"
+  },
+{ 
+  "idWoo": 13677,
+  "idBAS": 483,
+  "size": "85х120",
+  "material": "Натуральне полотно",
+  "price": 2140,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/85120.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-85x120-cotton"
+  }
+],
+"cotton-lak": [
+{ 
+  "idWoo": 9584,
+  "idBAS": 408,
+  "size": "15х20",
+  "material": "Натуральне полотно з лаком",
+  "price": 250,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/1520.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-15x20-cotton-lak"
+  },
+{ 
+  "idWoo": 9588,
+  "idBAS": 412,
+  "size": "20х20",
+  "material": "Натуральне полотно з лаком",
+  "price": 300,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/2020.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-20x20-cotton-lak"
+  },
+{ 
+  "idWoo": 9585,
+  "idBAS": 416,
+  "size": "20х30",
+  "material": "Натуральне полотно з лаком",
+  "price": 330,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/2030.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-20x30-cotton-lak"
+  },
+{ 
+  "idWoo": 13650,
+  "idBAS": 420,
+  "size": "20х60",
+  "material": "Натуральне полотно з лаком",
+  "price": 590,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/2060.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-20x60-cotton-lak"
+  },
+{ 
+  "idWoo": 9586,
+  "idBAS": 424,
+  "size": "30х30",
+  "material": "Натуральне полотно з лаком",
+  "price": 440,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/3030.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x30-cotton-lak"
+  },
+{ 
+  "idWoo": 9587,
+  "idBAS": 428,
+  "size": "30х40",
+  "material": "Натуральне полотно з лаком",
+  "price": 480,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/3040.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x40-cotton-lak"
+  },
+{ 
+  "idWoo": 23578,
+  "idBAS": 929,
+  "size": "30х45",
+  "material": "Натуральне полотно з лаком",
+  "price": 560,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/3045.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x45-cotton-lak"
+  },
+{ 
+  "idWoo": 13654,
+  "idBAS": 432,
+  "size": "30х60",
+  "material": "Натуральне полотно з лаком",
+  "price": 720,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/3060.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x60-cotton-lak"
+  },
+{ 
+  "idWoo": 13658,
+  "idBAS": 436,
+  "size": "30х90",
+  "material": "Натуральне полотно з лаком",
+  "price": 1000,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/3090.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-30x90-cotton-lak"
+  },
+{ 
+  "idWoo": 9589,
+  "idBAS": 440,
+  "size": "40х40",
+  "material": "Натуральне полотно з лаком",
+  "price": 560,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/4040.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-40x40-cotton-lak"
+  },
+{ 
+  "idWoo": 9590,
+  "idBAS": 444,
+  "size": "40х50",
+  "material": "Натуральне полотно з лаком",
+  "price": 660,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/4050.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-40x50-cotton-lak"
+  },
+{ 
+  "idWoo": 9591,
+  "idBAS": 448,
+  "size": "40х60",
+  "material": "Натуральне полотно з лаком",
+  "price": 750,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/4060.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-40x60-cotton-lak"
+  },
+{ 
+  "idWoo": 13662,
+  "idBAS": 452,
+  "size": "40х80",
+  "material": "Натуральне полотно з лаком",
+  "price": 950,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/4080.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-40x80-cotton-lak"
+  },
+{ 
+  "idWoo": null,
+  "idBAS": null,
+  "size": "45х60",
+  "material": "Натуральне полотно з лаком",
+  "price": 900,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/4560.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-45x60-cotton-lak"
+  },
+{ 
+  "idWoo": 9592,
+  "idBAS": 456,
+  "size": "50х50",
+  "material": "Натуральне полотно з лаком",
+  "price": 800,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/5050.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-50x50-cotton-lak"
+  },
+{ 
+  "idWoo": 9593,
+  "idBAS": 460,
+  "size": "50х70",
+  "material": "Натуральне полотно з лаком",
+  "price": 1030,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/5070.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-50x70-cotton-lak"
+  },
+{ 
+  "idWoo": 9595,
+  "idBAS": 472,
+  "size": "55х85",
+  "material": "Натуральне полотно з лаком",
+  "price": 1220,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/5585.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-55x85-cotton-lak"
+  },
+{ 
+  "idWoo": 13670,
+  "idBAS": 464,
+  "size": "55х110",
+  "material": "Натуральне полотно з лаком",
+  "price": 1600,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/55110.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-55x110-cotton-lak"
+  },
+{ 
+  "idWoo": 13674,
+  "idBAS": 468,
+  "size": "55х160",
+  "material": "Натуральне полотно з лаком",
+  "price": 2250,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/55160.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-55x160-cotton-lak"
+  },
+{ 
+  "idWoo": 13666,
+  "idBAS": 476,
+  "size": "60х80",
+  "material": "Натуральне полотно з лаком",
+  "price": 1290,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/6080.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-60x80-cotton-lak"
+  },
+{ 
+  "idWoo": 23871,
+  "idBAS": 944,
+  "size": "60х90",
+  "material": "Натуральне полотно з лаком",
+  "price": 1630,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/6090.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-60x90-cotton-lak"
+  },
+{ 
+  "idWoo": 13643,
+  "idBAS": 480,
+  "size": "65х65",
+  "material": "Натуральне полотно з лаком",
+  "price": 1310,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/6565.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-65x65-cotton-lak"
+  },
+{ 
+  "idWoo": 23611,
+  "idBAS": 932,
+  "size": "70х100",
+  "material": "Натуральне полотно з лаком",
+  "price": 1980,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/70100.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-70x100-cotton-lak"
+  },
+{ 
+  "idWoo": 13646,
+  "idBAS": 488,
+  "size": "85х85",
+  "material": "Натуральне полотно з лаком",
+  "price": 1690,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/8585.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-85x85-cotton-lak"
+  },
+{ 
+  "idWoo": 13678,
+  "idBAS": 484,
+  "size": "85х120",
+  "material": "Натуральне полотно з лаком",
+  "price": 2380,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/85120.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-85x120-cotton-lak"
+  },
+{ 
+  "idWoo": 23875,
+  "idBAS": 937,
+  "size": "100х100",
+  "material": "Натуральне полотно з лаком",
+  "price": 2620,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/100100.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-100x100-cotton-lak"
+  },
+{ 
+  "idWoo": null,
+  "idBAS": null,
+  "size": "100х150",
+  "material": "Натуральне полотно з лаком",
+  "price": 3620,
+  "image": "https://www.paperfox.com.ua//wp-content/uploads/custom-canvas/100150.png",
+  "productLink": "https://www.paperfox.com.ua/product/canvas-100x150-cotton-lak"
+  }
+]
+}

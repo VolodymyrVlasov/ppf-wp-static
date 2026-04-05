@@ -25,6 +25,10 @@
   padding: 12px 0;
 }
 
+.big_padding_top_bottom {
+  padding: 48px 0;
+}
+
 .popover_wrapper {
   position: relative !important;
   cursor: pointer;
@@ -43,14 +47,14 @@
   border-radius: 8px;
   border: 1px solid var(--color-light-gray);
   box-shadow: rgb(19 19 174 / 25%) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px 0px !important;
-} 
+}
 
-.popover_wrapper:hover > .popover_description {
+.popover_wrapper:hover>.popover_description {
   display: flex;
   height: fit-content !important;
 }
 
-.popover_wrapper:hover > .popover_description::after {
+.popover_wrapper:hover>.popover_description::after {
   content: "";
   position: absolute;
   bottom: -10px;
@@ -208,23 +212,29 @@
   box-sizing: border-box;
 
   display: flex;
-  flex-wrap: nowrap;      /* картки не переносяться */
-  overflow-x: auto;       /* горизонтальний скрол усередині */
+  flex-wrap: nowrap;
+  /* картки не переносяться */
+  overflow-x: auto;
+  /* горизонтальний скрол усередині */
   overflow-y: hidden;
-  scrollbar-width: none;  /* Firefox */
-  -ms-overflow-style: none; /* старий IE/Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* старий IE/Edge */
 
   /* Плавне затухання праворуч БЕЗ псевдоелемента */
   /* прозора «маска» не впливає на розміри блока */
   -webkit-mask-image: linear-gradient(to right, black 0, black calc(100% - 60px), transparent 100%);
-          mask-image: linear-gradient(to right, black 0, black calc(100% - 60px), transparent 100%);
+  mask-image: linear-gradient(to right, black 0, black calc(100% - 60px), transparent 100%);
 }
 
 /* Ховаємо скролбар у webkit */
-.scroll_fade::-webkit-scrollbar { display: none; }
+.scroll_fade::-webkit-scrollbar {
+  display: none;
+}
 
 /* Діти в ряд і не тягнуться */
-.scroll_fade > * {
+.scroll_fade>* {
   flex: 0 0 auto;
 }
 
@@ -234,15 +244,16 @@
   background: none;
   cursor: pointer;
   transition: transform 0.2s ease, color 0.2s ease;
-  color: #333; /* початковий колір SVG */
+  color: #333;
+  /* початковий колір SVG */
 }
 
 .copy_btn:hover {
   transform: scale(1.2);
 }
 
-.copy_btn:active>svg{
-   transform: scale(2);
+.copy_btn:active>svg {
+  transform: scale(2);
 }
 
 
@@ -569,7 +580,7 @@
   border-bottom: 1px solid var(--color-gray);
 }
 
-.border_bottom_gray_between_col_items > :not(:last-child) {
+.border_bottom_gray_between_col_items> :not(:last-child) {
   border-bottom: 1px solid var(--color-light-gray);
 }
 
@@ -592,3 +603,35 @@
 .margin-top-big {
   margin-top: var(--size-big-gap);
 }
+
+.relative {
+  position: relative;
+}
+
+.loader {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  /* background: rgba(255, 255, 255, 0.15); */
+  border-radius: inherit;
+}
+
+.loader.hidden,
+.loader[style*="display: none"] {
+  display: none;
+}
+
+.loader__spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #555;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+

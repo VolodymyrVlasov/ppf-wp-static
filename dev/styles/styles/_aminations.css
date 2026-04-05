@@ -131,6 +131,7 @@
 		transform: translateX(0);
 	}
 }
+
 @keyframes slide-from-bottom {
 	00% {
 		transform: translateY(100%);
@@ -192,5 +193,11 @@
 
 	100% {
 		transform: translateX(-100%);
+	}
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
 	}
 }

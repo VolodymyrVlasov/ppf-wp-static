@@ -48,6 +48,7 @@ const SRC_HTML = [
   "dev/pages/404.html",
 ];
 const SRC_DOTFILES = ["dev/pages/.htaccess"];
+const SRC_JSON = ["dev/pages/**/*.json"];
 const TARGET_PATH = "dist/www/";
 
 // утиліта: дочекатися завершення gulp-стріму
@@ -75,7 +76,12 @@ const buildPages = async (vars = {}) => {
       .src(SRC_DOTFILES, { allowEmpty: true })
       .pipe(gulp.dest(TARGET_PATH));
 
-    await Promise.all([waitForStream(htmlStream), waitForStream(dotStream)]);
+    // 3) JSON: копіюємо як є
+    const jsonStream = gulp
+      .src(SRC_JSON, { allowEmpty: true })
+      .pipe(gulp.dest(TARGET_PATH));
+
+    await Promise.all([waitForStream(htmlStream), waitForStream(dotStream), waitForStream(jsonStream)]);
     return true;
   } catch (error) {
     console.error("---> buildPages interrupted with error:", error);
@@ -85,7 +91,8 @@ const buildPages = async (vars = {}) => {
 
 const SRC_WATCH = [
   ...SRC_HTML,
-  "dev/pages/.htaccess", // <-- відслідковуємо зміни .htaccess
+  "dev/pages/.htaccess",
+  ...SRC_JSON,
 ];
 
 export { buildPages, SRC_WATCH as SRC_PATH, TARGET_PATH };
